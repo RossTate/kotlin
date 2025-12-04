@@ -8,14 +8,14 @@
 
 package kotlin.collections
 
-private open class ReversedListReadOnly<out T>(private val delegate: List<T>) : AbstractList<T>() {
+private local open class ReversedListReadOnly<out T>(private val delegate: List<T>_{this}) : AbstractList<T>() {
     override val size: Int get() = delegate.size
     override fun get(index: Int): T = delegate[reverseElementIndex(index)]
 
-    override fun iterator(): Iterator<T> = listIterator(0)
-    override fun listIterator(): ListIterator<T> = listIterator(0)
+    override fun iterator(): Iterator<T>_{this} = listIterator(0)
+    override fun listIterator(): ListIterator<T>_{this} = listIterator(0)
 
-    override fun listIterator(index: Int): ListIterator<T> = object : ListIterator<T> {
+    override fun listIterator(index: Int): ListIterator<T>_{this} = object : ListIterator<T> {
         val delegateIterator = delegate.listIterator(reversePositionIndex(index))
         override fun hasNext(): Boolean = delegateIterator.hasPrevious()
         override fun hasPrevious(): Boolean = delegateIterator.hasNext()
@@ -38,10 +38,10 @@ private class ReversedList<T>(private val delegate: MutableList<T>) : AbstractMu
         delegate.add(reversePositionIndex(index), element)
     }
 
-    override fun iterator(): MutableIterator<T> = listIterator(0)
-    override fun listIterator(): MutableListIterator<T> = listIterator(0)
+    override fun iterator(): MutableIterator<T>_{this} = listIterator(0)
+    override fun listIterator(): MutableListIterator<T>_{this} = listIterator(0)
 
-    override fun listIterator(index: Int): MutableListIterator<T> = object : MutableListIterator<T> {
+    override fun listIterator(index: Int): MutableListIterator<T>_{this} = object : MutableListIterator<T> {
         val delegateIterator = delegate.listIterator(reversePositionIndex(index))
         override fun hasNext(): Boolean = delegateIterator.hasPrevious()
         override fun hasPrevious(): Boolean = delegateIterator.hasNext()
@@ -61,20 +61,20 @@ private class ReversedList<T>(private val delegate: MutableList<T>) : AbstractMu
     }
 }
 
-private fun List<*>.reverseElementIndex(index: Int) =
+private fun local List<*>.reverseElementIndex(index: Int) =
     if (index in 0..lastIndex) lastIndex - index else throw IndexOutOfBoundsException("Element index $index must be in range [${0..lastIndex}].")
 
-private fun List<*>.reversePositionIndex(index: Int) =
+private fun local List<*>.reversePositionIndex(index: Int) =
     if (index in 0..size) size - index else throw IndexOutOfBoundsException("Position index $index must be in range [${0..size}].")
 
-private fun List<*>.reverseIteratorIndex(index: Int) = lastIndex - index
+private fun local List<*>.reverseIteratorIndex(index: Int) = lastIndex - index
 
 /**
  * Returns a reversed read-only view of the original List.
  * All changes made in the original list will be reflected in the reversed one.
  * @sample samples.collections.ReversedViews.asReversedList
  */
-public fun <T> List<T>.asReversed(): List<T> = ReversedListReadOnly(this)
+public fun <T> local List<T>.asReversed(): List<T>_{this} = ReversedListReadOnly(this)
 
 /**
  * Returns a reversed mutable view of the original mutable List.
@@ -82,4 +82,4 @@ public fun <T> List<T>.asReversed(): List<T> = ReversedListReadOnly(this)
  * @sample samples.collections.ReversedViews.asReversedMutableList
  */
 @kotlin.jvm.JvmName("asReversedMutable")
-public fun <T> MutableList<T>.asReversed(): MutableList<T> = ReversedList(this)
+public fun <T> local MutableList<T>.asReversed(): MutableList<T>_{this} = ReversedList(this)

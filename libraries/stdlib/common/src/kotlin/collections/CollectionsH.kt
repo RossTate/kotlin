@@ -23,7 +23,7 @@ public expect inline fun <reified T> Array<out T>?.orEmpty(): Array<out T>
  * and populates the array with the elements of this collection.
  * @sample samples.collections.Collections.Collections.collectionToTypedArray
  */
-public expect inline fun <reified T> Collection<T>.toTypedArray(): Array<T>
+public expect inline fun <reified T> local Collection<T>.toTypedArray(): Array<T>
 
 /**
  * Fills the list with the provided [value].
@@ -31,7 +31,7 @@ public expect inline fun <reified T> Collection<T>.toTypedArray(): Array<T>
  * Each element in the list gets replaced with the [value].
  */
 @SinceKotlin("1.2")
-public expect fun <T> MutableList<T>.fill(value: T): Unit
+public expect fun <T> local MutableList<T>.fill(value: T): Unit
 
 /**
  * Randomly shuffles elements in this list in-place.
@@ -39,13 +39,13 @@ public expect fun <T> MutableList<T>.fill(value: T): Unit
  * See: [A modern version of Fisher-Yates shuffle algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm).
  */
 @SinceKotlin("1.2")
-public expect fun <T> MutableList<T>.shuffle(): Unit
+public expect fun <T> local MutableList<T>.shuffle(): Unit
 
 /**
  * Returns a new list with the elements of this collection randomly shuffled.
  */
 @SinceKotlin("1.2")
-public expect fun <T> Iterable<T>.shuffled(): List<T>
+public expect fun <T> local Iterable<T>.shuffled(): List<T>
 
 /**
  * Sorts elements in the list in-place according to their natural sort order.
@@ -54,7 +54,7 @@ public expect fun <T> Iterable<T>.shuffled(): List<T>
  *
  * @sample samples.collections.Collections.Sorting.sortMutableList
  */
-public expect fun <T : Comparable<T>> MutableList<T>.sort(): Unit
+public expect fun <T : Comparable<T>> local MutableList<T>.sort(): Unit
 
 
 /**
@@ -64,7 +64,7 @@ public expect fun <T : Comparable<T>> MutableList<T>.sort(): Unit
  *
  * @sample samples.collections.Collections.Sorting.sortMutableListWith
  */
-public expect fun <T> MutableList<T>.sortWith(comparator: Comparator<in T>): Unit
+public expect fun <T> local MutableList<T>.sortWith(local comparator: Comparator<in T>): Unit
 
 
 // from Grouping.kt
@@ -76,14 +76,14 @@ public expect fun <T> MutableList<T>.sortWith(comparator: Comparator<in T>): Uni
  * @sample samples.collections.Grouping.groupingByEachCount
  */
 @SinceKotlin("1.1")
-public expect fun <T, K> Grouping<T, K>.eachCount(): Map<K, Int>
-// public expect inline fun <T, K> Grouping<T, K>.eachSumOf(valueSelector: (T) -> Int): Map<K, Int>
+public expect fun <T, K> local Grouping<T, K>.eachCount(): Map<K, Int>
+// public expect inline fun <T, K> local Grouping<T, K>.eachSumOf(local valueSelector: (T) -> Int): Map<K, Int>
 
-internal expect fun collectionToArray(collection: Collection<*>): Array<Any?>
+internal expect fun collectionToArray(local collection: Collection<*>): Array<Any?>
 
-internal expect fun <T> collectionToArray(collection: Collection<*>, array: Array<T>): Array<T>
+internal expect fun <T> collectionToArray(local collection: Collection<*>, array: Array<T>): Array<T>
 
 internal expect fun <T> arrayOfNulls(reference: Array<T>, size: Int): Array<T>
-internal expect fun <K, V> Map<K, V>.toSingletonMapOrSelf(): Map<K, V>
-internal expect fun <K, V> Map<out K, V>.toSingletonMap(): Map<K, V>
-internal expect fun <T> Array<out T>.copyToArrayOfAny(isVarargs: Boolean): Array<out Any?>
+internal expect fun <K, V> local Map<K, V>.toSingletonMapOrSelf(): Map<K, V>_{this}
+internal expect fun <K, V> local Map<out K, V>.toSingletonMap(): Map<K, V>
+internal expect fun <T> local Array<out T>.copyToArrayOfAny(isVarargs: Boolean): Array<out Any?>

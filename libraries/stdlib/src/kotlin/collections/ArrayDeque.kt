@@ -42,7 +42,7 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
     /**
      * Constructs a deque that contains the same elements as the specified [elements] collection in the same order.
      */
-    public constructor(elements: Collection<E>) {
+    public constructor(local elements: Collection<E>) {
         elementData = elements.toTypedArray()
         size = elementData.size
         if (elementData.isEmpty()) elementData = emptyElementData
@@ -262,7 +262,7 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
         size += 1
     }
 
-    private fun copyCollectionElements(internalIndex: Int, elements: Collection<E>) {
+    private fun copyCollectionElements(internalIndex: Int, local elements: Collection<E>) {
         val iterator = elements.iterator()
 
         for (index in internalIndex until elementData.size) {
@@ -278,7 +278,7 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
     }
 
     @IgnorableReturnValue
-    public override fun addAll(elements: Collection<E>): Boolean {
+    public override fun addAll(local elements: Collection<E>): Boolean {
         if (elements.isEmpty()) return false
 
         registerModification()
@@ -288,7 +288,7 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
     }
 
     @IgnorableReturnValue
-    public override fun addAll(index: Int, elements: Collection<E>): Boolean {
+    public override fun addAll(index: Int, local elements: Collection<E>): Boolean {
         AbstractList.checkPositionIndex(index, size)
 
         if (elements.isEmpty()) {
@@ -479,12 +479,12 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
     }
 
     @IgnorableReturnValue
-    public override fun removeAll(elements: Collection<E>): Boolean = filterInPlace { !elements.contains(it) }
+    public override fun removeAll(local elements: Collection<E>): Boolean = filterInPlace { !elements.contains(it) }
 
     @IgnorableReturnValue
-    public override fun retainAll(elements: Collection<E>): Boolean = filterInPlace { elements.contains(it) }
+    public override fun retainAll(local elements: Collection<E>): Boolean = filterInPlace { elements.contains(it) }
 
-    private inline fun filterInPlace(predicate: (E) -> Boolean): Boolean {
+    private inline fun filterInPlace(local predicate: (E) -> Boolean): Boolean {
         if (this.isEmpty() || elementData.isEmpty())
             return false
 
@@ -664,7 +664,7 @@ public class ArrayDeque<E> : AbstractMutableList<E> {
     }
 
     // For testing only
-    internal fun internalStructure(structure: (head: Int, elements: Array<Any?>) -> Unit) {
+    internal fun internalStructure(local structure: (head: Int, elements: Array<Any?>) -> Unit) {
         val tail = internalIndex(size)
         val head = if (isEmpty() || head < tail) head else head - elementData.size
         structure(head, toArray())

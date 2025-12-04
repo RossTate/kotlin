@@ -15,12 +15,12 @@ package kotlin.comparisons
  *
  * @sample samples.comparisons.Comparisons.compareValuesByWithSelectors
  */
-public fun <T> compareValuesBy(a: T, b: T, vararg selectors: (T) -> Comparable<*>?): Int {
+public fun <T> compareValuesBy(a: T, b: T, local vararg selectors: (T) ->_{selectors} Comparable<*>?): Int {
     require(selectors.size > 0)
     return compareValuesByImpl(a, b, selectors)
 }
 
-private fun <T> compareValuesByImpl(a: T, b: T, selectors: Array<out (T) -> Comparable<*>?>): Int {
+private fun <T> compareValuesByImpl(a: T, b: T, local selectors: Array<out (T) ->_{selectors} Comparable<*>?>): Int {
     for (fn in selectors) {
         val v1 = fn(a)
         val v2 = fn(b)
@@ -38,7 +38,7 @@ private fun <T> compareValuesByImpl(a: T, b: T, selectors: Array<out (T) -> Comp
  * @sample samples.comparisons.Comparisons.compareValuesByWithSingleSelector
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> compareValuesBy(a: T, b: T, selector: (T) -> Comparable<*>?): Int {
+public inline fun <T> compareValuesBy(a: T, b: T, local selector: (T) -> Comparable<*>?): Int {
     return compareValues(selector(a), selector(b))
 }
 
@@ -50,7 +50,7 @@ public inline fun <T> compareValuesBy(a: T, b: T, selector: (T) -> Comparable<*>
  * @sample samples.comparisons.Comparisons.compareValuesByWithComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T, K> compareValuesBy(a: T, b: T, comparator: Comparator<in K>, selector: (T) -> K): Int {
+public inline fun <T, K> compareValuesBy(a: T, b: T, local comparator: Comparator<in K>, local selector: (T) -> K): Int {
     return comparator.compare(selector(a), selector(b))
 }
 
@@ -60,7 +60,7 @@ public inline fun <T, K> compareValuesBy(a: T, b: T, comparator: Comparator<in K
 // * Compares two values using the specified [comparator].
 // */
 //@Suppress("NOTHING_TO_INLINE")
-//public inline fun <T> compareValuesWith(a: T, b: T, comparator: Comparator<T>): Int = comparator.compare(a, b)
+//public inline fun <T> compareValuesWith(a: T, b: T, local comparator: Comparator<T>): Int = comparator.compare(a, b)
 //
 
 
@@ -86,7 +86,7 @@ public fun <T : Comparable<*>> compareValues(a: T?, b: T?): Int {
  *
  * @sample samples.comparisons.Comparisons.compareByWithSelectors
  */
-public fun <T> compareBy(vararg selectors: (T) -> Comparable<*>?): Comparator<T> {
+public fun <T> compareBy(local vararg selectors: (T) ->_{selectors} Comparable<*>?): Comparator<T>_{selectors} {
     require(selectors.size > 0)
     return Comparator { a, b -> compareValuesByImpl(a, b, selectors) }
 }
@@ -98,7 +98,7 @@ public fun <T> compareBy(vararg selectors: (T) -> Comparable<*>?): Comparator<T>
  * @sample samples.comparisons.Comparisons.compareByWithSingleSelector
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> compareBy(crossinline selector: (T) -> Comparable<*>?): Comparator<T> =
+public inline fun <T> compareBy(local selector: (T) -> Comparable<*>?): Comparator<T>_{selector} =
     Comparator { a, b -> compareValuesBy(a, b, selector) }
 
 /**
@@ -108,7 +108,7 @@ public inline fun <T> compareBy(crossinline selector: (T) -> Comparable<*>?): Co
  * @sample samples.comparisons.Comparisons.compareByWithComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T, K> compareBy(comparator: Comparator<in K>, crossinline selector: (T) -> K): Comparator<T> =
+public inline fun <T, K> compareBy(local comparator: Comparator<in K>, local selector: (T) -> K): Comparator<T>_{comparator,selector} =
     Comparator { a, b -> compareValuesBy(a, b, comparator, selector) }
 
 /**
@@ -117,7 +117,7 @@ public inline fun <T, K> compareBy(comparator: Comparator<in K>, crossinline sel
  * @sample samples.comparisons.Comparisons.compareByDescendingWithSingleSelector
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> compareByDescending(crossinline selector: (T) -> Comparable<*>?): Comparator<T> =
+public inline fun <T> compareByDescending(local selector: (T) -> Comparable<*>?): Comparator<T>_{selector} =
     Comparator { a, b -> compareValuesBy(b, a, selector) }
 
 /**
@@ -129,7 +129,7 @@ public inline fun <T> compareByDescending(crossinline selector: (T) -> Comparabl
  * @sample samples.comparisons.Comparisons.compareByDescendingWithComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T, K> compareByDescending(comparator: Comparator<in K>, crossinline selector: (T) -> K): Comparator<T> =
+public inline fun <T, K> compareByDescending(local comparator: Comparator<in K>, local selector: (T) -> K): Comparator<T>_{comparator&selector} =
     Comparator { a, b -> compareValuesBy(b, a, comparator, selector) }
 
 /**
@@ -139,7 +139,7 @@ public inline fun <T, K> compareByDescending(comparator: Comparator<in K>, cross
  * @sample samples.comparisons.Comparisons.thenBy
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Comparator<T>.thenBy(crossinline selector: (T) -> Comparable<*>?): Comparator<T> =
+public inline fun <T> local Comparator<T>.thenBy(local selector: (T) -> Comparable<*>?): Comparator<T>_{this&selector} =
     Comparator { a, b ->
         val previousCompare = this@thenBy.compare(a, b)
         if (previousCompare != 0) previousCompare else compareValuesBy(a, b, selector)
@@ -152,7 +152,7 @@ public inline fun <T> Comparator<T>.thenBy(crossinline selector: (T) -> Comparab
  * @sample samples.comparisons.Comparisons.thenByWithComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T, K> Comparator<T>.thenBy(comparator: Comparator<in K>, crossinline selector: (T) -> K): Comparator<T> =
+public inline fun <T, K> local Comparator<T>.thenBy(local comparator: Comparator<in K>, local selector: (T) -> K): Comparator<T>_{this&comparator,selector} =
     Comparator { a, b ->
         val previousCompare = this@thenBy.compare(a, b)
         if (previousCompare != 0) previousCompare else compareValuesBy(a, b, comparator, selector)
@@ -165,7 +165,7 @@ public inline fun <T, K> Comparator<T>.thenBy(comparator: Comparator<in K>, cros
  * @sample samples.comparisons.Comparisons.thenByDescending
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Comparator<T>.thenByDescending(crossinline selector: (T) -> Comparable<*>?): Comparator<T> =
+public inline fun <T> local Comparator<T>.thenByDescending(local selector: (T) -> Comparable<*>?): Comparator<T>_{this&selector} =
     Comparator { a, b ->
         val previousCompare = this@thenByDescending.compare(a, b)
         if (previousCompare != 0) previousCompare else compareValuesBy(b, a, selector)
@@ -178,7 +178,7 @@ public inline fun <T> Comparator<T>.thenByDescending(crossinline selector: (T) -
  * @sample samples.comparisons.Comparisons.thenByDescendingWithComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T, K> Comparator<T>.thenByDescending(comparator: Comparator<in K>, crossinline selector: (T) -> K): Comparator<T> =
+public inline fun <T, K> local Comparator<T>.thenByDescending(local comparator: Comparator<in K>, local selector: (T) -> K): Comparator<T>_{this&comparator&selector} =
     Comparator { a, b ->
         val previousCompare = this@thenByDescending.compare(a, b)
         if (previousCompare != 0) previousCompare else compareValuesBy(b, a, comparator, selector)
@@ -191,7 +191,7 @@ public inline fun <T, K> Comparator<T>.thenByDescending(comparator: Comparator<i
  * @sample samples.comparisons.Comparisons.thenComparator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Comparator<T>.thenComparator(crossinline comparison: (a: T, b: T) -> Int): Comparator<T> =
+public inline fun <T> local Comparator<T>.thenComparator(local comparison: (a: T, b: T) -> Int): Comparator<T>_{this&comparison} =
     Comparator { a, b ->
         val previousCompare = this@thenComparator.compare(a, b)
         if (previousCompare != 0) previousCompare else comparison(a, b)
@@ -203,7 +203,7 @@ public inline fun <T> Comparator<T>.thenComparator(crossinline comparison: (a: T
  *
  * @sample samples.comparisons.Comparisons.then
  */
-public infix fun <T> Comparator<T>.then(comparator: Comparator<in T>): Comparator<T> =
+public infix fun <T> local Comparator<T>.then(local comparator: Comparator<in T>): Comparator<T>_{this&comparator} =
     Comparator { a, b ->
         val previousCompare = this@then.compare(a, b)
         if (previousCompare != 0) previousCompare else comparator.compare(a, b)
@@ -215,7 +215,7 @@ public infix fun <T> Comparator<T>.then(comparator: Comparator<in T>): Comparato
  *
  * @sample samples.comparisons.Comparisons.thenDescending
  */
-public infix fun <T> Comparator<T>.thenDescending(comparator: Comparator<in T>): Comparator<T> =
+public infix fun <T> local Comparator<T>.thenDescending(local comparator: Comparator<in T>): Comparator<T>_{this&comparator} =
     Comparator<T> { a, b ->
         val previousCompare = this@thenDescending.compare(a, b)
         if (previousCompare != 0) previousCompare else comparator.compare(b, a)
@@ -229,7 +229,7 @@ public infix fun <T> Comparator<T>.thenDescending(comparator: Comparator<in T>):
  *
  * @sample samples.comparisons.Comparisons.nullsFirstLastWithComparator
  */
-public fun <T : Any> nullsFirst(comparator: Comparator<in T>): Comparator<T?> =
+public fun <T : Any> nullsFirst(local comparator: Comparator<in T>): Comparator<T?>_{comparator} =
     Comparator { a, b ->
         when {
             a === b -> 0
@@ -256,7 +256,7 @@ public inline fun <T : Comparable<T>> nullsFirst(): Comparator<T?> = nullsFirst(
  *
  * @sample samples.comparisons.Comparisons.nullsFirstLastWithComparator
  */
-public fun <T : Any> nullsLast(comparator: Comparator<in T>): Comparator<T?> =
+public fun <T : Any> nullsLast(local comparator: Comparator<in T>): Comparator<T?>_{comparator} =
     Comparator { a, b ->
         when {
             a === b -> 0
@@ -300,7 +300,7 @@ public fun <T : Comparable<T>> reverseOrder(): Comparator<T> = @Suppress("UNCHEC
  *  @sample samples.comparisons.Comparisons.reversed
  */
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
-public fun <T> Comparator<T>.reversed(): Comparator<T> = when (this) {
+public fun <T> local Comparator<T>.reversed(): Comparator<T>_{this} = when (this) {
     is ReversedComparator -> this.comparator
     NaturalOrderComparator -> @Suppress("UNCHECKED_CAST") (ReverseOrderComparator as Comparator<T>)
     ReverseOrderComparator -> @Suppress("UNCHECKED_CAST") (NaturalOrderComparator as Comparator<T>)
@@ -308,7 +308,7 @@ public fun <T> Comparator<T>.reversed(): Comparator<T> = when (this) {
 }
 
 
-private class ReversedComparator<T>(public val comparator: Comparator<T>) : Comparator<T> {
+private local class ReversedComparator<T>(public val comparator: Comparator<T>_{this}) : Comparator<T> {
     override fun compare(a: T, b: T): Int = comparator.compare(b, a)
     @Suppress("VIRTUAL_MEMBER_HIDDEN")
     fun reversed(): Comparator<T> = comparator

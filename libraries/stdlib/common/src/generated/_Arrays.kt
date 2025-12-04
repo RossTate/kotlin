@@ -740,7 +740,7 @@ public expect fun CharArray.elementAt(index: Int): Char
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T): T {
+public inline fun <T> Array<out T>.elementAtOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -753,7 +753,7 @@ public inline fun <T> Array<out T>.elementAtOrElse(index: Int, defaultValue: (In
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Byte): Byte {
+public inline fun ByteArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Byte): Byte {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -766,7 +766,7 @@ public inline fun ByteArray.elementAtOrElse(index: Int, defaultValue: (Int) -> B
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Short): Short {
+public inline fun ShortArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Short): Short {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -779,7 +779,7 @@ public inline fun ShortArray.elementAtOrElse(index: Int, defaultValue: (Int) -> 
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun IntArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Int): Int {
+public inline fun IntArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Int): Int {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -792,7 +792,7 @@ public inline fun IntArray.elementAtOrElse(index: Int, defaultValue: (Int) -> In
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun LongArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Long): Long {
+public inline fun LongArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Long): Long {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -805,7 +805,7 @@ public inline fun LongArray.elementAtOrElse(index: Int, defaultValue: (Int) -> L
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Float): Float {
+public inline fun FloatArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Float): Float {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -818,7 +818,7 @@ public inline fun FloatArray.elementAtOrElse(index: Int, defaultValue: (Int) -> 
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Double): Double {
+public inline fun DoubleArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Double): Double {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -831,7 +831,7 @@ public inline fun DoubleArray.elementAtOrElse(index: Int, defaultValue: (Int) ->
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Boolean): Boolean {
+public inline fun BooleanArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Boolean): Boolean {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -844,7 +844,7 @@ public inline fun BooleanArray.elementAtOrElse(index: Int, defaultValue: (Int) -
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun CharArray.elementAtOrElse(index: Int, defaultValue: (Int) -> Char): Char {
+public inline fun CharArray.elementAtOrElse(index: Int, local defaultValue: (Int) -> Char): Char {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -947,7 +947,7 @@ public inline fun CharArray.elementAtOrNull(index: Int): Char? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.find(predicate: (T) -> Boolean): T? {
+public inline fun <T> Array<out T>.find(local predicate: (T) -> Boolean): T? {
     return firstOrNull(predicate)
 }
 
@@ -957,7 +957,7 @@ public inline fun <T> Array<out T>.find(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.find(predicate: (Byte) -> Boolean): Byte? {
+public inline fun ByteArray.find(local predicate: (Byte) -> Boolean): Byte? {
     return firstOrNull(predicate)
 }
 
@@ -967,7 +967,7 @@ public inline fun ByteArray.find(predicate: (Byte) -> Boolean): Byte? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.find(predicate: (Short) -> Boolean): Short? {
+public inline fun ShortArray.find(local predicate: (Short) -> Boolean): Short? {
     return firstOrNull(predicate)
 }
 
@@ -977,7 +977,7 @@ public inline fun ShortArray.find(predicate: (Short) -> Boolean): Short? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun IntArray.find(predicate: (Int) -> Boolean): Int? {
+public inline fun IntArray.find(local predicate: (Int) -> Boolean): Int? {
     return firstOrNull(predicate)
 }
 
@@ -987,7 +987,7 @@ public inline fun IntArray.find(predicate: (Int) -> Boolean): Int? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun LongArray.find(predicate: (Long) -> Boolean): Long? {
+public inline fun LongArray.find(local predicate: (Long) -> Boolean): Long? {
     return firstOrNull(predicate)
 }
 
@@ -997,7 +997,7 @@ public inline fun LongArray.find(predicate: (Long) -> Boolean): Long? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.find(predicate: (Float) -> Boolean): Float? {
+public inline fun FloatArray.find(local predicate: (Float) -> Boolean): Float? {
     return firstOrNull(predicate)
 }
 
@@ -1007,7 +1007,7 @@ public inline fun FloatArray.find(predicate: (Float) -> Boolean): Float? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.find(predicate: (Double) -> Boolean): Double? {
+public inline fun DoubleArray.find(local predicate: (Double) -> Boolean): Double? {
     return firstOrNull(predicate)
 }
 
@@ -1017,7 +1017,7 @@ public inline fun DoubleArray.find(predicate: (Double) -> Boolean): Double? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.find(predicate: (Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.find(local predicate: (Boolean) -> Boolean): Boolean? {
     return firstOrNull(predicate)
 }
 
@@ -1027,7 +1027,7 @@ public inline fun BooleanArray.find(predicate: (Boolean) -> Boolean): Boolean? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun CharArray.find(predicate: (Char) -> Boolean): Char? {
+public inline fun CharArray.find(local predicate: (Char) -> Boolean): Char? {
     return firstOrNull(predicate)
 }
 
@@ -1037,7 +1037,7 @@ public inline fun CharArray.find(predicate: (Char) -> Boolean): Char? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.findLast(predicate: (T) -> Boolean): T? {
+public inline fun <T> Array<out T>.findLast(local predicate: (T) -> Boolean): T? {
     return lastOrNull(predicate)
 }
 
@@ -1047,7 +1047,7 @@ public inline fun <T> Array<out T>.findLast(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.findLast(predicate: (Byte) -> Boolean): Byte? {
+public inline fun ByteArray.findLast(local predicate: (Byte) -> Boolean): Byte? {
     return lastOrNull(predicate)
 }
 
@@ -1057,7 +1057,7 @@ public inline fun ByteArray.findLast(predicate: (Byte) -> Boolean): Byte? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.findLast(predicate: (Short) -> Boolean): Short? {
+public inline fun ShortArray.findLast(local predicate: (Short) -> Boolean): Short? {
     return lastOrNull(predicate)
 }
 
@@ -1067,7 +1067,7 @@ public inline fun ShortArray.findLast(predicate: (Short) -> Boolean): Short? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun IntArray.findLast(predicate: (Int) -> Boolean): Int? {
+public inline fun IntArray.findLast(local predicate: (Int) -> Boolean): Int? {
     return lastOrNull(predicate)
 }
 
@@ -1077,7 +1077,7 @@ public inline fun IntArray.findLast(predicate: (Int) -> Boolean): Int? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun LongArray.findLast(predicate: (Long) -> Boolean): Long? {
+public inline fun LongArray.findLast(local predicate: (Long) -> Boolean): Long? {
     return lastOrNull(predicate)
 }
 
@@ -1087,7 +1087,7 @@ public inline fun LongArray.findLast(predicate: (Long) -> Boolean): Long? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.findLast(predicate: (Float) -> Boolean): Float? {
+public inline fun FloatArray.findLast(local predicate: (Float) -> Boolean): Float? {
     return lastOrNull(predicate)
 }
 
@@ -1097,7 +1097,7 @@ public inline fun FloatArray.findLast(predicate: (Float) -> Boolean): Float? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.findLast(predicate: (Double) -> Boolean): Double? {
+public inline fun DoubleArray.findLast(local predicate: (Double) -> Boolean): Double? {
     return lastOrNull(predicate)
 }
 
@@ -1107,7 +1107,7 @@ public inline fun DoubleArray.findLast(predicate: (Double) -> Boolean): Double? 
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.findLast(predicate: (Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.findLast(local predicate: (Boolean) -> Boolean): Boolean? {
     return lastOrNull(predicate)
 }
 
@@ -1117,7 +1117,7 @@ public inline fun BooleanArray.findLast(predicate: (Boolean) -> Boolean): Boolea
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun CharArray.findLast(predicate: (Char) -> Boolean): Char? {
+public inline fun CharArray.findLast(local predicate: (Char) -> Boolean): Char? {
     return lastOrNull(predicate)
 }
 
@@ -1224,7 +1224,7 @@ public fun CharArray.first(): Char {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun <T> Array<out T>.first(predicate: (T) -> Boolean): T {
+public inline fun <T> Array<out T>.first(local predicate: (T) -> Boolean): T {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1233,7 +1233,7 @@ public inline fun <T> Array<out T>.first(predicate: (T) -> Boolean): T {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun ByteArray.first(predicate: (Byte) -> Boolean): Byte {
+public inline fun ByteArray.first(local predicate: (Byte) -> Boolean): Byte {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1242,7 +1242,7 @@ public inline fun ByteArray.first(predicate: (Byte) -> Boolean): Byte {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun ShortArray.first(predicate: (Short) -> Boolean): Short {
+public inline fun ShortArray.first(local predicate: (Short) -> Boolean): Short {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1251,7 +1251,7 @@ public inline fun ShortArray.first(predicate: (Short) -> Boolean): Short {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun IntArray.first(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.first(local predicate: (Int) -> Boolean): Int {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1260,7 +1260,7 @@ public inline fun IntArray.first(predicate: (Int) -> Boolean): Int {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun LongArray.first(predicate: (Long) -> Boolean): Long {
+public inline fun LongArray.first(local predicate: (Long) -> Boolean): Long {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1269,7 +1269,7 @@ public inline fun LongArray.first(predicate: (Long) -> Boolean): Long {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun FloatArray.first(predicate: (Float) -> Boolean): Float {
+public inline fun FloatArray.first(local predicate: (Float) -> Boolean): Float {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1278,7 +1278,7 @@ public inline fun FloatArray.first(predicate: (Float) -> Boolean): Float {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun DoubleArray.first(predicate: (Double) -> Boolean): Double {
+public inline fun DoubleArray.first(local predicate: (Double) -> Boolean): Double {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1287,7 +1287,7 @@ public inline fun DoubleArray.first(predicate: (Double) -> Boolean): Double {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun BooleanArray.first(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.first(local predicate: (Boolean) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1296,7 +1296,7 @@ public inline fun BooleanArray.first(predicate: (Boolean) -> Boolean): Boolean {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun CharArray.first(predicate: (Char) -> Boolean): Char {
+public inline fun CharArray.first(local predicate: (Char) -> Boolean): Char {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Array contains no element matching the predicate.")
 }
@@ -1309,7 +1309,7 @@ public inline fun CharArray.first(predicate: (Char) -> Boolean): Char {
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Array<out T>.firstNotNullOf(transform: (T) -> R?): R {
+public inline fun <T, R : Any> Array<out T>.firstNotNullOf(local transform: (T) -> R?): R {
     return firstNotNullOfOrNull(transform) ?: throw NoSuchElementException("No element of the array was transformed to a non-null value.")
 }
 
@@ -1321,7 +1321,7 @@ public inline fun <T, R : Any> Array<out T>.firstNotNullOf(transform: (T) -> R?)
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Array<out T>.firstNotNullOfOrNull(transform: (T) -> R?): R? {
+public inline fun <T, R : Any> Array<out T>.firstNotNullOfOrNull(local transform: (T) -> R?): R? {
     for (element in this) {
         val result = transform(element)
         if (result != null) {
@@ -1397,7 +1397,7 @@ public fun CharArray.firstOrNull(): Char? {
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun <T> Array<out T>.firstOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> Array<out T>.firstOrNull(local predicate: (T) -> Boolean): T? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1405,7 +1405,7 @@ public inline fun <T> Array<out T>.firstOrNull(predicate: (T) -> Boolean): T? {
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun ByteArray.firstOrNull(predicate: (Byte) -> Boolean): Byte? {
+public inline fun ByteArray.firstOrNull(local predicate: (Byte) -> Boolean): Byte? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1413,7 +1413,7 @@ public inline fun ByteArray.firstOrNull(predicate: (Byte) -> Boolean): Byte? {
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun ShortArray.firstOrNull(predicate: (Short) -> Boolean): Short? {
+public inline fun ShortArray.firstOrNull(local predicate: (Short) -> Boolean): Short? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1421,7 +1421,7 @@ public inline fun ShortArray.firstOrNull(predicate: (Short) -> Boolean): Short? 
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun IntArray.firstOrNull(predicate: (Int) -> Boolean): Int? {
+public inline fun IntArray.firstOrNull(local predicate: (Int) -> Boolean): Int? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1429,7 +1429,7 @@ public inline fun IntArray.firstOrNull(predicate: (Int) -> Boolean): Int? {
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun LongArray.firstOrNull(predicate: (Long) -> Boolean): Long? {
+public inline fun LongArray.firstOrNull(local predicate: (Long) -> Boolean): Long? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1437,7 +1437,7 @@ public inline fun LongArray.firstOrNull(predicate: (Long) -> Boolean): Long? {
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun FloatArray.firstOrNull(predicate: (Float) -> Boolean): Float? {
+public inline fun FloatArray.firstOrNull(local predicate: (Float) -> Boolean): Float? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1445,7 +1445,7 @@ public inline fun FloatArray.firstOrNull(predicate: (Float) -> Boolean): Float? 
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun DoubleArray.firstOrNull(predicate: (Double) -> Boolean): Double? {
+public inline fun DoubleArray.firstOrNull(local predicate: (Double) -> Boolean): Double? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1453,7 +1453,7 @@ public inline fun DoubleArray.firstOrNull(predicate: (Double) -> Boolean): Doubl
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun BooleanArray.firstOrNull(predicate: (Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.firstOrNull(local predicate: (Boolean) -> Boolean): Boolean? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1461,7 +1461,7 @@ public inline fun BooleanArray.firstOrNull(predicate: (Boolean) -> Boolean): Boo
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun CharArray.firstOrNull(predicate: (Char) -> Boolean): Char? {
+public inline fun CharArray.firstOrNull(local predicate: (Char) -> Boolean): Char? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -1472,7 +1472,7 @@ public inline fun CharArray.firstOrNull(predicate: (Char) -> Boolean): Char? {
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.getOrElse(index: Int, defaultValue: (Int) -> T): T {
+public inline fun <T> Array<out T>.getOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1485,7 +1485,7 @@ public inline fun <T> Array<out T>.getOrElse(index: Int, defaultValue: (Int) -> 
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.getOrElse(index: Int, defaultValue: (Int) -> Byte): Byte {
+public inline fun ByteArray.getOrElse(index: Int, local defaultValue: (Int) -> Byte): Byte {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1498,7 +1498,7 @@ public inline fun ByteArray.getOrElse(index: Int, defaultValue: (Int) -> Byte): 
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.getOrElse(index: Int, defaultValue: (Int) -> Short): Short {
+public inline fun ShortArray.getOrElse(index: Int, local defaultValue: (Int) -> Short): Short {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1511,7 +1511,7 @@ public inline fun ShortArray.getOrElse(index: Int, defaultValue: (Int) -> Short)
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun IntArray.getOrElse(index: Int, defaultValue: (Int) -> Int): Int {
+public inline fun IntArray.getOrElse(index: Int, local defaultValue: (Int) -> Int): Int {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1524,7 +1524,7 @@ public inline fun IntArray.getOrElse(index: Int, defaultValue: (Int) -> Int): In
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun LongArray.getOrElse(index: Int, defaultValue: (Int) -> Long): Long {
+public inline fun LongArray.getOrElse(index: Int, local defaultValue: (Int) -> Long): Long {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1537,7 +1537,7 @@ public inline fun LongArray.getOrElse(index: Int, defaultValue: (Int) -> Long): 
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.getOrElse(index: Int, defaultValue: (Int) -> Float): Float {
+public inline fun FloatArray.getOrElse(index: Int, local defaultValue: (Int) -> Float): Float {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1550,7 +1550,7 @@ public inline fun FloatArray.getOrElse(index: Int, defaultValue: (Int) -> Float)
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.getOrElse(index: Int, defaultValue: (Int) -> Double): Double {
+public inline fun DoubleArray.getOrElse(index: Int, local defaultValue: (Int) -> Double): Double {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1563,7 +1563,7 @@ public inline fun DoubleArray.getOrElse(index: Int, defaultValue: (Int) -> Doubl
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.getOrElse(index: Int, defaultValue: (Int) -> Boolean): Boolean {
+public inline fun BooleanArray.getOrElse(index: Int, local defaultValue: (Int) -> Boolean): Boolean {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1576,7 +1576,7 @@ public inline fun BooleanArray.getOrElse(index: Int, defaultValue: (Int) -> Bool
  * @sample samples.collections.Arrays.Usage.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun CharArray.getOrElse(index: Int, defaultValue: (Int) -> Char): Char {
+public inline fun CharArray.getOrElse(index: Int, local defaultValue: (Int) -> Char): Char {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -1787,7 +1787,7 @@ public fun CharArray.indexOf(element: Char): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun <T> Array<out T>.indexOfFirst(predicate: (T) -> Boolean): Int {
+public inline fun <T> Array<out T>.indexOfFirst(local predicate: (T) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1799,7 +1799,7 @@ public inline fun <T> Array<out T>.indexOfFirst(predicate: (T) -> Boolean): Int 
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun ByteArray.indexOfFirst(predicate: (Byte) -> Boolean): Int {
+public inline fun ByteArray.indexOfFirst(local predicate: (Byte) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1811,7 +1811,7 @@ public inline fun ByteArray.indexOfFirst(predicate: (Byte) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun ShortArray.indexOfFirst(predicate: (Short) -> Boolean): Int {
+public inline fun ShortArray.indexOfFirst(local predicate: (Short) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1823,7 +1823,7 @@ public inline fun ShortArray.indexOfFirst(predicate: (Short) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun IntArray.indexOfFirst(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.indexOfFirst(local predicate: (Int) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1835,7 +1835,7 @@ public inline fun IntArray.indexOfFirst(predicate: (Int) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun LongArray.indexOfFirst(predicate: (Long) -> Boolean): Int {
+public inline fun LongArray.indexOfFirst(local predicate: (Long) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1847,7 +1847,7 @@ public inline fun LongArray.indexOfFirst(predicate: (Long) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun FloatArray.indexOfFirst(predicate: (Float) -> Boolean): Int {
+public inline fun FloatArray.indexOfFirst(local predicate: (Float) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1859,7 +1859,7 @@ public inline fun FloatArray.indexOfFirst(predicate: (Float) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun DoubleArray.indexOfFirst(predicate: (Double) -> Boolean): Int {
+public inline fun DoubleArray.indexOfFirst(local predicate: (Double) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1871,7 +1871,7 @@ public inline fun DoubleArray.indexOfFirst(predicate: (Double) -> Boolean): Int 
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun BooleanArray.indexOfFirst(predicate: (Boolean) -> Boolean): Int {
+public inline fun BooleanArray.indexOfFirst(local predicate: (Boolean) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1883,7 +1883,7 @@ public inline fun BooleanArray.indexOfFirst(predicate: (Boolean) -> Boolean): In
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun CharArray.indexOfFirst(predicate: (Char) -> Boolean): Int {
+public inline fun CharArray.indexOfFirst(local predicate: (Char) -> Boolean): Int {
     for (index in indices) {
         if (predicate(this[index])) {
             return index
@@ -1895,7 +1895,7 @@ public inline fun CharArray.indexOfFirst(predicate: (Char) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun <T> Array<out T>.indexOfLast(predicate: (T) -> Boolean): Int {
+public inline fun <T> Array<out T>.indexOfLast(local predicate: (T) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1907,7 +1907,7 @@ public inline fun <T> Array<out T>.indexOfLast(predicate: (T) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun ByteArray.indexOfLast(predicate: (Byte) -> Boolean): Int {
+public inline fun ByteArray.indexOfLast(local predicate: (Byte) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1919,7 +1919,7 @@ public inline fun ByteArray.indexOfLast(predicate: (Byte) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun ShortArray.indexOfLast(predicate: (Short) -> Boolean): Int {
+public inline fun ShortArray.indexOfLast(local predicate: (Short) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1931,7 +1931,7 @@ public inline fun ShortArray.indexOfLast(predicate: (Short) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun IntArray.indexOfLast(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.indexOfLast(local predicate: (Int) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1943,7 +1943,7 @@ public inline fun IntArray.indexOfLast(predicate: (Int) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun LongArray.indexOfLast(predicate: (Long) -> Boolean): Int {
+public inline fun LongArray.indexOfLast(local predicate: (Long) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1955,7 +1955,7 @@ public inline fun LongArray.indexOfLast(predicate: (Long) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun FloatArray.indexOfLast(predicate: (Float) -> Boolean): Int {
+public inline fun FloatArray.indexOfLast(local predicate: (Float) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1967,7 +1967,7 @@ public inline fun FloatArray.indexOfLast(predicate: (Float) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun DoubleArray.indexOfLast(predicate: (Double) -> Boolean): Int {
+public inline fun DoubleArray.indexOfLast(local predicate: (Double) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1979,7 +1979,7 @@ public inline fun DoubleArray.indexOfLast(predicate: (Double) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun BooleanArray.indexOfLast(predicate: (Boolean) -> Boolean): Int {
+public inline fun BooleanArray.indexOfLast(local predicate: (Boolean) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -1991,7 +1991,7 @@ public inline fun BooleanArray.indexOfLast(predicate: (Boolean) -> Boolean): Int
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the array does not contain such element.
  */
-public inline fun CharArray.indexOfLast(predicate: (Char) -> Boolean): Int {
+public inline fun CharArray.indexOfLast(local predicate: (Char) -> Boolean): Int {
     for (index in indices.reversed()) {
         if (predicate(this[index])) {
             return index
@@ -2124,7 +2124,7 @@ public fun CharArray.last(): Char {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Array<out T>.last(predicate: (T) -> Boolean): T {
+public inline fun <T> Array<out T>.last(local predicate: (T) -> Boolean): T {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2139,7 +2139,7 @@ public inline fun <T> Array<out T>.last(predicate: (T) -> Boolean): T {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun ByteArray.last(predicate: (Byte) -> Boolean): Byte {
+public inline fun ByteArray.last(local predicate: (Byte) -> Boolean): Byte {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2154,7 +2154,7 @@ public inline fun ByteArray.last(predicate: (Byte) -> Boolean): Byte {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun ShortArray.last(predicate: (Short) -> Boolean): Short {
+public inline fun ShortArray.last(local predicate: (Short) -> Boolean): Short {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2169,7 +2169,7 @@ public inline fun ShortArray.last(predicate: (Short) -> Boolean): Short {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun IntArray.last(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.last(local predicate: (Int) -> Boolean): Int {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2184,7 +2184,7 @@ public inline fun IntArray.last(predicate: (Int) -> Boolean): Int {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun LongArray.last(predicate: (Long) -> Boolean): Long {
+public inline fun LongArray.last(local predicate: (Long) -> Boolean): Long {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2199,7 +2199,7 @@ public inline fun LongArray.last(predicate: (Long) -> Boolean): Long {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun FloatArray.last(predicate: (Float) -> Boolean): Float {
+public inline fun FloatArray.last(local predicate: (Float) -> Boolean): Float {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2214,7 +2214,7 @@ public inline fun FloatArray.last(predicate: (Float) -> Boolean): Float {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun DoubleArray.last(predicate: (Double) -> Boolean): Double {
+public inline fun DoubleArray.last(local predicate: (Double) -> Boolean): Double {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2229,7 +2229,7 @@ public inline fun DoubleArray.last(predicate: (Double) -> Boolean): Double {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun BooleanArray.last(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.last(local predicate: (Boolean) -> Boolean): Boolean {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2244,7 +2244,7 @@ public inline fun BooleanArray.last(predicate: (Boolean) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun CharArray.last(predicate: (Char) -> Boolean): Char {
+public inline fun CharArray.last(local predicate: (Char) -> Boolean): Char {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2458,7 +2458,7 @@ public fun CharArray.lastOrNull(): Char? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Array<out T>.lastOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> Array<out T>.lastOrNull(local predicate: (T) -> Boolean): T? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2471,7 +2471,7 @@ public inline fun <T> Array<out T>.lastOrNull(predicate: (T) -> Boolean): T? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun ByteArray.lastOrNull(predicate: (Byte) -> Boolean): Byte? {
+public inline fun ByteArray.lastOrNull(local predicate: (Byte) -> Boolean): Byte? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2484,7 +2484,7 @@ public inline fun ByteArray.lastOrNull(predicate: (Byte) -> Boolean): Byte? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun ShortArray.lastOrNull(predicate: (Short) -> Boolean): Short? {
+public inline fun ShortArray.lastOrNull(local predicate: (Short) -> Boolean): Short? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2497,7 +2497,7 @@ public inline fun ShortArray.lastOrNull(predicate: (Short) -> Boolean): Short? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun IntArray.lastOrNull(predicate: (Int) -> Boolean): Int? {
+public inline fun IntArray.lastOrNull(local predicate: (Int) -> Boolean): Int? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2510,7 +2510,7 @@ public inline fun IntArray.lastOrNull(predicate: (Int) -> Boolean): Int? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun LongArray.lastOrNull(predicate: (Long) -> Boolean): Long? {
+public inline fun LongArray.lastOrNull(local predicate: (Long) -> Boolean): Long? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2523,7 +2523,7 @@ public inline fun LongArray.lastOrNull(predicate: (Long) -> Boolean): Long? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun FloatArray.lastOrNull(predicate: (Float) -> Boolean): Float? {
+public inline fun FloatArray.lastOrNull(local predicate: (Float) -> Boolean): Float? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2536,7 +2536,7 @@ public inline fun FloatArray.lastOrNull(predicate: (Float) -> Boolean): Float? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun DoubleArray.lastOrNull(predicate: (Double) -> Boolean): Double? {
+public inline fun DoubleArray.lastOrNull(local predicate: (Double) -> Boolean): Double? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2549,7 +2549,7 @@ public inline fun DoubleArray.lastOrNull(predicate: (Double) -> Boolean): Double
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun BooleanArray.lastOrNull(predicate: (Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.lastOrNull(local predicate: (Boolean) -> Boolean): Boolean? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -2562,7 +2562,7 @@ public inline fun BooleanArray.lastOrNull(predicate: (Boolean) -> Boolean): Bool
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun CharArray.lastOrNull(predicate: (Char) -> Boolean): Char? {
+public inline fun CharArray.lastOrNull(local predicate: (Char) -> Boolean): Char? {
     for (index in this.indices.reversed()) {
         val element = this[index]
         if (predicate(element)) return element
@@ -3050,7 +3050,7 @@ public fun CharArray.single(): Char {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun <T> Array<out T>.single(predicate: (T) -> Boolean): T {
+public inline fun <T> Array<out T>.single(local predicate: (T) -> Boolean): T {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -3068,7 +3068,7 @@ public inline fun <T> Array<out T>.single(predicate: (T) -> Boolean): T {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun ByteArray.single(predicate: (Byte) -> Boolean): Byte {
+public inline fun ByteArray.single(local predicate: (Byte) -> Boolean): Byte {
     var single: Byte? = null
     var found = false
     for (element in this) {
@@ -3086,7 +3086,7 @@ public inline fun ByteArray.single(predicate: (Byte) -> Boolean): Byte {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun ShortArray.single(predicate: (Short) -> Boolean): Short {
+public inline fun ShortArray.single(local predicate: (Short) -> Boolean): Short {
     var single: Short? = null
     var found = false
     for (element in this) {
@@ -3104,7 +3104,7 @@ public inline fun ShortArray.single(predicate: (Short) -> Boolean): Short {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun IntArray.single(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.single(local predicate: (Int) -> Boolean): Int {
     var single: Int? = null
     var found = false
     for (element in this) {
@@ -3122,7 +3122,7 @@ public inline fun IntArray.single(predicate: (Int) -> Boolean): Int {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun LongArray.single(predicate: (Long) -> Boolean): Long {
+public inline fun LongArray.single(local predicate: (Long) -> Boolean): Long {
     var single: Long? = null
     var found = false
     for (element in this) {
@@ -3140,7 +3140,7 @@ public inline fun LongArray.single(predicate: (Long) -> Boolean): Long {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun FloatArray.single(predicate: (Float) -> Boolean): Float {
+public inline fun FloatArray.single(local predicate: (Float) -> Boolean): Float {
     var single: Float? = null
     var found = false
     for (element in this) {
@@ -3158,7 +3158,7 @@ public inline fun FloatArray.single(predicate: (Float) -> Boolean): Float {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun DoubleArray.single(predicate: (Double) -> Boolean): Double {
+public inline fun DoubleArray.single(local predicate: (Double) -> Boolean): Double {
     var single: Double? = null
     var found = false
     for (element in this) {
@@ -3176,7 +3176,7 @@ public inline fun DoubleArray.single(predicate: (Double) -> Boolean): Double {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun BooleanArray.single(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.single(local predicate: (Boolean) -> Boolean): Boolean {
     var single: Boolean? = null
     var found = false
     for (element in this) {
@@ -3194,7 +3194,7 @@ public inline fun BooleanArray.single(predicate: (Boolean) -> Boolean): Boolean 
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun CharArray.single(predicate: (Char) -> Boolean): Char {
+public inline fun CharArray.single(local predicate: (Char) -> Boolean): Char {
     var single: Char? = null
     var found = false
     for (element in this) {
@@ -3275,7 +3275,7 @@ public fun CharArray.singleOrNull(): Char? {
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun <T> Array<out T>.singleOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> Array<out T>.singleOrNull(local predicate: (T) -> Boolean): T? {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -3292,7 +3292,7 @@ public inline fun <T> Array<out T>.singleOrNull(predicate: (T) -> Boolean): T? {
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun ByteArray.singleOrNull(predicate: (Byte) -> Boolean): Byte? {
+public inline fun ByteArray.singleOrNull(local predicate: (Byte) -> Boolean): Byte? {
     var single: Byte? = null
     var found = false
     for (element in this) {
@@ -3309,7 +3309,7 @@ public inline fun ByteArray.singleOrNull(predicate: (Byte) -> Boolean): Byte? {
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun ShortArray.singleOrNull(predicate: (Short) -> Boolean): Short? {
+public inline fun ShortArray.singleOrNull(local predicate: (Short) -> Boolean): Short? {
     var single: Short? = null
     var found = false
     for (element in this) {
@@ -3326,7 +3326,7 @@ public inline fun ShortArray.singleOrNull(predicate: (Short) -> Boolean): Short?
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun IntArray.singleOrNull(predicate: (Int) -> Boolean): Int? {
+public inline fun IntArray.singleOrNull(local predicate: (Int) -> Boolean): Int? {
     var single: Int? = null
     var found = false
     for (element in this) {
@@ -3343,7 +3343,7 @@ public inline fun IntArray.singleOrNull(predicate: (Int) -> Boolean): Int? {
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun LongArray.singleOrNull(predicate: (Long) -> Boolean): Long? {
+public inline fun LongArray.singleOrNull(local predicate: (Long) -> Boolean): Long? {
     var single: Long? = null
     var found = false
     for (element in this) {
@@ -3360,7 +3360,7 @@ public inline fun LongArray.singleOrNull(predicate: (Long) -> Boolean): Long? {
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun FloatArray.singleOrNull(predicate: (Float) -> Boolean): Float? {
+public inline fun FloatArray.singleOrNull(local predicate: (Float) -> Boolean): Float? {
     var single: Float? = null
     var found = false
     for (element in this) {
@@ -3377,7 +3377,7 @@ public inline fun FloatArray.singleOrNull(predicate: (Float) -> Boolean): Float?
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun DoubleArray.singleOrNull(predicate: (Double) -> Boolean): Double? {
+public inline fun DoubleArray.singleOrNull(local predicate: (Double) -> Boolean): Double? {
     var single: Double? = null
     var found = false
     for (element in this) {
@@ -3394,7 +3394,7 @@ public inline fun DoubleArray.singleOrNull(predicate: (Double) -> Boolean): Doub
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun BooleanArray.singleOrNull(predicate: (Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.singleOrNull(local predicate: (Boolean) -> Boolean): Boolean? {
     var single: Boolean? = null
     var found = false
     for (element in this) {
@@ -3411,7 +3411,7 @@ public inline fun BooleanArray.singleOrNull(predicate: (Boolean) -> Boolean): Bo
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun CharArray.singleOrNull(predicate: (Char) -> Boolean): Char? {
+public inline fun CharArray.singleOrNull(local predicate: (Char) -> Boolean): Char? {
     var single: Char? = null
     var found = false
     for (element in this) {
@@ -3646,7 +3646,7 @@ public fun CharArray.dropLast(n: Int): List<Char> {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun <T> Array<out T>.dropLastWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.dropLastWhile(local predicate: (T) -> Boolean): List<T> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3660,7 +3660,7 @@ public inline fun <T> Array<out T>.dropLastWhile(predicate: (T) -> Boolean): Lis
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun ByteArray.dropLastWhile(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.dropLastWhile(local predicate: (Byte) -> Boolean): List<Byte> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3674,7 +3674,7 @@ public inline fun ByteArray.dropLastWhile(predicate: (Byte) -> Boolean): List<By
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun ShortArray.dropLastWhile(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.dropLastWhile(local predicate: (Short) -> Boolean): List<Short> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3688,7 +3688,7 @@ public inline fun ShortArray.dropLastWhile(predicate: (Short) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun IntArray.dropLastWhile(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.dropLastWhile(local predicate: (Int) -> Boolean): List<Int> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3702,7 +3702,7 @@ public inline fun IntArray.dropLastWhile(predicate: (Int) -> Boolean): List<Int>
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun LongArray.dropLastWhile(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.dropLastWhile(local predicate: (Long) -> Boolean): List<Long> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3716,7 +3716,7 @@ public inline fun LongArray.dropLastWhile(predicate: (Long) -> Boolean): List<Lo
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun FloatArray.dropLastWhile(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.dropLastWhile(local predicate: (Float) -> Boolean): List<Float> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3730,7 +3730,7 @@ public inline fun FloatArray.dropLastWhile(predicate: (Float) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun DoubleArray.dropLastWhile(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.dropLastWhile(local predicate: (Double) -> Boolean): List<Double> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3744,7 +3744,7 @@ public inline fun DoubleArray.dropLastWhile(predicate: (Double) -> Boolean): Lis
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun BooleanArray.dropLastWhile(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.dropLastWhile(local predicate: (Boolean) -> Boolean): List<Boolean> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3758,7 +3758,7 @@ public inline fun BooleanArray.dropLastWhile(predicate: (Boolean) -> Boolean): L
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun CharArray.dropLastWhile(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.dropLastWhile(local predicate: (Char) -> Boolean): List<Char> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return take(index + 1)
@@ -3772,7 +3772,7 @@ public inline fun CharArray.dropLastWhile(predicate: (Char) -> Boolean): List<Ch
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun <T> Array<out T>.dropWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.dropWhile(local predicate: (T) -> Boolean): List<T> {
     var yielding = false
     val list = ArrayList<T>()
     for (item in this)
@@ -3790,7 +3790,7 @@ public inline fun <T> Array<out T>.dropWhile(predicate: (T) -> Boolean): List<T>
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun ByteArray.dropWhile(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.dropWhile(local predicate: (Byte) -> Boolean): List<Byte> {
     var yielding = false
     val list = ArrayList<Byte>()
     for (item in this)
@@ -3808,7 +3808,7 @@ public inline fun ByteArray.dropWhile(predicate: (Byte) -> Boolean): List<Byte> 
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun ShortArray.dropWhile(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.dropWhile(local predicate: (Short) -> Boolean): List<Short> {
     var yielding = false
     val list = ArrayList<Short>()
     for (item in this)
@@ -3826,7 +3826,7 @@ public inline fun ShortArray.dropWhile(predicate: (Short) -> Boolean): List<Shor
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun IntArray.dropWhile(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.dropWhile(local predicate: (Int) -> Boolean): List<Int> {
     var yielding = false
     val list = ArrayList<Int>()
     for (item in this)
@@ -3844,7 +3844,7 @@ public inline fun IntArray.dropWhile(predicate: (Int) -> Boolean): List<Int> {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun LongArray.dropWhile(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.dropWhile(local predicate: (Long) -> Boolean): List<Long> {
     var yielding = false
     val list = ArrayList<Long>()
     for (item in this)
@@ -3862,7 +3862,7 @@ public inline fun LongArray.dropWhile(predicate: (Long) -> Boolean): List<Long> 
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun FloatArray.dropWhile(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.dropWhile(local predicate: (Float) -> Boolean): List<Float> {
     var yielding = false
     val list = ArrayList<Float>()
     for (item in this)
@@ -3880,7 +3880,7 @@ public inline fun FloatArray.dropWhile(predicate: (Float) -> Boolean): List<Floa
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun DoubleArray.dropWhile(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.dropWhile(local predicate: (Double) -> Boolean): List<Double> {
     var yielding = false
     val list = ArrayList<Double>()
     for (item in this)
@@ -3898,7 +3898,7 @@ public inline fun DoubleArray.dropWhile(predicate: (Double) -> Boolean): List<Do
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun BooleanArray.dropWhile(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.dropWhile(local predicate: (Boolean) -> Boolean): List<Boolean> {
     var yielding = false
     val list = ArrayList<Boolean>()
     for (item in this)
@@ -3916,7 +3916,7 @@ public inline fun BooleanArray.dropWhile(predicate: (Boolean) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun CharArray.dropWhile(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.dropWhile(local predicate: (Char) -> Boolean): List<Char> {
     var yielding = false
     val list = ArrayList<Char>()
     for (item in this)
@@ -3934,7 +3934,7 @@ public inline fun CharArray.dropWhile(predicate: (Char) -> Boolean): List<Char> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun <T> Array<out T>.filter(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.filter(local predicate: (T) -> Boolean): List<T> {
     return filterTo(ArrayList<T>(), predicate)
 }
 
@@ -3943,7 +3943,7 @@ public inline fun <T> Array<out T>.filter(predicate: (T) -> Boolean): List<T> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun ByteArray.filter(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.filter(local predicate: (Byte) -> Boolean): List<Byte> {
     return filterTo(ArrayList<Byte>(), predicate)
 }
 
@@ -3952,7 +3952,7 @@ public inline fun ByteArray.filter(predicate: (Byte) -> Boolean): List<Byte> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun ShortArray.filter(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.filter(local predicate: (Short) -> Boolean): List<Short> {
     return filterTo(ArrayList<Short>(), predicate)
 }
 
@@ -3961,7 +3961,7 @@ public inline fun ShortArray.filter(predicate: (Short) -> Boolean): List<Short> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun IntArray.filter(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.filter(local predicate: (Int) -> Boolean): List<Int> {
     return filterTo(ArrayList<Int>(), predicate)
 }
 
@@ -3970,7 +3970,7 @@ public inline fun IntArray.filter(predicate: (Int) -> Boolean): List<Int> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun LongArray.filter(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.filter(local predicate: (Long) -> Boolean): List<Long> {
     return filterTo(ArrayList<Long>(), predicate)
 }
 
@@ -3979,7 +3979,7 @@ public inline fun LongArray.filter(predicate: (Long) -> Boolean): List<Long> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun FloatArray.filter(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.filter(local predicate: (Float) -> Boolean): List<Float> {
     return filterTo(ArrayList<Float>(), predicate)
 }
 
@@ -3988,7 +3988,7 @@ public inline fun FloatArray.filter(predicate: (Float) -> Boolean): List<Float> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun DoubleArray.filter(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.filter(local predicate: (Double) -> Boolean): List<Double> {
     return filterTo(ArrayList<Double>(), predicate)
 }
 
@@ -3997,7 +3997,7 @@ public inline fun DoubleArray.filter(predicate: (Double) -> Boolean): List<Doubl
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun BooleanArray.filter(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.filter(local predicate: (Boolean) -> Boolean): List<Boolean> {
     return filterTo(ArrayList<Boolean>(), predicate)
 }
 
@@ -4006,7 +4006,7 @@ public inline fun BooleanArray.filter(predicate: (Boolean) -> Boolean): List<Boo
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun CharArray.filter(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.filter(local predicate: (Char) -> Boolean): List<Char> {
     return filterTo(ArrayList<Char>(), predicate)
 }
 
@@ -4017,7 +4017,7 @@ public inline fun CharArray.filter(predicate: (Char) -> Boolean): List<Char> {
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun <T> Array<out T>.filterIndexed(predicate: (index: Int, T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.filterIndexed(local predicate: (index: Int, T) -> Boolean): List<T> {
     return filterIndexedTo(ArrayList<T>(), predicate)
 }
 
@@ -4028,7 +4028,7 @@ public inline fun <T> Array<out T>.filterIndexed(predicate: (index: Int, T) -> B
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun ByteArray.filterIndexed(predicate: (index: Int, Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.filterIndexed(local predicate: (index: Int, Byte) -> Boolean): List<Byte> {
     return filterIndexedTo(ArrayList<Byte>(), predicate)
 }
 
@@ -4039,7 +4039,7 @@ public inline fun ByteArray.filterIndexed(predicate: (index: Int, Byte) -> Boole
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun ShortArray.filterIndexed(predicate: (index: Int, Short) -> Boolean): List<Short> {
+public inline fun ShortArray.filterIndexed(local predicate: (index: Int, Short) -> Boolean): List<Short> {
     return filterIndexedTo(ArrayList<Short>(), predicate)
 }
 
@@ -4050,7 +4050,7 @@ public inline fun ShortArray.filterIndexed(predicate: (index: Int, Short) -> Boo
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun IntArray.filterIndexed(predicate: (index: Int, Int) -> Boolean): List<Int> {
+public inline fun IntArray.filterIndexed(local predicate: (index: Int, Int) -> Boolean): List<Int> {
     return filterIndexedTo(ArrayList<Int>(), predicate)
 }
 
@@ -4061,7 +4061,7 @@ public inline fun IntArray.filterIndexed(predicate: (index: Int, Int) -> Boolean
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun LongArray.filterIndexed(predicate: (index: Int, Long) -> Boolean): List<Long> {
+public inline fun LongArray.filterIndexed(local predicate: (index: Int, Long) -> Boolean): List<Long> {
     return filterIndexedTo(ArrayList<Long>(), predicate)
 }
 
@@ -4072,7 +4072,7 @@ public inline fun LongArray.filterIndexed(predicate: (index: Int, Long) -> Boole
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun FloatArray.filterIndexed(predicate: (index: Int, Float) -> Boolean): List<Float> {
+public inline fun FloatArray.filterIndexed(local predicate: (index: Int, Float) -> Boolean): List<Float> {
     return filterIndexedTo(ArrayList<Float>(), predicate)
 }
 
@@ -4083,7 +4083,7 @@ public inline fun FloatArray.filterIndexed(predicate: (index: Int, Float) -> Boo
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun DoubleArray.filterIndexed(predicate: (index: Int, Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.filterIndexed(local predicate: (index: Int, Double) -> Boolean): List<Double> {
     return filterIndexedTo(ArrayList<Double>(), predicate)
 }
 
@@ -4094,7 +4094,7 @@ public inline fun DoubleArray.filterIndexed(predicate: (index: Int, Double) -> B
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun BooleanArray.filterIndexed(predicate: (index: Int, Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.filterIndexed(local predicate: (index: Int, Boolean) -> Boolean): List<Boolean> {
     return filterIndexedTo(ArrayList<Boolean>(), predicate)
 }
 
@@ -4105,7 +4105,7 @@ public inline fun BooleanArray.filterIndexed(predicate: (index: Int, Boolean) ->
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun CharArray.filterIndexed(predicate: (index: Int, Char) -> Boolean): List<Char> {
+public inline fun CharArray.filterIndexed(local predicate: (index: Int, Char) -> Boolean): List<Char> {
     return filterIndexedTo(ArrayList<Char>(), predicate)
 }
 
@@ -4117,7 +4117,7 @@ public inline fun CharArray.filterIndexed(predicate: (index: Int, Char) -> Boole
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterIndexedTo(destination: C, predicate: (index: Int, T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterIndexedTo(local destination: C, local predicate: (index: Int, T) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4132,7 +4132,7 @@ public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterIndexedTo(
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Byte>> ByteArray.filterIndexedTo(destination: C, predicate: (index: Int, Byte) -> Boolean): C {
+public inline fun <C : MutableCollection<in Byte>> ByteArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Byte) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4147,7 +4147,7 @@ public inline fun <C : MutableCollection<in Byte>> ByteArray.filterIndexedTo(des
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Short>> ShortArray.filterIndexedTo(destination: C, predicate: (index: Int, Short) -> Boolean): C {
+public inline fun <C : MutableCollection<in Short>> ShortArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Short) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4162,7 +4162,7 @@ public inline fun <C : MutableCollection<in Short>> ShortArray.filterIndexedTo(d
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Int>> IntArray.filterIndexedTo(destination: C, predicate: (index: Int, Int) -> Boolean): C {
+public inline fun <C : MutableCollection<in Int>> IntArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Int) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4177,7 +4177,7 @@ public inline fun <C : MutableCollection<in Int>> IntArray.filterIndexedTo(desti
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Long>> LongArray.filterIndexedTo(destination: C, predicate: (index: Int, Long) -> Boolean): C {
+public inline fun <C : MutableCollection<in Long>> LongArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Long) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4192,7 +4192,7 @@ public inline fun <C : MutableCollection<in Long>> LongArray.filterIndexedTo(des
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Float>> FloatArray.filterIndexedTo(destination: C, predicate: (index: Int, Float) -> Boolean): C {
+public inline fun <C : MutableCollection<in Float>> FloatArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Float) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4207,7 +4207,7 @@ public inline fun <C : MutableCollection<in Float>> FloatArray.filterIndexedTo(d
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Double>> DoubleArray.filterIndexedTo(destination: C, predicate: (index: Int, Double) -> Boolean): C {
+public inline fun <C : MutableCollection<in Double>> DoubleArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Double) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4222,7 +4222,7 @@ public inline fun <C : MutableCollection<in Double>> DoubleArray.filterIndexedTo
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterIndexedTo(destination: C, predicate: (index: Int, Boolean) -> Boolean): C {
+public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Boolean) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4237,7 +4237,7 @@ public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterIndexed
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Char>> CharArray.filterIndexedTo(destination: C, predicate: (index: Int, Char) -> Boolean): C {
+public inline fun <C : MutableCollection<in Char>> CharArray.filterIndexedTo(local destination: C, local predicate: (index: Int, Char) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -4259,7 +4259,7 @@ public inline fun <reified R> Array<*>.filterIsInstance(): List<@kotlin.internal
  * @sample samples.collections.Collections.Filtering.filterIsInstanceTo
  */
 @IgnorableReturnValue
-public inline fun <reified R, C : MutableCollection<in R>> Array<*>.filterIsInstanceTo(destination: C): C {
+public inline fun <reified R, C : MutableCollection<in R>> Array<*>.filterIsInstanceTo(local destination: C): C_{destination} {
     for (element in this) if (element is R) destination.add(element)
     return destination
 }
@@ -4269,7 +4269,7 @@ public inline fun <reified R, C : MutableCollection<in R>> Array<*>.filterIsInst
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun <T> Array<out T>.filterNot(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.filterNot(local predicate: (T) -> Boolean): List<T> {
     return filterNotTo(ArrayList<T>(), predicate)
 }
 
@@ -4278,7 +4278,7 @@ public inline fun <T> Array<out T>.filterNot(predicate: (T) -> Boolean): List<T>
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun ByteArray.filterNot(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.filterNot(local predicate: (Byte) -> Boolean): List<Byte> {
     return filterNotTo(ArrayList<Byte>(), predicate)
 }
 
@@ -4287,7 +4287,7 @@ public inline fun ByteArray.filterNot(predicate: (Byte) -> Boolean): List<Byte> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun ShortArray.filterNot(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.filterNot(local predicate: (Short) -> Boolean): List<Short> {
     return filterNotTo(ArrayList<Short>(), predicate)
 }
 
@@ -4296,7 +4296,7 @@ public inline fun ShortArray.filterNot(predicate: (Short) -> Boolean): List<Shor
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun IntArray.filterNot(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.filterNot(local predicate: (Int) -> Boolean): List<Int> {
     return filterNotTo(ArrayList<Int>(), predicate)
 }
 
@@ -4305,7 +4305,7 @@ public inline fun IntArray.filterNot(predicate: (Int) -> Boolean): List<Int> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun LongArray.filterNot(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.filterNot(local predicate: (Long) -> Boolean): List<Long> {
     return filterNotTo(ArrayList<Long>(), predicate)
 }
 
@@ -4314,7 +4314,7 @@ public inline fun LongArray.filterNot(predicate: (Long) -> Boolean): List<Long> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun FloatArray.filterNot(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.filterNot(local predicate: (Float) -> Boolean): List<Float> {
     return filterNotTo(ArrayList<Float>(), predicate)
 }
 
@@ -4323,7 +4323,7 @@ public inline fun FloatArray.filterNot(predicate: (Float) -> Boolean): List<Floa
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun DoubleArray.filterNot(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.filterNot(local predicate: (Double) -> Boolean): List<Double> {
     return filterNotTo(ArrayList<Double>(), predicate)
 }
 
@@ -4332,7 +4332,7 @@ public inline fun DoubleArray.filterNot(predicate: (Double) -> Boolean): List<Do
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun BooleanArray.filterNot(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.filterNot(local predicate: (Boolean) -> Boolean): List<Boolean> {
     return filterNotTo(ArrayList<Boolean>(), predicate)
 }
 
@@ -4341,7 +4341,7 @@ public inline fun BooleanArray.filterNot(predicate: (Boolean) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun CharArray.filterNot(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.filterNot(local predicate: (Char) -> Boolean): List<Char> {
     return filterNotTo(ArrayList<Char>(), predicate)
 }
 
@@ -4360,7 +4360,7 @@ public fun <T : Any> Array<out T?>.filterNotNull(): List<T> {
  * @sample samples.collections.Collections.Filtering.filterNotNullTo
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in T>, T : Any> Array<out T?>.filterNotNullTo(destination: C): C {
+public fun <C : MutableCollection<in T>, T : Any> Array<out T?>.filterNotNullTo(local destination: C): C_{destination} {
     for (element in this) if (element != null) destination.add(element)
     return destination
 }
@@ -4371,7 +4371,7 @@ public fun <C : MutableCollection<in T>, T : Any> Array<out T?>.filterNotNullTo(
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterNotTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterNotTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4382,7 +4382,7 @@ public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterNotTo(dest
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Byte>> ByteArray.filterNotTo(destination: C, predicate: (Byte) -> Boolean): C {
+public inline fun <C : MutableCollection<in Byte>> ByteArray.filterNotTo(local destination: C, local predicate: (Byte) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4393,7 +4393,7 @@ public inline fun <C : MutableCollection<in Byte>> ByteArray.filterNotTo(destina
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Short>> ShortArray.filterNotTo(destination: C, predicate: (Short) -> Boolean): C {
+public inline fun <C : MutableCollection<in Short>> ShortArray.filterNotTo(local destination: C, local predicate: (Short) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4404,7 +4404,7 @@ public inline fun <C : MutableCollection<in Short>> ShortArray.filterNotTo(desti
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Int>> IntArray.filterNotTo(destination: C, predicate: (Int) -> Boolean): C {
+public inline fun <C : MutableCollection<in Int>> IntArray.filterNotTo(local destination: C, local predicate: (Int) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4415,7 +4415,7 @@ public inline fun <C : MutableCollection<in Int>> IntArray.filterNotTo(destinati
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Long>> LongArray.filterNotTo(destination: C, predicate: (Long) -> Boolean): C {
+public inline fun <C : MutableCollection<in Long>> LongArray.filterNotTo(local destination: C, local predicate: (Long) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4426,7 +4426,7 @@ public inline fun <C : MutableCollection<in Long>> LongArray.filterNotTo(destina
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Float>> FloatArray.filterNotTo(destination: C, predicate: (Float) -> Boolean): C {
+public inline fun <C : MutableCollection<in Float>> FloatArray.filterNotTo(local destination: C, local predicate: (Float) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4437,7 +4437,7 @@ public inline fun <C : MutableCollection<in Float>> FloatArray.filterNotTo(desti
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Double>> DoubleArray.filterNotTo(destination: C, predicate: (Double) -> Boolean): C {
+public inline fun <C : MutableCollection<in Double>> DoubleArray.filterNotTo(local destination: C, local predicate: (Double) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4448,7 +4448,7 @@ public inline fun <C : MutableCollection<in Double>> DoubleArray.filterNotTo(des
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterNotTo(destination: C, predicate: (Boolean) -> Boolean): C {
+public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterNotTo(local destination: C, local predicate: (Boolean) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4459,7 +4459,7 @@ public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterNotTo(d
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Char>> CharArray.filterNotTo(destination: C, predicate: (Char) -> Boolean): C {
+public inline fun <C : MutableCollection<in Char>> CharArray.filterNotTo(local destination: C, local predicate: (Char) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -4470,7 +4470,7 @@ public inline fun <C : MutableCollection<in Char>> CharArray.filterNotTo(destina
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4481,7 +4481,7 @@ public inline fun <T, C : MutableCollection<in T>> Array<out T>.filterTo(destina
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Byte>> ByteArray.filterTo(destination: C, predicate: (Byte) -> Boolean): C {
+public inline fun <C : MutableCollection<in Byte>> ByteArray.filterTo(local destination: C, local predicate: (Byte) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4492,7 +4492,7 @@ public inline fun <C : MutableCollection<in Byte>> ByteArray.filterTo(destinatio
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Short>> ShortArray.filterTo(destination: C, predicate: (Short) -> Boolean): C {
+public inline fun <C : MutableCollection<in Short>> ShortArray.filterTo(local destination: C, local predicate: (Short) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4503,7 +4503,7 @@ public inline fun <C : MutableCollection<in Short>> ShortArray.filterTo(destinat
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Int>> IntArray.filterTo(destination: C, predicate: (Int) -> Boolean): C {
+public inline fun <C : MutableCollection<in Int>> IntArray.filterTo(local destination: C, local predicate: (Int) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4514,7 +4514,7 @@ public inline fun <C : MutableCollection<in Int>> IntArray.filterTo(destination:
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Long>> LongArray.filterTo(destination: C, predicate: (Long) -> Boolean): C {
+public inline fun <C : MutableCollection<in Long>> LongArray.filterTo(local destination: C, local predicate: (Long) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4525,7 +4525,7 @@ public inline fun <C : MutableCollection<in Long>> LongArray.filterTo(destinatio
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Float>> FloatArray.filterTo(destination: C, predicate: (Float) -> Boolean): C {
+public inline fun <C : MutableCollection<in Float>> FloatArray.filterTo(local destination: C, local predicate: (Float) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4536,7 +4536,7 @@ public inline fun <C : MutableCollection<in Float>> FloatArray.filterTo(destinat
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Double>> DoubleArray.filterTo(destination: C, predicate: (Double) -> Boolean): C {
+public inline fun <C : MutableCollection<in Double>> DoubleArray.filterTo(local destination: C, local predicate: (Double) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4547,7 +4547,7 @@ public inline fun <C : MutableCollection<in Double>> DoubleArray.filterTo(destin
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterTo(destination: C, predicate: (Boolean) -> Boolean): C {
+public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterTo(local destination: C, local predicate: (Boolean) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4558,7 +4558,7 @@ public inline fun <C : MutableCollection<in Boolean>> BooleanArray.filterTo(dest
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <C : MutableCollection<in Char>> CharArray.filterTo(destination: C, predicate: (Char) -> Boolean): C {
+public inline fun <C : MutableCollection<in Char>> CharArray.filterTo(local destination: C, local predicate: (Char) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -4638,7 +4638,7 @@ public fun CharArray.slice(indices: IntRange): List<Char> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun <T> Array<out T>.slice(indices: Iterable<Int>): List<T> {
+public fun <T> Array<out T>.slice(local indices: Iterable<Int>): List<T> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<T>(size)
@@ -4651,7 +4651,7 @@ public fun <T> Array<out T>.slice(indices: Iterable<Int>): List<T> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun ByteArray.slice(indices: Iterable<Int>): List<Byte> {
+public fun ByteArray.slice(local indices: Iterable<Int>): List<Byte> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Byte>(size)
@@ -4664,7 +4664,7 @@ public fun ByteArray.slice(indices: Iterable<Int>): List<Byte> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun ShortArray.slice(indices: Iterable<Int>): List<Short> {
+public fun ShortArray.slice(local indices: Iterable<Int>): List<Short> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Short>(size)
@@ -4677,7 +4677,7 @@ public fun ShortArray.slice(indices: Iterable<Int>): List<Short> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun IntArray.slice(indices: Iterable<Int>): List<Int> {
+public fun IntArray.slice(local indices: Iterable<Int>): List<Int> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Int>(size)
@@ -4690,7 +4690,7 @@ public fun IntArray.slice(indices: Iterable<Int>): List<Int> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun LongArray.slice(indices: Iterable<Int>): List<Long> {
+public fun LongArray.slice(local indices: Iterable<Int>): List<Long> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Long>(size)
@@ -4703,7 +4703,7 @@ public fun LongArray.slice(indices: Iterable<Int>): List<Long> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun FloatArray.slice(indices: Iterable<Int>): List<Float> {
+public fun FloatArray.slice(local indices: Iterable<Int>): List<Float> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Float>(size)
@@ -4716,7 +4716,7 @@ public fun FloatArray.slice(indices: Iterable<Int>): List<Float> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun DoubleArray.slice(indices: Iterable<Int>): List<Double> {
+public fun DoubleArray.slice(local indices: Iterable<Int>): List<Double> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Double>(size)
@@ -4729,7 +4729,7 @@ public fun DoubleArray.slice(indices: Iterable<Int>): List<Double> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun BooleanArray.slice(indices: Iterable<Int>): List<Boolean> {
+public fun BooleanArray.slice(local indices: Iterable<Int>): List<Boolean> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Boolean>(size)
@@ -4742,7 +4742,7 @@ public fun BooleanArray.slice(indices: Iterable<Int>): List<Boolean> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun CharArray.slice(indices: Iterable<Int>): List<Char> {
+public fun CharArray.slice(local indices: Iterable<Int>): List<Char> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<Char>(size)
@@ -4755,7 +4755,7 @@ public fun CharArray.slice(indices: Iterable<Int>): List<Char> {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun <T> Array<T>.sliceArray(indices: Collection<Int>): Array<T> {
+public fun <T> Array<T>.sliceArray(local indices: Collection<Int>): Array<T> {
     val result = arrayOfNulls(this, indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4767,7 +4767,7 @@ public fun <T> Array<T>.sliceArray(indices: Collection<Int>): Array<T> {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun ByteArray.sliceArray(indices: Collection<Int>): ByteArray {
+public fun ByteArray.sliceArray(local indices: Collection<Int>): ByteArray {
     val result = ByteArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4779,7 +4779,7 @@ public fun ByteArray.sliceArray(indices: Collection<Int>): ByteArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun ShortArray.sliceArray(indices: Collection<Int>): ShortArray {
+public fun ShortArray.sliceArray(local indices: Collection<Int>): ShortArray {
     val result = ShortArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4791,7 +4791,7 @@ public fun ShortArray.sliceArray(indices: Collection<Int>): ShortArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun IntArray.sliceArray(indices: Collection<Int>): IntArray {
+public fun IntArray.sliceArray(local indices: Collection<Int>): IntArray {
     val result = IntArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4803,7 +4803,7 @@ public fun IntArray.sliceArray(indices: Collection<Int>): IntArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun LongArray.sliceArray(indices: Collection<Int>): LongArray {
+public fun LongArray.sliceArray(local indices: Collection<Int>): LongArray {
     val result = LongArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4815,7 +4815,7 @@ public fun LongArray.sliceArray(indices: Collection<Int>): LongArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun FloatArray.sliceArray(indices: Collection<Int>): FloatArray {
+public fun FloatArray.sliceArray(local indices: Collection<Int>): FloatArray {
     val result = FloatArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4827,7 +4827,7 @@ public fun FloatArray.sliceArray(indices: Collection<Int>): FloatArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun DoubleArray.sliceArray(indices: Collection<Int>): DoubleArray {
+public fun DoubleArray.sliceArray(local indices: Collection<Int>): DoubleArray {
     val result = DoubleArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4839,7 +4839,7 @@ public fun DoubleArray.sliceArray(indices: Collection<Int>): DoubleArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun BooleanArray.sliceArray(indices: Collection<Int>): BooleanArray {
+public fun BooleanArray.sliceArray(local indices: Collection<Int>): BooleanArray {
     val result = BooleanArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -4851,7 +4851,7 @@ public fun BooleanArray.sliceArray(indices: Collection<Int>): BooleanArray {
 /**
  * Returns an array containing elements of this array at specified [indices].
  */
-public fun CharArray.sliceArray(indices: Collection<Int>): CharArray {
+public fun CharArray.sliceArray(local indices: Collection<Int>): CharArray {
     val result = CharArray(indices.size)
     var targetIndex = 0
     for (sourceIndex in indices) {
@@ -5296,7 +5296,7 @@ public fun CharArray.takeLast(n: Int): List<Char> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun <T> Array<out T>.takeLastWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.takeLastWhile(local predicate: (T) -> Boolean): List<T> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5310,7 +5310,7 @@ public inline fun <T> Array<out T>.takeLastWhile(predicate: (T) -> Boolean): Lis
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun ByteArray.takeLastWhile(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.takeLastWhile(local predicate: (Byte) -> Boolean): List<Byte> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5324,7 +5324,7 @@ public inline fun ByteArray.takeLastWhile(predicate: (Byte) -> Boolean): List<By
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun ShortArray.takeLastWhile(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.takeLastWhile(local predicate: (Short) -> Boolean): List<Short> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5338,7 +5338,7 @@ public inline fun ShortArray.takeLastWhile(predicate: (Short) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun IntArray.takeLastWhile(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.takeLastWhile(local predicate: (Int) -> Boolean): List<Int> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5352,7 +5352,7 @@ public inline fun IntArray.takeLastWhile(predicate: (Int) -> Boolean): List<Int>
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun LongArray.takeLastWhile(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.takeLastWhile(local predicate: (Long) -> Boolean): List<Long> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5366,7 +5366,7 @@ public inline fun LongArray.takeLastWhile(predicate: (Long) -> Boolean): List<Lo
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun FloatArray.takeLastWhile(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.takeLastWhile(local predicate: (Float) -> Boolean): List<Float> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5380,7 +5380,7 @@ public inline fun FloatArray.takeLastWhile(predicate: (Float) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun DoubleArray.takeLastWhile(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.takeLastWhile(local predicate: (Double) -> Boolean): List<Double> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5394,7 +5394,7 @@ public inline fun DoubleArray.takeLastWhile(predicate: (Double) -> Boolean): Lis
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun BooleanArray.takeLastWhile(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.takeLastWhile(local predicate: (Boolean) -> Boolean): List<Boolean> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5408,7 +5408,7 @@ public inline fun BooleanArray.takeLastWhile(predicate: (Boolean) -> Boolean): L
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun CharArray.takeLastWhile(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.takeLastWhile(local predicate: (Char) -> Boolean): List<Char> {
     for (index in lastIndex downTo 0) {
         if (!predicate(this[index])) {
             return drop(index + 1)
@@ -5422,7 +5422,7 @@ public inline fun CharArray.takeLastWhile(predicate: (Char) -> Boolean): List<Ch
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun <T> Array<out T>.takeWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> Array<out T>.takeWhile(local predicate: (T) -> Boolean): List<T> {
     var i = 0
     while (i < size && predicate(this[i])) i++
     return if (i == 0) emptyList()
@@ -5435,7 +5435,7 @@ public inline fun <T> Array<out T>.takeWhile(predicate: (T) -> Boolean): List<T>
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun ByteArray.takeWhile(predicate: (Byte) -> Boolean): List<Byte> {
+public inline fun ByteArray.takeWhile(local predicate: (Byte) -> Boolean): List<Byte> {
     val list = ArrayList<Byte>()
     for (item in this) {
         if (!predicate(item))
@@ -5450,7 +5450,7 @@ public inline fun ByteArray.takeWhile(predicate: (Byte) -> Boolean): List<Byte> 
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun ShortArray.takeWhile(predicate: (Short) -> Boolean): List<Short> {
+public inline fun ShortArray.takeWhile(local predicate: (Short) -> Boolean): List<Short> {
     val list = ArrayList<Short>()
     for (item in this) {
         if (!predicate(item))
@@ -5465,7 +5465,7 @@ public inline fun ShortArray.takeWhile(predicate: (Short) -> Boolean): List<Shor
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun IntArray.takeWhile(predicate: (Int) -> Boolean): List<Int> {
+public inline fun IntArray.takeWhile(local predicate: (Int) -> Boolean): List<Int> {
     val list = ArrayList<Int>()
     for (item in this) {
         if (!predicate(item))
@@ -5480,7 +5480,7 @@ public inline fun IntArray.takeWhile(predicate: (Int) -> Boolean): List<Int> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun LongArray.takeWhile(predicate: (Long) -> Boolean): List<Long> {
+public inline fun LongArray.takeWhile(local predicate: (Long) -> Boolean): List<Long> {
     val list = ArrayList<Long>()
     for (item in this) {
         if (!predicate(item))
@@ -5495,7 +5495,7 @@ public inline fun LongArray.takeWhile(predicate: (Long) -> Boolean): List<Long> 
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun FloatArray.takeWhile(predicate: (Float) -> Boolean): List<Float> {
+public inline fun FloatArray.takeWhile(local predicate: (Float) -> Boolean): List<Float> {
     val list = ArrayList<Float>()
     for (item in this) {
         if (!predicate(item))
@@ -5510,7 +5510,7 @@ public inline fun FloatArray.takeWhile(predicate: (Float) -> Boolean): List<Floa
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun DoubleArray.takeWhile(predicate: (Double) -> Boolean): List<Double> {
+public inline fun DoubleArray.takeWhile(local predicate: (Double) -> Boolean): List<Double> {
     val list = ArrayList<Double>()
     for (item in this) {
         if (!predicate(item))
@@ -5525,7 +5525,7 @@ public inline fun DoubleArray.takeWhile(predicate: (Double) -> Boolean): List<Do
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun BooleanArray.takeWhile(predicate: (Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.takeWhile(local predicate: (Boolean) -> Boolean): List<Boolean> {
     val list = ArrayList<Boolean>()
     for (item in this) {
         if (!predicate(item))
@@ -5540,7 +5540,7 @@ public inline fun BooleanArray.takeWhile(predicate: (Boolean) -> Boolean): List<
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun CharArray.takeWhile(predicate: (Char) -> Boolean): List<Char> {
+public inline fun CharArray.takeWhile(local predicate: (Char) -> Boolean): List<Char> {
     val list = ArrayList<Char>()
     for (item in this) {
         if (!predicate(item))
@@ -6305,7 +6305,7 @@ public fun CharArray.shuffle(random: Random): Unit {
  * 
  * @sample samples.collections.Collections.Sorting.sortBy
  */
-public inline fun <T, R : Comparable<R>> Array<out T>.sortBy(crossinline selector: (T) -> R?): Unit {
+public inline fun <T, R : Comparable<R>> Array<out T>.sortBy(local selector: (T) -> R?): Unit {
     if (size > 1) sortWith(compareBy(selector))
 }
 
@@ -6317,7 +6317,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.sortBy(crossinline selecto
  * 
  * @sample samples.collections.Collections.Sorting.sortByDescending
  */
-public inline fun <T, R : Comparable<R>> Array<out T>.sortByDescending(crossinline selector: (T) -> R?): Unit {
+public inline fun <T, R : Comparable<R>> Array<out T>.sortByDescending(local selector: (T) -> R?): Unit {
     if (size > 1) sortWith(compareByDescending(selector))
 }
 
@@ -6595,7 +6595,7 @@ public fun CharArray.sortedArrayDescending(): CharArray {
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T> Array<out T>.sortedArrayWith(comparator: Comparator<in T>): Array<out T> {
+public fun <T> Array<out T>.sortedArrayWith(local comparator: Comparator<in T>): Array<out T> {
     if (isEmpty()) return this
     return this.copyOf().apply { sortWith(comparator) }
 }
@@ -6608,7 +6608,7 @@ public fun <T> Array<out T>.sortedArrayWith(comparator: Comparator<in T>): Array
  * 
  * @sample samples.collections.Collections.Sorting.sortedBy
  */
-public inline fun <T, R : Comparable<R>> Array<out T>.sortedBy(crossinline selector: (T) -> R?): List<T> {
+public inline fun <T, R : Comparable<R>> Array<out T>.sortedBy(local selector: (T) -> R?): List<T> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6620,7 +6620,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.sortedBy(crossinline selec
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> ByteArray.sortedBy(crossinline selector: (Byte) -> R?): List<Byte> {
+public inline fun <R : Comparable<R>> ByteArray.sortedBy(local selector: (Byte) -> R?): List<Byte> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6632,7 +6632,7 @@ public inline fun <R : Comparable<R>> ByteArray.sortedBy(crossinline selector: (
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> ShortArray.sortedBy(crossinline selector: (Short) -> R?): List<Short> {
+public inline fun <R : Comparable<R>> ShortArray.sortedBy(local selector: (Short) -> R?): List<Short> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6644,7 +6644,7 @@ public inline fun <R : Comparable<R>> ShortArray.sortedBy(crossinline selector: 
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> IntArray.sortedBy(crossinline selector: (Int) -> R?): List<Int> {
+public inline fun <R : Comparable<R>> IntArray.sortedBy(local selector: (Int) -> R?): List<Int> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6656,7 +6656,7 @@ public inline fun <R : Comparable<R>> IntArray.sortedBy(crossinline selector: (I
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> LongArray.sortedBy(crossinline selector: (Long) -> R?): List<Long> {
+public inline fun <R : Comparable<R>> LongArray.sortedBy(local selector: (Long) -> R?): List<Long> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6668,7 +6668,7 @@ public inline fun <R : Comparable<R>> LongArray.sortedBy(crossinline selector: (
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> FloatArray.sortedBy(crossinline selector: (Float) -> R?): List<Float> {
+public inline fun <R : Comparable<R>> FloatArray.sortedBy(local selector: (Float) -> R?): List<Float> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6680,7 +6680,7 @@ public inline fun <R : Comparable<R>> FloatArray.sortedBy(crossinline selector: 
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> DoubleArray.sortedBy(crossinline selector: (Double) -> R?): List<Double> {
+public inline fun <R : Comparable<R>> DoubleArray.sortedBy(local selector: (Double) -> R?): List<Double> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6692,7 +6692,7 @@ public inline fun <R : Comparable<R>> DoubleArray.sortedBy(crossinline selector:
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> BooleanArray.sortedBy(crossinline selector: (Boolean) -> R?): List<Boolean> {
+public inline fun <R : Comparable<R>> BooleanArray.sortedBy(local selector: (Boolean) -> R?): List<Boolean> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6704,7 +6704,7 @@ public inline fun <R : Comparable<R>> BooleanArray.sortedBy(crossinline selector
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayBy
  */
-public inline fun <R : Comparable<R>> CharArray.sortedBy(crossinline selector: (Char) -> R?): List<Char> {
+public inline fun <R : Comparable<R>> CharArray.sortedBy(local selector: (Char) -> R?): List<Char> {
     return sortedWith(compareBy(selector))
 }
 
@@ -6716,7 +6716,7 @@ public inline fun <R : Comparable<R>> CharArray.sortedBy(crossinline selector: (
  * 
  * @sample samples.collections.Collections.Sorting.sortedByDescending
  */
-public inline fun <T, R : Comparable<R>> Array<out T>.sortedByDescending(crossinline selector: (T) -> R?): List<T> {
+public inline fun <T, R : Comparable<R>> Array<out T>.sortedByDescending(local selector: (T) -> R?): List<T> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6728,7 +6728,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.sortedByDescending(crossin
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> ByteArray.sortedByDescending(crossinline selector: (Byte) -> R?): List<Byte> {
+public inline fun <R : Comparable<R>> ByteArray.sortedByDescending(local selector: (Byte) -> R?): List<Byte> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6740,7 +6740,7 @@ public inline fun <R : Comparable<R>> ByteArray.sortedByDescending(crossinline s
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> ShortArray.sortedByDescending(crossinline selector: (Short) -> R?): List<Short> {
+public inline fun <R : Comparable<R>> ShortArray.sortedByDescending(local selector: (Short) -> R?): List<Short> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6752,7 +6752,7 @@ public inline fun <R : Comparable<R>> ShortArray.sortedByDescending(crossinline 
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> IntArray.sortedByDescending(crossinline selector: (Int) -> R?): List<Int> {
+public inline fun <R : Comparable<R>> IntArray.sortedByDescending(local selector: (Int) -> R?): List<Int> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6764,7 +6764,7 @@ public inline fun <R : Comparable<R>> IntArray.sortedByDescending(crossinline se
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> LongArray.sortedByDescending(crossinline selector: (Long) -> R?): List<Long> {
+public inline fun <R : Comparable<R>> LongArray.sortedByDescending(local selector: (Long) -> R?): List<Long> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6776,7 +6776,7 @@ public inline fun <R : Comparable<R>> LongArray.sortedByDescending(crossinline s
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> FloatArray.sortedByDescending(crossinline selector: (Float) -> R?): List<Float> {
+public inline fun <R : Comparable<R>> FloatArray.sortedByDescending(local selector: (Float) -> R?): List<Float> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6788,7 +6788,7 @@ public inline fun <R : Comparable<R>> FloatArray.sortedByDescending(crossinline 
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> DoubleArray.sortedByDescending(crossinline selector: (Double) -> R?): List<Double> {
+public inline fun <R : Comparable<R>> DoubleArray.sortedByDescending(local selector: (Double) -> R?): List<Double> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6800,7 +6800,7 @@ public inline fun <R : Comparable<R>> DoubleArray.sortedByDescending(crossinline
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> BooleanArray.sortedByDescending(crossinline selector: (Boolean) -> R?): List<Boolean> {
+public inline fun <R : Comparable<R>> BooleanArray.sortedByDescending(local selector: (Boolean) -> R?): List<Boolean> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6812,7 +6812,7 @@ public inline fun <R : Comparable<R>> BooleanArray.sortedByDescending(crossinlin
  * 
  * @sample samples.collections.Collections.Sorting.sortedPrimitiveArrayByDescending
  */
-public inline fun <R : Comparable<R>> CharArray.sortedByDescending(crossinline selector: (Char) -> R?): List<Char> {
+public inline fun <R : Comparable<R>> CharArray.sortedByDescending(local selector: (Char) -> R?): List<Char> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -6879,63 +6879,63 @@ public fun CharArray.sortedDescending(): List<Char> {
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T> Array<out T>.sortedWith(comparator: Comparator<in T>): List<T> {
+public fun <T> Array<out T>.sortedWith(local comparator: Comparator<in T>): List<T> {
     return sortedArrayWith(comparator).asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun ByteArray.sortedWith(comparator: Comparator<in Byte>): List<Byte> {
+public fun ByteArray.sortedWith(local comparator: Comparator<in Byte>): List<Byte> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun ShortArray.sortedWith(comparator: Comparator<in Short>): List<Short> {
+public fun ShortArray.sortedWith(local comparator: Comparator<in Short>): List<Short> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun IntArray.sortedWith(comparator: Comparator<in Int>): List<Int> {
+public fun IntArray.sortedWith(local comparator: Comparator<in Int>): List<Int> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun LongArray.sortedWith(comparator: Comparator<in Long>): List<Long> {
+public fun LongArray.sortedWith(local comparator: Comparator<in Long>): List<Long> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun FloatArray.sortedWith(comparator: Comparator<in Float>): List<Float> {
+public fun FloatArray.sortedWith(local comparator: Comparator<in Float>): List<Float> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun DoubleArray.sortedWith(comparator: Comparator<in Double>): List<Double> {
+public fun DoubleArray.sortedWith(local comparator: Comparator<in Double>): List<Double> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun BooleanArray.sortedWith(comparator: Comparator<in Boolean>): List<Boolean> {
+public fun BooleanArray.sortedWith(local comparator: Comparator<in Boolean>): List<Boolean> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
 /**
  * Returns a list of all elements sorted according to the specified [comparator].
  */
-public fun CharArray.sortedWith(comparator: Comparator<in Char>): List<Char> {
+public fun CharArray.sortedWith(local comparator: Comparator<in Char>): List<Char> {
     return toTypedArray().apply { sortWith(comparator) }.asList()
 }
 
@@ -7695,7 +7695,7 @@ public expect fun <T> Array<T>.copyOf(newSize: Int): Array<T?>
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<T>.copyOf(newSize: Int, init: (Int) -> T): Array<T> {
+public inline fun <T> Array<T>.copyOf(newSize: Int, local init: (Int) -> T): Array<T> {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7722,7 +7722,7 @@ public inline fun <T> Array<T>.copyOf(newSize: Int, init: (Int) -> T): Array<T> 
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.copyOf(newSize: Int, init: (Int) -> Byte): ByteArray {
+public inline fun ByteArray.copyOf(newSize: Int, local init: (Int) -> Byte): ByteArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7749,7 +7749,7 @@ public inline fun ByteArray.copyOf(newSize: Int, init: (Int) -> Byte): ByteArray
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.copyOf(newSize: Int, init: (Int) -> Short): ShortArray {
+public inline fun ShortArray.copyOf(newSize: Int, local init: (Int) -> Short): ShortArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7776,7 +7776,7 @@ public inline fun ShortArray.copyOf(newSize: Int, init: (Int) -> Short): ShortAr
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun IntArray.copyOf(newSize: Int, init: (Int) -> Int): IntArray {
+public inline fun IntArray.copyOf(newSize: Int, local init: (Int) -> Int): IntArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7803,7 +7803,7 @@ public inline fun IntArray.copyOf(newSize: Int, init: (Int) -> Int): IntArray {
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun LongArray.copyOf(newSize: Int, init: (Int) -> Long): LongArray {
+public inline fun LongArray.copyOf(newSize: Int, local init: (Int) -> Long): LongArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7830,7 +7830,7 @@ public inline fun LongArray.copyOf(newSize: Int, init: (Int) -> Long): LongArray
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.copyOf(newSize: Int, init: (Int) -> Float): FloatArray {
+public inline fun FloatArray.copyOf(newSize: Int, local init: (Int) -> Float): FloatArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7857,7 +7857,7 @@ public inline fun FloatArray.copyOf(newSize: Int, init: (Int) -> Float): FloatAr
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.copyOf(newSize: Int, init: (Int) -> Double): DoubleArray {
+public inline fun DoubleArray.copyOf(newSize: Int, local init: (Int) -> Double): DoubleArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7884,7 +7884,7 @@ public inline fun DoubleArray.copyOf(newSize: Int, init: (Int) -> Double): Doubl
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.copyOf(newSize: Int, init: (Int) -> Boolean): BooleanArray {
+public inline fun BooleanArray.copyOf(newSize: Int, local init: (Int) -> Boolean): BooleanArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -7911,7 +7911,7 @@ public inline fun BooleanArray.copyOf(newSize: Int, init: (Int) -> Boolean): Boo
 @SinceKotlin("2.2")
 @ExperimentalStdlibApi
 @kotlin.internal.InlineOnly
-public inline fun CharArray.copyOf(newSize: Int, init: (Int) -> Char): CharArray {
+public inline fun CharArray.copyOf(newSize: Int, local init: (Int) -> Char): CharArray {
     require(newSize >= 0) { "Invalid new array size: $newSize." }
     val oldSize = size
     val copy = copyOf(newSize)
@@ -8428,47 +8428,47 @@ public expect operator fun CharArray.plus(element: Char): CharArray
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun <T> Array<T>.plus(elements: Collection<T>): Array<T>
+public expect operator fun <T> Array<T>.plus(local elements: Collection<T>): Array<T>
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun ByteArray.plus(elements: Collection<Byte>): ByteArray
+public expect operator fun ByteArray.plus(local elements: Collection<Byte>): ByteArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun ShortArray.plus(elements: Collection<Short>): ShortArray
+public expect operator fun ShortArray.plus(local elements: Collection<Short>): ShortArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun IntArray.plus(elements: Collection<Int>): IntArray
+public expect operator fun IntArray.plus(local elements: Collection<Int>): IntArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun LongArray.plus(elements: Collection<Long>): LongArray
+public expect operator fun LongArray.plus(local elements: Collection<Long>): LongArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun FloatArray.plus(elements: Collection<Float>): FloatArray
+public expect operator fun FloatArray.plus(local elements: Collection<Float>): FloatArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun DoubleArray.plus(elements: Collection<Double>): DoubleArray
+public expect operator fun DoubleArray.plus(local elements: Collection<Double>): DoubleArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun BooleanArray.plus(elements: Collection<Boolean>): BooleanArray
+public expect operator fun BooleanArray.plus(local elements: Collection<Boolean>): BooleanArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] collection.
  */
-public expect operator fun CharArray.plus(elements: Collection<Char>): CharArray
+public expect operator fun CharArray.plus(local elements: Collection<Char>): CharArray
 
 /**
  * Returns an array containing all elements of the original array and then all elements of the given [elements] array.
@@ -8839,7 +8839,7 @@ public expect fun <T> Array<out T>.sortWith(comparator: Comparator<in T>): Unit
  * @throws IndexOutOfBoundsException if [fromIndex] is less than zero or [toIndex] is greater than the size of this array.
  * @throws IllegalArgumentException if [fromIndex] is greater than [toIndex].
  */
-public expect fun <T> Array<out T>.sortWith(comparator: Comparator<in T>, fromIndex: Int = 0, toIndex: Int = size): Unit
+public expect fun <T> Array<out T>.sortWith(local comparator: Comparator<in T>, fromIndex: Int = 0, toIndex: Int = size): Unit
 
 /**
  * Returns an array of Boolean containing all of the elements of this generic array.
@@ -8947,7 +8947,7 @@ public expect fun CharArray.toTypedArray(): Array<Char>
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <T, K, V> Array<out T>.associate(transform: (T) -> Pair<K, V>): Map<K, V> {
+public inline fun <T, K, V> Array<out T>.associate(local transform: (T) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -8962,7 +8962,7 @@ public inline fun <T, K, V> Array<out T>.associate(transform: (T) -> Pair<K, V>)
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> ByteArray.associate(transform: (Byte) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> ByteArray.associate(local transform: (Byte) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -8977,7 +8977,7 @@ public inline fun <K, V> ByteArray.associate(transform: (Byte) -> Pair<K, V>): M
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> ShortArray.associate(transform: (Short) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> ShortArray.associate(local transform: (Short) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -8992,7 +8992,7 @@ public inline fun <K, V> ShortArray.associate(transform: (Short) -> Pair<K, V>):
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> IntArray.associate(transform: (Int) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> IntArray.associate(local transform: (Int) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9007,7 +9007,7 @@ public inline fun <K, V> IntArray.associate(transform: (Int) -> Pair<K, V>): Map
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> LongArray.associate(transform: (Long) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> LongArray.associate(local transform: (Long) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9022,7 +9022,7 @@ public inline fun <K, V> LongArray.associate(transform: (Long) -> Pair<K, V>): M
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> FloatArray.associate(transform: (Float) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> FloatArray.associate(local transform: (Float) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9037,7 +9037,7 @@ public inline fun <K, V> FloatArray.associate(transform: (Float) -> Pair<K, V>):
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> DoubleArray.associate(transform: (Double) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> DoubleArray.associate(local transform: (Double) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9052,7 +9052,7 @@ public inline fun <K, V> DoubleArray.associate(transform: (Double) -> Pair<K, V>
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> BooleanArray.associate(transform: (Boolean) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> BooleanArray.associate(local transform: (Boolean) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9067,7 +9067,7 @@ public inline fun <K, V> BooleanArray.associate(transform: (Boolean) -> Pair<K, 
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitives
  */
-public inline fun <K, V> CharArray.associate(transform: (Char) -> Pair<K, V>): Map<K, V> {
+public inline fun <K, V> CharArray.associate(local transform: (Char) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -9082,7 +9082,7 @@ public inline fun <K, V> CharArray.associate(transform: (Char) -> Pair<K, V>): M
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <T, K> Array<out T>.associateBy(keySelector: (T) -> K): Map<K, T> {
+public inline fun <T, K> Array<out T>.associateBy(local keySelector: (T) -> K): Map<K, T> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, T>(capacity), keySelector)
 }
@@ -9097,7 +9097,7 @@ public inline fun <T, K> Array<out T>.associateBy(keySelector: (T) -> K): Map<K,
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> ByteArray.associateBy(keySelector: (Byte) -> K): Map<K, Byte> {
+public inline fun <K> ByteArray.associateBy(local keySelector: (Byte) -> K): Map<K, Byte> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Byte>(capacity), keySelector)
 }
@@ -9112,7 +9112,7 @@ public inline fun <K> ByteArray.associateBy(keySelector: (Byte) -> K): Map<K, By
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> ShortArray.associateBy(keySelector: (Short) -> K): Map<K, Short> {
+public inline fun <K> ShortArray.associateBy(local keySelector: (Short) -> K): Map<K, Short> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Short>(capacity), keySelector)
 }
@@ -9127,7 +9127,7 @@ public inline fun <K> ShortArray.associateBy(keySelector: (Short) -> K): Map<K, 
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> IntArray.associateBy(keySelector: (Int) -> K): Map<K, Int> {
+public inline fun <K> IntArray.associateBy(local keySelector: (Int) -> K): Map<K, Int> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Int>(capacity), keySelector)
 }
@@ -9142,7 +9142,7 @@ public inline fun <K> IntArray.associateBy(keySelector: (Int) -> K): Map<K, Int>
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> LongArray.associateBy(keySelector: (Long) -> K): Map<K, Long> {
+public inline fun <K> LongArray.associateBy(local keySelector: (Long) -> K): Map<K, Long> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Long>(capacity), keySelector)
 }
@@ -9157,7 +9157,7 @@ public inline fun <K> LongArray.associateBy(keySelector: (Long) -> K): Map<K, Lo
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> FloatArray.associateBy(keySelector: (Float) -> K): Map<K, Float> {
+public inline fun <K> FloatArray.associateBy(local keySelector: (Float) -> K): Map<K, Float> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Float>(capacity), keySelector)
 }
@@ -9172,7 +9172,7 @@ public inline fun <K> FloatArray.associateBy(keySelector: (Float) -> K): Map<K, 
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> DoubleArray.associateBy(keySelector: (Double) -> K): Map<K, Double> {
+public inline fun <K> DoubleArray.associateBy(local keySelector: (Double) -> K): Map<K, Double> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Double>(capacity), keySelector)
 }
@@ -9187,7 +9187,7 @@ public inline fun <K> DoubleArray.associateBy(keySelector: (Double) -> K): Map<K
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> BooleanArray.associateBy(keySelector: (Boolean) -> K): Map<K, Boolean> {
+public inline fun <K> BooleanArray.associateBy(local keySelector: (Boolean) -> K): Map<K, Boolean> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Boolean>(capacity), keySelector)
 }
@@ -9202,7 +9202,7 @@ public inline fun <K> BooleanArray.associateBy(keySelector: (Boolean) -> K): Map
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesBy
  */
-public inline fun <K> CharArray.associateBy(keySelector: (Char) -> K): Map<K, Char> {
+public inline fun <K> CharArray.associateBy(local keySelector: (Char) -> K): Map<K, Char> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, Char>(capacity), keySelector)
 }
@@ -9216,7 +9216,7 @@ public inline fun <K> CharArray.associateBy(keySelector: (Char) -> K): Map<K, Ch
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <T, K, V> Array<out T>.associateBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, V> {
+public inline fun <T, K, V> Array<out T>.associateBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9230,7 +9230,7 @@ public inline fun <T, K, V> Array<out T>.associateBy(keySelector: (T) -> K, valu
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> ByteArray.associateBy(keySelector: (Byte) -> K, valueTransform: (Byte) -> V): Map<K, V> {
+public inline fun <K, V> ByteArray.associateBy(local keySelector: (Byte) -> K, local valueTransform: (Byte) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9244,7 +9244,7 @@ public inline fun <K, V> ByteArray.associateBy(keySelector: (Byte) -> K, valueTr
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> ShortArray.associateBy(keySelector: (Short) -> K, valueTransform: (Short) -> V): Map<K, V> {
+public inline fun <K, V> ShortArray.associateBy(local keySelector: (Short) -> K, local valueTransform: (Short) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9258,7 +9258,7 @@ public inline fun <K, V> ShortArray.associateBy(keySelector: (Short) -> K, value
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> IntArray.associateBy(keySelector: (Int) -> K, valueTransform: (Int) -> V): Map<K, V> {
+public inline fun <K, V> IntArray.associateBy(local keySelector: (Int) -> K, local valueTransform: (Int) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9272,7 +9272,7 @@ public inline fun <K, V> IntArray.associateBy(keySelector: (Int) -> K, valueTran
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> LongArray.associateBy(keySelector: (Long) -> K, valueTransform: (Long) -> V): Map<K, V> {
+public inline fun <K, V> LongArray.associateBy(local keySelector: (Long) -> K, local valueTransform: (Long) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9286,7 +9286,7 @@ public inline fun <K, V> LongArray.associateBy(keySelector: (Long) -> K, valueTr
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> FloatArray.associateBy(keySelector: (Float) -> K, valueTransform: (Float) -> V): Map<K, V> {
+public inline fun <K, V> FloatArray.associateBy(local keySelector: (Float) -> K, local valueTransform: (Float) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9300,7 +9300,7 @@ public inline fun <K, V> FloatArray.associateBy(keySelector: (Float) -> K, value
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> DoubleArray.associateBy(keySelector: (Double) -> K, valueTransform: (Double) -> V): Map<K, V> {
+public inline fun <K, V> DoubleArray.associateBy(local keySelector: (Double) -> K, local valueTransform: (Double) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9314,7 +9314,7 @@ public inline fun <K, V> DoubleArray.associateBy(keySelector: (Double) -> K, val
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> BooleanArray.associateBy(keySelector: (Boolean) -> K, valueTransform: (Boolean) -> V): Map<K, V> {
+public inline fun <K, V> BooleanArray.associateBy(local keySelector: (Boolean) -> K, local valueTransform: (Boolean) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9328,7 +9328,7 @@ public inline fun <K, V> BooleanArray.associateBy(keySelector: (Boolean) -> K, v
  * 
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByWithValueTransform
  */
-public inline fun <K, V> CharArray.associateBy(keySelector: (Char) -> K, valueTransform: (Char) -> V): Map<K, V> {
+public inline fun <K, V> CharArray.associateBy(local keySelector: (Char) -> K, local valueTransform: (Char) -> V): Map<K, V> {
     val capacity = mapCapacity(size).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -9343,7 +9343,7 @@ public inline fun <K, V> CharArray.associateBy(keySelector: (Char) -> K, valueTr
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, in T>> Array<out T>.associateByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, in T>> Array<out T>.associateByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9360,7 +9360,7 @@ public inline fun <T, K, M : MutableMap<in K, in T>> Array<out T>.associateByTo(
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Byte>> ByteArray.associateByTo(destination: M, keySelector: (Byte) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Byte>> ByteArray.associateByTo(local destination: M, local keySelector: (Byte) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9377,7 +9377,7 @@ public inline fun <K, M : MutableMap<in K, in Byte>> ByteArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Short>> ShortArray.associateByTo(destination: M, keySelector: (Short) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Short>> ShortArray.associateByTo(local destination: M, local keySelector: (Short) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9394,7 +9394,7 @@ public inline fun <K, M : MutableMap<in K, in Short>> ShortArray.associateByTo(d
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Int>> IntArray.associateByTo(destination: M, keySelector: (Int) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Int>> IntArray.associateByTo(local destination: M, local keySelector: (Int) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9411,7 +9411,7 @@ public inline fun <K, M : MutableMap<in K, in Int>> IntArray.associateByTo(desti
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Long>> LongArray.associateByTo(destination: M, keySelector: (Long) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Long>> LongArray.associateByTo(local destination: M, local keySelector: (Long) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9428,7 +9428,7 @@ public inline fun <K, M : MutableMap<in K, in Long>> LongArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Float>> FloatArray.associateByTo(destination: M, keySelector: (Float) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Float>> FloatArray.associateByTo(local destination: M, local keySelector: (Float) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9445,7 +9445,7 @@ public inline fun <K, M : MutableMap<in K, in Float>> FloatArray.associateByTo(d
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Double>> DoubleArray.associateByTo(destination: M, keySelector: (Double) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Double>> DoubleArray.associateByTo(local destination: M, local keySelector: (Double) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9462,7 +9462,7 @@ public inline fun <K, M : MutableMap<in K, in Double>> DoubleArray.associateByTo
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Boolean>> BooleanArray.associateByTo(destination: M, keySelector: (Boolean) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Boolean>> BooleanArray.associateByTo(local destination: M, local keySelector: (Boolean) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9479,7 +9479,7 @@ public inline fun <K, M : MutableMap<in K, in Boolean>> BooleanArray.associateBy
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByTo
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, in Char>> CharArray.associateByTo(destination: M, keySelector: (Char) -> K): M {
+public inline fun <K, M : MutableMap<in K, in Char>> CharArray.associateByTo(local destination: M, local keySelector: (Char) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -9496,7 +9496,7 @@ public inline fun <K, M : MutableMap<in K, in Char>> CharArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9513,7 +9513,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateBy
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateByTo(destination: M, keySelector: (Byte) -> K, valueTransform: (Byte) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateByTo(local destination: M, local keySelector: (Byte) -> K, local valueTransform: (Byte) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9530,7 +9530,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateByTo(destination: M, keySelector: (Short) -> K, valueTransform: (Short) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateByTo(local destination: M, local keySelector: (Short) -> K, local valueTransform: (Short) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9547,7 +9547,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateByTo(de
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateByTo(destination: M, keySelector: (Int) -> K, valueTransform: (Int) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateByTo(local destination: M, local keySelector: (Int) -> K, local valueTransform: (Int) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9564,7 +9564,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateByTo(dest
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateByTo(destination: M, keySelector: (Long) -> K, valueTransform: (Long) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateByTo(local destination: M, local keySelector: (Long) -> K, local valueTransform: (Long) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9581,7 +9581,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateByTo(destination: M, keySelector: (Float) -> K, valueTransform: (Float) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateByTo(local destination: M, local keySelector: (Float) -> K, local valueTransform: (Float) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9598,7 +9598,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateByTo(de
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateByTo(destination: M, keySelector: (Double) -> K, valueTransform: (Double) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateByTo(local destination: M, local keySelector: (Double) -> K, local valueTransform: (Double) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9615,7 +9615,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateByTo(d
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateByTo(destination: M, keySelector: (Boolean) -> K, valueTransform: (Boolean) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateByTo(local destination: M, local keySelector: (Boolean) -> K, local valueTransform: (Boolean) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9632,7 +9632,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateByTo(
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateByTo(destination: M, keySelector: (Char) -> K, valueTransform: (Char) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateByTo(local destination: M, local keySelector: (Char) -> K, local valueTransform: (Char) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -9648,7 +9648,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateByTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateTo(destination: M, transform: (T) -> Pair<K, V>): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateTo(local destination: M, local transform: (T) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9664,7 +9664,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Array<out T>.associateTo
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateTo(destination: M, transform: (Byte) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateTo(local destination: M, local transform: (Byte) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9680,7 +9680,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> ByteArray.associateTo(desti
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateTo(destination: M, transform: (Short) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateTo(local destination: M, local transform: (Short) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9696,7 +9696,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> ShortArray.associateTo(dest
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateTo(destination: M, transform: (Int) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateTo(local destination: M, local transform: (Int) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9712,7 +9712,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> IntArray.associateTo(destin
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateTo(destination: M, transform: (Long) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateTo(local destination: M, local transform: (Long) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9728,7 +9728,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> LongArray.associateTo(desti
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateTo(destination: M, transform: (Float) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateTo(local destination: M, local transform: (Float) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9744,7 +9744,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> FloatArray.associateTo(dest
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateTo(destination: M, transform: (Double) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateTo(local destination: M, local transform: (Double) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9760,7 +9760,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> DoubleArray.associateTo(des
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateTo(destination: M, transform: (Boolean) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateTo(local destination: M, local transform: (Boolean) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9776,7 +9776,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> BooleanArray.associateTo(de
  * @sample samples.collections.Arrays.Transformations.associateArrayOfPrimitivesTo
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateTo(destination: M, transform: (Char) -> Pair<K, V>): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateTo(local destination: M, local transform: (Char) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -9794,7 +9794,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> CharArray.associateTo(desti
  * @sample samples.collections.Collections.Transformations.associateWith
  */
 @SinceKotlin("1.4")
-public inline fun <K, V> Array<out K>.associateWith(valueSelector: (K) -> V): Map<K, V> {
+public inline fun <K, V> Array<out K>.associateWith(local valueSelector: (K) -> V): Map<K, V> {
     val result = LinkedHashMap<K, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9811,7 +9811,7 @@ public inline fun <K, V> Array<out K>.associateWith(valueSelector: (K) -> V): Ma
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> ByteArray.associateWith(valueSelector: (Byte) -> V): Map<Byte, V> {
+public inline fun <V> ByteArray.associateWith(local valueSelector: (Byte) -> V): Map<Byte, V> {
     val result = LinkedHashMap<Byte, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9828,7 +9828,7 @@ public inline fun <V> ByteArray.associateWith(valueSelector: (Byte) -> V): Map<B
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> ShortArray.associateWith(valueSelector: (Short) -> V): Map<Short, V> {
+public inline fun <V> ShortArray.associateWith(local valueSelector: (Short) -> V): Map<Short, V> {
     val result = LinkedHashMap<Short, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9845,7 +9845,7 @@ public inline fun <V> ShortArray.associateWith(valueSelector: (Short) -> V): Map
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> IntArray.associateWith(valueSelector: (Int) -> V): Map<Int, V> {
+public inline fun <V> IntArray.associateWith(local valueSelector: (Int) -> V): Map<Int, V> {
     val result = LinkedHashMap<Int, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9862,7 +9862,7 @@ public inline fun <V> IntArray.associateWith(valueSelector: (Int) -> V): Map<Int
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> LongArray.associateWith(valueSelector: (Long) -> V): Map<Long, V> {
+public inline fun <V> LongArray.associateWith(local valueSelector: (Long) -> V): Map<Long, V> {
     val result = LinkedHashMap<Long, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9879,7 +9879,7 @@ public inline fun <V> LongArray.associateWith(valueSelector: (Long) -> V): Map<L
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> FloatArray.associateWith(valueSelector: (Float) -> V): Map<Float, V> {
+public inline fun <V> FloatArray.associateWith(local valueSelector: (Float) -> V): Map<Float, V> {
     val result = LinkedHashMap<Float, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9896,7 +9896,7 @@ public inline fun <V> FloatArray.associateWith(valueSelector: (Float) -> V): Map
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> DoubleArray.associateWith(valueSelector: (Double) -> V): Map<Double, V> {
+public inline fun <V> DoubleArray.associateWith(local valueSelector: (Double) -> V): Map<Double, V> {
     val result = LinkedHashMap<Double, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9913,7 +9913,7 @@ public inline fun <V> DoubleArray.associateWith(valueSelector: (Double) -> V): M
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> BooleanArray.associateWith(valueSelector: (Boolean) -> V): Map<Boolean, V> {
+public inline fun <V> BooleanArray.associateWith(local valueSelector: (Boolean) -> V): Map<Boolean, V> {
     val result = LinkedHashMap<Boolean, V>(mapCapacity(size).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9930,7 +9930,7 @@ public inline fun <V> BooleanArray.associateWith(valueSelector: (Boolean) -> V):
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <V> CharArray.associateWith(valueSelector: (Char) -> V): Map<Char, V> {
+public inline fun <V> CharArray.associateWith(local valueSelector: (Char) -> V): Map<Char, V> {
     val result = LinkedHashMap<Char, V>(mapCapacity(size.coerceAtMost(128)).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -9945,7 +9945,7 @@ public inline fun <V> CharArray.associateWith(valueSelector: (Char) -> V): Map<C
  */
 @SinceKotlin("1.4")
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> Array<out K>.associateWithTo(destination: M, valueSelector: (K) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> Array<out K>.associateWithTo(local destination: M, local valueSelector: (K) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -9963,7 +9963,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> Array<out K>.associateWithT
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Byte, in V>> ByteArray.associateWithTo(destination: M, valueSelector: (Byte) -> V): M {
+public inline fun <V, M : MutableMap<in Byte, in V>> ByteArray.associateWithTo(local destination: M, local valueSelector: (Byte) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -9981,7 +9981,7 @@ public inline fun <V, M : MutableMap<in Byte, in V>> ByteArray.associateWithTo(d
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Short, in V>> ShortArray.associateWithTo(destination: M, valueSelector: (Short) -> V): M {
+public inline fun <V, M : MutableMap<in Short, in V>> ShortArray.associateWithTo(local destination: M, local valueSelector: (Short) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -9999,7 +9999,7 @@ public inline fun <V, M : MutableMap<in Short, in V>> ShortArray.associateWithTo
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Int, in V>> IntArray.associateWithTo(destination: M, valueSelector: (Int) -> V): M {
+public inline fun <V, M : MutableMap<in Int, in V>> IntArray.associateWithTo(local destination: M, local valueSelector: (Int) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10017,7 +10017,7 @@ public inline fun <V, M : MutableMap<in Int, in V>> IntArray.associateWithTo(des
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Long, in V>> LongArray.associateWithTo(destination: M, valueSelector: (Long) -> V): M {
+public inline fun <V, M : MutableMap<in Long, in V>> LongArray.associateWithTo(local destination: M, local valueSelector: (Long) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10035,7 +10035,7 @@ public inline fun <V, M : MutableMap<in Long, in V>> LongArray.associateWithTo(d
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Float, in V>> FloatArray.associateWithTo(destination: M, valueSelector: (Float) -> V): M {
+public inline fun <V, M : MutableMap<in Float, in V>> FloatArray.associateWithTo(local destination: M, local valueSelector: (Float) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10053,7 +10053,7 @@ public inline fun <V, M : MutableMap<in Float, in V>> FloatArray.associateWithTo
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Double, in V>> DoubleArray.associateWithTo(destination: M, valueSelector: (Double) -> V): M {
+public inline fun <V, M : MutableMap<in Double, in V>> DoubleArray.associateWithTo(local destination: M, local valueSelector: (Double) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10071,7 +10071,7 @@ public inline fun <V, M : MutableMap<in Double, in V>> DoubleArray.associateWith
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Boolean, in V>> BooleanArray.associateWithTo(destination: M, valueSelector: (Boolean) -> V): M {
+public inline fun <V, M : MutableMap<in Boolean, in V>> BooleanArray.associateWithTo(local destination: M, local valueSelector: (Boolean) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10089,7 +10089,7 @@ public inline fun <V, M : MutableMap<in Boolean, in V>> BooleanArray.associateWi
 @SinceKotlin("1.4")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <V, M : MutableMap<in Char, in V>> CharArray.associateWithTo(destination: M, valueSelector: (Char) -> V): M {
+public inline fun <V, M : MutableMap<in Char, in V>> CharArray.associateWithTo(local destination: M, local valueSelector: (Char) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -10100,7 +10100,7 @@ public inline fun <V, M : MutableMap<in Char, in V>> CharArray.associateWithTo(d
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <T, C : MutableCollection<in T>> Array<out T>.toCollection(destination: C): C {
+public fun <T, C : MutableCollection<in T>> local Array<out T>.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10111,7 +10111,7 @@ public fun <T, C : MutableCollection<in T>> Array<out T>.toCollection(destinatio
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Byte>> ByteArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Byte>> ByteArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10122,7 +10122,7 @@ public fun <C : MutableCollection<in Byte>> ByteArray.toCollection(destination: 
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Short>> ShortArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Short>> ShortArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10133,7 +10133,7 @@ public fun <C : MutableCollection<in Short>> ShortArray.toCollection(destination
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Int>> IntArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Int>> IntArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10144,7 +10144,7 @@ public fun <C : MutableCollection<in Int>> IntArray.toCollection(destination: C)
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Long>> LongArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Long>> LongArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10155,7 +10155,7 @@ public fun <C : MutableCollection<in Long>> LongArray.toCollection(destination: 
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Float>> FloatArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Float>> FloatArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10166,7 +10166,7 @@ public fun <C : MutableCollection<in Float>> FloatArray.toCollection(destination
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Double>> DoubleArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Double>> DoubleArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10177,7 +10177,7 @@ public fun <C : MutableCollection<in Double>> DoubleArray.toCollection(destinati
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Boolean>> BooleanArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Boolean>> BooleanArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10188,7 +10188,7 @@ public fun <C : MutableCollection<in Boolean>> BooleanArray.toCollection(destina
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in Char>> CharArray.toCollection(destination: C): C {
+public fun <C : MutableCollection<in Char>> CharArray.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -10441,7 +10441,7 @@ public fun CharArray.toMutableList(): MutableList<Char> {
  * 
  * The returned set preserves the element iteration order of the original array.
  */
-public fun <T> Array<out T>.toSet(): Set<T> {
+public fun <T> local Array<out T>.toSet(): Set<T> {
     return when (size) {
         0 -> emptySet()
         1 -> setOf(this[0])
@@ -10558,7 +10558,7 @@ public fun CharArray.toSet(): Set<Char> {
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <T, R> Array<out T>.flatMap(transform: (T) -> Iterable<R>): List<R> {
+public inline fun <T, R> Array<out T>.flatMap(transform: (T) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10567,7 +10567,7 @@ public inline fun <T, R> Array<out T>.flatMap(transform: (T) -> Iterable<R>): Li
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> ByteArray.flatMap(transform: (Byte) -> Iterable<R>): List<R> {
+public inline fun <R> ByteArray.flatMap(transform: (Byte) ->_{local} Iterable<R>_{transform}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10576,7 +10576,7 @@ public inline fun <R> ByteArray.flatMap(transform: (Byte) -> Iterable<R>): List<
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> ShortArray.flatMap(transform: (Short) -> Iterable<R>): List<R> {
+public inline fun <R> ShortArray.flatMap(transform: (Short) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10585,7 +10585,7 @@ public inline fun <R> ShortArray.flatMap(transform: (Short) -> Iterable<R>): Lis
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> IntArray.flatMap(transform: (Int) -> Iterable<R>): List<R> {
+public inline fun <R> IntArray.flatMap(transform: (Int) ->_{local} Iterable<R>_{transform}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10594,7 +10594,7 @@ public inline fun <R> IntArray.flatMap(transform: (Int) -> Iterable<R>): List<R>
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> LongArray.flatMap(transform: (Long) -> Iterable<R>): List<R> {
+public inline fun <R> LongArray.flatMap(transform: (Long) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10603,7 +10603,7 @@ public inline fun <R> LongArray.flatMap(transform: (Long) -> Iterable<R>): List<
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> FloatArray.flatMap(transform: (Float) -> Iterable<R>): List<R> {
+public inline fun <R> FloatArray.flatMap(transform: (Float) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10612,7 +10612,7 @@ public inline fun <R> FloatArray.flatMap(transform: (Float) -> Iterable<R>): Lis
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> DoubleArray.flatMap(transform: (Double) -> Iterable<R>): List<R> {
+public inline fun <R> DoubleArray.flatMap(transform: (Double) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10621,7 +10621,7 @@ public inline fun <R> DoubleArray.flatMap(transform: (Double) -> Iterable<R>): L
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> BooleanArray.flatMap(transform: (Boolean) -> Iterable<R>): List<R> {
+public inline fun <R> BooleanArray.flatMap(transform: (Boolean) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10630,7 +10630,7 @@ public inline fun <R> BooleanArray.flatMap(transform: (Boolean) -> Iterable<R>):
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <R> CharArray.flatMap(transform: (Char) -> Iterable<R>): List<R> {
+public inline fun <R> CharArray.flatMap(transform: (Char) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10643,7 +10643,7 @@ public inline fun <R> CharArray.flatMap(transform: (Char) -> Iterable<R>): List<
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequence")
-public inline fun <T, R> Array<out T>.flatMap(transform: (T) -> Sequence<R>): List<R> {
+public inline fun <T, R> Array<out T>.flatMap(transform: (T) ->_{local} Sequence<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -10658,7 +10658,7 @@ public inline fun <T, R> Array<out T>.flatMap(transform: (T) -> Sequence<R>): Li
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) -> Iterable<R>): List<R> {
+public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10673,7 +10673,7 @@ public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) 
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.flatMapIndexed(transform: (index: Int, Byte) -> Iterable<R>): List<R> {
+public inline fun <R> ByteArray.flatMapIndexed(transform: (index: Int, Byte) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10688,7 +10688,7 @@ public inline fun <R> ByteArray.flatMapIndexed(transform: (index: Int, Byte) -> 
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.flatMapIndexed(transform: (index: Int, Short) -> Iterable<R>): List<R> {
+public inline fun <R> ShortArray.flatMapIndexed(transform: (index: Int, Short) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10703,7 +10703,7 @@ public inline fun <R> ShortArray.flatMapIndexed(transform: (index: Int, Short) -
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.flatMapIndexed(transform: (index: Int, Int) -> Iterable<R>): List<R> {
+public inline fun <R> IntArray.flatMapIndexed(transform: (index: Int, Int) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10718,7 +10718,7 @@ public inline fun <R> IntArray.flatMapIndexed(transform: (index: Int, Int) -> It
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.flatMapIndexed(transform: (index: Int, Long) -> Iterable<R>): List<R> {
+public inline fun <R> LongArray.flatMapIndexed(transform: (index: Int, Long) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10733,7 +10733,7 @@ public inline fun <R> LongArray.flatMapIndexed(transform: (index: Int, Long) -> 
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.flatMapIndexed(transform: (index: Int, Float) -> Iterable<R>): List<R> {
+public inline fun <R> FloatArray.flatMapIndexed(transform: (index: Int, Float) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10748,7 +10748,7 @@ public inline fun <R> FloatArray.flatMapIndexed(transform: (index: Int, Float) -
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.flatMapIndexed(transform: (index: Int, Double) -> Iterable<R>): List<R> {
+public inline fun <R> DoubleArray.flatMapIndexed(transform: (index: Int, Double) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10763,7 +10763,7 @@ public inline fun <R> DoubleArray.flatMapIndexed(transform: (index: Int, Double)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.flatMapIndexed(transform: (index: Int, Boolean) -> Iterable<R>): List<R> {
+public inline fun <R> BooleanArray.flatMapIndexed(transform: (index: Int, Boolean) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10778,7 +10778,7 @@ public inline fun <R> BooleanArray.flatMapIndexed(transform: (index: Int, Boolea
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.flatMapIndexed(transform: (index: Int, Char) -> Iterable<R>): List<R> {
+public inline fun <R> CharArray.flatMapIndexed(transform: (index: Int, Char) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10793,7 +10793,7 @@ public inline fun <R> CharArray.flatMapIndexed(transform: (index: Int, Char) -> 
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedSequence")
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) -> Sequence<R>): List<R> {
+public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) ->_{local} Sequence<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -10807,7 +10807,7 @@ public inline fun <T, R> Array<out T>.flatMapIndexed(transform: (index: Int, T) 
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexedTo(local destination: C, transform: (index: Int, T) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10826,7 +10826,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexe
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapIndexedTo(destination: C, transform: (index: Int, Byte) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Byte) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10845,7 +10845,7 @@ public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapIndexedTo(de
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapIndexedTo(destination: C, transform: (index: Int, Short) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Short) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10864,7 +10864,7 @@ public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapIndexedTo(d
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapIndexedTo(destination: C, transform: (index: Int, Int) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Int) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10883,7 +10883,7 @@ public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapIndexedTo(des
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapIndexedTo(destination: C, transform: (index: Int, Long) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Long) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10902,7 +10902,7 @@ public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapIndexedTo(de
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapIndexedTo(destination: C, transform: (index: Int, Float) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Float) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10921,7 +10921,7 @@ public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapIndexedTo(d
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapIndexedTo(destination: C, transform: (index: Int, Double) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Double) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10940,7 +10940,7 @@ public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapIndexedTo(
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapIndexedTo(destination: C, transform: (index: Int, Boolean) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Boolean) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10959,7 +10959,7 @@ public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapIndexedTo
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapIndexedTo(destination: C, transform: (index: Int, Char) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapIndexedTo(local destination: C, transform: (index: Int, Char) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10978,7 +10978,7 @@ public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapIndexedTo(de
 @kotlin.jvm.JvmName("flatMapIndexedSequenceTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexedTo(local destination: C, transform: (index: Int, T) ->_{local} Sequence<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(index++, element)
@@ -10991,7 +10991,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapIndexe
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(destination: C, transform: (T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(local destination: C, transform: (T) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11003,7 +11003,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(des
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapTo(destination: C, transform: (Byte) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapTo(local destination: C, transform: (Byte) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11015,7 +11015,7 @@ public inline fun <R, C : MutableCollection<in R>> ByteArray.flatMapTo(destinati
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapTo(destination: C, transform: (Short) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapTo(local destination: C, transform: (Short) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11027,7 +11027,7 @@ public inline fun <R, C : MutableCollection<in R>> ShortArray.flatMapTo(destinat
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapTo(destination: C, transform: (Int) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapTo(local destination: C, transform: (Int) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11039,7 +11039,7 @@ public inline fun <R, C : MutableCollection<in R>> IntArray.flatMapTo(destinatio
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapTo(destination: C, transform: (Long) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapTo(local destination: C, transform: (Long) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11051,7 +11051,7 @@ public inline fun <R, C : MutableCollection<in R>> LongArray.flatMapTo(destinati
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapTo(destination: C, transform: (Float) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapTo(local destination: C, transform: (Float) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11063,7 +11063,7 @@ public inline fun <R, C : MutableCollection<in R>> FloatArray.flatMapTo(destinat
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapTo(destination: C, transform: (Double) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapTo(local destination: C, transform: (Double) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11075,7 +11075,7 @@ public inline fun <R, C : MutableCollection<in R>> DoubleArray.flatMapTo(destina
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapTo(destination: C, transform: (Boolean) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapTo(local destination: C, transform: (Boolean) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11087,7 +11087,7 @@ public inline fun <R, C : MutableCollection<in R>> BooleanArray.flatMapTo(destin
  * Appends all elements yielded from results of [transform] function being invoked on each element of original array, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapTo(destination: C, transform: (Char) -> Iterable<R>): C {
+public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapTo(local destination: C, transform: (Char) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11103,7 +11103,7 @@ public inline fun <R, C : MutableCollection<in R>> CharArray.flatMapTo(destinati
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequenceTo")
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(destination: C, transform: (T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(local destination: C, transform: (T) ->_{local} Sequence<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -11119,7 +11119,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.flatMapTo(des
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <T, K> Array<out T>.groupBy(keySelector: (T) -> K): Map<K, List<T>> {
+public inline fun <T, K> Array<out T>.groupBy(local keySelector: (T) -> K): Map<K, List<T>> {
     return groupByTo(LinkedHashMap<K, MutableList<T>>(), keySelector)
 }
 
@@ -11131,7 +11131,7 @@ public inline fun <T, K> Array<out T>.groupBy(keySelector: (T) -> K): Map<K, Lis
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> ByteArray.groupBy(keySelector: (Byte) -> K): Map<K, List<Byte>> {
+public inline fun <K> ByteArray.groupBy(local keySelector: (Byte) -> K): Map<K, List<Byte>> {
     return groupByTo(LinkedHashMap<K, MutableList<Byte>>(), keySelector)
 }
 
@@ -11143,7 +11143,7 @@ public inline fun <K> ByteArray.groupBy(keySelector: (Byte) -> K): Map<K, List<B
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> ShortArray.groupBy(keySelector: (Short) -> K): Map<K, List<Short>> {
+public inline fun <K> ShortArray.groupBy(local keySelector: (Short) -> K): Map<K, List<Short>> {
     return groupByTo(LinkedHashMap<K, MutableList<Short>>(), keySelector)
 }
 
@@ -11155,7 +11155,7 @@ public inline fun <K> ShortArray.groupBy(keySelector: (Short) -> K): Map<K, List
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> IntArray.groupBy(keySelector: (Int) -> K): Map<K, List<Int>> {
+public inline fun <K> IntArray.groupBy(local keySelector: (Int) -> K): Map<K, List<Int>> {
     return groupByTo(LinkedHashMap<K, MutableList<Int>>(), keySelector)
 }
 
@@ -11167,7 +11167,7 @@ public inline fun <K> IntArray.groupBy(keySelector: (Int) -> K): Map<K, List<Int
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> LongArray.groupBy(keySelector: (Long) -> K): Map<K, List<Long>> {
+public inline fun <K> LongArray.groupBy(local keySelector: (Long) -> K): Map<K, List<Long>> {
     return groupByTo(LinkedHashMap<K, MutableList<Long>>(), keySelector)
 }
 
@@ -11179,7 +11179,7 @@ public inline fun <K> LongArray.groupBy(keySelector: (Long) -> K): Map<K, List<L
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> FloatArray.groupBy(keySelector: (Float) -> K): Map<K, List<Float>> {
+public inline fun <K> FloatArray.groupBy(local keySelector: (Float) -> K): Map<K, List<Float>> {
     return groupByTo(LinkedHashMap<K, MutableList<Float>>(), keySelector)
 }
 
@@ -11191,7 +11191,7 @@ public inline fun <K> FloatArray.groupBy(keySelector: (Float) -> K): Map<K, List
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> DoubleArray.groupBy(keySelector: (Double) -> K): Map<K, List<Double>> {
+public inline fun <K> DoubleArray.groupBy(local keySelector: (Double) -> K): Map<K, List<Double>> {
     return groupByTo(LinkedHashMap<K, MutableList<Double>>(), keySelector)
 }
 
@@ -11203,7 +11203,7 @@ public inline fun <K> DoubleArray.groupBy(keySelector: (Double) -> K): Map<K, Li
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> BooleanArray.groupBy(keySelector: (Boolean) -> K): Map<K, List<Boolean>> {
+public inline fun <K> BooleanArray.groupBy(local keySelector: (Boolean) -> K): Map<K, List<Boolean>> {
     return groupByTo(LinkedHashMap<K, MutableList<Boolean>>(), keySelector)
 }
 
@@ -11215,7 +11215,7 @@ public inline fun <K> BooleanArray.groupBy(keySelector: (Boolean) -> K): Map<K, 
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <K> CharArray.groupBy(keySelector: (Char) -> K): Map<K, List<Char>> {
+public inline fun <K> CharArray.groupBy(local keySelector: (Char) -> K): Map<K, List<Char>> {
     return groupByTo(LinkedHashMap<K, MutableList<Char>>(), keySelector)
 }
 
@@ -11228,7 +11228,7 @@ public inline fun <K> CharArray.groupBy(keySelector: (Char) -> K): Map<K, List<C
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <T, K, V> Array<out T>.groupBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, List<V>> {
+public inline fun <T, K, V> Array<out T>.groupBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11241,7 +11241,7 @@ public inline fun <T, K, V> Array<out T>.groupBy(keySelector: (T) -> K, valueTra
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> ByteArray.groupBy(keySelector: (Byte) -> K, valueTransform: (Byte) -> V): Map<K, List<V>> {
+public inline fun <K, V> ByteArray.groupBy(local keySelector: (Byte) -> K, local valueTransform: (Byte) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11254,7 +11254,7 @@ public inline fun <K, V> ByteArray.groupBy(keySelector: (Byte) -> K, valueTransf
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> ShortArray.groupBy(keySelector: (Short) -> K, valueTransform: (Short) -> V): Map<K, List<V>> {
+public inline fun <K, V> ShortArray.groupBy(local keySelector: (Short) -> K, local valueTransform: (Short) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11267,7 +11267,7 @@ public inline fun <K, V> ShortArray.groupBy(keySelector: (Short) -> K, valueTran
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> IntArray.groupBy(keySelector: (Int) -> K, valueTransform: (Int) -> V): Map<K, List<V>> {
+public inline fun <K, V> IntArray.groupBy(local keySelector: (Int) -> K, local valueTransform: (Int) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11280,7 +11280,7 @@ public inline fun <K, V> IntArray.groupBy(keySelector: (Int) -> K, valueTransfor
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> LongArray.groupBy(keySelector: (Long) -> K, valueTransform: (Long) -> V): Map<K, List<V>> {
+public inline fun <K, V> LongArray.groupBy(local keySelector: (Long) -> K, local valueTransform: (Long) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11293,7 +11293,7 @@ public inline fun <K, V> LongArray.groupBy(keySelector: (Long) -> K, valueTransf
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> FloatArray.groupBy(keySelector: (Float) -> K, valueTransform: (Float) -> V): Map<K, List<V>> {
+public inline fun <K, V> FloatArray.groupBy(local keySelector: (Float) -> K, local valueTransform: (Float) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11306,7 +11306,7 @@ public inline fun <K, V> FloatArray.groupBy(keySelector: (Float) -> K, valueTran
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> DoubleArray.groupBy(keySelector: (Double) -> K, valueTransform: (Double) -> V): Map<K, List<V>> {
+public inline fun <K, V> DoubleArray.groupBy(local keySelector: (Double) -> K, local valueTransform: (Double) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11319,7 +11319,7 @@ public inline fun <K, V> DoubleArray.groupBy(keySelector: (Double) -> K, valueTr
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> BooleanArray.groupBy(keySelector: (Boolean) -> K, valueTransform: (Boolean) -> V): Map<K, List<V>> {
+public inline fun <K, V> BooleanArray.groupBy(local keySelector: (Boolean) -> K, local valueTransform: (Boolean) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11332,7 +11332,7 @@ public inline fun <K, V> BooleanArray.groupBy(keySelector: (Boolean) -> K, value
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <K, V> CharArray.groupBy(keySelector: (Char) -> K, valueTransform: (Char) -> V): Map<K, List<V>> {
+public inline fun <K, V> CharArray.groupBy(local keySelector: (Char) -> K, local valueTransform: (Char) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -11345,7 +11345,7 @@ public inline fun <K, V> CharArray.groupBy(keySelector: (Char) -> K, valueTransf
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Array<out T>.groupByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Array<out T>.groupByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<T>() }
@@ -11363,7 +11363,7 @@ public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Array<out T>.grou
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Byte>>> ByteArray.groupByTo(destination: M, keySelector: (Byte) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Byte>>> ByteArray.groupByTo(local destination: M, local keySelector: (Byte) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Byte>() }
@@ -11381,7 +11381,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Byte>>> ByteArray.groupBy
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Short>>> ShortArray.groupByTo(destination: M, keySelector: (Short) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Short>>> ShortArray.groupByTo(local destination: M, local keySelector: (Short) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Short>() }
@@ -11399,7 +11399,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Short>>> ShortArray.group
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Int>>> IntArray.groupByTo(destination: M, keySelector: (Int) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Int>>> IntArray.groupByTo(local destination: M, local keySelector: (Int) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Int>() }
@@ -11417,7 +11417,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Int>>> IntArray.groupByTo
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Long>>> LongArray.groupByTo(destination: M, keySelector: (Long) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Long>>> LongArray.groupByTo(local destination: M, local keySelector: (Long) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Long>() }
@@ -11435,7 +11435,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Long>>> LongArray.groupBy
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Float>>> FloatArray.groupByTo(destination: M, keySelector: (Float) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Float>>> FloatArray.groupByTo(local destination: M, local keySelector: (Float) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Float>() }
@@ -11453,7 +11453,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Float>>> FloatArray.group
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Double>>> DoubleArray.groupByTo(destination: M, keySelector: (Double) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Double>>> DoubleArray.groupByTo(local destination: M, local keySelector: (Double) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Double>() }
@@ -11471,7 +11471,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Double>>> DoubleArray.gro
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Boolean>>> BooleanArray.groupByTo(destination: M, keySelector: (Boolean) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Boolean>>> BooleanArray.groupByTo(local destination: M, local keySelector: (Boolean) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Boolean>() }
@@ -11489,7 +11489,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Boolean>>> BooleanArray.g
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <K, M : MutableMap<in K, MutableList<Char>>> CharArray.groupByTo(destination: M, keySelector: (Char) -> K): M {
+public inline fun <K, M : MutableMap<in K, MutableList<Char>>> CharArray.groupByTo(local destination: M, local keySelector: (Char) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<Char>() }
@@ -11508,7 +11508,7 @@ public inline fun <K, M : MutableMap<in K, MutableList<Char>>> CharArray.groupBy
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Array<out T>.groupByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Array<out T>.groupByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11527,7 +11527,7 @@ public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Array<out T>.g
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ByteArray.groupByTo(destination: M, keySelector: (Byte) -> K, valueTransform: (Byte) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ByteArray.groupByTo(local destination: M, local keySelector: (Byte) -> K, local valueTransform: (Byte) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11546,7 +11546,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ByteArray.groupBy
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ShortArray.groupByTo(destination: M, keySelector: (Short) -> K, valueTransform: (Short) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ShortArray.groupByTo(local destination: M, local keySelector: (Short) -> K, local valueTransform: (Short) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11565,7 +11565,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> ShortArray.groupB
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> IntArray.groupByTo(destination: M, keySelector: (Int) -> K, valueTransform: (Int) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> IntArray.groupByTo(local destination: M, local keySelector: (Int) -> K, local valueTransform: (Int) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11584,7 +11584,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> IntArray.groupByT
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> LongArray.groupByTo(destination: M, keySelector: (Long) -> K, valueTransform: (Long) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> LongArray.groupByTo(local destination: M, local keySelector: (Long) -> K, local valueTransform: (Long) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11603,7 +11603,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> LongArray.groupBy
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> FloatArray.groupByTo(destination: M, keySelector: (Float) -> K, valueTransform: (Float) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> FloatArray.groupByTo(local destination: M, local keySelector: (Float) -> K, local valueTransform: (Float) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11622,7 +11622,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> FloatArray.groupB
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> DoubleArray.groupByTo(destination: M, keySelector: (Double) -> K, valueTransform: (Double) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> DoubleArray.groupByTo(local destination: M, local keySelector: (Double) -> K, local valueTransform: (Double) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11641,7 +11641,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> DoubleArray.group
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> BooleanArray.groupByTo(destination: M, keySelector: (Boolean) -> K, valueTransform: (Boolean) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> BooleanArray.groupByTo(local destination: M, local keySelector: (Boolean) -> K, local valueTransform: (Boolean) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11660,7 +11660,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> BooleanArray.grou
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> CharArray.groupByTo(destination: M, keySelector: (Char) -> K, valueTransform: (Char) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> CharArray.groupByTo(local destination: M, local keySelector: (Char) -> K, local valueTransform: (Char) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -11676,7 +11676,7 @@ public inline fun <K, V, M : MutableMap<in K, MutableList<V>>> CharArray.groupBy
  * @sample samples.collections.Grouping.groupingByEachCount
  */
 @SinceKotlin("1.1")
-public inline fun <T, K> Array<out T>.groupingBy(crossinline keySelector: (T) -> K): Grouping<T, K> {
+public inline fun <T, K> Array<out T>.groupingBy(local keySelector: (T) -> K): Grouping<T, K>_{keySelector} {
     return object : Grouping<T, K> {
         override fun sourceIterator(): Iterator<T> = this@groupingBy.iterator()
         override fun keyOf(element: T): K = keySelector(element)
@@ -11689,7 +11689,7 @@ public inline fun <T, K> Array<out T>.groupingBy(crossinline keySelector: (T) ->
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <T, R> Array<out T>.map(transform: (T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.map(local transform: (T) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11699,7 +11699,7 @@ public inline fun <T, R> Array<out T>.map(transform: (T) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> ByteArray.map(transform: (Byte) -> R): List<R> {
+public inline fun <R> ByteArray.map(local transform: (Byte) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11709,7 +11709,7 @@ public inline fun <R> ByteArray.map(transform: (Byte) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> ShortArray.map(transform: (Short) -> R): List<R> {
+public inline fun <R> ShortArray.map(local transform: (Short) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11719,7 +11719,7 @@ public inline fun <R> ShortArray.map(transform: (Short) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> IntArray.map(transform: (Int) -> R): List<R> {
+public inline fun <R> IntArray.map(local transform: (Int) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11729,7 +11729,7 @@ public inline fun <R> IntArray.map(transform: (Int) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> LongArray.map(transform: (Long) -> R): List<R> {
+public inline fun <R> LongArray.map(local transform: (Long) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11739,7 +11739,7 @@ public inline fun <R> LongArray.map(transform: (Long) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> FloatArray.map(transform: (Float) -> R): List<R> {
+public inline fun <R> FloatArray.map(local transform: (Float) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11749,7 +11749,7 @@ public inline fun <R> FloatArray.map(transform: (Float) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> DoubleArray.map(transform: (Double) -> R): List<R> {
+public inline fun <R> DoubleArray.map(local transform: (Double) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11759,7 +11759,7 @@ public inline fun <R> DoubleArray.map(transform: (Double) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> BooleanArray.map(transform: (Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.map(local transform: (Boolean) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11769,7 +11769,7 @@ public inline fun <R> BooleanArray.map(transform: (Boolean) -> R): List<R> {
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <R> CharArray.map(transform: (Char) -> R): List<R> {
+public inline fun <R> CharArray.map(local transform: (Char) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -11779,7 +11779,7 @@ public inline fun <R> CharArray.map(transform: (Char) -> R): List<R> {
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <T, R> Array<out T>.mapIndexed(transform: (index: Int, T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.mapIndexed(local transform: (index: Int, T) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11789,7 +11789,7 @@ public inline fun <T, R> Array<out T>.mapIndexed(transform: (index: Int, T) -> R
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> ByteArray.mapIndexed(transform: (index: Int, Byte) -> R): List<R> {
+public inline fun <R> ByteArray.mapIndexed(local transform: (index: Int, Byte) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11799,7 +11799,7 @@ public inline fun <R> ByteArray.mapIndexed(transform: (index: Int, Byte) -> R): 
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> ShortArray.mapIndexed(transform: (index: Int, Short) -> R): List<R> {
+public inline fun <R> ShortArray.mapIndexed(local transform: (index: Int, Short) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11809,7 +11809,7 @@ public inline fun <R> ShortArray.mapIndexed(transform: (index: Int, Short) -> R)
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> IntArray.mapIndexed(transform: (index: Int, Int) -> R): List<R> {
+public inline fun <R> IntArray.mapIndexed(local transform: (index: Int, Int) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11819,7 +11819,7 @@ public inline fun <R> IntArray.mapIndexed(transform: (index: Int, Int) -> R): Li
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> LongArray.mapIndexed(transform: (index: Int, Long) -> R): List<R> {
+public inline fun <R> LongArray.mapIndexed(local transform: (index: Int, Long) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11829,7 +11829,7 @@ public inline fun <R> LongArray.mapIndexed(transform: (index: Int, Long) -> R): 
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> FloatArray.mapIndexed(transform: (index: Int, Float) -> R): List<R> {
+public inline fun <R> FloatArray.mapIndexed(local transform: (index: Int, Float) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11839,7 +11839,7 @@ public inline fun <R> FloatArray.mapIndexed(transform: (index: Int, Float) -> R)
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> DoubleArray.mapIndexed(transform: (index: Int, Double) -> R): List<R> {
+public inline fun <R> DoubleArray.mapIndexed(local transform: (index: Int, Double) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11849,7 +11849,7 @@ public inline fun <R> DoubleArray.mapIndexed(transform: (index: Int, Double) -> 
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> BooleanArray.mapIndexed(transform: (index: Int, Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.mapIndexed(local transform: (index: Int, Boolean) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11859,7 +11859,7 @@ public inline fun <R> BooleanArray.mapIndexed(transform: (index: Int, Boolean) -
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <R> CharArray.mapIndexed(transform: (index: Int, Char) -> R): List<R> {
+public inline fun <R> CharArray.mapIndexed(local transform: (index: Int, Char) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(size), transform)
 }
 
@@ -11869,7 +11869,7 @@ public inline fun <R> CharArray.mapIndexed(transform: (index: Int, Char) -> R): 
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <T, R : Any> Array<out T>.mapIndexedNotNull(transform: (index: Int, T) -> R?): List<R> {
+public inline fun <T, R : Any> Array<out T>.mapIndexedNotNull(local transform: (index: Int, T) -> R?): List<R> {
     return mapIndexedNotNullTo(ArrayList<R>(), transform)
 }
 
@@ -11880,7 +11880,7 @@ public inline fun <T, R : Any> Array<out T>.mapIndexedNotNull(transform: (index:
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapIndexedNotNullTo(destination: C, transform: (index: Int, T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapIndexedNotNullTo(local destination: C, local transform: (index: Int, T) -> R?): C_{destination} {
     forEachIndexed { index, element -> transform(index, element)?.let { destination.add(it) } }
     return destination
 }
@@ -11892,7 +11892,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapInde
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapIndexedTo(destination: C, transform: (index: Int, T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapIndexedTo(local destination: C, local transform: (index: Int, T) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11906,7 +11906,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapIndexedTo(
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ByteArray.mapIndexedTo(destination: C, transform: (index: Int, Byte) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> ByteArray.mapIndexedTo(local destination: C, local transform: (index: Int, Byte) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11920,7 +11920,7 @@ public inline fun <R, C : MutableCollection<in R>> ByteArray.mapIndexedTo(destin
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ShortArray.mapIndexedTo(destination: C, transform: (index: Int, Short) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> ShortArray.mapIndexedTo(local destination: C, local transform: (index: Int, Short) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11934,7 +11934,7 @@ public inline fun <R, C : MutableCollection<in R>> ShortArray.mapIndexedTo(desti
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> IntArray.mapIndexedTo(destination: C, transform: (index: Int, Int) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> IntArray.mapIndexedTo(local destination: C, local transform: (index: Int, Int) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11948,7 +11948,7 @@ public inline fun <R, C : MutableCollection<in R>> IntArray.mapIndexedTo(destina
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> LongArray.mapIndexedTo(destination: C, transform: (index: Int, Long) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> LongArray.mapIndexedTo(local destination: C, local transform: (index: Int, Long) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11962,7 +11962,7 @@ public inline fun <R, C : MutableCollection<in R>> LongArray.mapIndexedTo(destin
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> FloatArray.mapIndexedTo(destination: C, transform: (index: Int, Float) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> FloatArray.mapIndexedTo(local destination: C, local transform: (index: Int, Float) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11976,7 +11976,7 @@ public inline fun <R, C : MutableCollection<in R>> FloatArray.mapIndexedTo(desti
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapIndexedTo(destination: C, transform: (index: Int, Double) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapIndexedTo(local destination: C, local transform: (index: Int, Double) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -11990,7 +11990,7 @@ public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapIndexedTo(dest
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapIndexedTo(destination: C, transform: (index: Int, Boolean) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapIndexedTo(local destination: C, local transform: (index: Int, Boolean) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -12004,7 +12004,7 @@ public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapIndexedTo(des
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> CharArray.mapIndexedTo(destination: C, transform: (index: Int, Char) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> CharArray.mapIndexedTo(local destination: C, local transform: (index: Int, Char) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(index++, item))
@@ -12026,7 +12026,7 @@ public inline fun <T, R : Any> Array<out T>.mapNotNull(transform: (T) -> R?): Li
  * and appends only the non-null results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapNotNullTo(destination: C, transform: (T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapNotNullTo(local destination: C, local transform: (T) -> R?): C_{destination} {
     forEach { element -> transform(element)?.let { destination.add(it) } }
     return destination
 }
@@ -12036,7 +12036,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Array<out T>.mapNotN
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapTo(destination: C, transform: (T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapTo(local destination: C, local transform: (T) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12047,7 +12047,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Array<out T>.mapTo(destina
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ByteArray.mapTo(destination: C, transform: (Byte) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> ByteArray.mapTo(local destination: C, local transform: (Byte) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12058,7 +12058,7 @@ public inline fun <R, C : MutableCollection<in R>> ByteArray.mapTo(destination: 
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> ShortArray.mapTo(destination: C, transform: (Short) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> ShortArray.mapTo(local destination: C, local transform: (Short) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12069,7 +12069,7 @@ public inline fun <R, C : MutableCollection<in R>> ShortArray.mapTo(destination:
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> IntArray.mapTo(destination: C, transform: (Int) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> IntArray.mapTo(local destination: C, local transform: (Int) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12080,7 +12080,7 @@ public inline fun <R, C : MutableCollection<in R>> IntArray.mapTo(destination: C
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> LongArray.mapTo(destination: C, transform: (Long) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> LongArray.mapTo(local destination: C, local transform: (Long) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12091,7 +12091,7 @@ public inline fun <R, C : MutableCollection<in R>> LongArray.mapTo(destination: 
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> FloatArray.mapTo(destination: C, transform: (Float) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> FloatArray.mapTo(local destination: C, local transform: (Float) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12102,7 +12102,7 @@ public inline fun <R, C : MutableCollection<in R>> FloatArray.mapTo(destination:
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapTo(destination: C, transform: (Double) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapTo(local destination: C, local transform: (Double) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12113,7 +12113,7 @@ public inline fun <R, C : MutableCollection<in R>> DoubleArray.mapTo(destination
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapTo(destination: C, transform: (Boolean) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapTo(local destination: C, local transform: (Boolean) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12124,7 +12124,7 @@ public inline fun <R, C : MutableCollection<in R>> BooleanArray.mapTo(destinatio
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <R, C : MutableCollection<in R>> CharArray.mapTo(destination: C, transform: (Char) -> R): C {
+public inline fun <R, C : MutableCollection<in R>> CharArray.mapTo(local destination: C, local transform: (Char) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -12311,7 +12311,7 @@ public fun CharArray.distinct(): List<Char> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <T, K> Array<out T>.distinctBy(selector: (T) -> K): List<T> {
+public inline fun <T, K> Array<out T>.distinctBy(local selector: (T) -> K): List<T> {
     val set = HashSet<K>()
     val list = ArrayList<T>()
     for (e in this) {
@@ -12330,7 +12330,7 @@ public inline fun <T, K> Array<out T>.distinctBy(selector: (T) -> K): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> ByteArray.distinctBy(selector: (Byte) -> K): List<Byte> {
+public inline fun <K> ByteArray.distinctBy(local selector: (Byte) -> K): List<Byte> {
     val set = HashSet<K>()
     val list = ArrayList<Byte>()
     for (e in this) {
@@ -12349,7 +12349,7 @@ public inline fun <K> ByteArray.distinctBy(selector: (Byte) -> K): List<Byte> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> ShortArray.distinctBy(selector: (Short) -> K): List<Short> {
+public inline fun <K> ShortArray.distinctBy(local selector: (Short) -> K): List<Short> {
     val set = HashSet<K>()
     val list = ArrayList<Short>()
     for (e in this) {
@@ -12368,7 +12368,7 @@ public inline fun <K> ShortArray.distinctBy(selector: (Short) -> K): List<Short>
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> IntArray.distinctBy(selector: (Int) -> K): List<Int> {
+public inline fun <K> IntArray.distinctBy(local selector: (Int) -> K): List<Int> {
     val set = HashSet<K>()
     val list = ArrayList<Int>()
     for (e in this) {
@@ -12387,7 +12387,7 @@ public inline fun <K> IntArray.distinctBy(selector: (Int) -> K): List<Int> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> LongArray.distinctBy(selector: (Long) -> K): List<Long> {
+public inline fun <K> LongArray.distinctBy(local selector: (Long) -> K): List<Long> {
     val set = HashSet<K>()
     val list = ArrayList<Long>()
     for (e in this) {
@@ -12406,7 +12406,7 @@ public inline fun <K> LongArray.distinctBy(selector: (Long) -> K): List<Long> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> FloatArray.distinctBy(selector: (Float) -> K): List<Float> {
+public inline fun <K> FloatArray.distinctBy(local selector: (Float) -> K): List<Float> {
     val set = HashSet<K>()
     val list = ArrayList<Float>()
     for (e in this) {
@@ -12425,7 +12425,7 @@ public inline fun <K> FloatArray.distinctBy(selector: (Float) -> K): List<Float>
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> DoubleArray.distinctBy(selector: (Double) -> K): List<Double> {
+public inline fun <K> DoubleArray.distinctBy(local selector: (Double) -> K): List<Double> {
     val set = HashSet<K>()
     val list = ArrayList<Double>()
     for (e in this) {
@@ -12444,7 +12444,7 @@ public inline fun <K> DoubleArray.distinctBy(selector: (Double) -> K): List<Doub
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> BooleanArray.distinctBy(selector: (Boolean) -> K): List<Boolean> {
+public inline fun <K> BooleanArray.distinctBy(local selector: (Boolean) -> K): List<Boolean> {
     val set = HashSet<K>()
     val list = ArrayList<Boolean>()
     for (e in this) {
@@ -12463,7 +12463,7 @@ public inline fun <K> BooleanArray.distinctBy(selector: (Boolean) -> K): List<Bo
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <K> CharArray.distinctBy(selector: (Char) -> K): List<Char> {
+public inline fun <K> CharArray.distinctBy(local selector: (Char) -> K): List<Char> {
     val set = HashSet<K>()
     val list = ArrayList<Char>()
     for (e in this) {
@@ -12484,7 +12484,7 @@ public inline fun <K> CharArray.distinctBy(selector: (Char) -> K): List<Char> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun <T> Array<out T>.intersect(other: Iterable<T>): Set<T> {
+public infix fun <T> Array<out T>.intersect(local other: Iterable<T>): Set<T> {
     val otherCollection = other.convertToListIfNotCollection()
     val set = mutableSetOf<T>()
     for (e in this) {
@@ -12505,7 +12505,7 @@ public infix fun <T> Array<out T>.intersect(other: Iterable<T>): Set<T> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun ByteArray.intersect(other: Iterable<Byte>): Set<Byte> {
+public infix fun ByteArray.intersect(local other: Iterable<Byte>): Set<Byte> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12521,7 +12521,7 @@ public infix fun ByteArray.intersect(other: Iterable<Byte>): Set<Byte> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun ShortArray.intersect(other: Iterable<Short>): Set<Short> {
+public infix fun ShortArray.intersect(local other: Iterable<Short>): Set<Short> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12537,7 +12537,7 @@ public infix fun ShortArray.intersect(other: Iterable<Short>): Set<Short> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun IntArray.intersect(other: Iterable<Int>): Set<Int> {
+public infix fun IntArray.intersect(local other: Iterable<Int>): Set<Int> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12553,7 +12553,7 @@ public infix fun IntArray.intersect(other: Iterable<Int>): Set<Int> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun LongArray.intersect(other: Iterable<Long>): Set<Long> {
+public infix fun LongArray.intersect(local other: Iterable<Long>): Set<Long> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12569,7 +12569,7 @@ public infix fun LongArray.intersect(other: Iterable<Long>): Set<Long> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun FloatArray.intersect(other: Iterable<Float>): Set<Float> {
+public infix fun FloatArray.intersect(local other: Iterable<Float>): Set<Float> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12585,7 +12585,7 @@ public infix fun FloatArray.intersect(other: Iterable<Float>): Set<Float> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun DoubleArray.intersect(other: Iterable<Double>): Set<Double> {
+public infix fun DoubleArray.intersect(local other: Iterable<Double>): Set<Double> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12601,7 +12601,7 @@ public infix fun DoubleArray.intersect(other: Iterable<Double>): Set<Double> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun BooleanArray.intersect(other: Iterable<Boolean>): Set<Boolean> {
+public infix fun BooleanArray.intersect(local other: Iterable<Boolean>): Set<Boolean> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12617,7 +12617,7 @@ public infix fun BooleanArray.intersect(other: Iterable<Boolean>): Set<Boolean> 
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun CharArray.intersect(other: Iterable<Char>): Set<Char> {
+public infix fun CharArray.intersect(local other: Iterable<Char>): Set<Char> {
     val set = this.toMutableSet()
     set.retainAll(other)
     return set
@@ -12631,7 +12631,7 @@ public infix fun CharArray.intersect(other: Iterable<Char>): Set<Char> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun <T> Array<out T>.subtract(other: Iterable<T>): Set<T> {
+public infix fun <T> Array<out T>.subtract(local other: Iterable<T>): Set<T> {
     val otherCollection = other.convertToListIfNotCollection()
     val result = mutableSetOf<T>()
     for (e in this) {
@@ -12650,7 +12650,7 @@ public infix fun <T> Array<out T>.subtract(other: Iterable<T>): Set<T> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun ByteArray.subtract(other: Iterable<Byte>): Set<Byte> {
+public infix fun ByteArray.subtract(local other: Iterable<Byte>): Set<Byte> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12664,7 +12664,7 @@ public infix fun ByteArray.subtract(other: Iterable<Byte>): Set<Byte> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun ShortArray.subtract(other: Iterable<Short>): Set<Short> {
+public infix fun ShortArray.subtract(local other: Iterable<Short>): Set<Short> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12678,7 +12678,7 @@ public infix fun ShortArray.subtract(other: Iterable<Short>): Set<Short> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun IntArray.subtract(other: Iterable<Int>): Set<Int> {
+public infix fun IntArray.subtract(local other: Iterable<Int>): Set<Int> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12692,7 +12692,7 @@ public infix fun IntArray.subtract(other: Iterable<Int>): Set<Int> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun LongArray.subtract(other: Iterable<Long>): Set<Long> {
+public infix fun LongArray.subtract(local other: Iterable<Long>): Set<Long> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12706,7 +12706,7 @@ public infix fun LongArray.subtract(other: Iterable<Long>): Set<Long> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun FloatArray.subtract(other: Iterable<Float>): Set<Float> {
+public infix fun FloatArray.subtract(local other: Iterable<Float>): Set<Float> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12720,7 +12720,7 @@ public infix fun FloatArray.subtract(other: Iterable<Float>): Set<Float> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun DoubleArray.subtract(other: Iterable<Double>): Set<Double> {
+public infix fun DoubleArray.subtract(local other: Iterable<Double>): Set<Double> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12734,7 +12734,7 @@ public infix fun DoubleArray.subtract(other: Iterable<Double>): Set<Double> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun BooleanArray.subtract(other: Iterable<Boolean>): Set<Boolean> {
+public infix fun BooleanArray.subtract(local other: Iterable<Boolean>): Set<Boolean> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12748,7 +12748,7 @@ public infix fun BooleanArray.subtract(other: Iterable<Boolean>): Set<Boolean> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun CharArray.subtract(other: Iterable<Char>): Set<Char> {
+public infix fun CharArray.subtract(local other: Iterable<Char>): Set<Char> {
     val set = this.toMutableSet()
     set.removeAll(other)
     return set
@@ -12847,7 +12847,7 @@ public fun CharArray.toMutableSet(): MutableSet<Char> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun <T> Array<out T>.union(other: Iterable<T>): Set<T> {
+public infix fun <T> Array<out T>.union(local other: Iterable<T>): Set<T> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12865,7 +12865,7 @@ public infix fun <T> Array<out T>.union(other: Iterable<T>): Set<T> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun ByteArray.union(other: Iterable<Byte>): Set<Byte> {
+public infix fun ByteArray.union(local other: Iterable<Byte>): Set<Byte> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12883,7 +12883,7 @@ public infix fun ByteArray.union(other: Iterable<Byte>): Set<Byte> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun ShortArray.union(other: Iterable<Short>): Set<Short> {
+public infix fun ShortArray.union(local other: Iterable<Short>): Set<Short> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12901,7 +12901,7 @@ public infix fun ShortArray.union(other: Iterable<Short>): Set<Short> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun IntArray.union(other: Iterable<Int>): Set<Int> {
+public infix fun IntArray.union(local other: Iterable<Int>): Set<Int> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12919,7 +12919,7 @@ public infix fun IntArray.union(other: Iterable<Int>): Set<Int> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun LongArray.union(other: Iterable<Long>): Set<Long> {
+public infix fun LongArray.union(local other: Iterable<Long>): Set<Long> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12937,7 +12937,7 @@ public infix fun LongArray.union(other: Iterable<Long>): Set<Long> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun FloatArray.union(other: Iterable<Float>): Set<Float> {
+public infix fun FloatArray.union(local other: Iterable<Float>): Set<Float> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12955,7 +12955,7 @@ public infix fun FloatArray.union(other: Iterable<Float>): Set<Float> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun DoubleArray.union(other: Iterable<Double>): Set<Double> {
+public infix fun DoubleArray.union(local other: Iterable<Double>): Set<Double> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12973,7 +12973,7 @@ public infix fun DoubleArray.union(other: Iterable<Double>): Set<Double> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun BooleanArray.union(other: Iterable<Boolean>): Set<Boolean> {
+public infix fun BooleanArray.union(local other: Iterable<Boolean>): Set<Boolean> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -12991,7 +12991,7 @@ public infix fun BooleanArray.union(other: Iterable<Boolean>): Set<Boolean> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun CharArray.union(other: Iterable<Char>): Set<Char> {
+public infix fun CharArray.union(local other: Iterable<Char>): Set<Char> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -13006,7 +13006,7 @@ public infix fun CharArray.union(other: Iterable<Char>): Set<Char> {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun <T> Array<out T>.all(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> Array<out T>.all(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13020,7 +13020,7 @@ public inline fun <T> Array<out T>.all(predicate: (T) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun ByteArray.all(predicate: (Byte) -> Boolean): Boolean {
+public inline fun ByteArray.all(local predicate: (Byte) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13034,7 +13034,7 @@ public inline fun ByteArray.all(predicate: (Byte) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun ShortArray.all(predicate: (Short) -> Boolean): Boolean {
+public inline fun ShortArray.all(local predicate: (Short) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13048,7 +13048,7 @@ public inline fun ShortArray.all(predicate: (Short) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun IntArray.all(predicate: (Int) -> Boolean): Boolean {
+public inline fun IntArray.all(local predicate: (Int) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13062,7 +13062,7 @@ public inline fun IntArray.all(predicate: (Int) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun LongArray.all(predicate: (Long) -> Boolean): Boolean {
+public inline fun LongArray.all(local predicate: (Long) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13076,7 +13076,7 @@ public inline fun LongArray.all(predicate: (Long) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun FloatArray.all(predicate: (Float) -> Boolean): Boolean {
+public inline fun FloatArray.all(local predicate: (Float) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13090,7 +13090,7 @@ public inline fun FloatArray.all(predicate: (Float) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun DoubleArray.all(predicate: (Double) -> Boolean): Boolean {
+public inline fun DoubleArray.all(local predicate: (Double) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13104,7 +13104,7 @@ public inline fun DoubleArray.all(predicate: (Double) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun BooleanArray.all(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.all(local predicate: (Boolean) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13118,7 +13118,7 @@ public inline fun BooleanArray.all(predicate: (Boolean) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun CharArray.all(predicate: (Char) -> Boolean): Boolean {
+public inline fun CharArray.all(local predicate: (Char) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -13209,7 +13209,7 @@ public fun CharArray.any(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun <T> Array<out T>.any(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> Array<out T>.any(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13219,7 +13219,7 @@ public inline fun <T> Array<out T>.any(predicate: (T) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun ByteArray.any(predicate: (Byte) -> Boolean): Boolean {
+public inline fun ByteArray.any(local predicate: (Byte) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13229,7 +13229,7 @@ public inline fun ByteArray.any(predicate: (Byte) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun ShortArray.any(predicate: (Short) -> Boolean): Boolean {
+public inline fun ShortArray.any(local predicate: (Short) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13239,7 +13239,7 @@ public inline fun ShortArray.any(predicate: (Short) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun IntArray.any(predicate: (Int) -> Boolean): Boolean {
+public inline fun IntArray.any(local predicate: (Int) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13249,7 +13249,7 @@ public inline fun IntArray.any(predicate: (Int) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun LongArray.any(predicate: (Long) -> Boolean): Boolean {
+public inline fun LongArray.any(local predicate: (Long) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13259,7 +13259,7 @@ public inline fun LongArray.any(predicate: (Long) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun FloatArray.any(predicate: (Float) -> Boolean): Boolean {
+public inline fun FloatArray.any(local predicate: (Float) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13269,7 +13269,7 @@ public inline fun FloatArray.any(predicate: (Float) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun DoubleArray.any(predicate: (Double) -> Boolean): Boolean {
+public inline fun DoubleArray.any(local predicate: (Double) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13279,7 +13279,7 @@ public inline fun DoubleArray.any(predicate: (Double) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun BooleanArray.any(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.any(local predicate: (Boolean) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13289,7 +13289,7 @@ public inline fun BooleanArray.any(predicate: (Boolean) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun CharArray.any(predicate: (Char) -> Boolean): Boolean {
+public inline fun CharArray.any(local predicate: (Char) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -13369,7 +13369,7 @@ public inline fun CharArray.count(): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun <T> Array<out T>.count(predicate: (T) -> Boolean): Int {
+public inline fun <T> Array<out T>.count(local predicate: (T) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13378,7 +13378,7 @@ public inline fun <T> Array<out T>.count(predicate: (T) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun ByteArray.count(predicate: (Byte) -> Boolean): Int {
+public inline fun ByteArray.count(local predicate: (Byte) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13387,7 +13387,7 @@ public inline fun ByteArray.count(predicate: (Byte) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun ShortArray.count(predicate: (Short) -> Boolean): Int {
+public inline fun ShortArray.count(local predicate: (Short) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13396,7 +13396,7 @@ public inline fun ShortArray.count(predicate: (Short) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun IntArray.count(predicate: (Int) -> Boolean): Int {
+public inline fun IntArray.count(local predicate: (Int) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13405,7 +13405,7 @@ public inline fun IntArray.count(predicate: (Int) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun LongArray.count(predicate: (Long) -> Boolean): Int {
+public inline fun LongArray.count(local predicate: (Long) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13414,7 +13414,7 @@ public inline fun LongArray.count(predicate: (Long) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun FloatArray.count(predicate: (Float) -> Boolean): Int {
+public inline fun FloatArray.count(local predicate: (Float) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13423,7 +13423,7 @@ public inline fun FloatArray.count(predicate: (Float) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun DoubleArray.count(predicate: (Double) -> Boolean): Int {
+public inline fun DoubleArray.count(local predicate: (Double) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13432,7 +13432,7 @@ public inline fun DoubleArray.count(predicate: (Double) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun BooleanArray.count(predicate: (Boolean) -> Boolean): Int {
+public inline fun BooleanArray.count(local predicate: (Boolean) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13441,7 +13441,7 @@ public inline fun BooleanArray.count(predicate: (Boolean) -> Boolean): Int {
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun CharArray.count(predicate: (Char) -> Boolean): Int {
+public inline fun CharArray.count(local predicate: (Char) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) ++count
     return count
@@ -13455,7 +13455,7 @@ public inline fun CharArray.count(predicate: (Char) -> Boolean): Int {
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <T, R> Array<out T>.fold(initial: R, operation: (acc: R, T) -> R): R {
+public inline fun <T, R> Array<out T>.fold(initial: R, local operation: (acc: R, T) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13469,7 +13469,7 @@ public inline fun <T, R> Array<out T>.fold(initial: R, operation: (acc: R, T) ->
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> ByteArray.fold(initial: R, operation: (acc: R, Byte) -> R): R {
+public inline fun <R> ByteArray.fold(initial: R, local operation: (acc: R, Byte) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13483,7 +13483,7 @@ public inline fun <R> ByteArray.fold(initial: R, operation: (acc: R, Byte) -> R)
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> ShortArray.fold(initial: R, operation: (acc: R, Short) -> R): R {
+public inline fun <R> ShortArray.fold(initial: R, local operation: (acc: R, Short) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13497,7 +13497,7 @@ public inline fun <R> ShortArray.fold(initial: R, operation: (acc: R, Short) -> 
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> IntArray.fold(initial: R, operation: (acc: R, Int) -> R): R {
+public inline fun <R> IntArray.fold(initial: R, local operation: (acc: R, Int) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13511,7 +13511,7 @@ public inline fun <R> IntArray.fold(initial: R, operation: (acc: R, Int) -> R): 
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> LongArray.fold(initial: R, operation: (acc: R, Long) -> R): R {
+public inline fun <R> LongArray.fold(initial: R, local operation: (acc: R, Long) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13525,7 +13525,7 @@ public inline fun <R> LongArray.fold(initial: R, operation: (acc: R, Long) -> R)
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> FloatArray.fold(initial: R, operation: (acc: R, Float) -> R): R {
+public inline fun <R> FloatArray.fold(initial: R, local operation: (acc: R, Float) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13539,7 +13539,7 @@ public inline fun <R> FloatArray.fold(initial: R, operation: (acc: R, Float) -> 
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> DoubleArray.fold(initial: R, operation: (acc: R, Double) -> R): R {
+public inline fun <R> DoubleArray.fold(initial: R, local operation: (acc: R, Double) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13553,7 +13553,7 @@ public inline fun <R> DoubleArray.fold(initial: R, operation: (acc: R, Double) -
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> BooleanArray.fold(initial: R, operation: (acc: R, Boolean) -> R): R {
+public inline fun <R> BooleanArray.fold(initial: R, local operation: (acc: R, Boolean) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13567,7 +13567,7 @@ public inline fun <R> BooleanArray.fold(initial: R, operation: (acc: R, Boolean)
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <R> CharArray.fold(initial: R, operation: (acc: R, Char) -> R): R {
+public inline fun <R> CharArray.fold(initial: R, local operation: (acc: R, Char) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -13582,7 +13582,7 @@ public inline fun <R> CharArray.fold(initial: R, operation: (acc: R, Char) -> R)
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <T, R> Array<out T>.foldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): R {
+public inline fun <T, R> Array<out T>.foldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13598,7 +13598,7 @@ public inline fun <T, R> Array<out T>.foldIndexed(initial: R, operation: (index:
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> ByteArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Byte) -> R): R {
+public inline fun <R> ByteArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Byte) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13614,7 +13614,7 @@ public inline fun <R> ByteArray.foldIndexed(initial: R, operation: (index: Int, 
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> ShortArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Short) -> R): R {
+public inline fun <R> ShortArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Short) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13630,7 +13630,7 @@ public inline fun <R> ShortArray.foldIndexed(initial: R, operation: (index: Int,
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> IntArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Int) -> R): R {
+public inline fun <R> IntArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Int) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13646,7 +13646,7 @@ public inline fun <R> IntArray.foldIndexed(initial: R, operation: (index: Int, a
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> LongArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Long) -> R): R {
+public inline fun <R> LongArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Long) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13662,7 +13662,7 @@ public inline fun <R> LongArray.foldIndexed(initial: R, operation: (index: Int, 
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> FloatArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Float) -> R): R {
+public inline fun <R> FloatArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Float) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13678,7 +13678,7 @@ public inline fun <R> FloatArray.foldIndexed(initial: R, operation: (index: Int,
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> DoubleArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Double) -> R): R {
+public inline fun <R> DoubleArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Double) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13694,7 +13694,7 @@ public inline fun <R> DoubleArray.foldIndexed(initial: R, operation: (index: Int
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> BooleanArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Boolean) -> R): R {
+public inline fun <R> BooleanArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Boolean) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13710,7 +13710,7 @@ public inline fun <R> BooleanArray.foldIndexed(initial: R, operation: (index: In
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <R> CharArray.foldIndexed(initial: R, operation: (index: Int, acc: R, Char) -> R): R {
+public inline fun <R> CharArray.foldIndexed(initial: R, local operation: (index: Int, acc: R, Char) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(index++, accumulator, element)
@@ -13725,7 +13725,7 @@ public inline fun <R> CharArray.foldIndexed(initial: R, operation: (index: Int, 
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <T, R> Array<out T>.foldRight(initial: R, operation: (T, acc: R) -> R): R {
+public inline fun <T, R> Array<out T>.foldRight(initial: R, local operation: (T, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13742,7 +13742,7 @@ public inline fun <T, R> Array<out T>.foldRight(initial: R, operation: (T, acc: 
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> ByteArray.foldRight(initial: R, operation: (Byte, acc: R) -> R): R {
+public inline fun <R> ByteArray.foldRight(initial: R, local operation: (Byte, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13759,7 +13759,7 @@ public inline fun <R> ByteArray.foldRight(initial: R, operation: (Byte, acc: R) 
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> ShortArray.foldRight(initial: R, operation: (Short, acc: R) -> R): R {
+public inline fun <R> ShortArray.foldRight(initial: R, local operation: (Short, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13776,7 +13776,7 @@ public inline fun <R> ShortArray.foldRight(initial: R, operation: (Short, acc: R
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> IntArray.foldRight(initial: R, operation: (Int, acc: R) -> R): R {
+public inline fun <R> IntArray.foldRight(initial: R, local operation: (Int, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13793,7 +13793,7 @@ public inline fun <R> IntArray.foldRight(initial: R, operation: (Int, acc: R) ->
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> LongArray.foldRight(initial: R, operation: (Long, acc: R) -> R): R {
+public inline fun <R> LongArray.foldRight(initial: R, local operation: (Long, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13810,7 +13810,7 @@ public inline fun <R> LongArray.foldRight(initial: R, operation: (Long, acc: R) 
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> FloatArray.foldRight(initial: R, operation: (Float, acc: R) -> R): R {
+public inline fun <R> FloatArray.foldRight(initial: R, local operation: (Float, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13827,7 +13827,7 @@ public inline fun <R> FloatArray.foldRight(initial: R, operation: (Float, acc: R
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> DoubleArray.foldRight(initial: R, operation: (Double, acc: R) -> R): R {
+public inline fun <R> DoubleArray.foldRight(initial: R, local operation: (Double, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13844,7 +13844,7 @@ public inline fun <R> DoubleArray.foldRight(initial: R, operation: (Double, acc:
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> BooleanArray.foldRight(initial: R, operation: (Boolean, acc: R) -> R): R {
+public inline fun <R> BooleanArray.foldRight(initial: R, local operation: (Boolean, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13861,7 +13861,7 @@ public inline fun <R> BooleanArray.foldRight(initial: R, operation: (Boolean, ac
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> CharArray.foldRight(initial: R, operation: (Char, acc: R) -> R): R {
+public inline fun <R> CharArray.foldRight(initial: R, local operation: (Char, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13879,7 +13879,7 @@ public inline fun <R> CharArray.foldRight(initial: R, operation: (Char, acc: R) 
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <T, R> Array<out T>.foldRightIndexed(initial: R, operation: (index: Int, T, acc: R) -> R): R {
+public inline fun <T, R> Array<out T>.foldRightIndexed(initial: R, local operation: (index: Int, T, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13898,7 +13898,7 @@ public inline fun <T, R> Array<out T>.foldRightIndexed(initial: R, operation: (i
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> ByteArray.foldRightIndexed(initial: R, operation: (index: Int, Byte, acc: R) -> R): R {
+public inline fun <R> ByteArray.foldRightIndexed(initial: R, local operation: (index: Int, Byte, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13917,7 +13917,7 @@ public inline fun <R> ByteArray.foldRightIndexed(initial: R, operation: (index: 
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> ShortArray.foldRightIndexed(initial: R, operation: (index: Int, Short, acc: R) -> R): R {
+public inline fun <R> ShortArray.foldRightIndexed(initial: R, local operation: (index: Int, Short, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13936,7 +13936,7 @@ public inline fun <R> ShortArray.foldRightIndexed(initial: R, operation: (index:
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> IntArray.foldRightIndexed(initial: R, operation: (index: Int, Int, acc: R) -> R): R {
+public inline fun <R> IntArray.foldRightIndexed(initial: R, local operation: (index: Int, Int, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13955,7 +13955,7 @@ public inline fun <R> IntArray.foldRightIndexed(initial: R, operation: (index: I
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> LongArray.foldRightIndexed(initial: R, operation: (index: Int, Long, acc: R) -> R): R {
+public inline fun <R> LongArray.foldRightIndexed(initial: R, local operation: (index: Int, Long, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13974,7 +13974,7 @@ public inline fun <R> LongArray.foldRightIndexed(initial: R, operation: (index: 
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> FloatArray.foldRightIndexed(initial: R, operation: (index: Int, Float, acc: R) -> R): R {
+public inline fun <R> FloatArray.foldRightIndexed(initial: R, local operation: (index: Int, Float, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -13993,7 +13993,7 @@ public inline fun <R> FloatArray.foldRightIndexed(initial: R, operation: (index:
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> DoubleArray.foldRightIndexed(initial: R, operation: (index: Int, Double, acc: R) -> R): R {
+public inline fun <R> DoubleArray.foldRightIndexed(initial: R, local operation: (index: Int, Double, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -14012,7 +14012,7 @@ public inline fun <R> DoubleArray.foldRightIndexed(initial: R, operation: (index
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> BooleanArray.foldRightIndexed(initial: R, operation: (index: Int, Boolean, acc: R) -> R): R {
+public inline fun <R> BooleanArray.foldRightIndexed(initial: R, local operation: (index: Int, Boolean, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -14031,7 +14031,7 @@ public inline fun <R> BooleanArray.foldRightIndexed(initial: R, operation: (inde
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <R> CharArray.foldRightIndexed(initial: R, operation: (index: Int, Char, acc: R) -> R): R {
+public inline fun <R> CharArray.foldRightIndexed(initial: R, local operation: (index: Int, Char, acc: R) -> R): R {
     var index = lastIndex
     var accumulator = initial
     while (index >= 0) {
@@ -14044,63 +14044,63 @@ public inline fun <R> CharArray.foldRightIndexed(initial: R, operation: (index: 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun <T> Array<out T>.forEach(action: (T) -> Unit): Unit {
+public inline fun <T> Array<out T>.forEach(local action: (T) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun ByteArray.forEach(action: (Byte) -> Unit): Unit {
+public inline fun ByteArray.forEach(local action: (Byte) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun ShortArray.forEach(action: (Short) -> Unit): Unit {
+public inline fun ShortArray.forEach(local action: (Short) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun IntArray.forEach(action: (Int) -> Unit): Unit {
+public inline fun IntArray.forEach(local action: (Int) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun LongArray.forEach(action: (Long) -> Unit): Unit {
+public inline fun LongArray.forEach(local action: (Long) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun FloatArray.forEach(action: (Float) -> Unit): Unit {
+public inline fun FloatArray.forEach(local action: (Float) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun DoubleArray.forEach(action: (Double) -> Unit): Unit {
+public inline fun DoubleArray.forEach(local action: (Double) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun BooleanArray.forEach(action: (Boolean) -> Unit): Unit {
+public inline fun BooleanArray.forEach(local action: (Boolean) -> Unit): Unit {
     for (element in this) action(element)
 }
 
 /**
  * Performs the given [action] on each element.
  */
-public inline fun CharArray.forEach(action: (Char) -> Unit): Unit {
+public inline fun CharArray.forEach(local action: (Char) -> Unit): Unit {
     for (element in this) action(element)
 }
 
@@ -14109,7 +14109,7 @@ public inline fun CharArray.forEach(action: (Char) -> Unit): Unit {
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun <T> Array<out T>.forEachIndexed(action: (index: Int, T) -> Unit): Unit {
+public inline fun <T> Array<out T>.forEachIndexed(local action: (index: Int, T) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14119,7 +14119,7 @@ public inline fun <T> Array<out T>.forEachIndexed(action: (index: Int, T) -> Uni
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun ByteArray.forEachIndexed(action: (index: Int, Byte) -> Unit): Unit {
+public inline fun ByteArray.forEachIndexed(local action: (index: Int, Byte) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14129,7 +14129,7 @@ public inline fun ByteArray.forEachIndexed(action: (index: Int, Byte) -> Unit): 
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun ShortArray.forEachIndexed(action: (index: Int, Short) -> Unit): Unit {
+public inline fun ShortArray.forEachIndexed(local action: (index: Int, Short) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14139,7 +14139,7 @@ public inline fun ShortArray.forEachIndexed(action: (index: Int, Short) -> Unit)
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun IntArray.forEachIndexed(action: (index: Int, Int) -> Unit): Unit {
+public inline fun IntArray.forEachIndexed(local action: (index: Int, Int) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14149,7 +14149,7 @@ public inline fun IntArray.forEachIndexed(action: (index: Int, Int) -> Unit): Un
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun LongArray.forEachIndexed(action: (index: Int, Long) -> Unit): Unit {
+public inline fun LongArray.forEachIndexed(local action: (index: Int, Long) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14159,7 +14159,7 @@ public inline fun LongArray.forEachIndexed(action: (index: Int, Long) -> Unit): 
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun FloatArray.forEachIndexed(action: (index: Int, Float) -> Unit): Unit {
+public inline fun FloatArray.forEachIndexed(local action: (index: Int, Float) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14169,7 +14169,7 @@ public inline fun FloatArray.forEachIndexed(action: (index: Int, Float) -> Unit)
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun DoubleArray.forEachIndexed(action: (index: Int, Double) -> Unit): Unit {
+public inline fun DoubleArray.forEachIndexed(local action: (index: Int, Double) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14179,7 +14179,7 @@ public inline fun DoubleArray.forEachIndexed(action: (index: Int, Double) -> Uni
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun BooleanArray.forEachIndexed(action: (index: Int, Boolean) -> Unit): Unit {
+public inline fun BooleanArray.forEachIndexed(local action: (index: Int, Boolean) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14189,7 +14189,7 @@ public inline fun BooleanArray.forEachIndexed(action: (index: Int, Boolean) -> U
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun CharArray.forEachIndexed(action: (index: Int, Char) -> Unit): Unit {
+public inline fun CharArray.forEachIndexed(local action: (index: Int, Char) -> Unit): Unit {
     var index = 0
     for (item in this) action(index++, item)
 }
@@ -14421,7 +14421,7 @@ public fun CharArray.max(): Char {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Array<out T>.maxBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> Array<out T>.maxBy(local selector: (T) -> R): T {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14455,7 +14455,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.maxBy(selector: (T) -> R):
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> ByteArray.maxBy(selector: (Byte) -> R): Byte {
+public inline fun <R : Comparable<R>> ByteArray.maxBy(local selector: (Byte) -> R): Byte {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14489,7 +14489,7 @@ public inline fun <R : Comparable<R>> ByteArray.maxBy(selector: (Byte) -> R): By
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> ShortArray.maxBy(selector: (Short) -> R): Short {
+public inline fun <R : Comparable<R>> ShortArray.maxBy(local selector: (Short) -> R): Short {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14523,7 +14523,7 @@ public inline fun <R : Comparable<R>> ShortArray.maxBy(selector: (Short) -> R): 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> IntArray.maxBy(selector: (Int) -> R): Int {
+public inline fun <R : Comparable<R>> IntArray.maxBy(local selector: (Int) -> R): Int {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14557,7 +14557,7 @@ public inline fun <R : Comparable<R>> IntArray.maxBy(selector: (Int) -> R): Int 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> LongArray.maxBy(selector: (Long) -> R): Long {
+public inline fun <R : Comparable<R>> LongArray.maxBy(local selector: (Long) -> R): Long {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14591,7 +14591,7 @@ public inline fun <R : Comparable<R>> LongArray.maxBy(selector: (Long) -> R): Lo
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> FloatArray.maxBy(selector: (Float) -> R): Float {
+public inline fun <R : Comparable<R>> FloatArray.maxBy(local selector: (Float) -> R): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14625,7 +14625,7 @@ public inline fun <R : Comparable<R>> FloatArray.maxBy(selector: (Float) -> R): 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> DoubleArray.maxBy(selector: (Double) -> R): Double {
+public inline fun <R : Comparable<R>> DoubleArray.maxBy(local selector: (Double) -> R): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14659,7 +14659,7 @@ public inline fun <R : Comparable<R>> DoubleArray.maxBy(selector: (Double) -> R)
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> BooleanArray.maxBy(selector: (Boolean) -> R): Boolean {
+public inline fun <R : Comparable<R>> BooleanArray.maxBy(local selector: (Boolean) -> R): Boolean {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14693,7 +14693,7 @@ public inline fun <R : Comparable<R>> BooleanArray.maxBy(selector: (Boolean) -> 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> CharArray.maxBy(selector: (Char) -> R): Char {
+public inline fun <R : Comparable<R>> CharArray.maxBy(local selector: (Char) -> R): Char {
     if (isEmpty()) throw NoSuchElementException()
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14723,7 +14723,7 @@ public inline fun <R : Comparable<R>> CharArray.maxBy(selector: (Char) -> R): Ch
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Array<out T>.maxByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> Array<out T>.maxByOrNull(local selector: (T) -> R): T? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14753,7 +14753,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.maxByOrNull(selector: (T) 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> ByteArray.maxByOrNull(selector: (Byte) -> R): Byte? {
+public inline fun <R : Comparable<R>> ByteArray.maxByOrNull(local selector: (Byte) -> R): Byte? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14783,7 +14783,7 @@ public inline fun <R : Comparable<R>> ByteArray.maxByOrNull(selector: (Byte) -> 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> ShortArray.maxByOrNull(selector: (Short) -> R): Short? {
+public inline fun <R : Comparable<R>> ShortArray.maxByOrNull(local selector: (Short) -> R): Short? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14813,7 +14813,7 @@ public inline fun <R : Comparable<R>> ShortArray.maxByOrNull(selector: (Short) -
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> IntArray.maxByOrNull(selector: (Int) -> R): Int? {
+public inline fun <R : Comparable<R>> IntArray.maxByOrNull(local selector: (Int) -> R): Int? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14843,7 +14843,7 @@ public inline fun <R : Comparable<R>> IntArray.maxByOrNull(selector: (Int) -> R)
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> LongArray.maxByOrNull(selector: (Long) -> R): Long? {
+public inline fun <R : Comparable<R>> LongArray.maxByOrNull(local selector: (Long) -> R): Long? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14873,7 +14873,7 @@ public inline fun <R : Comparable<R>> LongArray.maxByOrNull(selector: (Long) -> 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> FloatArray.maxByOrNull(selector: (Float) -> R): Float? {
+public inline fun <R : Comparable<R>> FloatArray.maxByOrNull(local selector: (Float) -> R): Float? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14903,7 +14903,7 @@ public inline fun <R : Comparable<R>> FloatArray.maxByOrNull(selector: (Float) -
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> DoubleArray.maxByOrNull(selector: (Double) -> R): Double? {
+public inline fun <R : Comparable<R>> DoubleArray.maxByOrNull(local selector: (Double) -> R): Double? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14933,7 +14933,7 @@ public inline fun <R : Comparable<R>> DoubleArray.maxByOrNull(selector: (Double)
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> BooleanArray.maxByOrNull(selector: (Boolean) -> R): Boolean? {
+public inline fun <R : Comparable<R>> BooleanArray.maxByOrNull(local selector: (Boolean) -> R): Boolean? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14963,7 +14963,7 @@ public inline fun <R : Comparable<R>> BooleanArray.maxByOrNull(selector: (Boolea
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> CharArray.maxByOrNull(selector: (Char) -> R): Char? {
+public inline fun <R : Comparable<R>> CharArray.maxByOrNull(local selector: (Char) -> R): Char? {
     if (isEmpty()) return null
     var maxElem = this[0]
     val lastIndex = this.lastIndex
@@ -14994,7 +14994,7 @@ public inline fun <R : Comparable<R>> CharArray.maxByOrNull(selector: (Char) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.maxOf(selector: (T) -> Double): Double {
+public inline fun <T> Array<out T>.maxOf(local selector: (T) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15018,7 +15018,7 @@ public inline fun <T> Array<out T>.maxOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.maxOf(selector: (Byte) -> Double): Double {
+public inline fun ByteArray.maxOf(local selector: (Byte) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15042,7 +15042,7 @@ public inline fun ByteArray.maxOf(selector: (Byte) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.maxOf(selector: (Short) -> Double): Double {
+public inline fun ShortArray.maxOf(local selector: (Short) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15066,7 +15066,7 @@ public inline fun ShortArray.maxOf(selector: (Short) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.maxOf(selector: (Int) -> Double): Double {
+public inline fun IntArray.maxOf(local selector: (Int) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15090,7 +15090,7 @@ public inline fun IntArray.maxOf(selector: (Int) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.maxOf(selector: (Long) -> Double): Double {
+public inline fun LongArray.maxOf(local selector: (Long) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15114,7 +15114,7 @@ public inline fun LongArray.maxOf(selector: (Long) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.maxOf(selector: (Float) -> Double): Double {
+public inline fun FloatArray.maxOf(local selector: (Float) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15138,7 +15138,7 @@ public inline fun FloatArray.maxOf(selector: (Float) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.maxOf(selector: (Double) -> Double): Double {
+public inline fun DoubleArray.maxOf(local selector: (Double) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15162,7 +15162,7 @@ public inline fun DoubleArray.maxOf(selector: (Double) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.maxOf(selector: (Boolean) -> Double): Double {
+public inline fun BooleanArray.maxOf(local selector: (Boolean) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15186,7 +15186,7 @@ public inline fun BooleanArray.maxOf(selector: (Boolean) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.maxOf(selector: (Char) -> Double): Double {
+public inline fun CharArray.maxOf(local selector: (Char) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15210,7 +15210,7 @@ public inline fun CharArray.maxOf(selector: (Char) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.maxOf(selector: (T) -> Float): Float {
+public inline fun <T> Array<out T>.maxOf(local selector: (T) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15234,7 +15234,7 @@ public inline fun <T> Array<out T>.maxOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.maxOf(selector: (Byte) -> Float): Float {
+public inline fun ByteArray.maxOf(local selector: (Byte) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15258,7 +15258,7 @@ public inline fun ByteArray.maxOf(selector: (Byte) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.maxOf(selector: (Short) -> Float): Float {
+public inline fun ShortArray.maxOf(local selector: (Short) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15282,7 +15282,7 @@ public inline fun ShortArray.maxOf(selector: (Short) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.maxOf(selector: (Int) -> Float): Float {
+public inline fun IntArray.maxOf(local selector: (Int) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15306,7 +15306,7 @@ public inline fun IntArray.maxOf(selector: (Int) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.maxOf(selector: (Long) -> Float): Float {
+public inline fun LongArray.maxOf(local selector: (Long) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15330,7 +15330,7 @@ public inline fun LongArray.maxOf(selector: (Long) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.maxOf(selector: (Float) -> Float): Float {
+public inline fun FloatArray.maxOf(local selector: (Float) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15354,7 +15354,7 @@ public inline fun FloatArray.maxOf(selector: (Float) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.maxOf(selector: (Double) -> Float): Float {
+public inline fun DoubleArray.maxOf(local selector: (Double) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15378,7 +15378,7 @@ public inline fun DoubleArray.maxOf(selector: (Double) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.maxOf(selector: (Boolean) -> Float): Float {
+public inline fun BooleanArray.maxOf(local selector: (Boolean) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15402,7 +15402,7 @@ public inline fun BooleanArray.maxOf(selector: (Boolean) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.maxOf(selector: (Char) -> Float): Float {
+public inline fun CharArray.maxOf(local selector: (Char) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15426,7 +15426,7 @@ public inline fun CharArray.maxOf(selector: (Char) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Array<out T>.maxOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> Array<out T>.maxOf(local selector: (T) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15452,7 +15452,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.maxOf(selector: (T) -> R):
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ByteArray.maxOf(selector: (Byte) -> R): R {
+public inline fun <R : Comparable<R>> ByteArray.maxOf(local selector: (Byte) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15478,7 +15478,7 @@ public inline fun <R : Comparable<R>> ByteArray.maxOf(selector: (Byte) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ShortArray.maxOf(selector: (Short) -> R): R {
+public inline fun <R : Comparable<R>> ShortArray.maxOf(local selector: (Short) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15504,7 +15504,7 @@ public inline fun <R : Comparable<R>> ShortArray.maxOf(selector: (Short) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> IntArray.maxOf(selector: (Int) -> R): R {
+public inline fun <R : Comparable<R>> IntArray.maxOf(local selector: (Int) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15530,7 +15530,7 @@ public inline fun <R : Comparable<R>> IntArray.maxOf(selector: (Int) -> R): R {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> LongArray.maxOf(selector: (Long) -> R): R {
+public inline fun <R : Comparable<R>> LongArray.maxOf(local selector: (Long) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15556,7 +15556,7 @@ public inline fun <R : Comparable<R>> LongArray.maxOf(selector: (Long) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> FloatArray.maxOf(selector: (Float) -> R): R {
+public inline fun <R : Comparable<R>> FloatArray.maxOf(local selector: (Float) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15582,7 +15582,7 @@ public inline fun <R : Comparable<R>> FloatArray.maxOf(selector: (Float) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> DoubleArray.maxOf(selector: (Double) -> R): R {
+public inline fun <R : Comparable<R>> DoubleArray.maxOf(local selector: (Double) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15608,7 +15608,7 @@ public inline fun <R : Comparable<R>> DoubleArray.maxOf(selector: (Double) -> R)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> BooleanArray.maxOf(selector: (Boolean) -> R): R {
+public inline fun <R : Comparable<R>> BooleanArray.maxOf(local selector: (Boolean) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15634,7 +15634,7 @@ public inline fun <R : Comparable<R>> BooleanArray.maxOf(selector: (Boolean) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> CharArray.maxOf(selector: (Char) -> R): R {
+public inline fun <R : Comparable<R>> CharArray.maxOf(local selector: (Char) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15658,7 +15658,7 @@ public inline fun <R : Comparable<R>> CharArray.maxOf(selector: (Char) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.maxOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> Array<out T>.maxOfOrNull(local selector: (T) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15680,7 +15680,7 @@ public inline fun <T> Array<out T>.maxOfOrNull(selector: (T) -> Double): Double?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.maxOfOrNull(selector: (Byte) -> Double): Double? {
+public inline fun ByteArray.maxOfOrNull(local selector: (Byte) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15702,7 +15702,7 @@ public inline fun ByteArray.maxOfOrNull(selector: (Byte) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.maxOfOrNull(selector: (Short) -> Double): Double? {
+public inline fun ShortArray.maxOfOrNull(local selector: (Short) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15724,7 +15724,7 @@ public inline fun ShortArray.maxOfOrNull(selector: (Short) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.maxOfOrNull(selector: (Int) -> Double): Double? {
+public inline fun IntArray.maxOfOrNull(local selector: (Int) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15746,7 +15746,7 @@ public inline fun IntArray.maxOfOrNull(selector: (Int) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.maxOfOrNull(selector: (Long) -> Double): Double? {
+public inline fun LongArray.maxOfOrNull(local selector: (Long) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15768,7 +15768,7 @@ public inline fun LongArray.maxOfOrNull(selector: (Long) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.maxOfOrNull(selector: (Float) -> Double): Double? {
+public inline fun FloatArray.maxOfOrNull(local selector: (Float) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15790,7 +15790,7 @@ public inline fun FloatArray.maxOfOrNull(selector: (Float) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.maxOfOrNull(selector: (Double) -> Double): Double? {
+public inline fun DoubleArray.maxOfOrNull(local selector: (Double) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15812,7 +15812,7 @@ public inline fun DoubleArray.maxOfOrNull(selector: (Double) -> Double): Double?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.maxOfOrNull(selector: (Boolean) -> Double): Double? {
+public inline fun BooleanArray.maxOfOrNull(local selector: (Boolean) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15834,7 +15834,7 @@ public inline fun BooleanArray.maxOfOrNull(selector: (Boolean) -> Double): Doubl
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.maxOfOrNull(selector: (Char) -> Double): Double? {
+public inline fun CharArray.maxOfOrNull(local selector: (Char) -> Double): Double? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15856,7 +15856,7 @@ public inline fun CharArray.maxOfOrNull(selector: (Char) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.maxOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> Array<out T>.maxOfOrNull(local selector: (T) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15878,7 +15878,7 @@ public inline fun <T> Array<out T>.maxOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.maxOfOrNull(selector: (Byte) -> Float): Float? {
+public inline fun ByteArray.maxOfOrNull(local selector: (Byte) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15900,7 +15900,7 @@ public inline fun ByteArray.maxOfOrNull(selector: (Byte) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.maxOfOrNull(selector: (Short) -> Float): Float? {
+public inline fun ShortArray.maxOfOrNull(local selector: (Short) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15922,7 +15922,7 @@ public inline fun ShortArray.maxOfOrNull(selector: (Short) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.maxOfOrNull(selector: (Int) -> Float): Float? {
+public inline fun IntArray.maxOfOrNull(local selector: (Int) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15944,7 +15944,7 @@ public inline fun IntArray.maxOfOrNull(selector: (Int) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.maxOfOrNull(selector: (Long) -> Float): Float? {
+public inline fun LongArray.maxOfOrNull(local selector: (Long) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15966,7 +15966,7 @@ public inline fun LongArray.maxOfOrNull(selector: (Long) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.maxOfOrNull(selector: (Float) -> Float): Float? {
+public inline fun FloatArray.maxOfOrNull(local selector: (Float) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -15988,7 +15988,7 @@ public inline fun FloatArray.maxOfOrNull(selector: (Float) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.maxOfOrNull(selector: (Double) -> Float): Float? {
+public inline fun DoubleArray.maxOfOrNull(local selector: (Double) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16010,7 +16010,7 @@ public inline fun DoubleArray.maxOfOrNull(selector: (Double) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.maxOfOrNull(selector: (Boolean) -> Float): Float? {
+public inline fun BooleanArray.maxOfOrNull(local selector: (Boolean) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16032,7 +16032,7 @@ public inline fun BooleanArray.maxOfOrNull(selector: (Boolean) -> Float): Float?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.maxOfOrNull(selector: (Char) -> Float): Float? {
+public inline fun CharArray.maxOfOrNull(local selector: (Char) -> Float): Float? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16054,7 +16054,7 @@ public inline fun CharArray.maxOfOrNull(selector: (Char) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Array<out T>.maxOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> Array<out T>.maxOfOrNull(local selector: (T) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16078,7 +16078,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.maxOfOrNull(selector: (T) 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ByteArray.maxOfOrNull(selector: (Byte) -> R): R? {
+public inline fun <R : Comparable<R>> ByteArray.maxOfOrNull(local selector: (Byte) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16102,7 +16102,7 @@ public inline fun <R : Comparable<R>> ByteArray.maxOfOrNull(selector: (Byte) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ShortArray.maxOfOrNull(selector: (Short) -> R): R? {
+public inline fun <R : Comparable<R>> ShortArray.maxOfOrNull(local selector: (Short) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16126,7 +16126,7 @@ public inline fun <R : Comparable<R>> ShortArray.maxOfOrNull(selector: (Short) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> IntArray.maxOfOrNull(selector: (Int) -> R): R? {
+public inline fun <R : Comparable<R>> IntArray.maxOfOrNull(local selector: (Int) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16150,7 +16150,7 @@ public inline fun <R : Comparable<R>> IntArray.maxOfOrNull(selector: (Int) -> R)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> LongArray.maxOfOrNull(selector: (Long) -> R): R? {
+public inline fun <R : Comparable<R>> LongArray.maxOfOrNull(local selector: (Long) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16174,7 +16174,7 @@ public inline fun <R : Comparable<R>> LongArray.maxOfOrNull(selector: (Long) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> FloatArray.maxOfOrNull(selector: (Float) -> R): R? {
+public inline fun <R : Comparable<R>> FloatArray.maxOfOrNull(local selector: (Float) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16198,7 +16198,7 @@ public inline fun <R : Comparable<R>> FloatArray.maxOfOrNull(selector: (Float) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> DoubleArray.maxOfOrNull(selector: (Double) -> R): R? {
+public inline fun <R : Comparable<R>> DoubleArray.maxOfOrNull(local selector: (Double) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16222,7 +16222,7 @@ public inline fun <R : Comparable<R>> DoubleArray.maxOfOrNull(selector: (Double)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> BooleanArray.maxOfOrNull(selector: (Boolean) -> R): R? {
+public inline fun <R : Comparable<R>> BooleanArray.maxOfOrNull(local selector: (Boolean) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16246,7 +16246,7 @@ public inline fun <R : Comparable<R>> BooleanArray.maxOfOrNull(selector: (Boolea
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> CharArray.maxOfOrNull(selector: (Char) -> R): R? {
+public inline fun <R : Comparable<R>> CharArray.maxOfOrNull(local selector: (Char) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16272,7 +16272,7 @@ public inline fun <R : Comparable<R>> CharArray.maxOfOrNull(selector: (Char) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.maxOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> Array<out T>.maxOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16298,7 +16298,7 @@ public inline fun <T, R> Array<out T>.maxOfWith(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.maxOfWith(comparator: Comparator<in R>, selector: (Byte) -> R): R {
+public inline fun <R> ByteArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Byte) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16324,7 +16324,7 @@ public inline fun <R> ByteArray.maxOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.maxOfWith(comparator: Comparator<in R>, selector: (Short) -> R): R {
+public inline fun <R> ShortArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Short) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16350,7 +16350,7 @@ public inline fun <R> ShortArray.maxOfWith(comparator: Comparator<in R>, selecto
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.maxOfWith(comparator: Comparator<in R>, selector: (Int) -> R): R {
+public inline fun <R> IntArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Int) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16376,7 +16376,7 @@ public inline fun <R> IntArray.maxOfWith(comparator: Comparator<in R>, selector:
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.maxOfWith(comparator: Comparator<in R>, selector: (Long) -> R): R {
+public inline fun <R> LongArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Long) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16402,7 +16402,7 @@ public inline fun <R> LongArray.maxOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.maxOfWith(comparator: Comparator<in R>, selector: (Float) -> R): R {
+public inline fun <R> FloatArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Float) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16428,7 +16428,7 @@ public inline fun <R> FloatArray.maxOfWith(comparator: Comparator<in R>, selecto
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.maxOfWith(comparator: Comparator<in R>, selector: (Double) -> R): R {
+public inline fun <R> DoubleArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Double) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16454,7 +16454,7 @@ public inline fun <R> DoubleArray.maxOfWith(comparator: Comparator<in R>, select
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.maxOfWith(comparator: Comparator<in R>, selector: (Boolean) -> R): R {
+public inline fun <R> BooleanArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Boolean) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16480,7 +16480,7 @@ public inline fun <R> BooleanArray.maxOfWith(comparator: Comparator<in R>, selec
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.maxOfWith(comparator: Comparator<in R>, selector: (Char) -> R): R {
+public inline fun <R> CharArray.maxOfWith(local comparator: Comparator<in R>, local selector: (Char) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16504,7 +16504,7 @@ public inline fun <R> CharArray.maxOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.maxOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> Array<out T>.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16528,7 +16528,7 @@ public inline fun <T, R> Array<out T>.maxOfWithOrNull(comparator: Comparator<in 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Byte) -> R): R? {
+public inline fun <R> ByteArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Byte) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16552,7 +16552,7 @@ public inline fun <R> ByteArray.maxOfWithOrNull(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Short) -> R): R? {
+public inline fun <R> ShortArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Short) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16576,7 +16576,7 @@ public inline fun <R> ShortArray.maxOfWithOrNull(comparator: Comparator<in R>, s
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Int) -> R): R? {
+public inline fun <R> IntArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Int) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16600,7 +16600,7 @@ public inline fun <R> IntArray.maxOfWithOrNull(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Long) -> R): R? {
+public inline fun <R> LongArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Long) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16624,7 +16624,7 @@ public inline fun <R> LongArray.maxOfWithOrNull(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Float) -> R): R? {
+public inline fun <R> FloatArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Float) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16648,7 +16648,7 @@ public inline fun <R> FloatArray.maxOfWithOrNull(comparator: Comparator<in R>, s
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Double) -> R): R? {
+public inline fun <R> DoubleArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Double) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16672,7 +16672,7 @@ public inline fun <R> DoubleArray.maxOfWithOrNull(comparator: Comparator<in R>, 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Boolean) -> R): R? {
+public inline fun <R> BooleanArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Boolean) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16696,7 +16696,7 @@ public inline fun <R> BooleanArray.maxOfWithOrNull(comparator: Comparator<in R>,
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Char) -> R): R? {
+public inline fun <R> CharArray.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Char) -> R): R? {
     if (isEmpty()) return null
     var maxValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -16886,7 +16886,7 @@ public fun CharArray.maxOrNull(): Char? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Array<out T>.maxWith(comparator: Comparator<in T>): T {
+public fun <T> Array<out T>.maxWith(local comparator: Comparator<in T>): T {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16904,7 +16904,7 @@ public fun <T> Array<out T>.maxWith(comparator: Comparator<in T>): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun ByteArray.maxWith(comparator: Comparator<in Byte>): Byte {
+public fun ByteArray.maxWith(local comparator: Comparator<in Byte>): Byte {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16922,7 +16922,7 @@ public fun ByteArray.maxWith(comparator: Comparator<in Byte>): Byte {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun ShortArray.maxWith(comparator: Comparator<in Short>): Short {
+public fun ShortArray.maxWith(local comparator: Comparator<in Short>): Short {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16940,7 +16940,7 @@ public fun ShortArray.maxWith(comparator: Comparator<in Short>): Short {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun IntArray.maxWith(comparator: Comparator<in Int>): Int {
+public fun IntArray.maxWith(local comparator: Comparator<in Int>): Int {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16958,7 +16958,7 @@ public fun IntArray.maxWith(comparator: Comparator<in Int>): Int {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun LongArray.maxWith(comparator: Comparator<in Long>): Long {
+public fun LongArray.maxWith(local comparator: Comparator<in Long>): Long {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16976,7 +16976,7 @@ public fun LongArray.maxWith(comparator: Comparator<in Long>): Long {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun FloatArray.maxWith(comparator: Comparator<in Float>): Float {
+public fun FloatArray.maxWith(local comparator: Comparator<in Float>): Float {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -16994,7 +16994,7 @@ public fun FloatArray.maxWith(comparator: Comparator<in Float>): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun DoubleArray.maxWith(comparator: Comparator<in Double>): Double {
+public fun DoubleArray.maxWith(local comparator: Comparator<in Double>): Double {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17012,7 +17012,7 @@ public fun DoubleArray.maxWith(comparator: Comparator<in Double>): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun BooleanArray.maxWith(comparator: Comparator<in Boolean>): Boolean {
+public fun BooleanArray.maxWith(local comparator: Comparator<in Boolean>): Boolean {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17030,7 +17030,7 @@ public fun BooleanArray.maxWith(comparator: Comparator<in Boolean>): Boolean {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun CharArray.maxWith(comparator: Comparator<in Char>): Char {
+public fun CharArray.maxWith(local comparator: Comparator<in Char>): Char {
     if (isEmpty()) throw NoSuchElementException()
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17044,7 +17044,7 @@ public fun CharArray.maxWith(comparator: Comparator<in Char>): Char {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun <T> Array<out T>.maxWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> Array<out T>.maxWithOrNull(local comparator: Comparator<in T>): T? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17058,7 +17058,7 @@ public fun <T> Array<out T>.maxWithOrNull(comparator: Comparator<in T>): T? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun ByteArray.maxWithOrNull(comparator: Comparator<in Byte>): Byte? {
+public fun ByteArray.maxWithOrNull(local comparator: Comparator<in Byte>): Byte? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17072,7 +17072,7 @@ public fun ByteArray.maxWithOrNull(comparator: Comparator<in Byte>): Byte? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun ShortArray.maxWithOrNull(comparator: Comparator<in Short>): Short? {
+public fun ShortArray.maxWithOrNull(local comparator: Comparator<in Short>): Short? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17086,7 +17086,7 @@ public fun ShortArray.maxWithOrNull(comparator: Comparator<in Short>): Short? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun IntArray.maxWithOrNull(comparator: Comparator<in Int>): Int? {
+public fun IntArray.maxWithOrNull(local comparator: Comparator<in Int>): Int? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17100,7 +17100,7 @@ public fun IntArray.maxWithOrNull(comparator: Comparator<in Int>): Int? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun LongArray.maxWithOrNull(comparator: Comparator<in Long>): Long? {
+public fun LongArray.maxWithOrNull(local comparator: Comparator<in Long>): Long? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17114,7 +17114,7 @@ public fun LongArray.maxWithOrNull(comparator: Comparator<in Long>): Long? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun FloatArray.maxWithOrNull(comparator: Comparator<in Float>): Float? {
+public fun FloatArray.maxWithOrNull(local comparator: Comparator<in Float>): Float? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17128,7 +17128,7 @@ public fun FloatArray.maxWithOrNull(comparator: Comparator<in Float>): Float? {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun DoubleArray.maxWithOrNull(comparator: Comparator<in Double>): Double? {
+public fun DoubleArray.maxWithOrNull(local comparator: Comparator<in Double>): Double? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17142,7 +17142,7 @@ public fun DoubleArray.maxWithOrNull(comparator: Comparator<in Double>): Double?
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun BooleanArray.maxWithOrNull(comparator: Comparator<in Boolean>): Boolean? {
+public fun BooleanArray.maxWithOrNull(local comparator: Comparator<in Boolean>): Boolean? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17156,7 +17156,7 @@ public fun BooleanArray.maxWithOrNull(comparator: Comparator<in Boolean>): Boole
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun CharArray.maxWithOrNull(comparator: Comparator<in Char>): Char? {
+public fun CharArray.maxWithOrNull(local comparator: Comparator<in Char>): Char? {
     if (isEmpty()) return null
     var max = this[0]
     for (i in 1..lastIndex) {
@@ -17393,7 +17393,7 @@ public fun CharArray.min(): Char {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Array<out T>.minBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> Array<out T>.minBy(local selector: (T) -> R): T {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17427,7 +17427,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.minBy(selector: (T) -> R):
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> ByteArray.minBy(selector: (Byte) -> R): Byte {
+public inline fun <R : Comparable<R>> ByteArray.minBy(local selector: (Byte) -> R): Byte {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17461,7 +17461,7 @@ public inline fun <R : Comparable<R>> ByteArray.minBy(selector: (Byte) -> R): By
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> ShortArray.minBy(selector: (Short) -> R): Short {
+public inline fun <R : Comparable<R>> ShortArray.minBy(local selector: (Short) -> R): Short {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17495,7 +17495,7 @@ public inline fun <R : Comparable<R>> ShortArray.minBy(selector: (Short) -> R): 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> IntArray.minBy(selector: (Int) -> R): Int {
+public inline fun <R : Comparable<R>> IntArray.minBy(local selector: (Int) -> R): Int {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17529,7 +17529,7 @@ public inline fun <R : Comparable<R>> IntArray.minBy(selector: (Int) -> R): Int 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> LongArray.minBy(selector: (Long) -> R): Long {
+public inline fun <R : Comparable<R>> LongArray.minBy(local selector: (Long) -> R): Long {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17563,7 +17563,7 @@ public inline fun <R : Comparable<R>> LongArray.minBy(selector: (Long) -> R): Lo
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> FloatArray.minBy(selector: (Float) -> R): Float {
+public inline fun <R : Comparable<R>> FloatArray.minBy(local selector: (Float) -> R): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17597,7 +17597,7 @@ public inline fun <R : Comparable<R>> FloatArray.minBy(selector: (Float) -> R): 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> DoubleArray.minBy(selector: (Double) -> R): Double {
+public inline fun <R : Comparable<R>> DoubleArray.minBy(local selector: (Double) -> R): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17631,7 +17631,7 @@ public inline fun <R : Comparable<R>> DoubleArray.minBy(selector: (Double) -> R)
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> BooleanArray.minBy(selector: (Boolean) -> R): Boolean {
+public inline fun <R : Comparable<R>> BooleanArray.minBy(local selector: (Boolean) -> R): Boolean {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17665,7 +17665,7 @@ public inline fun <R : Comparable<R>> BooleanArray.minBy(selector: (Boolean) -> 
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <R : Comparable<R>> CharArray.minBy(selector: (Char) -> R): Char {
+public inline fun <R : Comparable<R>> CharArray.minBy(local selector: (Char) -> R): Char {
     if (isEmpty()) throw NoSuchElementException()
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17695,7 +17695,7 @@ public inline fun <R : Comparable<R>> CharArray.minBy(selector: (Char) -> R): Ch
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Array<out T>.minByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> Array<out T>.minByOrNull(local selector: (T) -> R): T? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17725,7 +17725,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.minByOrNull(selector: (T) 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> ByteArray.minByOrNull(selector: (Byte) -> R): Byte? {
+public inline fun <R : Comparable<R>> ByteArray.minByOrNull(local selector: (Byte) -> R): Byte? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17755,7 +17755,7 @@ public inline fun <R : Comparable<R>> ByteArray.minByOrNull(selector: (Byte) -> 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> ShortArray.minByOrNull(selector: (Short) -> R): Short? {
+public inline fun <R : Comparable<R>> ShortArray.minByOrNull(local selector: (Short) -> R): Short? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17785,7 +17785,7 @@ public inline fun <R : Comparable<R>> ShortArray.minByOrNull(selector: (Short) -
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> IntArray.minByOrNull(selector: (Int) -> R): Int? {
+public inline fun <R : Comparable<R>> IntArray.minByOrNull(local selector: (Int) -> R): Int? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17815,7 +17815,7 @@ public inline fun <R : Comparable<R>> IntArray.minByOrNull(selector: (Int) -> R)
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> LongArray.minByOrNull(selector: (Long) -> R): Long? {
+public inline fun <R : Comparable<R>> LongArray.minByOrNull(local selector: (Long) -> R): Long? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17845,7 +17845,7 @@ public inline fun <R : Comparable<R>> LongArray.minByOrNull(selector: (Long) -> 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> FloatArray.minByOrNull(selector: (Float) -> R): Float? {
+public inline fun <R : Comparable<R>> FloatArray.minByOrNull(local selector: (Float) -> R): Float? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17875,7 +17875,7 @@ public inline fun <R : Comparable<R>> FloatArray.minByOrNull(selector: (Float) -
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> DoubleArray.minByOrNull(selector: (Double) -> R): Double? {
+public inline fun <R : Comparable<R>> DoubleArray.minByOrNull(local selector: (Double) -> R): Double? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17905,7 +17905,7 @@ public inline fun <R : Comparable<R>> DoubleArray.minByOrNull(selector: (Double)
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> BooleanArray.minByOrNull(selector: (Boolean) -> R): Boolean? {
+public inline fun <R : Comparable<R>> BooleanArray.minByOrNull(local selector: (Boolean) -> R): Boolean? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17935,7 +17935,7 @@ public inline fun <R : Comparable<R>> BooleanArray.minByOrNull(selector: (Boolea
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <R : Comparable<R>> CharArray.minByOrNull(selector: (Char) -> R): Char? {
+public inline fun <R : Comparable<R>> CharArray.minByOrNull(local selector: (Char) -> R): Char? {
     if (isEmpty()) return null
     var minElem = this[0]
     val lastIndex = this.lastIndex
@@ -17966,7 +17966,7 @@ public inline fun <R : Comparable<R>> CharArray.minByOrNull(selector: (Char) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.minOf(selector: (T) -> Double): Double {
+public inline fun <T> Array<out T>.minOf(local selector: (T) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -17990,7 +17990,7 @@ public inline fun <T> Array<out T>.minOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.minOf(selector: (Byte) -> Double): Double {
+public inline fun ByteArray.minOf(local selector: (Byte) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18014,7 +18014,7 @@ public inline fun ByteArray.minOf(selector: (Byte) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.minOf(selector: (Short) -> Double): Double {
+public inline fun ShortArray.minOf(local selector: (Short) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18038,7 +18038,7 @@ public inline fun ShortArray.minOf(selector: (Short) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.minOf(selector: (Int) -> Double): Double {
+public inline fun IntArray.minOf(local selector: (Int) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18062,7 +18062,7 @@ public inline fun IntArray.minOf(selector: (Int) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.minOf(selector: (Long) -> Double): Double {
+public inline fun LongArray.minOf(local selector: (Long) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18086,7 +18086,7 @@ public inline fun LongArray.minOf(selector: (Long) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.minOf(selector: (Float) -> Double): Double {
+public inline fun FloatArray.minOf(local selector: (Float) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18110,7 +18110,7 @@ public inline fun FloatArray.minOf(selector: (Float) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.minOf(selector: (Double) -> Double): Double {
+public inline fun DoubleArray.minOf(local selector: (Double) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18134,7 +18134,7 @@ public inline fun DoubleArray.minOf(selector: (Double) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.minOf(selector: (Boolean) -> Double): Double {
+public inline fun BooleanArray.minOf(local selector: (Boolean) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18158,7 +18158,7 @@ public inline fun BooleanArray.minOf(selector: (Boolean) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.minOf(selector: (Char) -> Double): Double {
+public inline fun CharArray.minOf(local selector: (Char) -> Double): Double {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18182,7 +18182,7 @@ public inline fun CharArray.minOf(selector: (Char) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.minOf(selector: (T) -> Float): Float {
+public inline fun <T> Array<out T>.minOf(local selector: (T) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18206,7 +18206,7 @@ public inline fun <T> Array<out T>.minOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.minOf(selector: (Byte) -> Float): Float {
+public inline fun ByteArray.minOf(local selector: (Byte) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18230,7 +18230,7 @@ public inline fun ByteArray.minOf(selector: (Byte) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.minOf(selector: (Short) -> Float): Float {
+public inline fun ShortArray.minOf(local selector: (Short) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18254,7 +18254,7 @@ public inline fun ShortArray.minOf(selector: (Short) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.minOf(selector: (Int) -> Float): Float {
+public inline fun IntArray.minOf(local selector: (Int) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18278,7 +18278,7 @@ public inline fun IntArray.minOf(selector: (Int) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.minOf(selector: (Long) -> Float): Float {
+public inline fun LongArray.minOf(local selector: (Long) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18302,7 +18302,7 @@ public inline fun LongArray.minOf(selector: (Long) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.minOf(selector: (Float) -> Float): Float {
+public inline fun FloatArray.minOf(local selector: (Float) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18326,7 +18326,7 @@ public inline fun FloatArray.minOf(selector: (Float) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.minOf(selector: (Double) -> Float): Float {
+public inline fun DoubleArray.minOf(local selector: (Double) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18350,7 +18350,7 @@ public inline fun DoubleArray.minOf(selector: (Double) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.minOf(selector: (Boolean) -> Float): Float {
+public inline fun BooleanArray.minOf(local selector: (Boolean) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18374,7 +18374,7 @@ public inline fun BooleanArray.minOf(selector: (Boolean) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.minOf(selector: (Char) -> Float): Float {
+public inline fun CharArray.minOf(local selector: (Char) -> Float): Float {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18398,7 +18398,7 @@ public inline fun CharArray.minOf(selector: (Char) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Array<out T>.minOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> Array<out T>.minOf(local selector: (T) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18424,7 +18424,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.minOf(selector: (T) -> R):
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ByteArray.minOf(selector: (Byte) -> R): R {
+public inline fun <R : Comparable<R>> ByteArray.minOf(local selector: (Byte) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18450,7 +18450,7 @@ public inline fun <R : Comparable<R>> ByteArray.minOf(selector: (Byte) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ShortArray.minOf(selector: (Short) -> R): R {
+public inline fun <R : Comparable<R>> ShortArray.minOf(local selector: (Short) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18476,7 +18476,7 @@ public inline fun <R : Comparable<R>> ShortArray.minOf(selector: (Short) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> IntArray.minOf(selector: (Int) -> R): R {
+public inline fun <R : Comparable<R>> IntArray.minOf(local selector: (Int) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18502,7 +18502,7 @@ public inline fun <R : Comparable<R>> IntArray.minOf(selector: (Int) -> R): R {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> LongArray.minOf(selector: (Long) -> R): R {
+public inline fun <R : Comparable<R>> LongArray.minOf(local selector: (Long) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18528,7 +18528,7 @@ public inline fun <R : Comparable<R>> LongArray.minOf(selector: (Long) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> FloatArray.minOf(selector: (Float) -> R): R {
+public inline fun <R : Comparable<R>> FloatArray.minOf(local selector: (Float) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18554,7 +18554,7 @@ public inline fun <R : Comparable<R>> FloatArray.minOf(selector: (Float) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> DoubleArray.minOf(selector: (Double) -> R): R {
+public inline fun <R : Comparable<R>> DoubleArray.minOf(local selector: (Double) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18580,7 +18580,7 @@ public inline fun <R : Comparable<R>> DoubleArray.minOf(selector: (Double) -> R)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> BooleanArray.minOf(selector: (Boolean) -> R): R {
+public inline fun <R : Comparable<R>> BooleanArray.minOf(local selector: (Boolean) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18606,7 +18606,7 @@ public inline fun <R : Comparable<R>> BooleanArray.minOf(selector: (Boolean) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> CharArray.minOf(selector: (Char) -> R): R {
+public inline fun <R : Comparable<R>> CharArray.minOf(local selector: (Char) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18630,7 +18630,7 @@ public inline fun <R : Comparable<R>> CharArray.minOf(selector: (Char) -> R): R 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.minOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> Array<out T>.minOfOrNull(local selector: (T) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18652,7 +18652,7 @@ public inline fun <T> Array<out T>.minOfOrNull(selector: (T) -> Double): Double?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.minOfOrNull(selector: (Byte) -> Double): Double? {
+public inline fun ByteArray.minOfOrNull(local selector: (Byte) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18674,7 +18674,7 @@ public inline fun ByteArray.minOfOrNull(selector: (Byte) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.minOfOrNull(selector: (Short) -> Double): Double? {
+public inline fun ShortArray.minOfOrNull(local selector: (Short) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18696,7 +18696,7 @@ public inline fun ShortArray.minOfOrNull(selector: (Short) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.minOfOrNull(selector: (Int) -> Double): Double? {
+public inline fun IntArray.minOfOrNull(local selector: (Int) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18718,7 +18718,7 @@ public inline fun IntArray.minOfOrNull(selector: (Int) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.minOfOrNull(selector: (Long) -> Double): Double? {
+public inline fun LongArray.minOfOrNull(local selector: (Long) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18740,7 +18740,7 @@ public inline fun LongArray.minOfOrNull(selector: (Long) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.minOfOrNull(selector: (Float) -> Double): Double? {
+public inline fun FloatArray.minOfOrNull(local selector: (Float) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18762,7 +18762,7 @@ public inline fun FloatArray.minOfOrNull(selector: (Float) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.minOfOrNull(selector: (Double) -> Double): Double? {
+public inline fun DoubleArray.minOfOrNull(local selector: (Double) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18784,7 +18784,7 @@ public inline fun DoubleArray.minOfOrNull(selector: (Double) -> Double): Double?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.minOfOrNull(selector: (Boolean) -> Double): Double? {
+public inline fun BooleanArray.minOfOrNull(local selector: (Boolean) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18806,7 +18806,7 @@ public inline fun BooleanArray.minOfOrNull(selector: (Boolean) -> Double): Doubl
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.minOfOrNull(selector: (Char) -> Double): Double? {
+public inline fun CharArray.minOfOrNull(local selector: (Char) -> Double): Double? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18828,7 +18828,7 @@ public inline fun CharArray.minOfOrNull(selector: (Char) -> Double): Double? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.minOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> Array<out T>.minOfOrNull(local selector: (T) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18850,7 +18850,7 @@ public inline fun <T> Array<out T>.minOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.minOfOrNull(selector: (Byte) -> Float): Float? {
+public inline fun ByteArray.minOfOrNull(local selector: (Byte) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18872,7 +18872,7 @@ public inline fun ByteArray.minOfOrNull(selector: (Byte) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.minOfOrNull(selector: (Short) -> Float): Float? {
+public inline fun ShortArray.minOfOrNull(local selector: (Short) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18894,7 +18894,7 @@ public inline fun ShortArray.minOfOrNull(selector: (Short) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun IntArray.minOfOrNull(selector: (Int) -> Float): Float? {
+public inline fun IntArray.minOfOrNull(local selector: (Int) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18916,7 +18916,7 @@ public inline fun IntArray.minOfOrNull(selector: (Int) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun LongArray.minOfOrNull(selector: (Long) -> Float): Float? {
+public inline fun LongArray.minOfOrNull(local selector: (Long) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18938,7 +18938,7 @@ public inline fun LongArray.minOfOrNull(selector: (Long) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.minOfOrNull(selector: (Float) -> Float): Float? {
+public inline fun FloatArray.minOfOrNull(local selector: (Float) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18960,7 +18960,7 @@ public inline fun FloatArray.minOfOrNull(selector: (Float) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.minOfOrNull(selector: (Double) -> Float): Float? {
+public inline fun DoubleArray.minOfOrNull(local selector: (Double) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -18982,7 +18982,7 @@ public inline fun DoubleArray.minOfOrNull(selector: (Double) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.minOfOrNull(selector: (Boolean) -> Float): Float? {
+public inline fun BooleanArray.minOfOrNull(local selector: (Boolean) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19004,7 +19004,7 @@ public inline fun BooleanArray.minOfOrNull(selector: (Boolean) -> Float): Float?
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun CharArray.minOfOrNull(selector: (Char) -> Float): Float? {
+public inline fun CharArray.minOfOrNull(local selector: (Char) -> Float): Float? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19026,7 +19026,7 @@ public inline fun CharArray.minOfOrNull(selector: (Char) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Array<out T>.minOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> Array<out T>.minOfOrNull(local selector: (T) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19050,7 +19050,7 @@ public inline fun <T, R : Comparable<R>> Array<out T>.minOfOrNull(selector: (T) 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ByteArray.minOfOrNull(selector: (Byte) -> R): R? {
+public inline fun <R : Comparable<R>> ByteArray.minOfOrNull(local selector: (Byte) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19074,7 +19074,7 @@ public inline fun <R : Comparable<R>> ByteArray.minOfOrNull(selector: (Byte) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> ShortArray.minOfOrNull(selector: (Short) -> R): R? {
+public inline fun <R : Comparable<R>> ShortArray.minOfOrNull(local selector: (Short) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19098,7 +19098,7 @@ public inline fun <R : Comparable<R>> ShortArray.minOfOrNull(selector: (Short) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> IntArray.minOfOrNull(selector: (Int) -> R): R? {
+public inline fun <R : Comparable<R>> IntArray.minOfOrNull(local selector: (Int) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19122,7 +19122,7 @@ public inline fun <R : Comparable<R>> IntArray.minOfOrNull(selector: (Int) -> R)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> LongArray.minOfOrNull(selector: (Long) -> R): R? {
+public inline fun <R : Comparable<R>> LongArray.minOfOrNull(local selector: (Long) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19146,7 +19146,7 @@ public inline fun <R : Comparable<R>> LongArray.minOfOrNull(selector: (Long) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> FloatArray.minOfOrNull(selector: (Float) -> R): R? {
+public inline fun <R : Comparable<R>> FloatArray.minOfOrNull(local selector: (Float) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19170,7 +19170,7 @@ public inline fun <R : Comparable<R>> FloatArray.minOfOrNull(selector: (Float) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> DoubleArray.minOfOrNull(selector: (Double) -> R): R? {
+public inline fun <R : Comparable<R>> DoubleArray.minOfOrNull(local selector: (Double) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19194,7 +19194,7 @@ public inline fun <R : Comparable<R>> DoubleArray.minOfOrNull(selector: (Double)
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> BooleanArray.minOfOrNull(selector: (Boolean) -> R): R? {
+public inline fun <R : Comparable<R>> BooleanArray.minOfOrNull(local selector: (Boolean) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19218,7 +19218,7 @@ public inline fun <R : Comparable<R>> BooleanArray.minOfOrNull(selector: (Boolea
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R : Comparable<R>> CharArray.minOfOrNull(selector: (Char) -> R): R? {
+public inline fun <R : Comparable<R>> CharArray.minOfOrNull(local selector: (Char) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19244,7 +19244,7 @@ public inline fun <R : Comparable<R>> CharArray.minOfOrNull(selector: (Char) -> 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.minOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> Array<out T>.minOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19270,7 +19270,7 @@ public inline fun <T, R> Array<out T>.minOfWith(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.minOfWith(comparator: Comparator<in R>, selector: (Byte) -> R): R {
+public inline fun <R> ByteArray.minOfWith(local comparator: Comparator<in R>, local selector: (Byte) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19296,7 +19296,7 @@ public inline fun <R> ByteArray.minOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.minOfWith(comparator: Comparator<in R>, selector: (Short) -> R): R {
+public inline fun <R> ShortArray.minOfWith(local comparator: Comparator<in R>, local selector: (Short) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19322,7 +19322,7 @@ public inline fun <R> ShortArray.minOfWith(comparator: Comparator<in R>, selecto
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.minOfWith(comparator: Comparator<in R>, selector: (Int) -> R): R {
+public inline fun <R> IntArray.minOfWith(local comparator: Comparator<in R>, local selector: (Int) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19348,7 +19348,7 @@ public inline fun <R> IntArray.minOfWith(comparator: Comparator<in R>, selector:
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.minOfWith(comparator: Comparator<in R>, selector: (Long) -> R): R {
+public inline fun <R> LongArray.minOfWith(local comparator: Comparator<in R>, local selector: (Long) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19374,7 +19374,7 @@ public inline fun <R> LongArray.minOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.minOfWith(comparator: Comparator<in R>, selector: (Float) -> R): R {
+public inline fun <R> FloatArray.minOfWith(local comparator: Comparator<in R>, local selector: (Float) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19400,7 +19400,7 @@ public inline fun <R> FloatArray.minOfWith(comparator: Comparator<in R>, selecto
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.minOfWith(comparator: Comparator<in R>, selector: (Double) -> R): R {
+public inline fun <R> DoubleArray.minOfWith(local comparator: Comparator<in R>, local selector: (Double) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19426,7 +19426,7 @@ public inline fun <R> DoubleArray.minOfWith(comparator: Comparator<in R>, select
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.minOfWith(comparator: Comparator<in R>, selector: (Boolean) -> R): R {
+public inline fun <R> BooleanArray.minOfWith(local comparator: Comparator<in R>, local selector: (Boolean) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19452,7 +19452,7 @@ public inline fun <R> BooleanArray.minOfWith(comparator: Comparator<in R>, selec
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.minOfWith(comparator: Comparator<in R>, selector: (Char) -> R): R {
+public inline fun <R> CharArray.minOfWith(local comparator: Comparator<in R>, local selector: (Char) -> R): R {
     if (isEmpty()) throw NoSuchElementException()
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19476,7 +19476,7 @@ public inline fun <R> CharArray.minOfWith(comparator: Comparator<in R>, selector
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Array<out T>.minOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> Array<out T>.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19500,7 +19500,7 @@ public inline fun <T, R> Array<out T>.minOfWithOrNull(comparator: Comparator<in 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Byte) -> R): R? {
+public inline fun <R> ByteArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Byte) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19524,7 +19524,7 @@ public inline fun <R> ByteArray.minOfWithOrNull(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Short) -> R): R? {
+public inline fun <R> ShortArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Short) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19548,7 +19548,7 @@ public inline fun <R> ShortArray.minOfWithOrNull(comparator: Comparator<in R>, s
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Int) -> R): R? {
+public inline fun <R> IntArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Int) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19572,7 +19572,7 @@ public inline fun <R> IntArray.minOfWithOrNull(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Long) -> R): R? {
+public inline fun <R> LongArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Long) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19596,7 +19596,7 @@ public inline fun <R> LongArray.minOfWithOrNull(comparator: Comparator<in R>, se
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Float) -> R): R? {
+public inline fun <R> FloatArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Float) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19620,7 +19620,7 @@ public inline fun <R> FloatArray.minOfWithOrNull(comparator: Comparator<in R>, s
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Double) -> R): R? {
+public inline fun <R> DoubleArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Double) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19644,7 +19644,7 @@ public inline fun <R> DoubleArray.minOfWithOrNull(comparator: Comparator<in R>, 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Boolean) -> R): R? {
+public inline fun <R> BooleanArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Boolean) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19668,7 +19668,7 @@ public inline fun <R> BooleanArray.minOfWithOrNull(comparator: Comparator<in R>,
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.minOfWithOrNull(comparator: Comparator<in R>, selector: (Char) -> R): R? {
+public inline fun <R> CharArray.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Char) -> R): R? {
     if (isEmpty()) return null
     var minValue = selector(this[0])
     for (i in 1..lastIndex) {
@@ -19858,7 +19858,7 @@ public fun CharArray.minOrNull(): Char? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Array<out T>.minWith(comparator: Comparator<in T>): T {
+public fun <T> Array<out T>.minWith(local comparator: Comparator<in T>): T {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19876,7 +19876,7 @@ public fun <T> Array<out T>.minWith(comparator: Comparator<in T>): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun ByteArray.minWith(comparator: Comparator<in Byte>): Byte {
+public fun ByteArray.minWith(local comparator: Comparator<in Byte>): Byte {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19894,7 +19894,7 @@ public fun ByteArray.minWith(comparator: Comparator<in Byte>): Byte {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun ShortArray.minWith(comparator: Comparator<in Short>): Short {
+public fun ShortArray.minWith(local comparator: Comparator<in Short>): Short {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19912,7 +19912,7 @@ public fun ShortArray.minWith(comparator: Comparator<in Short>): Short {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun IntArray.minWith(comparator: Comparator<in Int>): Int {
+public fun IntArray.minWith(local comparator: Comparator<in Int>): Int {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19930,7 +19930,7 @@ public fun IntArray.minWith(comparator: Comparator<in Int>): Int {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun LongArray.minWith(comparator: Comparator<in Long>): Long {
+public fun LongArray.minWith(local comparator: Comparator<in Long>): Long {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19948,7 +19948,7 @@ public fun LongArray.minWith(comparator: Comparator<in Long>): Long {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun FloatArray.minWith(comparator: Comparator<in Float>): Float {
+public fun FloatArray.minWith(local comparator: Comparator<in Float>): Float {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19966,7 +19966,7 @@ public fun FloatArray.minWith(comparator: Comparator<in Float>): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun DoubleArray.minWith(comparator: Comparator<in Double>): Double {
+public fun DoubleArray.minWith(local comparator: Comparator<in Double>): Double {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -19984,7 +19984,7 @@ public fun DoubleArray.minWith(comparator: Comparator<in Double>): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun BooleanArray.minWith(comparator: Comparator<in Boolean>): Boolean {
+public fun BooleanArray.minWith(local comparator: Comparator<in Boolean>): Boolean {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20002,7 +20002,7 @@ public fun BooleanArray.minWith(comparator: Comparator<in Boolean>): Boolean {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun CharArray.minWith(comparator: Comparator<in Char>): Char {
+public fun CharArray.minWith(local comparator: Comparator<in Char>): Char {
     if (isEmpty()) throw NoSuchElementException()
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20016,7 +20016,7 @@ public fun CharArray.minWith(comparator: Comparator<in Char>): Char {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun <T> Array<out T>.minWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> Array<out T>.minWithOrNull(local comparator: Comparator<in T>): T? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20030,7 +20030,7 @@ public fun <T> Array<out T>.minWithOrNull(comparator: Comparator<in T>): T? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun ByteArray.minWithOrNull(comparator: Comparator<in Byte>): Byte? {
+public fun ByteArray.minWithOrNull(local comparator: Comparator<in Byte>): Byte? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20044,7 +20044,7 @@ public fun ByteArray.minWithOrNull(comparator: Comparator<in Byte>): Byte? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun ShortArray.minWithOrNull(comparator: Comparator<in Short>): Short? {
+public fun ShortArray.minWithOrNull(local comparator: Comparator<in Short>): Short? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20058,7 +20058,7 @@ public fun ShortArray.minWithOrNull(comparator: Comparator<in Short>): Short? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun IntArray.minWithOrNull(comparator: Comparator<in Int>): Int? {
+public fun IntArray.minWithOrNull(local comparator: Comparator<in Int>): Int? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20072,7 +20072,7 @@ public fun IntArray.minWithOrNull(comparator: Comparator<in Int>): Int? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun LongArray.minWithOrNull(comparator: Comparator<in Long>): Long? {
+public fun LongArray.minWithOrNull(local comparator: Comparator<in Long>): Long? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20086,7 +20086,7 @@ public fun LongArray.minWithOrNull(comparator: Comparator<in Long>): Long? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun FloatArray.minWithOrNull(comparator: Comparator<in Float>): Float? {
+public fun FloatArray.minWithOrNull(local comparator: Comparator<in Float>): Float? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20100,7 +20100,7 @@ public fun FloatArray.minWithOrNull(comparator: Comparator<in Float>): Float? {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun DoubleArray.minWithOrNull(comparator: Comparator<in Double>): Double? {
+public fun DoubleArray.minWithOrNull(local comparator: Comparator<in Double>): Double? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20114,7 +20114,7 @@ public fun DoubleArray.minWithOrNull(comparator: Comparator<in Double>): Double?
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun BooleanArray.minWithOrNull(comparator: Comparator<in Boolean>): Boolean? {
+public fun BooleanArray.minWithOrNull(local comparator: Comparator<in Boolean>): Boolean? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20128,7 +20128,7 @@ public fun BooleanArray.minWithOrNull(comparator: Comparator<in Boolean>): Boole
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun CharArray.minWithOrNull(comparator: Comparator<in Char>): Char? {
+public fun CharArray.minWithOrNull(local comparator: Comparator<in Char>): Char? {
     if (isEmpty()) return null
     var min = this[0]
     for (i in 1..lastIndex) {
@@ -20224,7 +20224,7 @@ public fun CharArray.none(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun <T> Array<out T>.none(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> Array<out T>.none(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20234,7 +20234,7 @@ public inline fun <T> Array<out T>.none(predicate: (T) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun ByteArray.none(predicate: (Byte) -> Boolean): Boolean {
+public inline fun ByteArray.none(local predicate: (Byte) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20244,7 +20244,7 @@ public inline fun ByteArray.none(predicate: (Byte) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun ShortArray.none(predicate: (Short) -> Boolean): Boolean {
+public inline fun ShortArray.none(local predicate: (Short) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20254,7 +20254,7 @@ public inline fun ShortArray.none(predicate: (Short) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun IntArray.none(predicate: (Int) -> Boolean): Boolean {
+public inline fun IntArray.none(local predicate: (Int) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20264,7 +20264,7 @@ public inline fun IntArray.none(predicate: (Int) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun LongArray.none(predicate: (Long) -> Boolean): Boolean {
+public inline fun LongArray.none(local predicate: (Long) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20274,7 +20274,7 @@ public inline fun LongArray.none(predicate: (Long) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun FloatArray.none(predicate: (Float) -> Boolean): Boolean {
+public inline fun FloatArray.none(local predicate: (Float) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20284,7 +20284,7 @@ public inline fun FloatArray.none(predicate: (Float) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun DoubleArray.none(predicate: (Double) -> Boolean): Boolean {
+public inline fun DoubleArray.none(local predicate: (Double) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20294,7 +20294,7 @@ public inline fun DoubleArray.none(predicate: (Double) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun BooleanArray.none(predicate: (Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.none(local predicate: (Boolean) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20304,7 +20304,7 @@ public inline fun BooleanArray.none(predicate: (Boolean) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun CharArray.none(predicate: (Char) -> Boolean): Boolean {
+public inline fun CharArray.none(local predicate: (Char) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -20314,7 +20314,7 @@ public inline fun CharArray.none(predicate: (Char) -> Boolean): Boolean {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.onEach(action: (T) -> Unit): Array<out T> {
+public inline fun <T> Array<out T>.onEach(local action: (T) -> Unit): Array<out T> {
     return apply { for (element in this) action(element) }
 }
 
@@ -20323,7 +20323,7 @@ public inline fun <T> Array<out T>.onEach(action: (T) -> Unit): Array<out T> {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.onEach(action: (Byte) -> Unit): ByteArray {
+public inline fun ByteArray.onEach(local action: (Byte) -> Unit): ByteArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20332,7 +20332,7 @@ public inline fun ByteArray.onEach(action: (Byte) -> Unit): ByteArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.onEach(action: (Short) -> Unit): ShortArray {
+public inline fun ShortArray.onEach(local action: (Short) -> Unit): ShortArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20341,7 +20341,7 @@ public inline fun ShortArray.onEach(action: (Short) -> Unit): ShortArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.onEach(action: (Int) -> Unit): IntArray {
+public inline fun IntArray.onEach(local action: (Int) -> Unit): IntArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20350,7 +20350,7 @@ public inline fun IntArray.onEach(action: (Int) -> Unit): IntArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.onEach(action: (Long) -> Unit): LongArray {
+public inline fun LongArray.onEach(local action: (Long) -> Unit): LongArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20359,7 +20359,7 @@ public inline fun LongArray.onEach(action: (Long) -> Unit): LongArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.onEach(action: (Float) -> Unit): FloatArray {
+public inline fun FloatArray.onEach(local action: (Float) -> Unit): FloatArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20368,7 +20368,7 @@ public inline fun FloatArray.onEach(action: (Float) -> Unit): FloatArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.onEach(action: (Double) -> Unit): DoubleArray {
+public inline fun DoubleArray.onEach(local action: (Double) -> Unit): DoubleArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20377,7 +20377,7 @@ public inline fun DoubleArray.onEach(action: (Double) -> Unit): DoubleArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.onEach(action: (Boolean) -> Unit): BooleanArray {
+public inline fun BooleanArray.onEach(local action: (Boolean) -> Unit): BooleanArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20386,7 +20386,7 @@ public inline fun BooleanArray.onEach(action: (Boolean) -> Unit): BooleanArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.onEach(action: (Char) -> Unit): CharArray {
+public inline fun CharArray.onEach(local action: (Char) -> Unit): CharArray {
     return apply { for (element in this) action(element) }
 }
 
@@ -20398,7 +20398,7 @@ public inline fun CharArray.onEach(action: (Char) -> Unit): CharArray {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.onEachIndexed(action: (index: Int, T) -> Unit): Array<out T> {
+public inline fun <T> Array<out T>.onEachIndexed(local action: (index: Int, T) -> Unit): Array<out T> {
     return apply { forEachIndexed(action) }
 }
 
@@ -20410,7 +20410,7 @@ public inline fun <T> Array<out T>.onEachIndexed(action: (index: Int, T) -> Unit
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.onEachIndexed(action: (index: Int, Byte) -> Unit): ByteArray {
+public inline fun ByteArray.onEachIndexed(local action: (index: Int, Byte) -> Unit): ByteArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20422,7 +20422,7 @@ public inline fun ByteArray.onEachIndexed(action: (index: Int, Byte) -> Unit): B
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.onEachIndexed(action: (index: Int, Short) -> Unit): ShortArray {
+public inline fun ShortArray.onEachIndexed(local action: (index: Int, Short) -> Unit): ShortArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20434,7 +20434,7 @@ public inline fun ShortArray.onEachIndexed(action: (index: Int, Short) -> Unit):
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.onEachIndexed(action: (index: Int, Int) -> Unit): IntArray {
+public inline fun IntArray.onEachIndexed(local action: (index: Int, Int) -> Unit): IntArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20446,7 +20446,7 @@ public inline fun IntArray.onEachIndexed(action: (index: Int, Int) -> Unit): Int
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.onEachIndexed(action: (index: Int, Long) -> Unit): LongArray {
+public inline fun LongArray.onEachIndexed(local action: (index: Int, Long) -> Unit): LongArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20458,7 +20458,7 @@ public inline fun LongArray.onEachIndexed(action: (index: Int, Long) -> Unit): L
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.onEachIndexed(action: (index: Int, Float) -> Unit): FloatArray {
+public inline fun FloatArray.onEachIndexed(local action: (index: Int, Float) -> Unit): FloatArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20470,7 +20470,7 @@ public inline fun FloatArray.onEachIndexed(action: (index: Int, Float) -> Unit):
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.onEachIndexed(action: (index: Int, Double) -> Unit): DoubleArray {
+public inline fun DoubleArray.onEachIndexed(local action: (index: Int, Double) -> Unit): DoubleArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20482,7 +20482,7 @@ public inline fun DoubleArray.onEachIndexed(action: (index: Int, Double) -> Unit
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.onEachIndexed(action: (index: Int, Boolean) -> Unit): BooleanArray {
+public inline fun BooleanArray.onEachIndexed(local action: (index: Int, Boolean) -> Unit): BooleanArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20494,7 +20494,7 @@ public inline fun BooleanArray.onEachIndexed(action: (index: Int, Boolean) -> Un
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.onEachIndexed(action: (index: Int, Char) -> Unit): CharArray {
+public inline fun CharArray.onEachIndexed(local action: (index: Int, Char) -> Unit): CharArray {
     return apply { forEachIndexed(action) }
 }
 
@@ -20510,7 +20510,7 @@ public inline fun CharArray.onEachIndexed(action: (index: Int, Char) -> Unit): C
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Array<out T>.reduce(operation: (acc: S, T) -> S): S {
+public inline fun <S, T : S> Array<out T>.reduce(local operation: (acc: S, T) -> S): S {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator: S = this[0]
@@ -20532,7 +20532,7 @@ public inline fun <S, T : S> Array<out T>.reduce(operation: (acc: S, T) -> S): S
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun ByteArray.reduce(operation: (acc: Byte, Byte) -> Byte): Byte {
+public inline fun ByteArray.reduce(local operation: (acc: Byte, Byte) -> Byte): Byte {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20554,7 +20554,7 @@ public inline fun ByteArray.reduce(operation: (acc: Byte, Byte) -> Byte): Byte {
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun ShortArray.reduce(operation: (acc: Short, Short) -> Short): Short {
+public inline fun ShortArray.reduce(local operation: (acc: Short, Short) -> Short): Short {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20576,7 +20576,7 @@ public inline fun ShortArray.reduce(operation: (acc: Short, Short) -> Short): Sh
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun IntArray.reduce(operation: (acc: Int, Int) -> Int): Int {
+public inline fun IntArray.reduce(local operation: (acc: Int, Int) -> Int): Int {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20598,7 +20598,7 @@ public inline fun IntArray.reduce(operation: (acc: Int, Int) -> Int): Int {
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun LongArray.reduce(operation: (acc: Long, Long) -> Long): Long {
+public inline fun LongArray.reduce(local operation: (acc: Long, Long) -> Long): Long {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20620,7 +20620,7 @@ public inline fun LongArray.reduce(operation: (acc: Long, Long) -> Long): Long {
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun FloatArray.reduce(operation: (acc: Float, Float) -> Float): Float {
+public inline fun FloatArray.reduce(local operation: (acc: Float, Float) -> Float): Float {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20642,7 +20642,7 @@ public inline fun FloatArray.reduce(operation: (acc: Float, Float) -> Float): Fl
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun DoubleArray.reduce(operation: (acc: Double, Double) -> Double): Double {
+public inline fun DoubleArray.reduce(local operation: (acc: Double, Double) -> Double): Double {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20664,7 +20664,7 @@ public inline fun DoubleArray.reduce(operation: (acc: Double, Double) -> Double)
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun BooleanArray.reduce(operation: (acc: Boolean, Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.reduce(local operation: (acc: Boolean, Boolean) -> Boolean): Boolean {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20686,7 +20686,7 @@ public inline fun BooleanArray.reduce(operation: (acc: Boolean, Boolean) -> Bool
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun CharArray.reduce(operation: (acc: Char, Char) -> Char): Char {
+public inline fun CharArray.reduce(local operation: (acc: Char, Char) -> Char): Char {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20708,7 +20708,7 @@ public inline fun CharArray.reduce(operation: (acc: Char, Char) -> Char): Char {
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Array<out T>.reduceIndexed(operation: (index: Int, acc: S, T) -> S): S {
+public inline fun <S, T : S> Array<out T>.reduceIndexed(local operation: (index: Int, acc: S, T) -> S): S {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator: S = this[0]
@@ -20730,7 +20730,7 @@ public inline fun <S, T : S> Array<out T>.reduceIndexed(operation: (index: Int, 
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun ByteArray.reduceIndexed(operation: (index: Int, acc: Byte, Byte) -> Byte): Byte {
+public inline fun ByteArray.reduceIndexed(local operation: (index: Int, acc: Byte, Byte) -> Byte): Byte {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20752,7 +20752,7 @@ public inline fun ByteArray.reduceIndexed(operation: (index: Int, acc: Byte, Byt
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun ShortArray.reduceIndexed(operation: (index: Int, acc: Short, Short) -> Short): Short {
+public inline fun ShortArray.reduceIndexed(local operation: (index: Int, acc: Short, Short) -> Short): Short {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20774,7 +20774,7 @@ public inline fun ShortArray.reduceIndexed(operation: (index: Int, acc: Short, S
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun IntArray.reduceIndexed(operation: (index: Int, acc: Int, Int) -> Int): Int {
+public inline fun IntArray.reduceIndexed(local operation: (index: Int, acc: Int, Int) -> Int): Int {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20796,7 +20796,7 @@ public inline fun IntArray.reduceIndexed(operation: (index: Int, acc: Int, Int) 
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun LongArray.reduceIndexed(operation: (index: Int, acc: Long, Long) -> Long): Long {
+public inline fun LongArray.reduceIndexed(local operation: (index: Int, acc: Long, Long) -> Long): Long {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20818,7 +20818,7 @@ public inline fun LongArray.reduceIndexed(operation: (index: Int, acc: Long, Lon
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun FloatArray.reduceIndexed(operation: (index: Int, acc: Float, Float) -> Float): Float {
+public inline fun FloatArray.reduceIndexed(local operation: (index: Int, acc: Float, Float) -> Float): Float {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20840,7 +20840,7 @@ public inline fun FloatArray.reduceIndexed(operation: (index: Int, acc: Float, F
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun DoubleArray.reduceIndexed(operation: (index: Int, acc: Double, Double) -> Double): Double {
+public inline fun DoubleArray.reduceIndexed(local operation: (index: Int, acc: Double, Double) -> Double): Double {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20862,7 +20862,7 @@ public inline fun DoubleArray.reduceIndexed(operation: (index: Int, acc: Double,
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun BooleanArray.reduceIndexed(operation: (index: Int, acc: Boolean, Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.reduceIndexed(local operation: (index: Int, acc: Boolean, Boolean) -> Boolean): Boolean {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20884,7 +20884,7 @@ public inline fun BooleanArray.reduceIndexed(operation: (index: Int, acc: Boolea
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun CharArray.reduceIndexed(operation: (index: Int, acc: Char, Char) -> Char): Char {
+public inline fun CharArray.reduceIndexed(local operation: (index: Int, acc: Char, Char) -> Char): Char {
     if (isEmpty())
         throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = this[0]
@@ -20906,7 +20906,7 @@ public inline fun CharArray.reduceIndexed(operation: (index: Int, acc: Char, Cha
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.reduceIndexedOrNull(operation: (index: Int, acc: S, T) -> S): S? {
+public inline fun <S, T : S> Array<out T>.reduceIndexedOrNull(local operation: (index: Int, acc: S, T) -> S): S? {
     if (isEmpty())
         return null
     var accumulator: S = this[0]
@@ -20928,7 +20928,7 @@ public inline fun <S, T : S> Array<out T>.reduceIndexedOrNull(operation: (index:
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ByteArray.reduceIndexedOrNull(operation: (index: Int, acc: Byte, Byte) -> Byte): Byte? {
+public inline fun ByteArray.reduceIndexedOrNull(local operation: (index: Int, acc: Byte, Byte) -> Byte): Byte? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -20950,7 +20950,7 @@ public inline fun ByteArray.reduceIndexedOrNull(operation: (index: Int, acc: Byt
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ShortArray.reduceIndexedOrNull(operation: (index: Int, acc: Short, Short) -> Short): Short? {
+public inline fun ShortArray.reduceIndexedOrNull(local operation: (index: Int, acc: Short, Short) -> Short): Short? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -20972,7 +20972,7 @@ public inline fun ShortArray.reduceIndexedOrNull(operation: (index: Int, acc: Sh
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun IntArray.reduceIndexedOrNull(operation: (index: Int, acc: Int, Int) -> Int): Int? {
+public inline fun IntArray.reduceIndexedOrNull(local operation: (index: Int, acc: Int, Int) -> Int): Int? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -20994,7 +20994,7 @@ public inline fun IntArray.reduceIndexedOrNull(operation: (index: Int, acc: Int,
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun LongArray.reduceIndexedOrNull(operation: (index: Int, acc: Long, Long) -> Long): Long? {
+public inline fun LongArray.reduceIndexedOrNull(local operation: (index: Int, acc: Long, Long) -> Long): Long? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21016,7 +21016,7 @@ public inline fun LongArray.reduceIndexedOrNull(operation: (index: Int, acc: Lon
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun FloatArray.reduceIndexedOrNull(operation: (index: Int, acc: Float, Float) -> Float): Float? {
+public inline fun FloatArray.reduceIndexedOrNull(local operation: (index: Int, acc: Float, Float) -> Float): Float? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21038,7 +21038,7 @@ public inline fun FloatArray.reduceIndexedOrNull(operation: (index: Int, acc: Fl
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun DoubleArray.reduceIndexedOrNull(operation: (index: Int, acc: Double, Double) -> Double): Double? {
+public inline fun DoubleArray.reduceIndexedOrNull(local operation: (index: Int, acc: Double, Double) -> Double): Double? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21060,7 +21060,7 @@ public inline fun DoubleArray.reduceIndexedOrNull(operation: (index: Int, acc: D
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun BooleanArray.reduceIndexedOrNull(operation: (index: Int, acc: Boolean, Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.reduceIndexedOrNull(local operation: (index: Int, acc: Boolean, Boolean) -> Boolean): Boolean? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21082,7 +21082,7 @@ public inline fun BooleanArray.reduceIndexedOrNull(operation: (index: Int, acc: 
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun CharArray.reduceIndexedOrNull(operation: (index: Int, acc: Char, Char) -> Char): Char? {
+public inline fun CharArray.reduceIndexedOrNull(local operation: (index: Int, acc: Char, Char) -> Char): Char? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21104,7 +21104,7 @@ public inline fun CharArray.reduceIndexedOrNull(operation: (index: Int, acc: Cha
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.reduceOrNull(operation: (acc: S, T) -> S): S? {
+public inline fun <S, T : S> Array<out T>.reduceOrNull(local operation: (acc: S, T) -> S): S? {
     if (isEmpty())
         return null
     var accumulator: S = this[0]
@@ -21126,7 +21126,7 @@ public inline fun <S, T : S> Array<out T>.reduceOrNull(operation: (acc: S, T) ->
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ByteArray.reduceOrNull(operation: (acc: Byte, Byte) -> Byte): Byte? {
+public inline fun ByteArray.reduceOrNull(local operation: (acc: Byte, Byte) -> Byte): Byte? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21148,7 +21148,7 @@ public inline fun ByteArray.reduceOrNull(operation: (acc: Byte, Byte) -> Byte): 
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ShortArray.reduceOrNull(operation: (acc: Short, Short) -> Short): Short? {
+public inline fun ShortArray.reduceOrNull(local operation: (acc: Short, Short) -> Short): Short? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21170,7 +21170,7 @@ public inline fun ShortArray.reduceOrNull(operation: (acc: Short, Short) -> Shor
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun IntArray.reduceOrNull(operation: (acc: Int, Int) -> Int): Int? {
+public inline fun IntArray.reduceOrNull(local operation: (acc: Int, Int) -> Int): Int? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21192,7 +21192,7 @@ public inline fun IntArray.reduceOrNull(operation: (acc: Int, Int) -> Int): Int?
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun LongArray.reduceOrNull(operation: (acc: Long, Long) -> Long): Long? {
+public inline fun LongArray.reduceOrNull(local operation: (acc: Long, Long) -> Long): Long? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21214,7 +21214,7 @@ public inline fun LongArray.reduceOrNull(operation: (acc: Long, Long) -> Long): 
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun FloatArray.reduceOrNull(operation: (acc: Float, Float) -> Float): Float? {
+public inline fun FloatArray.reduceOrNull(local operation: (acc: Float, Float) -> Float): Float? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21236,7 +21236,7 @@ public inline fun FloatArray.reduceOrNull(operation: (acc: Float, Float) -> Floa
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun DoubleArray.reduceOrNull(operation: (acc: Double, Double) -> Double): Double? {
+public inline fun DoubleArray.reduceOrNull(local operation: (acc: Double, Double) -> Double): Double? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21258,7 +21258,7 @@ public inline fun DoubleArray.reduceOrNull(operation: (acc: Double, Double) -> D
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun BooleanArray.reduceOrNull(operation: (acc: Boolean, Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.reduceOrNull(local operation: (acc: Boolean, Boolean) -> Boolean): Boolean? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21280,7 +21280,7 @@ public inline fun BooleanArray.reduceOrNull(operation: (acc: Boolean, Boolean) -
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun CharArray.reduceOrNull(operation: (acc: Char, Char) -> Char): Char? {
+public inline fun CharArray.reduceOrNull(local operation: (acc: Char, Char) -> Char): Char? {
     if (isEmpty())
         return null
     var accumulator = this[0]
@@ -21302,7 +21302,7 @@ public inline fun CharArray.reduceOrNull(operation: (acc: Char, Char) -> Char): 
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun <S, T : S> Array<out T>.reduceRight(operation: (T, acc: S) -> S): S {
+public inline fun <S, T : S> Array<out T>.reduceRight(local operation: (T, acc: S) -> S): S {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator: S = get(index--)
@@ -21324,7 +21324,7 @@ public inline fun <S, T : S> Array<out T>.reduceRight(operation: (T, acc: S) -> 
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun ByteArray.reduceRight(operation: (Byte, acc: Byte) -> Byte): Byte {
+public inline fun ByteArray.reduceRight(local operation: (Byte, acc: Byte) -> Byte): Byte {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21346,7 +21346,7 @@ public inline fun ByteArray.reduceRight(operation: (Byte, acc: Byte) -> Byte): B
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun ShortArray.reduceRight(operation: (Short, acc: Short) -> Short): Short {
+public inline fun ShortArray.reduceRight(local operation: (Short, acc: Short) -> Short): Short {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21368,7 +21368,7 @@ public inline fun ShortArray.reduceRight(operation: (Short, acc: Short) -> Short
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun IntArray.reduceRight(operation: (Int, acc: Int) -> Int): Int {
+public inline fun IntArray.reduceRight(local operation: (Int, acc: Int) -> Int): Int {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21390,7 +21390,7 @@ public inline fun IntArray.reduceRight(operation: (Int, acc: Int) -> Int): Int {
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun LongArray.reduceRight(operation: (Long, acc: Long) -> Long): Long {
+public inline fun LongArray.reduceRight(local operation: (Long, acc: Long) -> Long): Long {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21412,7 +21412,7 @@ public inline fun LongArray.reduceRight(operation: (Long, acc: Long) -> Long): L
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun FloatArray.reduceRight(operation: (Float, acc: Float) -> Float): Float {
+public inline fun FloatArray.reduceRight(local operation: (Float, acc: Float) -> Float): Float {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21434,7 +21434,7 @@ public inline fun FloatArray.reduceRight(operation: (Float, acc: Float) -> Float
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun DoubleArray.reduceRight(operation: (Double, acc: Double) -> Double): Double {
+public inline fun DoubleArray.reduceRight(local operation: (Double, acc: Double) -> Double): Double {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21456,7 +21456,7 @@ public inline fun DoubleArray.reduceRight(operation: (Double, acc: Double) -> Do
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun BooleanArray.reduceRight(operation: (Boolean, acc: Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.reduceRight(local operation: (Boolean, acc: Boolean) -> Boolean): Boolean {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21478,7 +21478,7 @@ public inline fun BooleanArray.reduceRight(operation: (Boolean, acc: Boolean) ->
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun CharArray.reduceRight(operation: (Char, acc: Char) -> Char): Char {
+public inline fun CharArray.reduceRight(local operation: (Char, acc: Char) -> Char): Char {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21500,7 +21500,7 @@ public inline fun CharArray.reduceRight(operation: (Char, acc: Char) -> Char): C
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun <S, T : S> Array<out T>.reduceRightIndexed(operation: (index: Int, T, acc: S) -> S): S {
+public inline fun <S, T : S> Array<out T>.reduceRightIndexed(local operation: (index: Int, T, acc: S) -> S): S {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator: S = get(index--)
@@ -21523,7 +21523,7 @@ public inline fun <S, T : S> Array<out T>.reduceRightIndexed(operation: (index: 
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun ByteArray.reduceRightIndexed(operation: (index: Int, Byte, acc: Byte) -> Byte): Byte {
+public inline fun ByteArray.reduceRightIndexed(local operation: (index: Int, Byte, acc: Byte) -> Byte): Byte {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21546,7 +21546,7 @@ public inline fun ByteArray.reduceRightIndexed(operation: (index: Int, Byte, acc
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun ShortArray.reduceRightIndexed(operation: (index: Int, Short, acc: Short) -> Short): Short {
+public inline fun ShortArray.reduceRightIndexed(local operation: (index: Int, Short, acc: Short) -> Short): Short {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21569,7 +21569,7 @@ public inline fun ShortArray.reduceRightIndexed(operation: (index: Int, Short, a
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun IntArray.reduceRightIndexed(operation: (index: Int, Int, acc: Int) -> Int): Int {
+public inline fun IntArray.reduceRightIndexed(local operation: (index: Int, Int, acc: Int) -> Int): Int {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21592,7 +21592,7 @@ public inline fun IntArray.reduceRightIndexed(operation: (index: Int, Int, acc: 
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun LongArray.reduceRightIndexed(operation: (index: Int, Long, acc: Long) -> Long): Long {
+public inline fun LongArray.reduceRightIndexed(local operation: (index: Int, Long, acc: Long) -> Long): Long {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21615,7 +21615,7 @@ public inline fun LongArray.reduceRightIndexed(operation: (index: Int, Long, acc
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun FloatArray.reduceRightIndexed(operation: (index: Int, Float, acc: Float) -> Float): Float {
+public inline fun FloatArray.reduceRightIndexed(local operation: (index: Int, Float, acc: Float) -> Float): Float {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21638,7 +21638,7 @@ public inline fun FloatArray.reduceRightIndexed(operation: (index: Int, Float, a
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun DoubleArray.reduceRightIndexed(operation: (index: Int, Double, acc: Double) -> Double): Double {
+public inline fun DoubleArray.reduceRightIndexed(local operation: (index: Int, Double, acc: Double) -> Double): Double {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21661,7 +21661,7 @@ public inline fun DoubleArray.reduceRightIndexed(operation: (index: Int, Double,
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun BooleanArray.reduceRightIndexed(operation: (index: Int, Boolean, acc: Boolean) -> Boolean): Boolean {
+public inline fun BooleanArray.reduceRightIndexed(local operation: (index: Int, Boolean, acc: Boolean) -> Boolean): Boolean {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21684,7 +21684,7 @@ public inline fun BooleanArray.reduceRightIndexed(operation: (index: Int, Boolea
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun CharArray.reduceRightIndexed(operation: (index: Int, Char, acc: Char) -> Char): Char {
+public inline fun CharArray.reduceRightIndexed(local operation: (index: Int, Char, acc: Char) -> Char): Char {
     var index = lastIndex
     if (index < 0) throw UnsupportedOperationException("Empty array can't be reduced.")
     var accumulator = get(index--)
@@ -21707,7 +21707,7 @@ public inline fun CharArray.reduceRightIndexed(operation: (index: Int, Char, acc
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.reduceRightIndexedOrNull(operation: (index: Int, T, acc: S) -> S): S? {
+public inline fun <S, T : S> Array<out T>.reduceRightIndexedOrNull(local operation: (index: Int, T, acc: S) -> S): S? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator: S = get(index--)
@@ -21730,7 +21730,7 @@ public inline fun <S, T : S> Array<out T>.reduceRightIndexedOrNull(operation: (i
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ByteArray.reduceRightIndexedOrNull(operation: (index: Int, Byte, acc: Byte) -> Byte): Byte? {
+public inline fun ByteArray.reduceRightIndexedOrNull(local operation: (index: Int, Byte, acc: Byte) -> Byte): Byte? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21753,7 +21753,7 @@ public inline fun ByteArray.reduceRightIndexedOrNull(operation: (index: Int, Byt
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ShortArray.reduceRightIndexedOrNull(operation: (index: Int, Short, acc: Short) -> Short): Short? {
+public inline fun ShortArray.reduceRightIndexedOrNull(local operation: (index: Int, Short, acc: Short) -> Short): Short? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21776,7 +21776,7 @@ public inline fun ShortArray.reduceRightIndexedOrNull(operation: (index: Int, Sh
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun IntArray.reduceRightIndexedOrNull(operation: (index: Int, Int, acc: Int) -> Int): Int? {
+public inline fun IntArray.reduceRightIndexedOrNull(local operation: (index: Int, Int, acc: Int) -> Int): Int? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21799,7 +21799,7 @@ public inline fun IntArray.reduceRightIndexedOrNull(operation: (index: Int, Int,
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun LongArray.reduceRightIndexedOrNull(operation: (index: Int, Long, acc: Long) -> Long): Long? {
+public inline fun LongArray.reduceRightIndexedOrNull(local operation: (index: Int, Long, acc: Long) -> Long): Long? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21822,7 +21822,7 @@ public inline fun LongArray.reduceRightIndexedOrNull(operation: (index: Int, Lon
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun FloatArray.reduceRightIndexedOrNull(operation: (index: Int, Float, acc: Float) -> Float): Float? {
+public inline fun FloatArray.reduceRightIndexedOrNull(local operation: (index: Int, Float, acc: Float) -> Float): Float? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21845,7 +21845,7 @@ public inline fun FloatArray.reduceRightIndexedOrNull(operation: (index: Int, Fl
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun DoubleArray.reduceRightIndexedOrNull(operation: (index: Int, Double, acc: Double) -> Double): Double? {
+public inline fun DoubleArray.reduceRightIndexedOrNull(local operation: (index: Int, Double, acc: Double) -> Double): Double? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21868,7 +21868,7 @@ public inline fun DoubleArray.reduceRightIndexedOrNull(operation: (index: Int, D
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun BooleanArray.reduceRightIndexedOrNull(operation: (index: Int, Boolean, acc: Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.reduceRightIndexedOrNull(local operation: (index: Int, Boolean, acc: Boolean) -> Boolean): Boolean? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21891,7 +21891,7 @@ public inline fun BooleanArray.reduceRightIndexedOrNull(operation: (index: Int, 
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun CharArray.reduceRightIndexedOrNull(operation: (index: Int, Char, acc: Char) -> Char): Char? {
+public inline fun CharArray.reduceRightIndexedOrNull(local operation: (index: Int, Char, acc: Char) -> Char): Char? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21914,7 +21914,7 @@ public inline fun CharArray.reduceRightIndexedOrNull(operation: (index: Int, Cha
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.reduceRightOrNull(operation: (T, acc: S) -> S): S? {
+public inline fun <S, T : S> Array<out T>.reduceRightOrNull(local operation: (T, acc: S) -> S): S? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator: S = get(index--)
@@ -21936,7 +21936,7 @@ public inline fun <S, T : S> Array<out T>.reduceRightOrNull(operation: (T, acc: 
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ByteArray.reduceRightOrNull(operation: (Byte, acc: Byte) -> Byte): Byte? {
+public inline fun ByteArray.reduceRightOrNull(local operation: (Byte, acc: Byte) -> Byte): Byte? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21958,7 +21958,7 @@ public inline fun ByteArray.reduceRightOrNull(operation: (Byte, acc: Byte) -> By
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun ShortArray.reduceRightOrNull(operation: (Short, acc: Short) -> Short): Short? {
+public inline fun ShortArray.reduceRightOrNull(local operation: (Short, acc: Short) -> Short): Short? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -21980,7 +21980,7 @@ public inline fun ShortArray.reduceRightOrNull(operation: (Short, acc: Short) ->
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun IntArray.reduceRightOrNull(operation: (Int, acc: Int) -> Int): Int? {
+public inline fun IntArray.reduceRightOrNull(local operation: (Int, acc: Int) -> Int): Int? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22002,7 +22002,7 @@ public inline fun IntArray.reduceRightOrNull(operation: (Int, acc: Int) -> Int):
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun LongArray.reduceRightOrNull(operation: (Long, acc: Long) -> Long): Long? {
+public inline fun LongArray.reduceRightOrNull(local operation: (Long, acc: Long) -> Long): Long? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22024,7 +22024,7 @@ public inline fun LongArray.reduceRightOrNull(operation: (Long, acc: Long) -> Lo
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun FloatArray.reduceRightOrNull(operation: (Float, acc: Float) -> Float): Float? {
+public inline fun FloatArray.reduceRightOrNull(local operation: (Float, acc: Float) -> Float): Float? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22046,7 +22046,7 @@ public inline fun FloatArray.reduceRightOrNull(operation: (Float, acc: Float) ->
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun DoubleArray.reduceRightOrNull(operation: (Double, acc: Double) -> Double): Double? {
+public inline fun DoubleArray.reduceRightOrNull(local operation: (Double, acc: Double) -> Double): Double? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22068,7 +22068,7 @@ public inline fun DoubleArray.reduceRightOrNull(operation: (Double, acc: Double)
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun BooleanArray.reduceRightOrNull(operation: (Boolean, acc: Boolean) -> Boolean): Boolean? {
+public inline fun BooleanArray.reduceRightOrNull(local operation: (Boolean, acc: Boolean) -> Boolean): Boolean? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22090,7 +22090,7 @@ public inline fun BooleanArray.reduceRightOrNull(operation: (Boolean, acc: Boole
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun CharArray.reduceRightOrNull(operation: (Char, acc: Char) -> Char): Char? {
+public inline fun CharArray.reduceRightOrNull(local operation: (Char, acc: Char) -> Char): Char? {
     var index = lastIndex
     if (index < 0) return null
     var accumulator = get(index--)
@@ -22112,7 +22112,7 @@ public inline fun CharArray.reduceRightOrNull(operation: (Char, acc: Char) -> Ch
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Array<out T>.runningFold(initial: R, operation: (acc: R, T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.runningFold(initial: R, local operation: (acc: R, T) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22136,7 +22136,7 @@ public inline fun <T, R> Array<out T>.runningFold(initial: R, operation: (acc: R
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.runningFold(initial: R, operation: (acc: R, Byte) -> R): List<R> {
+public inline fun <R> ByteArray.runningFold(initial: R, local operation: (acc: R, Byte) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22160,7 +22160,7 @@ public inline fun <R> ByteArray.runningFold(initial: R, operation: (acc: R, Byte
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.runningFold(initial: R, operation: (acc: R, Short) -> R): List<R> {
+public inline fun <R> ShortArray.runningFold(initial: R, local operation: (acc: R, Short) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22184,7 +22184,7 @@ public inline fun <R> ShortArray.runningFold(initial: R, operation: (acc: R, Sho
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.runningFold(initial: R, operation: (acc: R, Int) -> R): List<R> {
+public inline fun <R> IntArray.runningFold(initial: R, local operation: (acc: R, Int) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22208,7 +22208,7 @@ public inline fun <R> IntArray.runningFold(initial: R, operation: (acc: R, Int) 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.runningFold(initial: R, operation: (acc: R, Long) -> R): List<R> {
+public inline fun <R> LongArray.runningFold(initial: R, local operation: (acc: R, Long) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22232,7 +22232,7 @@ public inline fun <R> LongArray.runningFold(initial: R, operation: (acc: R, Long
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.runningFold(initial: R, operation: (acc: R, Float) -> R): List<R> {
+public inline fun <R> FloatArray.runningFold(initial: R, local operation: (acc: R, Float) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22256,7 +22256,7 @@ public inline fun <R> FloatArray.runningFold(initial: R, operation: (acc: R, Flo
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.runningFold(initial: R, operation: (acc: R, Double) -> R): List<R> {
+public inline fun <R> DoubleArray.runningFold(initial: R, local operation: (acc: R, Double) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22280,7 +22280,7 @@ public inline fun <R> DoubleArray.runningFold(initial: R, operation: (acc: R, Do
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.runningFold(initial: R, operation: (acc: R, Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.runningFold(initial: R, local operation: (acc: R, Boolean) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22304,7 +22304,7 @@ public inline fun <R> BooleanArray.runningFold(initial: R, operation: (acc: R, B
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.runningFold(initial: R, operation: (acc: R, Char) -> R): List<R> {
+public inline fun <R> CharArray.runningFold(initial: R, local operation: (acc: R, Char) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22328,7 +22328,7 @@ public inline fun <R> CharArray.runningFold(initial: R, operation: (acc: R, Char
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Array<out T>.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22353,7 +22353,7 @@ public inline fun <T, R> Array<out T>.runningFoldIndexed(initial: R, operation: 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Byte) -> R): List<R> {
+public inline fun <R> ByteArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Byte) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22378,7 +22378,7 @@ public inline fun <R> ByteArray.runningFoldIndexed(initial: R, operation: (index
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Short) -> R): List<R> {
+public inline fun <R> ShortArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Short) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22403,7 +22403,7 @@ public inline fun <R> ShortArray.runningFoldIndexed(initial: R, operation: (inde
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Int) -> R): List<R> {
+public inline fun <R> IntArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Int) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22428,7 +22428,7 @@ public inline fun <R> IntArray.runningFoldIndexed(initial: R, operation: (index:
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Long) -> R): List<R> {
+public inline fun <R> LongArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Long) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22453,7 +22453,7 @@ public inline fun <R> LongArray.runningFoldIndexed(initial: R, operation: (index
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Float) -> R): List<R> {
+public inline fun <R> FloatArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Float) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22478,7 +22478,7 @@ public inline fun <R> FloatArray.runningFoldIndexed(initial: R, operation: (inde
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Double) -> R): List<R> {
+public inline fun <R> DoubleArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Double) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22503,7 +22503,7 @@ public inline fun <R> DoubleArray.runningFoldIndexed(initial: R, operation: (ind
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Boolean) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22528,7 +22528,7 @@ public inline fun <R> BooleanArray.runningFoldIndexed(initial: R, operation: (in
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, Char) -> R): List<R> {
+public inline fun <R> CharArray.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, Char) -> R): List<R> {
     if (isEmpty()) return listOf(initial)
     val result = ArrayList<R>(size + 1).apply { add(initial) }
     var accumulator = initial
@@ -22551,7 +22551,7 @@ public inline fun <R> CharArray.runningFoldIndexed(initial: R, operation: (index
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.runningReduce(operation: (acc: S, T) -> S): List<S> {
+public inline fun <S, T : S> Array<out T>.runningReduce(local operation: (acc: S, T) -> S): List<S> {
     if (isEmpty()) return emptyList()
     var accumulator: S = this[0]
     val result = ArrayList<S>(size).apply { add(accumulator) }
@@ -22572,7 +22572,7 @@ public inline fun <S, T : S> Array<out T>.runningReduce(operation: (acc: S, T) -
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.runningReduce(operation: (acc: Byte, Byte) -> Byte): List<Byte> {
+public inline fun ByteArray.runningReduce(local operation: (acc: Byte, Byte) -> Byte): List<Byte> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Byte>(size).apply { add(accumulator) }
@@ -22593,7 +22593,7 @@ public inline fun ByteArray.runningReduce(operation: (acc: Byte, Byte) -> Byte):
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.runningReduce(operation: (acc: Short, Short) -> Short): List<Short> {
+public inline fun ShortArray.runningReduce(local operation: (acc: Short, Short) -> Short): List<Short> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Short>(size).apply { add(accumulator) }
@@ -22614,7 +22614,7 @@ public inline fun ShortArray.runningReduce(operation: (acc: Short, Short) -> Sho
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.runningReduce(operation: (acc: Int, Int) -> Int): List<Int> {
+public inline fun IntArray.runningReduce(local operation: (acc: Int, Int) -> Int): List<Int> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Int>(size).apply { add(accumulator) }
@@ -22635,7 +22635,7 @@ public inline fun IntArray.runningReduce(operation: (acc: Int, Int) -> Int): Lis
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.runningReduce(operation: (acc: Long, Long) -> Long): List<Long> {
+public inline fun LongArray.runningReduce(local operation: (acc: Long, Long) -> Long): List<Long> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Long>(size).apply { add(accumulator) }
@@ -22656,7 +22656,7 @@ public inline fun LongArray.runningReduce(operation: (acc: Long, Long) -> Long):
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.runningReduce(operation: (acc: Float, Float) -> Float): List<Float> {
+public inline fun FloatArray.runningReduce(local operation: (acc: Float, Float) -> Float): List<Float> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Float>(size).apply { add(accumulator) }
@@ -22677,7 +22677,7 @@ public inline fun FloatArray.runningReduce(operation: (acc: Float, Float) -> Flo
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.runningReduce(operation: (acc: Double, Double) -> Double): List<Double> {
+public inline fun DoubleArray.runningReduce(local operation: (acc: Double, Double) -> Double): List<Double> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Double>(size).apply { add(accumulator) }
@@ -22698,7 +22698,7 @@ public inline fun DoubleArray.runningReduce(operation: (acc: Double, Double) -> 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.runningReduce(operation: (acc: Boolean, Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.runningReduce(local operation: (acc: Boolean, Boolean) -> Boolean): List<Boolean> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Boolean>(size).apply { add(accumulator) }
@@ -22719,7 +22719,7 @@ public inline fun BooleanArray.runningReduce(operation: (acc: Boolean, Boolean) 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.runningReduce(operation: (acc: Char, Char) -> Char): List<Char> {
+public inline fun CharArray.runningReduce(local operation: (acc: Char, Char) -> Char): List<Char> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Char>(size).apply { add(accumulator) }
@@ -22743,7 +22743,7 @@ public inline fun CharArray.runningReduce(operation: (acc: Char, Char) -> Char):
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Array<out T>.runningReduceIndexed(operation: (index: Int, acc: S, T) -> S): List<S> {
+public inline fun <S, T : S> Array<out T>.runningReduceIndexed(local operation: (index: Int, acc: S, T) -> S): List<S> {
     if (isEmpty()) return emptyList()
     var accumulator: S = this[0]
     val result = ArrayList<S>(size).apply { add(accumulator) }
@@ -22765,7 +22765,7 @@ public inline fun <S, T : S> Array<out T>.runningReduceIndexed(operation: (index
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.runningReduceIndexed(operation: (index: Int, acc: Byte, Byte) -> Byte): List<Byte> {
+public inline fun ByteArray.runningReduceIndexed(local operation: (index: Int, acc: Byte, Byte) -> Byte): List<Byte> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Byte>(size).apply { add(accumulator) }
@@ -22787,7 +22787,7 @@ public inline fun ByteArray.runningReduceIndexed(operation: (index: Int, acc: By
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.runningReduceIndexed(operation: (index: Int, acc: Short, Short) -> Short): List<Short> {
+public inline fun ShortArray.runningReduceIndexed(local operation: (index: Int, acc: Short, Short) -> Short): List<Short> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Short>(size).apply { add(accumulator) }
@@ -22809,7 +22809,7 @@ public inline fun ShortArray.runningReduceIndexed(operation: (index: Int, acc: S
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.runningReduceIndexed(operation: (index: Int, acc: Int, Int) -> Int): List<Int> {
+public inline fun IntArray.runningReduceIndexed(local operation: (index: Int, acc: Int, Int) -> Int): List<Int> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Int>(size).apply { add(accumulator) }
@@ -22831,7 +22831,7 @@ public inline fun IntArray.runningReduceIndexed(operation: (index: Int, acc: Int
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.runningReduceIndexed(operation: (index: Int, acc: Long, Long) -> Long): List<Long> {
+public inline fun LongArray.runningReduceIndexed(local operation: (index: Int, acc: Long, Long) -> Long): List<Long> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Long>(size).apply { add(accumulator) }
@@ -22853,7 +22853,7 @@ public inline fun LongArray.runningReduceIndexed(operation: (index: Int, acc: Lo
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.runningReduceIndexed(operation: (index: Int, acc: Float, Float) -> Float): List<Float> {
+public inline fun FloatArray.runningReduceIndexed(local operation: (index: Int, acc: Float, Float) -> Float): List<Float> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Float>(size).apply { add(accumulator) }
@@ -22875,7 +22875,7 @@ public inline fun FloatArray.runningReduceIndexed(operation: (index: Int, acc: F
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.runningReduceIndexed(operation: (index: Int, acc: Double, Double) -> Double): List<Double> {
+public inline fun DoubleArray.runningReduceIndexed(local operation: (index: Int, acc: Double, Double) -> Double): List<Double> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Double>(size).apply { add(accumulator) }
@@ -22897,7 +22897,7 @@ public inline fun DoubleArray.runningReduceIndexed(operation: (index: Int, acc: 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.runningReduceIndexed(operation: (index: Int, acc: Boolean, Boolean) -> Boolean): List<Boolean> {
+public inline fun BooleanArray.runningReduceIndexed(local operation: (index: Int, acc: Boolean, Boolean) -> Boolean): List<Boolean> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Boolean>(size).apply { add(accumulator) }
@@ -22919,7 +22919,7 @@ public inline fun BooleanArray.runningReduceIndexed(operation: (index: Int, acc:
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.runningReduceIndexed(operation: (index: Int, acc: Char, Char) -> Char): List<Char> {
+public inline fun CharArray.runningReduceIndexed(local operation: (index: Int, acc: Char, Char) -> Char): List<Char> {
     if (isEmpty()) return emptyList()
     var accumulator = this[0]
     val result = ArrayList<Char>(size).apply { add(accumulator) }
@@ -22942,7 +22942,7 @@ public inline fun CharArray.runningReduceIndexed(operation: (index: Int, acc: Ch
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Array<out T>.scan(initial: R, operation: (acc: R, T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.scan(initial: R, local operation: (acc: R, T) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -22959,7 +22959,7 @@ public inline fun <T, R> Array<out T>.scan(initial: R, operation: (acc: R, T) ->
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.scan(initial: R, operation: (acc: R, Byte) -> R): List<R> {
+public inline fun <R> ByteArray.scan(initial: R, local operation: (acc: R, Byte) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -22976,7 +22976,7 @@ public inline fun <R> ByteArray.scan(initial: R, operation: (acc: R, Byte) -> R)
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.scan(initial: R, operation: (acc: R, Short) -> R): List<R> {
+public inline fun <R> ShortArray.scan(initial: R, local operation: (acc: R, Short) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -22993,7 +22993,7 @@ public inline fun <R> ShortArray.scan(initial: R, operation: (acc: R, Short) -> 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.scan(initial: R, operation: (acc: R, Int) -> R): List<R> {
+public inline fun <R> IntArray.scan(initial: R, local operation: (acc: R, Int) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23010,7 +23010,7 @@ public inline fun <R> IntArray.scan(initial: R, operation: (acc: R, Int) -> R): 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.scan(initial: R, operation: (acc: R, Long) -> R): List<R> {
+public inline fun <R> LongArray.scan(initial: R, local operation: (acc: R, Long) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23027,7 +23027,7 @@ public inline fun <R> LongArray.scan(initial: R, operation: (acc: R, Long) -> R)
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.scan(initial: R, operation: (acc: R, Float) -> R): List<R> {
+public inline fun <R> FloatArray.scan(initial: R, local operation: (acc: R, Float) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23044,7 +23044,7 @@ public inline fun <R> FloatArray.scan(initial: R, operation: (acc: R, Float) -> 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.scan(initial: R, operation: (acc: R, Double) -> R): List<R> {
+public inline fun <R> DoubleArray.scan(initial: R, local operation: (acc: R, Double) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23061,7 +23061,7 @@ public inline fun <R> DoubleArray.scan(initial: R, operation: (acc: R, Double) -
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.scan(initial: R, operation: (acc: R, Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.scan(initial: R, local operation: (acc: R, Boolean) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23078,7 +23078,7 @@ public inline fun <R> BooleanArray.scan(initial: R, operation: (acc: R, Boolean)
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.scan(initial: R, operation: (acc: R, Char) -> R): List<R> {
+public inline fun <R> CharArray.scan(initial: R, local operation: (acc: R, Char) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -23095,7 +23095,7 @@ public inline fun <R> CharArray.scan(initial: R, operation: (acc: R, Char) -> R)
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Array<out T>.scanIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): List<R> {
+public inline fun <T, R> Array<out T>.scanIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23113,7 +23113,7 @@ public inline fun <T, R> Array<out T>.scanIndexed(initial: R, operation: (index:
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ByteArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Byte) -> R): List<R> {
+public inline fun <R> ByteArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Byte) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23131,7 +23131,7 @@ public inline fun <R> ByteArray.scanIndexed(initial: R, operation: (index: Int, 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> ShortArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Short) -> R): List<R> {
+public inline fun <R> ShortArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Short) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23149,7 +23149,7 @@ public inline fun <R> ShortArray.scanIndexed(initial: R, operation: (index: Int,
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> IntArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Int) -> R): List<R> {
+public inline fun <R> IntArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Int) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23167,7 +23167,7 @@ public inline fun <R> IntArray.scanIndexed(initial: R, operation: (index: Int, a
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> LongArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Long) -> R): List<R> {
+public inline fun <R> LongArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Long) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23185,7 +23185,7 @@ public inline fun <R> LongArray.scanIndexed(initial: R, operation: (index: Int, 
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> FloatArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Float) -> R): List<R> {
+public inline fun <R> FloatArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Float) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23203,7 +23203,7 @@ public inline fun <R> FloatArray.scanIndexed(initial: R, operation: (index: Int,
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> DoubleArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Double) -> R): List<R> {
+public inline fun <R> DoubleArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Double) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23221,7 +23221,7 @@ public inline fun <R> DoubleArray.scanIndexed(initial: R, operation: (index: Int
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> BooleanArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Boolean) -> R): List<R> {
+public inline fun <R> BooleanArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Boolean) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23239,7 +23239,7 @@ public inline fun <R> BooleanArray.scanIndexed(initial: R, operation: (index: In
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <R> CharArray.scanIndexed(initial: R, operation: (index: Int, acc: R, Char) -> R): List<R> {
+public inline fun <R> CharArray.scanIndexed(initial: R, local operation: (index: Int, acc: R, Char) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -23248,7 +23248,7 @@ public inline fun <R> CharArray.scanIndexed(initial: R, operation: (index: Int, 
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Array<out T>.sumBy(selector: (T) -> Int): Int {
+public inline fun <T> Array<out T>.sumBy(local selector: (T) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23261,7 +23261,7 @@ public inline fun <T> Array<out T>.sumBy(selector: (T) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun ByteArray.sumBy(selector: (Byte) -> Int): Int {
+public inline fun ByteArray.sumBy(local selector: (Byte) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23274,7 +23274,7 @@ public inline fun ByteArray.sumBy(selector: (Byte) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun ShortArray.sumBy(selector: (Short) -> Int): Int {
+public inline fun ShortArray.sumBy(local selector: (Short) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23287,7 +23287,7 @@ public inline fun ShortArray.sumBy(selector: (Short) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun IntArray.sumBy(selector: (Int) -> Int): Int {
+public inline fun IntArray.sumBy(local selector: (Int) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23300,7 +23300,7 @@ public inline fun IntArray.sumBy(selector: (Int) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun LongArray.sumBy(selector: (Long) -> Int): Int {
+public inline fun LongArray.sumBy(local selector: (Long) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23313,7 +23313,7 @@ public inline fun LongArray.sumBy(selector: (Long) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun FloatArray.sumBy(selector: (Float) -> Int): Int {
+public inline fun FloatArray.sumBy(local selector: (Float) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23326,7 +23326,7 @@ public inline fun FloatArray.sumBy(selector: (Float) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun DoubleArray.sumBy(selector: (Double) -> Int): Int {
+public inline fun DoubleArray.sumBy(local selector: (Double) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23339,7 +23339,7 @@ public inline fun DoubleArray.sumBy(selector: (Double) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun BooleanArray.sumBy(selector: (Boolean) -> Int): Int {
+public inline fun BooleanArray.sumBy(local selector: (Boolean) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23352,7 +23352,7 @@ public inline fun BooleanArray.sumBy(selector: (Boolean) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun CharArray.sumBy(selector: (Char) -> Int): Int {
+public inline fun CharArray.sumBy(local selector: (Char) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -23365,7 +23365,7 @@ public inline fun CharArray.sumBy(selector: (Char) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Array<out T>.sumByDouble(selector: (T) -> Double): Double {
+public inline fun <T> Array<out T>.sumByDouble(local selector: (T) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23378,7 +23378,7 @@ public inline fun <T> Array<out T>.sumByDouble(selector: (T) -> Double): Double 
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun ByteArray.sumByDouble(selector: (Byte) -> Double): Double {
+public inline fun ByteArray.sumByDouble(local selector: (Byte) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23391,7 +23391,7 @@ public inline fun ByteArray.sumByDouble(selector: (Byte) -> Double): Double {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun ShortArray.sumByDouble(selector: (Short) -> Double): Double {
+public inline fun ShortArray.sumByDouble(local selector: (Short) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23404,7 +23404,7 @@ public inline fun ShortArray.sumByDouble(selector: (Short) -> Double): Double {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun IntArray.sumByDouble(selector: (Int) -> Double): Double {
+public inline fun IntArray.sumByDouble(local selector: (Int) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23417,7 +23417,7 @@ public inline fun IntArray.sumByDouble(selector: (Int) -> Double): Double {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun LongArray.sumByDouble(selector: (Long) -> Double): Double {
+public inline fun LongArray.sumByDouble(local selector: (Long) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23430,7 +23430,7 @@ public inline fun LongArray.sumByDouble(selector: (Long) -> Double): Double {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun FloatArray.sumByDouble(selector: (Float) -> Double): Double {
+public inline fun FloatArray.sumByDouble(local selector: (Float) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23443,7 +23443,7 @@ public inline fun FloatArray.sumByDouble(selector: (Float) -> Double): Double {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun DoubleArray.sumByDouble(selector: (Double) -> Double): Double {
+public inline fun DoubleArray.sumByDouble(local selector: (Double) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23456,7 +23456,7 @@ public inline fun DoubleArray.sumByDouble(selector: (Double) -> Double): Double 
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun BooleanArray.sumByDouble(selector: (Boolean) -> Double): Double {
+public inline fun BooleanArray.sumByDouble(local selector: (Boolean) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23469,7 +23469,7 @@ public inline fun BooleanArray.sumByDouble(selector: (Boolean) -> Double): Doubl
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun CharArray.sumByDouble(selector: (Char) -> Double): Double {
+public inline fun CharArray.sumByDouble(local selector: (Char) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -23485,7 +23485,7 @@ public inline fun CharArray.sumByDouble(selector: (Char) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.sumOf(selector: (T) -> Double): Double {
+public inline fun <T> Array<out T>.sumOf(local selector: (T) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23501,7 +23501,7 @@ public inline fun <T> Array<out T>.sumOf(selector: (T) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.sumOf(selector: (Byte) -> Double): Double {
+public inline fun ByteArray.sumOf(local selector: (Byte) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23517,7 +23517,7 @@ public inline fun ByteArray.sumOf(selector: (Byte) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.sumOf(selector: (Short) -> Double): Double {
+public inline fun ShortArray.sumOf(local selector: (Short) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23533,7 +23533,7 @@ public inline fun ShortArray.sumOf(selector: (Short) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.sumOf(selector: (Int) -> Double): Double {
+public inline fun IntArray.sumOf(local selector: (Int) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23549,7 +23549,7 @@ public inline fun IntArray.sumOf(selector: (Int) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.sumOf(selector: (Long) -> Double): Double {
+public inline fun LongArray.sumOf(local selector: (Long) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23565,7 +23565,7 @@ public inline fun LongArray.sumOf(selector: (Long) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.sumOf(selector: (Float) -> Double): Double {
+public inline fun FloatArray.sumOf(local selector: (Float) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23581,7 +23581,7 @@ public inline fun FloatArray.sumOf(selector: (Float) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.sumOf(selector: (Double) -> Double): Double {
+public inline fun DoubleArray.sumOf(local selector: (Double) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23597,7 +23597,7 @@ public inline fun DoubleArray.sumOf(selector: (Double) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.sumOf(selector: (Boolean) -> Double): Double {
+public inline fun BooleanArray.sumOf(local selector: (Boolean) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23613,7 +23613,7 @@ public inline fun BooleanArray.sumOf(selector: (Boolean) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.sumOf(selector: (Char) -> Double): Double {
+public inline fun CharArray.sumOf(local selector: (Char) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -23627,7 +23627,7 @@ public inline fun CharArray.sumOf(selector: (Char) -> Double): Double {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.sumOf(selector: (T) -> Int): Int {
+public inline fun <T> Array<out T>.sumOf(local selector: (T) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23641,7 +23641,7 @@ public inline fun <T> Array<out T>.sumOf(selector: (T) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.sumOf(selector: (Byte) -> Int): Int {
+public inline fun ByteArray.sumOf(local selector: (Byte) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23655,7 +23655,7 @@ public inline fun ByteArray.sumOf(selector: (Byte) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.sumOf(selector: (Short) -> Int): Int {
+public inline fun ShortArray.sumOf(local selector: (Short) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23669,7 +23669,7 @@ public inline fun ShortArray.sumOf(selector: (Short) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.sumOf(selector: (Int) -> Int): Int {
+public inline fun IntArray.sumOf(local selector: (Int) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23683,7 +23683,7 @@ public inline fun IntArray.sumOf(selector: (Int) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.sumOf(selector: (Long) -> Int): Int {
+public inline fun LongArray.sumOf(local selector: (Long) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23697,7 +23697,7 @@ public inline fun LongArray.sumOf(selector: (Long) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.sumOf(selector: (Float) -> Int): Int {
+public inline fun FloatArray.sumOf(local selector: (Float) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23711,7 +23711,7 @@ public inline fun FloatArray.sumOf(selector: (Float) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.sumOf(selector: (Double) -> Int): Int {
+public inline fun DoubleArray.sumOf(local selector: (Double) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23725,7 +23725,7 @@ public inline fun DoubleArray.sumOf(selector: (Double) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.sumOf(selector: (Boolean) -> Int): Int {
+public inline fun BooleanArray.sumOf(local selector: (Boolean) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23739,7 +23739,7 @@ public inline fun BooleanArray.sumOf(selector: (Boolean) -> Int): Int {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.sumOf(selector: (Char) -> Int): Int {
+public inline fun CharArray.sumOf(local selector: (Char) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -23755,7 +23755,7 @@ public inline fun CharArray.sumOf(selector: (Char) -> Int): Int {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.sumOf(selector: (T) -> Long): Long {
+public inline fun <T> Array<out T>.sumOf(local selector: (T) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23771,7 +23771,7 @@ public inline fun <T> Array<out T>.sumOf(selector: (T) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.sumOf(selector: (Byte) -> Long): Long {
+public inline fun ByteArray.sumOf(local selector: (Byte) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23787,7 +23787,7 @@ public inline fun ByteArray.sumOf(selector: (Byte) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.sumOf(selector: (Short) -> Long): Long {
+public inline fun ShortArray.sumOf(local selector: (Short) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23803,7 +23803,7 @@ public inline fun ShortArray.sumOf(selector: (Short) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.sumOf(selector: (Int) -> Long): Long {
+public inline fun IntArray.sumOf(local selector: (Int) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23819,7 +23819,7 @@ public inline fun IntArray.sumOf(selector: (Int) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.sumOf(selector: (Long) -> Long): Long {
+public inline fun LongArray.sumOf(local selector: (Long) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23835,7 +23835,7 @@ public inline fun LongArray.sumOf(selector: (Long) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.sumOf(selector: (Float) -> Long): Long {
+public inline fun FloatArray.sumOf(local selector: (Float) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23851,7 +23851,7 @@ public inline fun FloatArray.sumOf(selector: (Float) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.sumOf(selector: (Double) -> Long): Long {
+public inline fun DoubleArray.sumOf(local selector: (Double) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23867,7 +23867,7 @@ public inline fun DoubleArray.sumOf(selector: (Double) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.sumOf(selector: (Boolean) -> Long): Long {
+public inline fun BooleanArray.sumOf(local selector: (Boolean) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23883,7 +23883,7 @@ public inline fun BooleanArray.sumOf(selector: (Boolean) -> Long): Long {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.sumOf(selector: (Char) -> Long): Long {
+public inline fun CharArray.sumOf(local selector: (Char) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -23897,7 +23897,7 @@ public inline fun CharArray.sumOf(selector: (Char) -> Long): Long {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.sumOf(selector: (T) -> UInt): UInt {
+public inline fun <T> Array<out T>.sumOf(local selector: (T) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23911,7 +23911,7 @@ public inline fun <T> Array<out T>.sumOf(selector: (T) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.sumOf(selector: (Byte) -> UInt): UInt {
+public inline fun ByteArray.sumOf(local selector: (Byte) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23925,7 +23925,7 @@ public inline fun ByteArray.sumOf(selector: (Byte) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.sumOf(selector: (Short) -> UInt): UInt {
+public inline fun ShortArray.sumOf(local selector: (Short) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23939,7 +23939,7 @@ public inline fun ShortArray.sumOf(selector: (Short) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.sumOf(selector: (Int) -> UInt): UInt {
+public inline fun IntArray.sumOf(local selector: (Int) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23953,7 +23953,7 @@ public inline fun IntArray.sumOf(selector: (Int) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.sumOf(selector: (Long) -> UInt): UInt {
+public inline fun LongArray.sumOf(local selector: (Long) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23967,7 +23967,7 @@ public inline fun LongArray.sumOf(selector: (Long) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.sumOf(selector: (Float) -> UInt): UInt {
+public inline fun FloatArray.sumOf(local selector: (Float) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23981,7 +23981,7 @@ public inline fun FloatArray.sumOf(selector: (Float) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.sumOf(selector: (Double) -> UInt): UInt {
+public inline fun DoubleArray.sumOf(local selector: (Double) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -23995,7 +23995,7 @@ public inline fun DoubleArray.sumOf(selector: (Double) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.sumOf(selector: (Boolean) -> UInt): UInt {
+public inline fun BooleanArray.sumOf(local selector: (Boolean) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -24009,7 +24009,7 @@ public inline fun BooleanArray.sumOf(selector: (Boolean) -> UInt): UInt {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.sumOf(selector: (Char) -> UInt): UInt {
+public inline fun CharArray.sumOf(local selector: (Char) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -24025,7 +24025,7 @@ public inline fun CharArray.sumOf(selector: (Char) -> UInt): UInt {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Array<out T>.sumOf(selector: (T) -> ULong): ULong {
+public inline fun <T> Array<out T>.sumOf(local selector: (T) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24041,7 +24041,7 @@ public inline fun <T> Array<out T>.sumOf(selector: (T) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun ByteArray.sumOf(selector: (Byte) -> ULong): ULong {
+public inline fun ByteArray.sumOf(local selector: (Byte) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24057,7 +24057,7 @@ public inline fun ByteArray.sumOf(selector: (Byte) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun ShortArray.sumOf(selector: (Short) -> ULong): ULong {
+public inline fun ShortArray.sumOf(local selector: (Short) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24073,7 +24073,7 @@ public inline fun ShortArray.sumOf(selector: (Short) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun IntArray.sumOf(selector: (Int) -> ULong): ULong {
+public inline fun IntArray.sumOf(local selector: (Int) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24089,7 +24089,7 @@ public inline fun IntArray.sumOf(selector: (Int) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun LongArray.sumOf(selector: (Long) -> ULong): ULong {
+public inline fun LongArray.sumOf(local selector: (Long) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24105,7 +24105,7 @@ public inline fun LongArray.sumOf(selector: (Long) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun FloatArray.sumOf(selector: (Float) -> ULong): ULong {
+public inline fun FloatArray.sumOf(local selector: (Float) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24121,7 +24121,7 @@ public inline fun FloatArray.sumOf(selector: (Float) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun DoubleArray.sumOf(selector: (Double) -> ULong): ULong {
+public inline fun DoubleArray.sumOf(local selector: (Double) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24137,7 +24137,7 @@ public inline fun DoubleArray.sumOf(selector: (Double) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun BooleanArray.sumOf(selector: (Boolean) -> ULong): ULong {
+public inline fun BooleanArray.sumOf(local selector: (Boolean) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24153,7 +24153,7 @@ public inline fun BooleanArray.sumOf(selector: (Boolean) -> ULong): ULong {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun CharArray.sumOf(selector: (Char) -> ULong): ULong {
+public inline fun CharArray.sumOf(local selector: (Char) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -24181,7 +24181,7 @@ public fun <T : Any> Array<T?>.requireNoNulls(): Array<T> {
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun <T> Array<out T>.partition(predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
+public inline fun <T> Array<out T>.partition(local predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
     val first = ArrayList<T>()
     val second = ArrayList<T>()
     for (element in this) {
@@ -24201,7 +24201,7 @@ public inline fun <T> Array<out T>.partition(predicate: (T) -> Boolean): Pair<Li
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun ByteArray.partition(predicate: (Byte) -> Boolean): Pair<List<Byte>, List<Byte>> {
+public inline fun ByteArray.partition(local predicate: (Byte) -> Boolean): Pair<List<Byte>, List<Byte>> {
     val first = ArrayList<Byte>()
     val second = ArrayList<Byte>()
     for (element in this) {
@@ -24221,7 +24221,7 @@ public inline fun ByteArray.partition(predicate: (Byte) -> Boolean): Pair<List<B
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun ShortArray.partition(predicate: (Short) -> Boolean): Pair<List<Short>, List<Short>> {
+public inline fun ShortArray.partition(local predicate: (Short) -> Boolean): Pair<List<Short>, List<Short>> {
     val first = ArrayList<Short>()
     val second = ArrayList<Short>()
     for (element in this) {
@@ -24241,7 +24241,7 @@ public inline fun ShortArray.partition(predicate: (Short) -> Boolean): Pair<List
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun IntArray.partition(predicate: (Int) -> Boolean): Pair<List<Int>, List<Int>> {
+public inline fun IntArray.partition(local predicate: (Int) -> Boolean): Pair<List<Int>, List<Int>> {
     val first = ArrayList<Int>()
     val second = ArrayList<Int>()
     for (element in this) {
@@ -24261,7 +24261,7 @@ public inline fun IntArray.partition(predicate: (Int) -> Boolean): Pair<List<Int
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun LongArray.partition(predicate: (Long) -> Boolean): Pair<List<Long>, List<Long>> {
+public inline fun LongArray.partition(local predicate: (Long) -> Boolean): Pair<List<Long>, List<Long>> {
     val first = ArrayList<Long>()
     val second = ArrayList<Long>()
     for (element in this) {
@@ -24281,7 +24281,7 @@ public inline fun LongArray.partition(predicate: (Long) -> Boolean): Pair<List<L
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun FloatArray.partition(predicate: (Float) -> Boolean): Pair<List<Float>, List<Float>> {
+public inline fun FloatArray.partition(local predicate: (Float) -> Boolean): Pair<List<Float>, List<Float>> {
     val first = ArrayList<Float>()
     val second = ArrayList<Float>()
     for (element in this) {
@@ -24301,7 +24301,7 @@ public inline fun FloatArray.partition(predicate: (Float) -> Boolean): Pair<List
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun DoubleArray.partition(predicate: (Double) -> Boolean): Pair<List<Double>, List<Double>> {
+public inline fun DoubleArray.partition(local predicate: (Double) -> Boolean): Pair<List<Double>, List<Double>> {
     val first = ArrayList<Double>()
     val second = ArrayList<Double>()
     for (element in this) {
@@ -24321,7 +24321,7 @@ public inline fun DoubleArray.partition(predicate: (Double) -> Boolean): Pair<Li
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun BooleanArray.partition(predicate: (Boolean) -> Boolean): Pair<List<Boolean>, List<Boolean>> {
+public inline fun BooleanArray.partition(local predicate: (Boolean) -> Boolean): Pair<List<Boolean>, List<Boolean>> {
     val first = ArrayList<Boolean>()
     val second = ArrayList<Boolean>()
     for (element in this) {
@@ -24341,7 +24341,7 @@ public inline fun BooleanArray.partition(predicate: (Boolean) -> Boolean): Pair<
  * 
  * @sample samples.collections.Arrays.Transformations.partitionArrayOfPrimitives
  */
-public inline fun CharArray.partition(predicate: (Char) -> Boolean): Pair<List<Char>, List<Char>> {
+public inline fun CharArray.partition(local predicate: (Char) -> Boolean): Pair<List<Char>, List<Char>> {
     val first = ArrayList<Char>()
     val second = ArrayList<Char>()
     for (element in this) {
@@ -24451,7 +24451,7 @@ public infix fun <R> CharArray.zip(other: Array<out R>): List<Pair<Char, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <T, R, V> Array<out T>.zip(other: Array<out R>, transform: (a: T, b: R) -> V): List<V> {
+public inline fun <T, R, V> Array<out T>.zip(other: Array<out R>, local transform: (a: T, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24467,7 +24467,7 @@ public inline fun <T, R, V> Array<out T>.zip(other: Array<out R>, transform: (a:
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> ByteArray.zip(other: Array<out R>, transform: (a: Byte, b: R) -> V): List<V> {
+public inline fun <R, V> ByteArray.zip(other: Array<out R>, local transform: (a: Byte, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24483,7 +24483,7 @@ public inline fun <R, V> ByteArray.zip(other: Array<out R>, transform: (a: Byte,
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> ShortArray.zip(other: Array<out R>, transform: (a: Short, b: R) -> V): List<V> {
+public inline fun <R, V> ShortArray.zip(other: Array<out R>, local transform: (a: Short, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24499,7 +24499,7 @@ public inline fun <R, V> ShortArray.zip(other: Array<out R>, transform: (a: Shor
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> IntArray.zip(other: Array<out R>, transform: (a: Int, b: R) -> V): List<V> {
+public inline fun <R, V> IntArray.zip(other: Array<out R>, local transform: (a: Int, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24515,7 +24515,7 @@ public inline fun <R, V> IntArray.zip(other: Array<out R>, transform: (a: Int, b
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> LongArray.zip(other: Array<out R>, transform: (a: Long, b: R) -> V): List<V> {
+public inline fun <R, V> LongArray.zip(other: Array<out R>, local transform: (a: Long, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24531,7 +24531,7 @@ public inline fun <R, V> LongArray.zip(other: Array<out R>, transform: (a: Long,
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> FloatArray.zip(other: Array<out R>, transform: (a: Float, b: R) -> V): List<V> {
+public inline fun <R, V> FloatArray.zip(other: Array<out R>, local transform: (a: Float, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24547,7 +24547,7 @@ public inline fun <R, V> FloatArray.zip(other: Array<out R>, transform: (a: Floa
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> DoubleArray.zip(other: Array<out R>, transform: (a: Double, b: R) -> V): List<V> {
+public inline fun <R, V> DoubleArray.zip(other: Array<out R>, local transform: (a: Double, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24563,7 +24563,7 @@ public inline fun <R, V> DoubleArray.zip(other: Array<out R>, transform: (a: Dou
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> BooleanArray.zip(other: Array<out R>, transform: (a: Boolean, b: R) -> V): List<V> {
+public inline fun <R, V> BooleanArray.zip(other: Array<out R>, local transform: (a: Boolean, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24579,7 +24579,7 @@ public inline fun <R, V> BooleanArray.zip(other: Array<out R>, transform: (a: Bo
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> CharArray.zip(other: Array<out R>, transform: (a: Char, b: R) -> V): List<V> {
+public inline fun <R, V> CharArray.zip(other: Array<out R>, local transform: (a: Char, b: R) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24594,7 +24594,7 @@ public inline fun <R, V> CharArray.zip(other: Array<out R>, transform: (a: Char,
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <T, R> Array<out T>.zip(other: Iterable<R>): List<Pair<T, R>> {
+public infix fun <T, R> Array<out T>.zip(local other: Iterable<R>): List<Pair<T, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24604,7 +24604,7 @@ public infix fun <T, R> Array<out T>.zip(other: Iterable<R>): List<Pair<T, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> ByteArray.zip(other: Iterable<R>): List<Pair<Byte, R>> {
+public infix fun <R> ByteArray.zip(local other: Iterable<R>): List<Pair<Byte, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24614,7 +24614,7 @@ public infix fun <R> ByteArray.zip(other: Iterable<R>): List<Pair<Byte, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> ShortArray.zip(other: Iterable<R>): List<Pair<Short, R>> {
+public infix fun <R> ShortArray.zip(local other: Iterable<R>): List<Pair<Short, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24624,7 +24624,7 @@ public infix fun <R> ShortArray.zip(other: Iterable<R>): List<Pair<Short, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> IntArray.zip(other: Iterable<R>): List<Pair<Int, R>> {
+public infix fun <R> IntArray.zip(local other: Iterable<R>): List<Pair<Int, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24634,7 +24634,7 @@ public infix fun <R> IntArray.zip(other: Iterable<R>): List<Pair<Int, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> LongArray.zip(other: Iterable<R>): List<Pair<Long, R>> {
+public infix fun <R> LongArray.zip(local other: Iterable<R>): List<Pair<Long, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24644,7 +24644,7 @@ public infix fun <R> LongArray.zip(other: Iterable<R>): List<Pair<Long, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> FloatArray.zip(other: Iterable<R>): List<Pair<Float, R>> {
+public infix fun <R> FloatArray.zip(local other: Iterable<R>): List<Pair<Float, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24654,7 +24654,7 @@ public infix fun <R> FloatArray.zip(other: Iterable<R>): List<Pair<Float, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> DoubleArray.zip(other: Iterable<R>): List<Pair<Double, R>> {
+public infix fun <R> DoubleArray.zip(local other: Iterable<R>): List<Pair<Double, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24664,7 +24664,7 @@ public infix fun <R> DoubleArray.zip(other: Iterable<R>): List<Pair<Double, R>> 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> BooleanArray.zip(other: Iterable<R>): List<Pair<Boolean, R>> {
+public infix fun <R> BooleanArray.zip(local other: Iterable<R>): List<Pair<Boolean, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24674,7 +24674,7 @@ public infix fun <R> BooleanArray.zip(other: Iterable<R>): List<Pair<Boolean, R>
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <R> CharArray.zip(other: Iterable<R>): List<Pair<Char, R>> {
+public infix fun <R> CharArray.zip(local other: Iterable<R>): List<Pair<Char, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -24685,7 +24685,7 @@ public infix fun <R> CharArray.zip(other: Iterable<R>): List<Pair<Char, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <T, R, V> Array<out T>.zip(other: Iterable<R>, transform: (a: T, b: R) -> V): List<V> {
+public inline fun <T, R, V> Array<out T>.zip(local other: Iterable<R>, local transform: (a: T, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24703,7 +24703,7 @@ public inline fun <T, R, V> Array<out T>.zip(other: Iterable<R>, transform: (a: 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> ByteArray.zip(other: Iterable<R>, transform: (a: Byte, b: R) -> V): List<V> {
+public inline fun <R, V> ByteArray.zip(local other: Iterable<R>, local transform: (a: Byte, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24721,7 +24721,7 @@ public inline fun <R, V> ByteArray.zip(other: Iterable<R>, transform: (a: Byte, 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> ShortArray.zip(other: Iterable<R>, transform: (a: Short, b: R) -> V): List<V> {
+public inline fun <R, V> ShortArray.zip(local other: Iterable<R>, local transform: (a: Short, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24739,7 +24739,7 @@ public inline fun <R, V> ShortArray.zip(other: Iterable<R>, transform: (a: Short
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> IntArray.zip(other: Iterable<R>, transform: (a: Int, b: R) -> V): List<V> {
+public inline fun <R, V> IntArray.zip(local other: Iterable<R>, local transform: (a: Int, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24757,7 +24757,7 @@ public inline fun <R, V> IntArray.zip(other: Iterable<R>, transform: (a: Int, b:
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> LongArray.zip(other: Iterable<R>, transform: (a: Long, b: R) -> V): List<V> {
+public inline fun <R, V> LongArray.zip(local other: Iterable<R>, local transform: (a: Long, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24775,7 +24775,7 @@ public inline fun <R, V> LongArray.zip(other: Iterable<R>, transform: (a: Long, 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> FloatArray.zip(other: Iterable<R>, transform: (a: Float, b: R) -> V): List<V> {
+public inline fun <R, V> FloatArray.zip(local other: Iterable<R>, local transform: (a: Float, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24793,7 +24793,7 @@ public inline fun <R, V> FloatArray.zip(other: Iterable<R>, transform: (a: Float
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> DoubleArray.zip(other: Iterable<R>, transform: (a: Double, b: R) -> V): List<V> {
+public inline fun <R, V> DoubleArray.zip(local other: Iterable<R>, local transform: (a: Double, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24811,7 +24811,7 @@ public inline fun <R, V> DoubleArray.zip(other: Iterable<R>, transform: (a: Doub
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> BooleanArray.zip(other: Iterable<R>, transform: (a: Boolean, b: R) -> V): List<V> {
+public inline fun <R, V> BooleanArray.zip(local other: Iterable<R>, local transform: (a: Boolean, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24829,7 +24829,7 @@ public inline fun <R, V> BooleanArray.zip(other: Iterable<R>, transform: (a: Boo
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <R, V> CharArray.zip(other: Iterable<R>, transform: (a: Char, b: R) -> V): List<V> {
+public inline fun <R, V> CharArray.zip(local other: Iterable<R>, local transform: (a: Char, b: R) -> V): List<V> {
     val arraySize = size
     val list = ArrayList<V>(minOf(other.collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -24927,7 +24927,7 @@ public infix fun CharArray.zip(other: CharArray): List<Pair<Char, Char>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> ByteArray.zip(other: ByteArray, transform: (a: Byte, b: Byte) -> V): List<V> {
+public inline fun <V> ByteArray.zip(other: ByteArray, local transform: (a: Byte, b: Byte) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24943,7 +24943,7 @@ public inline fun <V> ByteArray.zip(other: ByteArray, transform: (a: Byte, b: By
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> ShortArray.zip(other: ShortArray, transform: (a: Short, b: Short) -> V): List<V> {
+public inline fun <V> ShortArray.zip(other: ShortArray, local transform: (a: Short, b: Short) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24959,7 +24959,7 @@ public inline fun <V> ShortArray.zip(other: ShortArray, transform: (a: Short, b:
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> IntArray.zip(other: IntArray, transform: (a: Int, b: Int) -> V): List<V> {
+public inline fun <V> IntArray.zip(other: IntArray, local transform: (a: Int, b: Int) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24975,7 +24975,7 @@ public inline fun <V> IntArray.zip(other: IntArray, transform: (a: Int, b: Int) 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> LongArray.zip(other: LongArray, transform: (a: Long, b: Long) -> V): List<V> {
+public inline fun <V> LongArray.zip(other: LongArray, local transform: (a: Long, b: Long) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -24991,7 +24991,7 @@ public inline fun <V> LongArray.zip(other: LongArray, transform: (a: Long, b: Lo
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> FloatArray.zip(other: FloatArray, transform: (a: Float, b: Float) -> V): List<V> {
+public inline fun <V> FloatArray.zip(other: FloatArray, local transform: (a: Float, b: Float) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -25007,7 +25007,7 @@ public inline fun <V> FloatArray.zip(other: FloatArray, transform: (a: Float, b:
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> DoubleArray.zip(other: DoubleArray, transform: (a: Double, b: Double) -> V): List<V> {
+public inline fun <V> DoubleArray.zip(other: DoubleArray, local transform: (a: Double, b: Double) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -25023,7 +25023,7 @@ public inline fun <V> DoubleArray.zip(other: DoubleArray, transform: (a: Double,
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> BooleanArray.zip(other: BooleanArray, transform: (a: Boolean, b: Boolean) -> V): List<V> {
+public inline fun <V> BooleanArray.zip(other: BooleanArray, local transform: (a: Boolean, b: Boolean) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -25039,7 +25039,7 @@ public inline fun <V> BooleanArray.zip(other: BooleanArray, transform: (a: Boole
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <V> CharArray.zip(other: CharArray, transform: (a: Char, b: Char) -> V): List<V> {
+public inline fun <V> CharArray.zip(other: CharArray, local transform: (a: Char, b: Char) -> V): List<V> {
     val size = minOf(size, other.size)
     val list = ArrayList<V>(size)
     for (i in 0 until size) {
@@ -25059,7 +25059,7 @@ public inline fun <V> CharArray.zip(other: CharArray, transform: (a: Char, b: Ch
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <T, A : Appendable> Array<out T>.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): A {
+public fun <T, A : Appendable> Array<out T>.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25084,7 +25084,7 @@ public fun <T, A : Appendable> Array<out T>.joinTo(buffer: A, separator: CharSeq
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> ByteArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Byte) -> CharSequence)? = null): A {
+public fun <A : Appendable> ByteArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Byte) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25112,7 +25112,7 @@ public fun <A : Appendable> ByteArray.joinTo(buffer: A, separator: CharSequence 
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> ShortArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Short) -> CharSequence)? = null): A {
+public fun <A : Appendable> ShortArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Short) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25140,7 +25140,7 @@ public fun <A : Appendable> ShortArray.joinTo(buffer: A, separator: CharSequence
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> IntArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Int) -> CharSequence)? = null): A {
+public fun <A : Appendable> IntArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Int) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25168,7 +25168,7 @@ public fun <A : Appendable> IntArray.joinTo(buffer: A, separator: CharSequence =
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> LongArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Long) -> CharSequence)? = null): A {
+public fun <A : Appendable> LongArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Long) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25196,7 +25196,7 @@ public fun <A : Appendable> LongArray.joinTo(buffer: A, separator: CharSequence 
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> FloatArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Float) -> CharSequence)? = null): A {
+public fun <A : Appendable> FloatArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Float) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25224,7 +25224,7 @@ public fun <A : Appendable> FloatArray.joinTo(buffer: A, separator: CharSequence
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> DoubleArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Double) -> CharSequence)? = null): A {
+public fun <A : Appendable> DoubleArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Double) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25252,7 +25252,7 @@ public fun <A : Appendable> DoubleArray.joinTo(buffer: A, separator: CharSequenc
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> BooleanArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Boolean) -> CharSequence)? = null): A {
+public fun <A : Appendable> BooleanArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Boolean) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25280,7 +25280,7 @@ public fun <A : Appendable> BooleanArray.joinTo(buffer: A, separator: CharSequen
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <A : Appendable> CharArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Char) -> CharSequence)? = null): A {
+public fun <A : Appendable> CharArray.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Char) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -25305,7 +25305,7 @@ public fun <A : Appendable> CharArray.joinTo(buffer: A, separator: CharSequence 
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun <T> Array<out T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): String {
+public fun <T> Array<out T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25317,7 +25317,7 @@ public fun <T> Array<out T>.joinToString(separator: CharSequence = ", ", prefix:
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun ByteArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Byte) -> CharSequence)? = null): String {
+public fun ByteArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Byte) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25329,7 +25329,7 @@ public fun ByteArray.joinToString(separator: CharSequence = ", ", prefix: CharSe
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun ShortArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Short) -> CharSequence)? = null): String {
+public fun ShortArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Short) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25341,7 +25341,7 @@ public fun ShortArray.joinToString(separator: CharSequence = ", ", prefix: CharS
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun IntArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Int) -> CharSequence)? = null): String {
+public fun IntArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Int) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25353,7 +25353,7 @@ public fun IntArray.joinToString(separator: CharSequence = ", ", prefix: CharSeq
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun LongArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Long) -> CharSequence)? = null): String {
+public fun LongArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Long) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25365,7 +25365,7 @@ public fun LongArray.joinToString(separator: CharSequence = ", ", prefix: CharSe
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun FloatArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Float) -> CharSequence)? = null): String {
+public fun FloatArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Float) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25377,7 +25377,7 @@ public fun FloatArray.joinToString(separator: CharSequence = ", ", prefix: CharS
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun DoubleArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Double) -> CharSequence)? = null): String {
+public fun DoubleArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Double) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25389,7 +25389,7 @@ public fun DoubleArray.joinToString(separator: CharSequence = ", ", prefix: Char
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun BooleanArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Boolean) -> CharSequence)? = null): String {
+public fun BooleanArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Boolean) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25401,7 +25401,7 @@ public fun BooleanArray.joinToString(separator: CharSequence = ", ", prefix: Cha
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun CharArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((Char) -> CharSequence)? = null): String {
+public fun CharArray.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((Char) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -25482,7 +25482,7 @@ public fun CharArray.asIterable(): Iterable<Char> {
  * 
  * @sample samples.collections.Sequences.Building.sequenceFromArray
  */
-public fun <T> Array<out T>.asSequence(): Sequence<T> {
+public fun <T> local Array<out T>.asSequence(): Sequence<T>_{this} {
     if (isEmpty()) return emptySequence()
     return Sequence { this.iterator() }
 }

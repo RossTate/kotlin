@@ -44,7 +44,7 @@ public expect class HashMap<K, V> : MutableMap<K, V> {
     /**
      * Creates a new [HashMap] filled with the contents of the specified [original] map.
      */
-    public constructor(original: Map<out K, V>)
+    public constructor(local original: Map<out K, V>)
 
     // From Map
 
@@ -59,7 +59,7 @@ public expect class HashMap<K, V> : MutableMap<K, V> {
     override fun put(key: K, value: V): V?
     @IgnorableReturnValue
     override fun remove(key: K): V?
-    override fun putAll(from: Map<out K, V>)
+    override fun putAll(local from: Map<out K, V>)
     override fun clear()
     override val keys: MutableSet<K>
     override val values: MutableCollection<V>

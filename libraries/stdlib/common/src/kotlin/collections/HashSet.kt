@@ -44,14 +44,14 @@ public expect class HashSet<E> : MutableSet<E> {
     /**
      * Creates a new [HashSet] filled with the elements of the specified collection.
      */
-    public constructor(elements: Collection<E>)
+    public constructor(local elements: Collection<E>)
 
     // From Set
 
     override val size: Int
     override fun isEmpty(): Boolean
     override fun contains(element: E): Boolean
-    override fun containsAll(elements: Collection<E>): Boolean
+    override fun containsAll(local elements: Collection<E>): Boolean
 
     // From MutableSet
 
@@ -61,10 +61,10 @@ public expect class HashSet<E> : MutableSet<E> {
     @IgnorableReturnValue
     override fun remove(element: E): Boolean
     @IgnorableReturnValue
-    override fun addAll(elements: Collection<E>): Boolean
+    override fun addAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun removeAll(elements: Collection<E>): Boolean
+    override fun removeAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun retainAll(elements: Collection<E>): Boolean
+    override fun retainAll(local elements: Collection<E>): Boolean
     override fun clear()
 }

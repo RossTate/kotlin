@@ -31,7 +31,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Byte)
+    public inline constructor(size: Int, local init: (Int) -> Byte)
 
     /**
      * Returns the array element at the given [index].
@@ -93,7 +93,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Char)
+    public inline constructor(size: Int, local init: (Int) -> Char)
 
     /**
      * Returns the array element at the given [index].
@@ -155,7 +155,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Short)
+    public inline constructor(size: Int, local init: (Int) -> Short)
 
     /**
      * Returns the array element at the given [index].
@@ -217,7 +217,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Int)
+    public inline constructor(size: Int, local init: (Int) -> Int)
 
     /**
      * Returns the array element at the given [index].
@@ -279,7 +279,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Long)
+    public inline constructor(size: Int, local init: (Int) -> Long)
 
     /**
      * Returns the array element at the given [index].
@@ -341,7 +341,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Float)
+    public inline constructor(size: Int, local init: (Int) -> Float)
 
     /**
      * Returns the array element at the given [index].
@@ -403,7 +403,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Double)
+    public inline constructor(size: Int, local init: (Int) -> Double)
 
     /**
      * Returns the array element at the given [index].
@@ -465,7 +465,7 @@ public constructor(size: Int) {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> Boolean)
+    public inline constructor(size: Int, local init: (Int) -> Boolean)
 
     /**
      * Returns the array element at the given [index].

@@ -40,7 +40,7 @@ package kotlin.collections
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class ByteIterator : Iterator<Byte> {
+public local abstract class ByteIterator : Iterator<Byte> {
     final override fun next(): Byte = nextByte()
 
 
@@ -82,7 +82,7 @@ public abstract class ByteIterator : Iterator<Byte> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class CharIterator : Iterator<Char> {
+public local abstract class CharIterator : Iterator<Char> {
     final override fun next(): Char = nextChar()
 
 
@@ -124,7 +124,7 @@ public abstract class CharIterator : Iterator<Char> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class ShortIterator : Iterator<Short> {
+public local abstract class ShortIterator : Iterator<Short> {
     final override fun next(): Short = nextShort()
 
 
@@ -166,7 +166,7 @@ public abstract class ShortIterator : Iterator<Short> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class IntIterator : Iterator<Int> {
+public local abstract class IntIterator : Iterator<Int> {
     final override fun next(): Int = nextInt()
 
 
@@ -208,7 +208,7 @@ public abstract class IntIterator : Iterator<Int> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class LongIterator : Iterator<Long> {
+public local abstract class LongIterator : Iterator<Long> {
     final override fun next(): Long = nextLong()
 
 
@@ -250,7 +250,7 @@ public abstract class LongIterator : Iterator<Long> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class FloatIterator : Iterator<Float> {
+public local abstract class FloatIterator : Iterator<Float> {
     final override fun next(): Float = nextFloat()
 
 
@@ -292,7 +292,7 @@ public abstract class FloatIterator : Iterator<Float> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class DoubleIterator : Iterator<Double> {
+public local abstract class DoubleIterator : Iterator<Double> {
     final override fun next(): Double = nextDouble()
 
 
@@ -334,7 +334,7 @@ public abstract class DoubleIterator : Iterator<Double> {
  * No boxing conversion is performed during the for-loop iteration.
  * Note that the iterator itself will still be allocated.
  */
-public abstract class BooleanIterator : Iterator<Boolean> {
+public local abstract class BooleanIterator : Iterator<Boolean> {
     final override fun next(): Boolean = nextBoolean()
 
 

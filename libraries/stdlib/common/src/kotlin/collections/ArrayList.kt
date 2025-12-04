@@ -75,7 +75,7 @@ public expect class ArrayList<E> : MutableList<E>, RandomAccess {
      *
      * The iteration order of elements in the created list is the same as in the specified collection.
      */
-    public constructor(elements: Collection<E>)
+    public constructor(local elements: Collection<E>)
 
     /**
      * Attempts to reduce the storage used for this list.
@@ -112,7 +112,7 @@ public expect class ArrayList<E> : MutableList<E>, RandomAccess {
     override val size: Int
     override fun isEmpty(): Boolean
     override fun contains(element: E): Boolean
-    override fun containsAll(elements: Collection<E>): Boolean
+    override fun containsAll(local elements: Collection<E>): Boolean
     override operator fun get(index: Int): E
     override fun indexOf(element: E): Int
     override fun lastIndexOf(element: E): Int
@@ -130,16 +130,16 @@ public expect class ArrayList<E> : MutableList<E>, RandomAccess {
     override fun remove(element: E): Boolean
 
     @IgnorableReturnValue
-    override fun addAll(elements: Collection<E>): Boolean
+    override fun addAll(local elements: Collection<E>): Boolean
 
     @IgnorableReturnValue
-    override fun addAll(index: Int, elements: Collection<E>): Boolean
+    override fun addAll(index: Int, local elements: Collection<E>): Boolean
 
     @IgnorableReturnValue
-    override fun removeAll(elements: Collection<E>): Boolean
+    override fun removeAll(local elements: Collection<E>): Boolean
 
     @IgnorableReturnValue
-    override fun retainAll(elements: Collection<E>): Boolean
+    override fun retainAll(local elements: Collection<E>): Boolean
     override fun clear()
 
     @IgnorableReturnValue

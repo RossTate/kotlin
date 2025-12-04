@@ -23,7 +23,7 @@ import kotlin.random.*
  * @throws NoSuchElementException if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun IntProgression.first(): Int {
+public fun local IntProgression.first(): Int {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.first
@@ -35,7 +35,7 @@ public fun IntProgression.first(): Int {
  * @throws NoSuchElementException if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun LongProgression.first(): Long {
+public fun local LongProgression.first(): Long {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.first
@@ -47,7 +47,7 @@ public fun LongProgression.first(): Long {
  * @throws NoSuchElementException if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun CharProgression.first(): Char {
+public fun local CharProgression.first(): Char {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.first
@@ -57,7 +57,7 @@ public fun CharProgression.first(): Char {
  * Returns the first element, or `null` if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun IntProgression.firstOrNull(): Int? {
+public fun local IntProgression.firstOrNull(): Int? {
     return if (isEmpty()) null else this.first
 }
 
@@ -65,7 +65,7 @@ public fun IntProgression.firstOrNull(): Int? {
  * Returns the first element, or `null` if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun LongProgression.firstOrNull(): Long? {
+public fun local LongProgression.firstOrNull(): Long? {
     return if (isEmpty()) null else this.first
 }
 
@@ -73,7 +73,7 @@ public fun LongProgression.firstOrNull(): Long? {
  * Returns the first element, or `null` if the progression is empty.
  */
 @SinceKotlin("1.7")
-public fun CharProgression.firstOrNull(): Char? {
+public fun local CharProgression.firstOrNull(): Char? {
     return if (isEmpty()) null else this.first
 }
 
@@ -85,7 +85,7 @@ public fun CharProgression.firstOrNull(): Char? {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun IntProgression.last(): Int {
+public fun local IntProgression.last(): Int {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.last
@@ -99,7 +99,7 @@ public fun IntProgression.last(): Int {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun LongProgression.last(): Long {
+public fun local LongProgression.last(): Long {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.last
@@ -113,7 +113,7 @@ public fun LongProgression.last(): Long {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun CharProgression.last(): Char {
+public fun local CharProgression.last(): Char {
     if (isEmpty())
         throw NoSuchElementException("Progression $this is empty.")
     return this.last
@@ -125,7 +125,7 @@ public fun CharProgression.last(): Char {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun IntProgression.lastOrNull(): Int? {
+public fun local IntProgression.lastOrNull(): Int? {
     return if (isEmpty()) null else this.last
 }
 
@@ -135,7 +135,7 @@ public fun IntProgression.lastOrNull(): Int? {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun LongProgression.lastOrNull(): Long? {
+public fun local LongProgression.lastOrNull(): Long? {
     return if (isEmpty()) null else this.last
 }
 
@@ -145,7 +145,7 @@ public fun LongProgression.lastOrNull(): Long? {
  * @sample samples.collections.Collections.Elements.last
  */
 @SinceKotlin("1.7")
-public fun CharProgression.lastOrNull(): Char? {
+public fun local CharProgression.lastOrNull(): Char? {
     return if (isEmpty()) null else this.last
 }
 
@@ -318,7 +318,7 @@ public inline operator fun CharRange.contains(element: Char?): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("intRangeContains")
-public operator fun ClosedRange<Int>.contains(value: Byte): Boolean {
+public operator fun local ClosedRange<Int>.contains(value: Byte): Boolean {
     return contains(value.toInt())
 }
 
@@ -326,7 +326,7 @@ public operator fun ClosedRange<Int>.contains(value: Byte): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("longRangeContains")
-public operator fun ClosedRange<Long>.contains(value: Byte): Boolean {
+public operator fun local ClosedRange<Long>.contains(value: Byte): Boolean {
     return contains(value.toLong())
 }
 
@@ -334,7 +334,7 @@ public operator fun ClosedRange<Long>.contains(value: Byte): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("shortRangeContains")
-public operator fun ClosedRange<Short>.contains(value: Byte): Boolean {
+public operator fun local ClosedRange<Short>.contains(value: Byte): Boolean {
     return contains(value.toShort())
 }
 
@@ -344,7 +344,7 @@ public operator fun ClosedRange<Short>.contains(value: Byte): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("doubleRangeContains")
-public operator fun ClosedRange<Double>.contains(value: Byte): Boolean {
+public operator fun local ClosedRange<Double>.contains(value: Byte): Boolean {
     return contains(value.toDouble())
 }
 
@@ -354,7 +354,7 @@ public operator fun ClosedRange<Double>.contains(value: Byte): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("floatRangeContains")
-public operator fun ClosedRange<Float>.contains(value: Byte): Boolean {
+public operator fun local ClosedRange<Float>.contains(value: Byte): Boolean {
     return contains(value.toFloat())
 }
 
@@ -364,7 +364,7 @@ public operator fun ClosedRange<Float>.contains(value: Byte): Boolean {
 @kotlin.jvm.JvmName("intRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Int>.contains(value: Byte): Boolean {
+public operator fun local OpenEndRange<Int>.contains(value: Byte): Boolean {
     return contains(value.toInt())
 }
 
@@ -374,7 +374,7 @@ public operator fun OpenEndRange<Int>.contains(value: Byte): Boolean {
 @kotlin.jvm.JvmName("longRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Long>.contains(value: Byte): Boolean {
+public operator fun local OpenEndRange<Long>.contains(value: Byte): Boolean {
     return contains(value.toLong())
 }
 
@@ -384,7 +384,7 @@ public operator fun OpenEndRange<Long>.contains(value: Byte): Boolean {
 @kotlin.jvm.JvmName("shortRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Short>.contains(value: Byte): Boolean {
+public operator fun local OpenEndRange<Short>.contains(value: Byte): Boolean {
     return contains(value.toShort())
 }
 
@@ -392,7 +392,7 @@ public operator fun OpenEndRange<Short>.contains(value: Byte): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun IntRange.contains(value: Byte): Boolean {
+public inline operator fun local IntRange.contains(value: Byte): Boolean {
     return (this as ClosedRange<Int>).contains(value)
 }
 
@@ -400,7 +400,7 @@ public inline operator fun IntRange.contains(value: Byte): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun LongRange.contains(value: Byte): Boolean {
+public inline operator fun local LongRange.contains(value: Byte): Boolean {
     return (this as ClosedRange<Long>).contains(value)
 }
 
@@ -410,7 +410,7 @@ public inline operator fun LongRange.contains(value: Byte): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("intRangeContains")
-public operator fun ClosedRange<Int>.contains(value: Double): Boolean {
+public operator fun local ClosedRange<Int>.contains(value: Double): Boolean {
     return value.toIntExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -420,7 +420,7 @@ public operator fun ClosedRange<Int>.contains(value: Double): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("longRangeContains")
-public operator fun ClosedRange<Long>.contains(value: Double): Boolean {
+public operator fun local ClosedRange<Long>.contains(value: Double): Boolean {
     return value.toLongExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -430,7 +430,7 @@ public operator fun ClosedRange<Long>.contains(value: Double): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("byteRangeContains")
-public operator fun ClosedRange<Byte>.contains(value: Double): Boolean {
+public operator fun local ClosedRange<Byte>.contains(value: Double): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -440,7 +440,7 @@ public operator fun ClosedRange<Byte>.contains(value: Double): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("shortRangeContains")
-public operator fun ClosedRange<Short>.contains(value: Double): Boolean {
+public operator fun local ClosedRange<Short>.contains(value: Double): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -448,7 +448,7 @@ public operator fun ClosedRange<Short>.contains(value: Double): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("floatRangeContains")
-public operator fun ClosedRange<Float>.contains(value: Double): Boolean {
+public operator fun local ClosedRange<Float>.contains(value: Double): Boolean {
     return contains(value.toFloat())
 }
 
@@ -458,7 +458,7 @@ public operator fun ClosedRange<Float>.contains(value: Double): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("intRangeContains")
-public operator fun ClosedRange<Int>.contains(value: Float): Boolean {
+public operator fun local ClosedRange<Int>.contains(value: Float): Boolean {
     return value.toIntExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -468,7 +468,7 @@ public operator fun ClosedRange<Int>.contains(value: Float): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("longRangeContains")
-public operator fun ClosedRange<Long>.contains(value: Float): Boolean {
+public operator fun local ClosedRange<Long>.contains(value: Float): Boolean {
     return value.toLongExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -478,7 +478,7 @@ public operator fun ClosedRange<Long>.contains(value: Float): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("byteRangeContains")
-public operator fun ClosedRange<Byte>.contains(value: Float): Boolean {
+public operator fun local ClosedRange<Byte>.contains(value: Float): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -488,7 +488,7 @@ public operator fun ClosedRange<Byte>.contains(value: Float): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("shortRangeContains")
-public operator fun ClosedRange<Short>.contains(value: Float): Boolean {
+public operator fun local ClosedRange<Short>.contains(value: Float): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -496,7 +496,7 @@ public operator fun ClosedRange<Short>.contains(value: Float): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("doubleRangeContains")
-public operator fun ClosedRange<Double>.contains(value: Float): Boolean {
+public operator fun local ClosedRange<Double>.contains(value: Float): Boolean {
     return contains(value.toDouble())
 }
 
@@ -506,7 +506,7 @@ public operator fun ClosedRange<Double>.contains(value: Float): Boolean {
 @kotlin.jvm.JvmName("doubleRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Double>.contains(value: Float): Boolean {
+public operator fun local OpenEndRange<Double>.contains(value: Float): Boolean {
     return contains(value.toDouble())
 }
 
@@ -514,7 +514,7 @@ public operator fun OpenEndRange<Double>.contains(value: Float): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("longRangeContains")
-public operator fun ClosedRange<Long>.contains(value: Int): Boolean {
+public operator fun local ClosedRange<Long>.contains(value: Int): Boolean {
     return contains(value.toLong())
 }
 
@@ -522,7 +522,7 @@ public operator fun ClosedRange<Long>.contains(value: Int): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("byteRangeContains")
-public operator fun ClosedRange<Byte>.contains(value: Int): Boolean {
+public operator fun local ClosedRange<Byte>.contains(value: Int): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -530,7 +530,7 @@ public operator fun ClosedRange<Byte>.contains(value: Int): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("shortRangeContains")
-public operator fun ClosedRange<Short>.contains(value: Int): Boolean {
+public operator fun local ClosedRange<Short>.contains(value: Int): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -540,7 +540,7 @@ public operator fun ClosedRange<Short>.contains(value: Int): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("doubleRangeContains")
-public operator fun ClosedRange<Double>.contains(value: Int): Boolean {
+public operator fun local ClosedRange<Double>.contains(value: Int): Boolean {
     return contains(value.toDouble())
 }
 
@@ -550,7 +550,7 @@ public operator fun ClosedRange<Double>.contains(value: Int): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("floatRangeContains")
-public operator fun ClosedRange<Float>.contains(value: Int): Boolean {
+public operator fun local ClosedRange<Float>.contains(value: Int): Boolean {
     return contains(value.toFloat())
 }
 
@@ -560,7 +560,7 @@ public operator fun ClosedRange<Float>.contains(value: Int): Boolean {
 @kotlin.jvm.JvmName("longRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Long>.contains(value: Int): Boolean {
+public operator fun local OpenEndRange<Long>.contains(value: Int): Boolean {
     return contains(value.toLong())
 }
 
@@ -570,7 +570,7 @@ public operator fun OpenEndRange<Long>.contains(value: Int): Boolean {
 @kotlin.jvm.JvmName("byteRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Byte>.contains(value: Int): Boolean {
+public operator fun local OpenEndRange<Byte>.contains(value: Int): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -580,7 +580,7 @@ public operator fun OpenEndRange<Byte>.contains(value: Int): Boolean {
 @kotlin.jvm.JvmName("shortRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Short>.contains(value: Int): Boolean {
+public operator fun local OpenEndRange<Short>.contains(value: Int): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -596,7 +596,7 @@ public inline operator fun LongRange.contains(value: Int): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("intRangeContains")
-public operator fun ClosedRange<Int>.contains(value: Long): Boolean {
+public operator fun local ClosedRange<Int>.contains(value: Long): Boolean {
     return value.toIntExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -604,7 +604,7 @@ public operator fun ClosedRange<Int>.contains(value: Long): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("byteRangeContains")
-public operator fun ClosedRange<Byte>.contains(value: Long): Boolean {
+public operator fun local ClosedRange<Byte>.contains(value: Long): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -612,7 +612,7 @@ public operator fun ClosedRange<Byte>.contains(value: Long): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("shortRangeContains")
-public operator fun ClosedRange<Short>.contains(value: Long): Boolean {
+public operator fun local ClosedRange<Short>.contains(value: Long): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -622,7 +622,7 @@ public operator fun ClosedRange<Short>.contains(value: Long): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("doubleRangeContains")
-public operator fun ClosedRange<Double>.contains(value: Long): Boolean {
+public operator fun local ClosedRange<Double>.contains(value: Long): Boolean {
     return contains(value.toDouble())
 }
 
@@ -632,7 +632,7 @@ public operator fun ClosedRange<Double>.contains(value: Long): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("floatRangeContains")
-public operator fun ClosedRange<Float>.contains(value: Long): Boolean {
+public operator fun local ClosedRange<Float>.contains(value: Long): Boolean {
     return contains(value.toFloat())
 }
 
@@ -642,7 +642,7 @@ public operator fun ClosedRange<Float>.contains(value: Long): Boolean {
 @kotlin.jvm.JvmName("intRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Int>.contains(value: Long): Boolean {
+public operator fun local OpenEndRange<Int>.contains(value: Long): Boolean {
     return value.toIntExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -652,7 +652,7 @@ public operator fun OpenEndRange<Int>.contains(value: Long): Boolean {
 @kotlin.jvm.JvmName("byteRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Byte>.contains(value: Long): Boolean {
+public operator fun local OpenEndRange<Byte>.contains(value: Long): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -662,7 +662,7 @@ public operator fun OpenEndRange<Byte>.contains(value: Long): Boolean {
 @kotlin.jvm.JvmName("shortRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Short>.contains(value: Long): Boolean {
+public operator fun local OpenEndRange<Short>.contains(value: Long): Boolean {
     return value.toShortExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -678,7 +678,7 @@ public inline operator fun IntRange.contains(value: Long): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("intRangeContains")
-public operator fun ClosedRange<Int>.contains(value: Short): Boolean {
+public operator fun local ClosedRange<Int>.contains(value: Short): Boolean {
     return contains(value.toInt())
 }
 
@@ -686,7 +686,7 @@ public operator fun ClosedRange<Int>.contains(value: Short): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("longRangeContains")
-public operator fun ClosedRange<Long>.contains(value: Short): Boolean {
+public operator fun local ClosedRange<Long>.contains(value: Short): Boolean {
     return contains(value.toLong())
 }
 
@@ -694,7 +694,7 @@ public operator fun ClosedRange<Long>.contains(value: Short): Boolean {
  * Checks if the specified [value] belongs to this range.
  */
 @kotlin.jvm.JvmName("byteRangeContains")
-public operator fun ClosedRange<Byte>.contains(value: Short): Boolean {
+public operator fun local ClosedRange<Byte>.contains(value: Short): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -704,7 +704,7 @@ public operator fun ClosedRange<Byte>.contains(value: Short): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("doubleRangeContains")
-public operator fun ClosedRange<Double>.contains(value: Short): Boolean {
+public operator fun local ClosedRange<Double>.contains(value: Short): Boolean {
     return contains(value.toDouble())
 }
 
@@ -714,7 +714,7 @@ public operator fun ClosedRange<Double>.contains(value: Short): Boolean {
 @Deprecated("This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
 @DeprecatedSinceKotlin(warningSince = "1.3", errorSince = "1.4", hiddenSince = "1.5")
 @kotlin.jvm.JvmName("floatRangeContains")
-public operator fun ClosedRange<Float>.contains(value: Short): Boolean {
+public operator fun local ClosedRange<Float>.contains(value: Short): Boolean {
     return contains(value.toFloat())
 }
 
@@ -724,7 +724,7 @@ public operator fun ClosedRange<Float>.contains(value: Short): Boolean {
 @kotlin.jvm.JvmName("intRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Int>.contains(value: Short): Boolean {
+public operator fun local OpenEndRange<Int>.contains(value: Short): Boolean {
     return contains(value.toInt())
 }
 
@@ -734,7 +734,7 @@ public operator fun OpenEndRange<Int>.contains(value: Short): Boolean {
 @kotlin.jvm.JvmName("longRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Long>.contains(value: Short): Boolean {
+public operator fun local OpenEndRange<Long>.contains(value: Short): Boolean {
     return contains(value.toLong())
 }
 
@@ -744,7 +744,7 @@ public operator fun OpenEndRange<Long>.contains(value: Short): Boolean {
 @kotlin.jvm.JvmName("byteRangeContains")
 @SinceKotlin("1.9")
 @WasExperimental(ExperimentalStdlibApi::class)
-public operator fun OpenEndRange<Byte>.contains(value: Short): Boolean {
+public operator fun local OpenEndRange<Byte>.contains(value: Short): Boolean {
     return value.toByteExactOrNull().let { if (it != null) contains(it) else false }
 }
 
@@ -1502,7 +1502,7 @@ public fun Double.coerceIn(minimumValue: Double, maximumValue: Double): Double {
  * @sample samples.comparisons.ComparableOps.coerceInFloatingPointRange
  */
 @SinceKotlin("1.1")
-public fun <T : Comparable<T>> T.coerceIn(range: ClosedFloatingPointRange<T>): T {
+public fun <T : Comparable<T>> T.coerceIn(local range: ClosedFloatingPointRange<T>): T {
     if (range.isEmpty()) throw IllegalArgumentException("Cannot coerce value to an empty range: $range.")
     return when {
         // this < start equiv to this <= start && !(this >= start)
@@ -1520,7 +1520,7 @@ public fun <T : Comparable<T>> T.coerceIn(range: ClosedFloatingPointRange<T>): T
  * 
  * @sample samples.comparisons.ComparableOps.coerceInComparable
  */
-public fun <T : Comparable<T>> T.coerceIn(range: ClosedRange<T>): T {
+public fun <T : Comparable<T>> T.coerceIn(local range: ClosedRange<T>): T {
     if (range is ClosedFloatingPointRange) {
         return this.coerceIn<T>(range)
     }
@@ -1539,7 +1539,7 @@ public fun <T : Comparable<T>> T.coerceIn(range: ClosedRange<T>): T {
  * 
  * @sample samples.comparisons.ComparableOps.coerceIn
  */
-public fun Int.coerceIn(range: ClosedRange<Int>): Int {
+public fun Int.coerceIn(local range: ClosedRange<Int>): Int {
     if (range is ClosedFloatingPointRange) {
         return this.coerceIn<Int>(range)
     }
@@ -1558,7 +1558,7 @@ public fun Int.coerceIn(range: ClosedRange<Int>): Int {
  * 
  * @sample samples.comparisons.ComparableOps.coerceIn
  */
-public fun Long.coerceIn(range: ClosedRange<Long>): Long {
+public fun Long.coerceIn(local range: ClosedRange<Long>): Long {
     if (range is ClosedFloatingPointRange) {
         return this.coerceIn<Long>(range)
     }

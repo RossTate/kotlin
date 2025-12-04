@@ -10,13 +10,13 @@ package kotlin
  * Returns a string representation of the object. Can be called with a null receiver, in which case
  * it returns the string "null".
  */
-public expect fun Any?.toString(): String
+public expect fun local Any?.toString(): String
 
 /**
  * Concatenates this string with the string representation of the given [other] object. If either the receiver
  * or the [other] object are null, they are represented as the string "null".
  */
-public expect operator fun String?.plus(other: Any?): String
+public expect operator fun String?.plus(local other: Any?): String
 
 /**
  * Returns an array of objects of the given type with the given [size], initialized with null values.

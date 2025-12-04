@@ -33,10 +33,10 @@ public expect class Regex {
      *
      * @return An instance of [MatchResult] if the entire input matches or `null` otherwise.
      */
-    public fun matchEntire(input: CharSequence): MatchResult?
+    public fun matchEntire(local input: CharSequence): MatchResult?
 
     /** Indicates whether the regular expression matches the entire [input]. */
-    public infix fun matches(input: CharSequence): Boolean
+    public infix fun matches(local input: CharSequence): Boolean
 
     /**
      * Attempts to match a regular expression exactly at the specified [index] in the [input] char sequence.
@@ -48,7 +48,7 @@ public expect class Regex {
      * @sample samples.text.Regexps.matchAt
      */
     @SinceKotlin("1.7")
-    public fun matchAt(input: CharSequence, index: Int): MatchResult?
+    public fun matchAt(local input: CharSequence, index: Int): MatchResult?
 
     /**
      * Checks if a regular expression matches a part of the specified [input] char sequence
@@ -61,10 +61,10 @@ public expect class Regex {
      */
     @SinceKotlin("1.7")
     @WasExperimental(ExperimentalStdlibApi::class)
-    public fun matchesAt(input: CharSequence, index: Int): Boolean
+    public fun matchesAt(local input: CharSequence, index: Int): Boolean
 
     /** Indicates whether the regular expression can find at least one match in the specified [input]. */
-    public fun containsMatchIn(input: CharSequence): Boolean
+    public fun containsMatchIn(local input: CharSequence): Boolean
 
     /**
      * Replaces all occurrences of this regular expression in the specified [input] string with specified [replacement] expression.
@@ -87,14 +87,14 @@ public expect class Regex {
      *
      * @sample samples.text.Regexps.replaceWithExpression
      */
-    public fun replace(input: CharSequence, replacement: String): String
+    public fun replace(local input: CharSequence, replacement: String): String
 
     /**
      * Replaces all occurrences of this regular expression in the specified [input] string with the result of
      * the given function [transform] that takes [MatchResult] and returns a string to be used as a
      * replacement for that match.
      */
-    public fun replace(input: CharSequence, transform: (MatchResult) -> CharSequence): String
+    public fun replace(local input: CharSequence, local transform: (MatchResult) -> CharSequence): String
 
     /**
      * Replaces the first occurrence of this regular expression in the specified [input] string with specified [replacement] expression.
@@ -117,7 +117,7 @@ public expect class Regex {
      *
      * @sample samples.text.Regexps.replaceFirstWithExpression
      */
-    public fun replaceFirst(input: CharSequence, replacement: String): String
+    public fun replaceFirst(local input: CharSequence, replacement: String): String
 
     /**
      * Returns the first match of a regular expression in the [input], beginning at the specified [startIndex].
@@ -127,7 +127,7 @@ public expect class Regex {
      * @throws IndexOutOfBoundsException if [startIndex] is less than zero or greater than the length of the [input] char sequence.
      * @sample samples.text.Regexps.find
      */
-    public fun find(input: CharSequence, startIndex: Int = 0): MatchResult?
+    public fun find(local input: CharSequence, startIndex: Int = 0): MatchResult?
 
     /**
      * Returns a sequence of all occurrences of a regular expression within the [input] string, beginning at the specified [startIndex].
@@ -136,7 +136,7 @@ public expect class Regex {
      *
      * @sample samples.text.Regexps.findAll
      */
-    public fun findAll(input: CharSequence, startIndex: Int = 0): Sequence<MatchResult>
+    public fun findAll(local input: CharSequence, startIndex: Int = 0): Sequence<MatchResult>
 
     /**
      * Splits the [input] CharSequence to a list of strings around matches of this regular expression.
@@ -154,7 +154,7 @@ public expect class Regex {
      *
      * @sample samples.text.Regexps.split
      */
-    public fun split(input: CharSequence, limit: Int = 0): List<String>
+    public fun split(local input: CharSequence, limit: Int = 0): List<String>
 
     /**
      * Splits the [input] CharSequence to a sequence of strings around matches of this regular expression.
@@ -172,7 +172,7 @@ public expect class Regex {
      * @sample samples.text.Regexps.splitToSequence
      */
     @SinceKotlin("1.6")
-    public fun splitToSequence(input: CharSequence, limit: Int = 0): Sequence<String>
+    public fun splitToSequence(local input: CharSequence, limit: Int = 0): Sequence<String>
 
     public companion object {
         /**
@@ -408,7 +408,7 @@ public expect fun String.substring(startIndex: Int, endIndex: Int): String
  * @throws [IllegalArgumentException] when n < 0.
  * @sample samples.text.Strings.repeat
  */
-public expect fun CharSequence.repeat(n: Int): String
+public expect fun local CharSequence.repeat(n: Int): String
 
 
 /**
@@ -505,9 +505,9 @@ internal expect fun String.nativeLastIndexOf(ch: Char, fromIndex: Int): Int
  * @param otherOffset the start offset in the other char sequence of the substring to compare.
  * @param length the length of the substring to compare.
  */
-public expect fun CharSequence.regionMatches(
+public expect fun local CharSequence.regionMatches(
     thisOffset: Int,
-    other: CharSequence,
+    local other: CharSequence,
     otherOffset: Int,
     length: Int,
     ignoreCase: Boolean = false

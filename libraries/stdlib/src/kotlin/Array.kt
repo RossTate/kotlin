@@ -28,7 +28,7 @@ public expect class Array<T> {
      * @throws RuntimeException if the specified [size] is negative.
      */
     @Suppress("WRONG_MODIFIER_TARGET")
-    public inline constructor(size: Int, init: (Int) -> T)
+    public inline constructor(size: Int, local init: (Int) -> T)
 
     /**
      * Returns the array element at the given [index].

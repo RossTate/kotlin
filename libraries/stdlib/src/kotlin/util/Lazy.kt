@@ -90,8 +90,8 @@ public enum class LazyThreadSafetyMode {
 internal object UNINITIALIZED_VALUE
 
 // internal to be called from lazy in JS
-internal class UnsafeLazyImpl<out T>(initializer: () -> T) : Lazy<T>, Serializable {
-    private var initializer: (() -> T)? = initializer
+internal class UnsafeLazyImpl<out T>(initializer: () ->_{this} T) : Lazy<T>, Serializable {
+    private var initializer: (() ->_{this} T)? = initializer
     private var _value: Any? = UNINITIALIZED_VALUE
 
     override val value: T

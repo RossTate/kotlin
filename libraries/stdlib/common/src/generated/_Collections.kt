@@ -25,7 +25,7 @@ import kotlin.ranges.reversed
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 1.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> List<T>.component1(): T {
+public inline operator fun <T> local List<T>.component1(): T {
     return get(0)
 }
 
@@ -35,7 +35,7 @@ public inline operator fun <T> List<T>.component1(): T {
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 2.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> List<T>.component2(): T {
+public inline operator fun <T> local List<T>.component2(): T {
     return get(1)
 }
 
@@ -45,7 +45,7 @@ public inline operator fun <T> List<T>.component2(): T {
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 3.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> List<T>.component3(): T {
+public inline operator fun <T> local List<T>.component3(): T {
     return get(2)
 }
 
@@ -55,7 +55,7 @@ public inline operator fun <T> List<T>.component3(): T {
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 4.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> List<T>.component4(): T {
+public inline operator fun <T> local List<T>.component4(): T {
     return get(3)
 }
 
@@ -65,14 +65,14 @@ public inline operator fun <T> List<T>.component4(): T {
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 5.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> List<T>.component5(): T {
+public inline operator fun <T> local List<T>.component5(): T {
     return get(4)
 }
 
 /**
  * Returns `true` if [element] is found in the collection.
  */
-public operator fun <@kotlin.internal.OnlyInputTypes T> Iterable<T>.contains(element: T): Boolean {
+public operator fun <@kotlin.internal.OnlyInputTypes T> local Iterable<T>.contains(element: T): Boolean {
     if (this is Collection)
         return contains(element)
     return indexOf(element) >= 0
@@ -83,7 +83,7 @@ public operator fun <@kotlin.internal.OnlyInputTypes T> Iterable<T>.contains(ele
  * 
  * @sample samples.collections.Collections.Elements.elementAt
  */
-public fun <T> Iterable<T>.elementAt(index: Int): T {
+public fun <T> local Iterable<T>.elementAt(index: Int): T {
     if (this is List)
         return get(index)
     return elementAtOrElse(index) { throw IndexOutOfBoundsException("Collection doesn't contain element at index $index.") }
@@ -95,7 +95,7 @@ public fun <T> Iterable<T>.elementAt(index: Int): T {
  * @sample samples.collections.Collections.Elements.elementAt
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> List<T>.elementAt(index: Int): T {
+public inline fun <T> local List<T>.elementAt(index: Int): T {
     return get(index)
 }
 
@@ -104,7 +104,7 @@ public inline fun <T> List<T>.elementAt(index: Int): T {
  * 
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
-public fun <T> Iterable<T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T): T {
+public fun <T> local Iterable<T>.elementAtOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -128,7 +128,7 @@ public fun <T> Iterable<T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T)
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> List<T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T): T {
+public inline fun <T> local List<T>.elementAtOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -140,7 +140,7 @@ public inline fun <T> List<T>.elementAtOrElse(index: Int, defaultValue: (Int) ->
  * 
  * @sample samples.collections.Collections.Elements.elementAtOrNull
  */
-public fun <T> Iterable<T>.elementAtOrNull(index: Int): T? {
+public fun <T> local Iterable<T>.elementAtOrNull(index: Int): T? {
     if (this is List)
         return this.getOrNull(index)
     if (index < 0)
@@ -161,7 +161,7 @@ public fun <T> Iterable<T>.elementAtOrNull(index: Int): T? {
  * @sample samples.collections.Collections.Elements.elementAtOrNull
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> List<T>.elementAtOrNull(index: Int): T? {
+public inline fun <T> local List<T>.elementAtOrNull(index: Int): T? {
     return this.getOrNull(index)
 }
 
@@ -171,7 +171,7 @@ public inline fun <T> List<T>.elementAtOrNull(index: Int): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Iterable<T>.find(local predicate: (T) -> Boolean): T? {
     return firstOrNull(predicate)
 }
 
@@ -181,7 +181,7 @@ public inline fun <T> Iterable<T>.find(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.findLast(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Iterable<T>.findLast(local predicate: (T) -> Boolean): T? {
     return lastOrNull(predicate)
 }
 
@@ -191,7 +191,7 @@ public inline fun <T> Iterable<T>.findLast(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> List<T>.findLast(predicate: (T) -> Boolean): T? {
+public inline fun <T> local List<T>.findLast(local predicate: (T) -> Boolean): T? {
     return lastOrNull(predicate)
 }
 
@@ -200,7 +200,7 @@ public inline fun <T> List<T>.findLast(predicate: (T) -> Boolean): T? {
  * 
  * @throws NoSuchElementException if the collection is empty.
  */
-public fun <T> Iterable<T>.first(): T {
+public fun <T> local Iterable<T>.first(): T {
     when (this) {
         is List -> return this.first()
         else -> {
@@ -217,7 +217,7 @@ public fun <T> Iterable<T>.first(): T {
  * 
  * @throws NoSuchElementException if the list is empty.
  */
-public fun <T> List<T>.first(): T {
+public fun <T> local List<T>.first(): T {
     if (isEmpty())
         throw NoSuchElementException("List is empty.")
     return this[0]
@@ -227,7 +227,7 @@ public fun <T> List<T>.first(): T {
  * Returns the first element matching the given [predicate].
  * @throws [NoSuchElementException] if no such element is found.
  */
-public inline fun <T> Iterable<T>.first(predicate: (T) -> Boolean): T {
+public inline fun <T> local Iterable<T>.first(local predicate: (T) -> Boolean): T {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Collection contains no element matching the predicate.")
 }
@@ -240,7 +240,7 @@ public inline fun <T> Iterable<T>.first(predicate: (T) -> Boolean): T {
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Iterable<T>.firstNotNullOf(transform: (T) -> R?): R {
+public inline fun <T, R : Any> local Iterable<T>.firstNotNullOf(local transform: (T) -> R?): R {
     return firstNotNullOfOrNull(transform) ?: throw NoSuchElementException("No element of the collection was transformed to a non-null value.")
 }
 
@@ -252,7 +252,7 @@ public inline fun <T, R : Any> Iterable<T>.firstNotNullOf(transform: (T) -> R?):
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Iterable<T>.firstNotNullOfOrNull(transform: (T) -> R?): R? {
+public inline fun <T, R : Any> local Iterable<T>.firstNotNullOfOrNull(local transform: (T) -> R?): R? {
     for (element in this) {
         val result = transform(element)
         if (result != null) {
@@ -265,7 +265,7 @@ public inline fun <T, R : Any> Iterable<T>.firstNotNullOfOrNull(transform: (T) -
 /**
  * Returns the first element, or `null` if the collection is empty.
  */
-public fun <T> Iterable<T>.firstOrNull(): T? {
+public fun <T> local Iterable<T>.firstOrNull(): T? {
     when (this) {
         is List -> {
             if (isEmpty())
@@ -285,14 +285,14 @@ public fun <T> Iterable<T>.firstOrNull(): T? {
 /**
  * Returns the first element, or `null` if the list is empty.
  */
-public fun <T> List<T>.firstOrNull(): T? {
+public fun <T> local List<T>.firstOrNull(): T? {
     return if (isEmpty()) null else this[0]
 }
 
 /**
  * Returns the first element matching the given [predicate], or `null` if element was not found.
  */
-public inline fun <T> Iterable<T>.firstOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Iterable<T>.firstOrNull(local predicate: (T) -> Boolean): T? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -303,7 +303,7 @@ public inline fun <T> Iterable<T>.firstOrNull(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.getOrElse
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> List<T>.getOrElse(index: Int, defaultValue: (Int) -> T): T {
+public inline fun <T> local List<T>.getOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -315,14 +315,14 @@ public inline fun <T> List<T>.getOrElse(index: Int, defaultValue: (Int) -> T): T
  * 
  * @sample samples.collections.Collections.Elements.getOrNull
  */
-public fun <T> List<T>.getOrNull(index: Int): T? {
+public fun <T> local List<T>.getOrNull(index: Int): T? {
     return if (index in 0..<size) get(index) else null
 }
 
 /**
  * Returns first index of [element], or -1 if the collection does not contain element.
  */
-public fun <@kotlin.internal.OnlyInputTypes T> Iterable<T>.indexOf(element: T): Int {
+public fun <@kotlin.internal.OnlyInputTypes T> local Iterable<T>.indexOf(element: T): Int {
     if (this is List) return this.indexOf(element)
     var index = 0
     for (item in this) {
@@ -338,14 +338,14 @@ public fun <@kotlin.internal.OnlyInputTypes T> Iterable<T>.indexOf(element: T): 
  * Returns first index of [element], or -1 if the list does not contain element.
  */
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER") // false warning, extension takes precedence in some cases
-public fun <@kotlin.internal.OnlyInputTypes T> List<T>.indexOf(element: T): Int {
+public fun <@kotlin.internal.OnlyInputTypes T> local List<T>.indexOf(element: T): Int {
     return indexOf(element)
 }
 
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the collection does not contain such element.
  */
-public inline fun <T> Iterable<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Iterable<T>.indexOfFirst(local predicate: (T) -> Boolean): Int {
     var index = 0
     for (item in this) {
         checkIndexOverflow(index)
@@ -359,7 +359,7 @@ public inline fun <T> Iterable<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
 /**
  * Returns index of the first element matching the given [predicate], or -1 if the list does not contain such element.
  */
-public inline fun <T> List<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
+public inline fun <T> local List<T>.indexOfFirst(local predicate: (T) -> Boolean): Int {
     var index = 0
     for (item in this) {
         if (predicate(item))
@@ -372,7 +372,7 @@ public inline fun <T> List<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the collection does not contain such element.
  */
-public inline fun <T> Iterable<T>.indexOfLast(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Iterable<T>.indexOfLast(local predicate: (T) -> Boolean): Int {
     var lastIndex = -1
     var index = 0
     for (item in this) {
@@ -387,7 +387,7 @@ public inline fun <T> Iterable<T>.indexOfLast(predicate: (T) -> Boolean): Int {
 /**
  * Returns index of the last element matching the given [predicate], or -1 if the list does not contain such element.
  */
-public inline fun <T> List<T>.indexOfLast(predicate: (T) -> Boolean): Int {
+public inline fun <T> local List<T>.indexOfLast(local predicate: (T) -> Boolean): Int {
     val iterator = this.listIterator(size)
     while (iterator.hasPrevious()) {
         if (predicate(iterator.previous())) {
@@ -404,7 +404,7 @@ public inline fun <T> List<T>.indexOfLast(predicate: (T) -> Boolean): Int {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> Iterable<T>.last(): T {
+public fun <T> local Iterable<T>.last(): T {
     when (this) {
         is List -> return this.last()
         else -> {
@@ -426,7 +426,7 @@ public fun <T> Iterable<T>.last(): T {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> List<T>.last(): T {
+public fun <T> local List<T>.last(): T {
     if (isEmpty())
         throw NoSuchElementException("List is empty.")
     return this[lastIndex]
@@ -439,7 +439,7 @@ public fun <T> List<T>.last(): T {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Iterable<T>.last(predicate: (T) -> Boolean): T {
+public inline fun <T> local Iterable<T>.last(local predicate: (T) -> Boolean): T {
     var last: T? = null
     var found = false
     for (element in this) {
@@ -460,7 +460,7 @@ public inline fun <T> Iterable<T>.last(predicate: (T) -> Boolean): T {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> List<T>.last(predicate: (T) -> Boolean): T {
+public inline fun <T> local List<T>.last(local predicate: (T) -> Boolean): T {
     val iterator = this.listIterator(size)
     while (iterator.hasPrevious()) {
         val element = iterator.previous()
@@ -472,7 +472,7 @@ public inline fun <T> List<T>.last(predicate: (T) -> Boolean): T {
 /**
  * Returns last index of [element], or -1 if the collection does not contain element.
  */
-public fun <@kotlin.internal.OnlyInputTypes T> Iterable<T>.lastIndexOf(element: T): Int {
+public fun <@kotlin.internal.OnlyInputTypes T> local Iterable<T>.lastIndexOf(element: T): Int {
     if (this is List) return this.lastIndexOf(element)
     var lastIndex = -1
     var index = 0
@@ -498,7 +498,7 @@ public fun <@kotlin.internal.OnlyInputTypes T> List<T>.lastIndexOf(element: T): 
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> Iterable<T>.lastOrNull(): T? {
+public fun <T> local Iterable<T>.lastOrNull(): T? {
     when (this) {
         is List -> return if (isEmpty()) null else this[size - 1]
         else -> {
@@ -518,7 +518,7 @@ public fun <T> Iterable<T>.lastOrNull(): T? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> List<T>.lastOrNull(): T? {
+public fun <T> local List<T>.lastOrNull(): T? {
     return if (isEmpty()) null else this[size - 1]
 }
 
@@ -527,7 +527,7 @@ public fun <T> List<T>.lastOrNull(): T? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Iterable<T>.lastOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Iterable<T>.lastOrNull(local predicate: (T) -> Boolean): T? {
     var last: T? = null
     for (element in this) {
         if (predicate(element)) {
@@ -542,7 +542,7 @@ public inline fun <T> Iterable<T>.lastOrNull(predicate: (T) -> Boolean): T? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> List<T>.lastOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local List<T>.lastOrNull(local predicate: (T) -> Boolean): T? {
     val iterator = this.listIterator(size)
     while (iterator.hasPrevious()) {
         val element = iterator.previous()
@@ -558,7 +558,7 @@ public inline fun <T> List<T>.lastOrNull(predicate: (T) -> Boolean): T? {
  */
 @SinceKotlin("1.3")
 @kotlin.internal.InlineOnly
-public inline fun <T> Collection<T>.random(): T {
+public inline fun <T> local Collection<T>.random(): T {
     return random(Random)
 }
 
@@ -568,7 +568,7 @@ public inline fun <T> Collection<T>.random(): T {
  * @throws NoSuchElementException if this collection is empty.
  */
 @SinceKotlin("1.3")
-public fun <T> Collection<T>.random(random: Random): T {
+public fun <T> local Collection<T>.random(random: Random): T {
     if (isEmpty())
         throw NoSuchElementException("Collection is empty.")
     return elementAt(random.nextInt(size))
@@ -579,7 +579,7 @@ public fun <T> Collection<T>.random(random: Random): T {
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <T> Collection<T>.randomOrNull(): T? {
+public inline fun <T> local Collection<T>.randomOrNull(): T? {
     return randomOrNull(Random)
 }
 
@@ -587,7 +587,7 @@ public inline fun <T> Collection<T>.randomOrNull(): T? {
  * Returns a random element from this collection using the specified source of randomness, or `null` if this collection is empty.
  */
 @SinceKotlin("1.4")
-public fun <T> Collection<T>.randomOrNull(random: Random): T? {
+public fun <T> local Collection<T>.randomOrNull(random: Random): T? {
     if (isEmpty())
         return null
     return elementAt(random.nextInt(size))
@@ -596,7 +596,7 @@ public fun <T> Collection<T>.randomOrNull(random: Random): T? {
 /**
  * Returns the single element, or throws an exception if the collection is empty or has more than one element.
  */
-public fun <T> Iterable<T>.single(): T {
+public fun <T> local Iterable<T>.single(): T {
     when (this) {
         is List -> return this.single()
         else -> {
@@ -614,7 +614,7 @@ public fun <T> Iterable<T>.single(): T {
 /**
  * Returns the single element, or throws an exception if the list is empty or has more than one element.
  */
-public fun <T> List<T>.single(): T {
+public fun <T> local List<T>.single(): T {
     return when (size) {
         0 -> throw NoSuchElementException("List is empty.")
         1 -> this[0]
@@ -625,7 +625,7 @@ public fun <T> List<T>.single(): T {
 /**
  * Returns the single element matching the given [predicate], or throws exception if there is no or more than one matching element.
  */
-public inline fun <T> Iterable<T>.single(predicate: (T) -> Boolean): T {
+public inline fun <T> local Iterable<T>.single(local predicate: (T) -> Boolean): T {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -643,7 +643,7 @@ public inline fun <T> Iterable<T>.single(predicate: (T) -> Boolean): T {
 /**
  * Returns single element, or `null` if the collection is empty or has more than one element.
  */
-public fun <T> Iterable<T>.singleOrNull(): T? {
+public fun <T> local Iterable<T>.singleOrNull(): T? {
     when (this) {
         is List -> return if (size == 1) this[0] else null
         else -> {
@@ -661,14 +661,14 @@ public fun <T> Iterable<T>.singleOrNull(): T? {
 /**
  * Returns single element, or `null` if the list is empty or has more than one element.
  */
-public fun <T> List<T>.singleOrNull(): T? {
+public fun <T> local List<T>.singleOrNull(): T? {
     return if (size == 1) this[0] else null
 }
 
 /**
  * Returns the single element matching the given [predicate], or `null` if element was not found or more than one element was found.
  */
-public inline fun <T> Iterable<T>.singleOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Iterable<T>.singleOrNull(local predicate: (T) -> Boolean): T? {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -689,7 +689,7 @@ public inline fun <T> Iterable<T>.singleOrNull(predicate: (T) -> Boolean): T? {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public fun <T> Iterable<T>.drop(n: Int): List<T> {
+public fun <T> local Iterable<T>.drop(n: Int): List<T> {
     require(n >= 0) { "Requested element count $n is less than zero." }
     if (n == 0) return toList()
     val list: ArrayList<T>
@@ -728,7 +728,7 @@ public fun <T> Iterable<T>.drop(n: Int): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public fun <T> List<T>.dropLast(n: Int): List<T> {
+public fun <T> local List<T>.dropLast(n: Int): List<T> {
     require(n >= 0) { "Requested element count $n is less than zero." }
     return take((size - n).coerceAtLeast(0))
 }
@@ -738,7 +738,7 @@ public fun <T> List<T>.dropLast(n: Int): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun <T> List<T>.dropLastWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local List<T>.dropLastWhile(local predicate: (T) -> Boolean): List<T> {
     if (!isEmpty()) {
         val iterator = listIterator(size)
         while (iterator.hasPrevious()) {
@@ -755,7 +755,7 @@ public inline fun <T> List<T>.dropLastWhile(predicate: (T) -> Boolean): List<T> 
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public inline fun <T> Iterable<T>.dropWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local Iterable<T>.dropWhile(local predicate: (T) -> Boolean): List<T> {
     var yielding = false
     val list = ArrayList<T>()
     for (item in this)
@@ -773,7 +773,7 @@ public inline fun <T> Iterable<T>.dropWhile(predicate: (T) -> Boolean): List<T> 
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun <T> Iterable<T>.filter(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local Iterable<T>.filter(local predicate: (T) -> Boolean): List<T> {
     return filterTo(ArrayList<T>(), predicate)
 }
 
@@ -784,7 +784,7 @@ public inline fun <T> Iterable<T>.filter(predicate: (T) -> Boolean): List<T> {
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public inline fun <T> Iterable<T>.filterIndexed(predicate: (index: Int, T) -> Boolean): List<T> {
+public inline fun <T> local Iterable<T>.filterIndexed(local predicate: (index: Int, T) -> Boolean): List<T> {
     return filterIndexedTo(ArrayList<T>(), predicate)
 }
 
@@ -796,7 +796,7 @@ public inline fun <T> Iterable<T>.filterIndexed(predicate: (index: Int, T) -> Bo
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterIndexedTo(destination: C, predicate: (index: Int, T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Iterable<T>.filterIndexedTo(local destination: C, local predicate: (index: Int, T) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -808,7 +808,7 @@ public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterIndexedTo(d
  * 
  * @sample samples.collections.Collections.Filtering.filterIsInstance
  */
-public inline fun <reified R> Iterable<*>.filterIsInstance(): List<@kotlin.internal.NoInfer R> {
+public inline fun <reified R> local Iterable<*>.filterIsInstance(): List<@kotlin.internal.NoInfer R> {
     return filterIsInstanceTo(ArrayList<R>())
 }
 
@@ -818,7 +818,7 @@ public inline fun <reified R> Iterable<*>.filterIsInstance(): List<@kotlin.inter
  * @sample samples.collections.Collections.Filtering.filterIsInstanceTo
  */
 @IgnorableReturnValue
-public inline fun <reified R, C : MutableCollection<in R>> Iterable<*>.filterIsInstanceTo(destination: C): C {
+public inline fun <reified R, C : MutableCollection<in R>> local Iterable<*>.filterIsInstanceTo(local destination: C): C_{destination} {
     for (element in this) if (element is R) destination.add(element)
     return destination
 }
@@ -828,7 +828,7 @@ public inline fun <reified R, C : MutableCollection<in R>> Iterable<*>.filterIsI
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public inline fun <T> Iterable<T>.filterNot(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local Iterable<T>.filterNot(local predicate: (T) -> Boolean): List<T> {
     return filterNotTo(ArrayList<T>(), predicate)
 }
 
@@ -837,7 +837,7 @@ public inline fun <T> Iterable<T>.filterNot(predicate: (T) -> Boolean): List<T> 
  * 
  * @sample samples.collections.Collections.Filtering.filterNotNull
  */
-public fun <T : Any> Iterable<T?>.filterNotNull(): List<T> {
+public fun <T : Any> local Iterable<T?>.filterNotNull(): List<T> {
     return filterNotNullTo(ArrayList<T>())
 }
 
@@ -847,7 +847,7 @@ public fun <T : Any> Iterable<T?>.filterNotNull(): List<T> {
  * @sample samples.collections.Collections.Filtering.filterNotNullTo
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in T>, T : Any> Iterable<T?>.filterNotNullTo(destination: C): C {
+public fun <C : MutableCollection<in T>, T : Any> local Iterable<T?>.filterNotNullTo(local destination: C): C_{destination} {
     for (element in this) if (element != null) destination.add(element)
     return destination
 }
@@ -858,7 +858,7 @@ public fun <C : MutableCollection<in T>, T : Any> Iterable<T?>.filterNotNullTo(d
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterNotTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Iterable<T>.filterNotTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -869,7 +869,7 @@ public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterNotTo(desti
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Iterable<T>.filterTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -877,7 +877,7 @@ public inline fun <T, C : MutableCollection<in T>> Iterable<T>.filterTo(destinat
 /**
  * Returns a list containing elements at indices in the specified [indices] range.
  */
-public fun <T> List<T>.slice(indices: IntRange): List<T> {
+public fun <T> local List<T>.slice(indices: IntRange): List<T> {
     if (indices.isEmpty()) return listOf()
     return this.subList(indices.start, indices.endInclusive + 1).toList()
 }
@@ -885,7 +885,7 @@ public fun <T> List<T>.slice(indices: IntRange): List<T> {
 /**
  * Returns a list containing elements at specified [indices].
  */
-public fun <T> List<T>.slice(indices: Iterable<Int>): List<T> {
+public fun <T> local List<T>.slice(indices: Iterable<Int>): List<T> {
     val size = indices.collectionSizeOrDefault(10)
     if (size == 0) return emptyList()
     val list = ArrayList<T>(size)
@@ -902,7 +902,7 @@ public fun <T> List<T>.slice(indices: Iterable<Int>): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public fun <T> Iterable<T>.take(n: Int): List<T> {
+public fun <T> local Iterable<T>.take(n: Int): List<T> {
     require(n >= 0) { "Requested element count $n is less than zero." }
     if (n == 0) return emptyList()
     if (this is Collection<T>) {
@@ -926,7 +926,7 @@ public fun <T> Iterable<T>.take(n: Int): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public fun <T> List<T>.takeLast(n: Int): List<T> {
+public fun <T> local List<T>.takeLast(n: Int): List<T> {
     require(n >= 0) { "Requested element count $n is less than zero." }
     if (n == 0) return emptyList()
     val size = size
@@ -948,7 +948,7 @@ public fun <T> List<T>.takeLast(n: Int): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun <T> List<T>.takeLastWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local List<T>.takeLastWhile(local predicate: (T) -> Boolean): List<T> {
     if (isEmpty())
         return emptyList()
     val iterator = listIterator(size)
@@ -971,7 +971,7 @@ public inline fun <T> List<T>.takeLastWhile(predicate: (T) -> Boolean): List<T> 
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public inline fun <T> Iterable<T>.takeWhile(predicate: (T) -> Boolean): List<T> {
+public inline fun <T> local Iterable<T>.takeWhile(local predicate: (T) -> Boolean): List<T> {
     val list = ArrayList<T>()
     for (item in this) {
         if (!predicate(item))
@@ -989,7 +989,7 @@ public expect fun <T> MutableList<T>.reverse(): Unit
 /**
  * Returns a list with elements in reversed order.
  */
-public fun <T> Iterable<T>.reversed(): List<T> {
+public fun <T> local Iterable<T>.reversed(): List<T> {
     if (this is Collection && size <= 1) return toList()
     val list = toMutableList()
     list.reverse()
@@ -1002,7 +1002,7 @@ public fun <T> Iterable<T>.reversed(): List<T> {
  * See: [A modern version of Fisher-Yates shuffle algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm).
  */
 @SinceKotlin("1.3")
-public fun <T> MutableList<T>.shuffle(random: Random): Unit {
+public fun <T> local MutableList<T>.shuffle(random: Random): Unit {
     for (i in lastIndex downTo 1) {
         val j = random.nextInt(i + 1)
         this[j] = this.set(i, this[j])
@@ -1017,7 +1017,7 @@ public fun <T> MutableList<T>.shuffle(random: Random): Unit {
  * 
  * @sample samples.collections.Collections.Sorting.sortBy
  */
-public inline fun <T, R : Comparable<R>> MutableList<T>.sortBy(crossinline selector: (T) -> R?): Unit {
+public inline fun <T, R : Comparable<R>> local MutableList<T>.sortBy(local selector: (T) -> R?): Unit {
     if (size > 1) sortWith(compareBy(selector))
 }
 
@@ -1029,7 +1029,7 @@ public inline fun <T, R : Comparable<R>> MutableList<T>.sortBy(crossinline selec
  * 
  * @sample samples.collections.Collections.Sorting.sortByDescending
  */
-public inline fun <T, R : Comparable<R>> MutableList<T>.sortByDescending(crossinline selector: (T) -> R?): Unit {
+public inline fun <T, R : Comparable<R>> local MutableList<T>.sortByDescending(local selector: (T) -> R?): Unit {
     if (size > 1) sortWith(compareByDescending(selector))
 }
 
@@ -1038,7 +1038,7 @@ public inline fun <T, R : Comparable<R>> MutableList<T>.sortByDescending(crossin
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T : Comparable<T>> MutableList<T>.sortDescending(): Unit {
+public fun <T : Comparable<T>> local MutableList<T>.sortDescending(): Unit {
     sortWith(reverseOrder())
 }
 
@@ -1047,7 +1047,7 @@ public fun <T : Comparable<T>> MutableList<T>.sortDescending(): Unit {
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T : Comparable<T>> Iterable<T>.sorted(): List<T> {
+public fun <T : Comparable<T>> local Iterable<T>.sorted(): List<T> {
     if (this is Collection) {
         if (size <= 1) return this.toList()
         @Suppress("UNCHECKED_CAST")
@@ -1064,7 +1064,7 @@ public fun <T : Comparable<T>> Iterable<T>.sorted(): List<T> {
  * 
  * @sample samples.collections.Collections.Sorting.sortedBy
  */
-public inline fun <T, R : Comparable<R>> Iterable<T>.sortedBy(crossinline selector: (T) -> R?): List<T> {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.sortedBy(local selector: (T) -> R?): List<T> {
     return sortedWith(compareBy(selector))
 }
 
@@ -1076,7 +1076,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.sortedBy(crossinline select
  * 
  * @sample samples.collections.Collections.Sorting.sortedByDescending
  */
-public inline fun <T, R : Comparable<R>> Iterable<T>.sortedByDescending(crossinline selector: (T) -> R?): List<T> {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.sortedByDescending(local selector: (T) -> R?): List<T> {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -1085,7 +1085,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.sortedByDescending(crossinl
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T : Comparable<T>> Iterable<T>.sortedDescending(): List<T> {
+public fun <T : Comparable<T>> local Iterable<T>.sortedDescending(): List<T> {
     return sortedWith(reverseOrder())
 }
 
@@ -1094,7 +1094,7 @@ public fun <T : Comparable<T>> Iterable<T>.sortedDescending(): List<T> {
  * 
  * The sort is _stable_. It means that equal elements preserve their order relative to each other after sorting.
  */
-public fun <T> Iterable<T>.sortedWith(comparator: Comparator<in T>): List<T> {
+public fun <T> local Iterable<T>.sortedWith(local comparator: Comparator<in T>): List<T> {
     if (this is Collection) {
        if (size <= 1) return this.toList()
        @Suppress("UNCHECKED_CAST")
@@ -1106,7 +1106,7 @@ public fun <T> Iterable<T>.sortedWith(comparator: Comparator<in T>): List<T> {
 /**
  * Returns an array of Boolean containing all of the elements of this collection.
  */
-public fun Collection<Boolean>.toBooleanArray(): BooleanArray {
+public fun local Collection<Boolean>.toBooleanArray(): BooleanArray {
     val result = BooleanArray(size)
     var index = 0
     for (element in this)
@@ -1117,7 +1117,7 @@ public fun Collection<Boolean>.toBooleanArray(): BooleanArray {
 /**
  * Returns an array of Byte containing all of the elements of this collection.
  */
-public fun Collection<Byte>.toByteArray(): ByteArray {
+public fun local Collection<Byte>.toByteArray(): ByteArray {
     val result = ByteArray(size)
     var index = 0
     for (element in this)
@@ -1128,7 +1128,7 @@ public fun Collection<Byte>.toByteArray(): ByteArray {
 /**
  * Returns an array of Char containing all of the elements of this collection.
  */
-public fun Collection<Char>.toCharArray(): CharArray {
+public fun local Collection<Char>.toCharArray(): CharArray {
     val result = CharArray(size)
     var index = 0
     for (element in this)
@@ -1139,7 +1139,7 @@ public fun Collection<Char>.toCharArray(): CharArray {
 /**
  * Returns an array of Double containing all of the elements of this collection.
  */
-public fun Collection<Double>.toDoubleArray(): DoubleArray {
+public fun local Collection<Double>.toDoubleArray(): DoubleArray {
     val result = DoubleArray(size)
     var index = 0
     for (element in this)
@@ -1150,7 +1150,7 @@ public fun Collection<Double>.toDoubleArray(): DoubleArray {
 /**
  * Returns an array of Float containing all of the elements of this collection.
  */
-public fun Collection<Float>.toFloatArray(): FloatArray {
+public fun local Collection<Float>.toFloatArray(): FloatArray {
     val result = FloatArray(size)
     var index = 0
     for (element in this)
@@ -1161,7 +1161,7 @@ public fun Collection<Float>.toFloatArray(): FloatArray {
 /**
  * Returns an array of Int containing all of the elements of this collection.
  */
-public fun Collection<Int>.toIntArray(): IntArray {
+public fun local Collection<Int>.toIntArray(): IntArray {
     val result = IntArray(size)
     var index = 0
     for (element in this)
@@ -1172,7 +1172,7 @@ public fun Collection<Int>.toIntArray(): IntArray {
 /**
  * Returns an array of Long containing all of the elements of this collection.
  */
-public fun Collection<Long>.toLongArray(): LongArray {
+public fun local Collection<Long>.toLongArray(): LongArray {
     val result = LongArray(size)
     var index = 0
     for (element in this)
@@ -1183,7 +1183,7 @@ public fun Collection<Long>.toLongArray(): LongArray {
 /**
  * Returns an array of Short containing all of the elements of this collection.
  */
-public fun Collection<Short>.toShortArray(): ShortArray {
+public fun local Collection<Short>.toShortArray(): ShortArray {
     val result = ShortArray(size)
     var index = 0
     for (element in this)
@@ -1201,7 +1201,7 @@ public fun Collection<Short>.toShortArray(): ShortArray {
  * 
  * @sample samples.collections.Collections.Transformations.associate
  */
-public inline fun <T, K, V> Iterable<T>.associate(transform: (T) -> Pair<K, V>): Map<K, V> {
+public inline fun <T, K, V> local Iterable<T>.associate(local transform: (T) -> Pair<K, V>): Map<K, V> {
     val capacity = mapCapacity(collectionSizeOrDefault(10)).coerceAtLeast(16)
     return associateTo(LinkedHashMap<K, V>(capacity), transform)
 }
@@ -1216,7 +1216,7 @@ public inline fun <T, K, V> Iterable<T>.associate(transform: (T) -> Pair<K, V>):
  * 
  * @sample samples.collections.Collections.Transformations.associateBy
  */
-public inline fun <T, K> Iterable<T>.associateBy(keySelector: (T) -> K): Map<K, T> {
+public inline fun <T, K> local Iterable<T>.associateBy(local keySelector: (T) -> K): Map<K, T> {
     val capacity = mapCapacity(collectionSizeOrDefault(10)).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, T>(capacity), keySelector)
 }
@@ -1230,7 +1230,7 @@ public inline fun <T, K> Iterable<T>.associateBy(keySelector: (T) -> K): Map<K, 
  * 
  * @sample samples.collections.Collections.Transformations.associateByWithValueTransform
  */
-public inline fun <T, K, V> Iterable<T>.associateBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, V> {
+public inline fun <T, K, V> local Iterable<T>.associateBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, V> {
     val capacity = mapCapacity(collectionSizeOrDefault(10)).coerceAtLeast(16)
     return associateByTo(LinkedHashMap<K, V>(capacity), keySelector, valueTransform)
 }
@@ -1245,7 +1245,7 @@ public inline fun <T, K, V> Iterable<T>.associateBy(keySelector: (T) -> K, value
  * @sample samples.collections.Collections.Transformations.associateByTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, in T>> Iterable<T>.associateByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, in T>> local Iterable<T>.associateByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -1262,7 +1262,7 @@ public inline fun <T, K, M : MutableMap<in K, in T>> Iterable<T>.associateByTo(d
  * @sample samples.collections.Collections.Transformations.associateByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Iterable<T>.associateByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> local Iterable<T>.associateByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -1278,7 +1278,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Iterable<T>.associateByT
  * @sample samples.collections.Collections.Transformations.associateTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Iterable<T>.associateTo(destination: M, transform: (T) -> Pair<K, V>): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> local Iterable<T>.associateTo(local destination: M, local transform: (T) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -1296,7 +1296,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Iterable<T>.associateTo(
  * @sample samples.collections.Collections.Transformations.associateWith
  */
 @SinceKotlin("1.3")
-public inline fun <K, V> Iterable<K>.associateWith(valueSelector: (K) -> V): Map<K, V> {
+public inline fun <K, V> local Iterable<K>.associateWith(local valueSelector: (K) -> V): Map<K, V> {
     val result = LinkedHashMap<K, V>(mapCapacity(collectionSizeOrDefault(10)).coerceAtLeast(16))
     return associateWithTo(result, valueSelector)
 }
@@ -1311,7 +1311,7 @@ public inline fun <K, V> Iterable<K>.associateWith(valueSelector: (K) -> V): Map
  */
 @SinceKotlin("1.3")
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> Iterable<K>.associateWithTo(destination: M, valueSelector: (K) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> local Iterable<K>.associateWithTo(local destination: M, local valueSelector: (K) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -1322,7 +1322,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> Iterable<K>.associateWithTo
  * Appends all elements to the given [destination] collection.
  */
 @IgnorableReturnValue
-public fun <T, C : MutableCollection<in T>> Iterable<T>.toCollection(destination: C): C {
+public fun <T, C : MutableCollection<in T>> local Iterable<T>.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -1332,14 +1332,14 @@ public fun <T, C : MutableCollection<in T>> Iterable<T>.toCollection(destination
 /**
  * Returns a new [HashSet] of all elements.
  */
-public fun <T> Iterable<T>.toHashSet(): HashSet<T> {
+public fun <T> local Iterable<T>.toHashSet(): HashSet<T> {
     return toCollection(HashSet<T>(mapCapacity(collectionSizeOrDefault(12))))
 }
 
 /**
  * Returns a [List] containing all elements.
  */
-public fun <T> Iterable<T>.toList(): List<T> {
+public fun <T> local Iterable<T>.toList(): List<T> {
     if (this is Collection) {
         return when (size) {
             0 -> emptyList()
@@ -1353,7 +1353,7 @@ public fun <T> Iterable<T>.toList(): List<T> {
 /**
  * Returns a new [MutableList] filled with all elements of this collection.
  */
-public fun <T> Iterable<T>.toMutableList(): MutableList<T> {
+public fun <T> local Iterable<T>.toMutableList(): MutableList<T> {
     if (this is Collection<T>)
         return this.toMutableList()
     return toCollection(ArrayList<T>())
@@ -1362,7 +1362,7 @@ public fun <T> Iterable<T>.toMutableList(): MutableList<T> {
 /**
  * Returns a new [MutableList] filled with all elements of this collection.
  */
-public fun <T> Collection<T>.toMutableList(): MutableList<T> {
+public fun <T> local Collection<T>.toMutableList(): MutableList<T> {
     return ArrayList(this)
 }
 
@@ -1371,7 +1371,7 @@ public fun <T> Collection<T>.toMutableList(): MutableList<T> {
  * 
  * The returned set preserves the element iteration order of the original collection.
  */
-public fun <T> Iterable<T>.toSet(): Set<T> {
+public fun <T> local Iterable<T>.toSet(): Set<T> {
     if (this is Collection) {
         return when (size) {
             0 -> emptySet()
@@ -1387,7 +1387,7 @@ public fun <T> Iterable<T>.toSet(): Set<T> {
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public inline fun <T, R> Iterable<T>.flatMap(transform: (T) -> Iterable<R>): List<R> {
+public inline fun <T, R> local Iterable<T>.flatMap(transform: (T) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -1400,7 +1400,7 @@ public inline fun <T, R> Iterable<T>.flatMap(transform: (T) -> Iterable<R>): Lis
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequence")
-public inline fun <T, R> Iterable<T>.flatMap(transform: (T) -> Sequence<R>): List<R> {
+public inline fun <T, R> local Iterable<T>.flatMap(transform: (T) ->_{local} Sequence<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -1415,7 +1415,7 @@ public inline fun <T, R> Iterable<T>.flatMap(transform: (T) -> Sequence<R>): Lis
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.flatMapIndexed(transform: (index: Int, T) -> Iterable<R>): List<R> {
+public inline fun <T, R> local Iterable<T>.flatMapIndexed(transform: (index: Int, T) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -1430,7 +1430,7 @@ public inline fun <T, R> Iterable<T>.flatMapIndexed(transform: (index: Int, T) -
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedSequence")
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.flatMapIndexed(transform: (index: Int, T) -> Sequence<R>): List<R> {
+public inline fun <T, R> local Iterable<T>.flatMapIndexed(transform: (index: Int, T) ->_{local} Sequence<R>_{local}): List<R> {
     return flatMapIndexedTo(ArrayList<R>(), transform)
 }
 
@@ -1444,7 +1444,7 @@ public inline fun <T, R> Iterable<T>.flatMapIndexed(transform: (index: Int, T) -
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.flatMapIndexedTo(local destination: C, transform: (index: Int, T) ->_{local} Iterable<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(checkIndexOverflow(index++), element)
@@ -1463,7 +1463,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapIndexed
 @kotlin.jvm.JvmName("flatMapIndexedSequenceTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.flatMapIndexedTo(local destination: C, transform: (index: Int, T) ->_{local} Sequence<R>_{local}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(checkIndexOverflow(index++), element)
@@ -1476,7 +1476,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapIndexed
  * Appends all elements yielded from results of [transform] function being invoked on each element of original collection, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapTo(destination: C, transform: (T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.flatMapTo(local destination: C, transform: (T) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -1492,7 +1492,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapTo(dest
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequenceTo")
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapTo(destination: C, transform: (T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.flatMapTo(local destination: C, transform: (T) ->_{local} Sequence<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -1508,7 +1508,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.flatMapTo(dest
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <T, K> Iterable<T>.groupBy(keySelector: (T) -> K): Map<K, List<T>> {
+public inline fun <T, K> local Iterable<T>.groupBy(local keySelector: (T) -> K): Map<K, List<T>> {
     return groupByTo(LinkedHashMap<K, MutableList<T>>(), keySelector)
 }
 
@@ -1521,7 +1521,7 @@ public inline fun <T, K> Iterable<T>.groupBy(keySelector: (T) -> K): Map<K, List
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <T, K, V> Iterable<T>.groupBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, List<V>> {
+public inline fun <T, K, V> local Iterable<T>.groupBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -1534,7 +1534,7 @@ public inline fun <T, K, V> Iterable<T>.groupBy(keySelector: (T) -> K, valueTran
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Iterable<T>.groupByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> local Iterable<T>.groupByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<T>() }
@@ -1553,7 +1553,7 @@ public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Iterable<T>.group
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Iterable<T>.groupByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> local Iterable<T>.groupByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -1569,9 +1569,9 @@ public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Iterable<T>.gr
  * @sample samples.collections.Grouping.groupingByEachCount
  */
 @SinceKotlin("1.1")
-public inline fun <T, K> Iterable<T>.groupingBy(crossinline keySelector: (T) -> K): Grouping<T, K> {
+public inline fun <T, K> local Iterable<T>.groupingBy(local keySelector: (T) -> K): Grouping<T, K>_{this&keySelector} {
     return object : Grouping<T, K> {
-        override fun sourceIterator(): Iterator<T> = this@groupingBy.iterator()
+        override fun sourceIterator(): Iterator<T>_{this@groupingBy} = this@groupingBy.iterator()
         override fun keyOf(element: T): K = keySelector(element)
     }
 }
@@ -1582,7 +1582,7 @@ public inline fun <T, K> Iterable<T>.groupingBy(crossinline keySelector: (T) -> 
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public inline fun <T, R> Iterable<T>.map(transform: (T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.map(local transform: (T) -> R): List<R> {
     return mapTo(ArrayList<R>(collectionSizeOrDefault(10)), transform)
 }
 
@@ -1592,7 +1592,7 @@ public inline fun <T, R> Iterable<T>.map(transform: (T) -> R): List<R> {
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <T, R> Iterable<T>.mapIndexed(transform: (index: Int, T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.mapIndexed(local transform: (index: Int, T) -> R): List<R> {
     return mapIndexedTo(ArrayList<R>(collectionSizeOrDefault(10)), transform)
 }
 
@@ -1602,7 +1602,7 @@ public inline fun <T, R> Iterable<T>.mapIndexed(transform: (index: Int, T) -> R)
  * @param [transform] function that takes the index of an element and the element itself
  * and returns the result of the transform applied to the element.
  */
-public inline fun <T, R : Any> Iterable<T>.mapIndexedNotNull(transform: (index: Int, T) -> R?): List<R> {
+public inline fun <T, R : Any> local Iterable<T>.mapIndexedNotNull(local transform: (index: Int, T) -> R?): List<R> {
     return mapIndexedNotNullTo(ArrayList<R>(), transform)
 }
 
@@ -1613,7 +1613,7 @@ public inline fun <T, R : Any> Iterable<T>.mapIndexedNotNull(transform: (index: 
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Iterable<T>.mapIndexedNotNullTo(destination: C, transform: (index: Int, T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> local Iterable<T>.mapIndexedNotNullTo(local destination: C, local transform: (index: Int, T) -> R?): C_{destination} {
     forEachIndexed { index, element -> transform(index, element)?.let { destination.add(it) } }
     return destination
 }
@@ -1625,7 +1625,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Iterable<T>.mapIndex
  * and returns the result of the transform applied to the element.
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapIndexedTo(destination: C, transform: (index: Int, T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.mapIndexedTo(local destination: C, local transform: (index: Int, T) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(checkIndexOverflow(index++), item))
@@ -1638,7 +1638,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapIndexedTo(d
  * 
  * @sample samples.collections.Collections.Transformations.mapNotNull
  */
-public inline fun <T, R : Any> Iterable<T>.mapNotNull(transform: (T) -> R?): List<R> {
+public inline fun <T, R : Any> local Iterable<T>.mapNotNull(local transform: (T) -> R?): List<R> {
     return mapNotNullTo(ArrayList<R>(), transform)
 }
 
@@ -1647,7 +1647,7 @@ public inline fun <T, R : Any> Iterable<T>.mapNotNull(transform: (T) -> R?): Lis
  * and appends only the non-null results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Iterable<T>.mapNotNullTo(destination: C, transform: (T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> local Iterable<T>.mapNotNullTo(local destination: C, local transform: (T) -> R?): C_{destination} {
     forEach { element -> transform(element)?.let { destination.add(it) } }
     return destination
 }
@@ -1657,7 +1657,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Iterable<T>.mapNotNu
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapTo(destination: C, transform: (T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Iterable<T>.mapTo(local destination: C, local transform: (T) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -1667,7 +1667,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Iterable<T>.mapTo(destinat
  * Returns a lazy [Iterable] that wraps each element of the original collection
  * into an [IndexedValue] containing the index of that element and the element itself.
  */
-public fun <T> Iterable<T>.withIndex(): Iterable<IndexedValue<T>> {
+public fun <T> local Iterable<T>.withIndex(): Iterable<IndexedValue<T>>_{this} {
     return IndexingIterable { iterator() }
 }
 
@@ -1679,7 +1679,7 @@ public fun <T> Iterable<T>.withIndex(): Iterable<IndexedValue<T>> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public fun <T> Iterable<T>.distinct(): List<T> {
+public fun <T> local Iterable<T>.distinct(): List<T> {
     return this.toMutableSet().toList()
 }
 
@@ -1692,7 +1692,7 @@ public fun <T> Iterable<T>.distinct(): List<T> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public inline fun <T, K> Iterable<T>.distinctBy(selector: (T) -> K): List<T> {
+public inline fun <T, K> local Iterable<T>.distinctBy(local selector: (T) -> K): List<T> {
     val set = HashSet<K>()
     val list = ArrayList<T>()
     for (e in this) {
@@ -1713,7 +1713,7 @@ public inline fun <T, K> Iterable<T>.distinctBy(selector: (T) -> K): List<T> {
  * 
  * To get a set containing all elements that are contained at least in one of these collections use [union].
  */
-public infix fun <T> Iterable<T>.intersect(other: Iterable<T>): Set<T> {
+public infix fun <T> local Iterable<T>.intersect(local other: Iterable<T>): Set<T> {
     val otherCollection = other.convertToListIfNotCollection()
     val set = mutableSetOf<T>()
     for (e in this) {
@@ -1732,7 +1732,7 @@ public infix fun <T> Iterable<T>.intersect(other: Iterable<T>): Set<T> {
  * The returned set uses structural equality (`==`) to distinguish elements, meaning there will be no two
  * structurally equal, but otherwise different elements in it.
  */
-public infix fun <T> Iterable<T>.subtract(other: Iterable<T>): Set<T> {
+public infix fun <T> local Iterable<T>.subtract(local other: Iterable<T>): Set<T> {
     val otherCollection = other.convertToListIfNotCollection()
     val result = mutableSetOf<T>()
     for (e in this) {
@@ -1748,7 +1748,7 @@ public infix fun <T> Iterable<T>.subtract(other: Iterable<T>): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original collection.
  */
-public fun <T> Iterable<T>.toMutableSet(): MutableSet<T> {
+public fun <T> local Iterable<T>.toMutableSet(): MutableSet<T> {
     return when (this) {
         is Collection<T> -> LinkedHashSet(this)
         else -> toCollection(LinkedHashSet<T>())
@@ -1767,7 +1767,7 @@ public fun <T> Iterable<T>.toMutableSet(): MutableSet<T> {
  * 
  * To get a set containing all elements that are contained in both collections use [intersect].
  */
-public infix fun <T> Iterable<T>.union(other: Iterable<T>): Set<T> {
+public infix fun <T> local Iterable<T>.union(local other: Iterable<T>): Set<T> {
     val set = this.toMutableSet()
     set.addAll(other)
     return set
@@ -1782,7 +1782,7 @@ public infix fun <T> Iterable<T>.union(other: Iterable<T>): Set<T> {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun <T> Iterable<T>.all(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Iterable<T>.all(local predicate: (T) -> Boolean): Boolean {
     if (this is Collection && isEmpty()) return true
     for (element in this) if (!predicate(element)) return false
     return true
@@ -1793,7 +1793,7 @@ public inline fun <T> Iterable<T>.all(predicate: (T) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.any
  */
-public fun <T> Iterable<T>.any(): Boolean {
+public fun <T> local Iterable<T>.any(): Boolean {
     if (this is Collection) return !isEmpty()
     return iterator().hasNext()
 }
@@ -1803,7 +1803,7 @@ public fun <T> Iterable<T>.any(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun <T> Iterable<T>.any(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Iterable<T>.any(local predicate: (T) -> Boolean): Boolean {
     if (this is Collection && isEmpty()) return false
     for (element in this) if (predicate(element)) return true
     return false
@@ -1812,7 +1812,7 @@ public inline fun <T> Iterable<T>.any(predicate: (T) -> Boolean): Boolean {
 /**
  * Returns the number of elements in this collection.
  */
-public fun <T> Iterable<T>.count(): Int {
+public fun <T> local Iterable<T>.count(): Int {
     if (this is Collection) return size
     var count = 0
     for (element in this) checkCountOverflow(++count)
@@ -1823,14 +1823,14 @@ public fun <T> Iterable<T>.count(): Int {
  * Returns the number of elements in this collection.
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Collection<T>.count(): Int {
+public inline fun <T> local Collection<T>.count(): Int {
     return size
 }
 
 /**
  * Returns the number of elements matching the given [predicate].
  */
-public inline fun <T> Iterable<T>.count(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Iterable<T>.count(local predicate: (T) -> Boolean): Int {
     if (this is Collection && isEmpty()) return 0
     var count = 0
     for (element in this) if (predicate(element)) checkCountOverflow(++count)
@@ -1845,7 +1845,7 @@ public inline fun <T> Iterable<T>.count(predicate: (T) -> Boolean): Int {
  * 
  * @param [operation] function that takes current accumulator value and an element, and calculates the next accumulator value.
  */
-public inline fun <T, R> Iterable<T>.fold(initial: R, operation: (acc: R, T) -> R): R {
+public inline fun <T, R> local Iterable<T>.fold(initial: R, local operation: (acc: R, T) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -1860,7 +1860,7 @@ public inline fun <T, R> Iterable<T>.fold(initial: R, operation: (acc: R, T) -> 
  * @param [operation] function that takes the index of an element, current accumulator value
  * and the element itself, and calculates the next accumulator value.
  */
-public inline fun <T, R> Iterable<T>.foldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): R {
+public inline fun <T, R> local Iterable<T>.foldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(checkIndexOverflow(index++), accumulator, element)
@@ -1875,7 +1875,7 @@ public inline fun <T, R> Iterable<T>.foldIndexed(initial: R, operation: (index: 
  * 
  * @param [operation] function that takes an element and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <T, R> List<T>.foldRight(initial: R, operation: (T, acc: R) -> R): R {
+public inline fun <T, R> local List<T>.foldRight(initial: R, local operation: (T, acc: R) -> R): R {
     var accumulator = initial
     if (!isEmpty()) {
         val iterator = listIterator(size)
@@ -1895,7 +1895,7 @@ public inline fun <T, R> List<T>.foldRight(initial: R, operation: (T, acc: R) ->
  * @param [operation] function that takes the index of an element, the element itself
  * and current accumulator value, and calculates the next accumulator value.
  */
-public inline fun <T, R> List<T>.foldRightIndexed(initial: R, operation: (index: Int, T, acc: R) -> R): R {
+public inline fun <T, R> local List<T>.foldRightIndexed(initial: R, local operation: (index: Int, T, acc: R) -> R): R {
     var accumulator = initial
     if (!isEmpty()) {
         val iterator = listIterator(size)
@@ -1911,7 +1911,7 @@ public inline fun <T, R> List<T>.foldRightIndexed(initial: R, operation: (index:
  * Performs the given [action] on each element.
  */
 @kotlin.internal.HidesMembers
-public inline fun <T> Iterable<T>.forEach(action: (T) -> Unit): Unit {
+public inline fun <T> local Iterable<T>.forEach(local action: (T) -> Unit): Unit {
     for (element in this) action(element)
 }
 
@@ -1920,7 +1920,7 @@ public inline fun <T> Iterable<T>.forEach(action: (T) -> Unit): Unit {
  * @param [action] function that takes the index of an element and the element itself
  * and performs the action on the element.
  */
-public inline fun <T> Iterable<T>.forEachIndexed(action: (index: Int, T) -> Unit): Unit {
+public inline fun <T> local Iterable<T>.forEachIndexed(local action: (index: Int, T) -> Unit): Unit {
     var index = 0
     for (item in this) action(checkIndexOverflow(index++), item)
 }
@@ -1937,7 +1937,7 @@ public inline fun <T> Iterable<T>.forEachIndexed(action: (index: Int, T) -> Unit
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Iterable<Double>.max(): Double {
+public fun local Iterable<Double>.max(): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1960,7 +1960,7 @@ public fun Iterable<Double>.max(): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Iterable<Float>.max(): Float {
+public fun local Iterable<Float>.max(): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1983,7 +1983,7 @@ public fun Iterable<Float>.max(): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T : Comparable<T>> Iterable<T>.max(): T {
+public fun <T : Comparable<T>> local Iterable<T>.max(): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -2011,7 +2011,7 @@ public fun <T : Comparable<T>> Iterable<T>.max(): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Iterable<T>.maxBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.maxBy(local selector: (T) -> R): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxElem = iterator.next()
@@ -2041,7 +2041,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.maxBy(selector: (T) -> R): 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Iterable<T>.maxByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.maxByOrNull(local selector: (T) -> R): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxElem = iterator.next()
@@ -2072,7 +2072,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.maxByOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.maxOf(selector: (T) -> Double): Double {
+public inline fun <T> local Iterable<T>.maxOf(local selector: (T) -> Double): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -2097,7 +2097,7 @@ public inline fun <T> Iterable<T>.maxOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.maxOf(selector: (T) -> Float): Float {
+public inline fun <T> local Iterable<T>.maxOf(local selector: (T) -> Float): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -2122,7 +2122,7 @@ public inline fun <T> Iterable<T>.maxOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Iterable<T>.maxOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.maxOf(local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -2147,7 +2147,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.maxOf(selector: (T) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> local Iterable<T>.maxOfOrNull(local selector: (T) -> Double): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -2170,7 +2170,7 @@ public inline fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Double): Double? 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> local Iterable<T>.maxOfOrNull(local selector: (T) -> Float): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -2193,7 +2193,7 @@ public inline fun <T> Iterable<T>.maxOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Iterable<T>.maxOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.maxOfOrNull(local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -2220,7 +2220,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.maxOfOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.maxOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> local Iterable<T>.maxOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -2245,7 +2245,7 @@ public inline fun <T, R> Iterable<T>.maxOfWith(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.maxOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> local Iterable<T>.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -2266,7 +2266,7 @@ public inline fun <T, R> Iterable<T>.maxOfWithOrNull(comparator: Comparator<in R
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Iterable<Double>.maxOrNull(): Double? {
+public fun local Iterable<Double>.maxOrNull(): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -2285,7 +2285,7 @@ public fun Iterable<Double>.maxOrNull(): Double? {
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Iterable<Float>.maxOrNull(): Float? {
+public fun local Iterable<Float>.maxOrNull(): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -2304,7 +2304,7 @@ public fun Iterable<Float>.maxOrNull(): Float? {
  * @sample samples.collections.Collections.Aggregates.maxMinGeneric
  */
 @SinceKotlin("1.4")
-public fun <T : Comparable<T>> Iterable<T>.maxOrNull(): T? {
+public fun <T : Comparable<T>> local Iterable<T>.maxOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -2323,7 +2323,7 @@ public fun <T : Comparable<T>> Iterable<T>.maxOrNull(): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Iterable<T>.maxWith(comparator: Comparator<in T>): T {
+public fun <T> local Iterable<T>.maxWith(local comparator: Comparator<in T>): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -2338,7 +2338,7 @@ public fun <T> Iterable<T>.maxWith(comparator: Comparator<in T>): T {
  * Returns the first element having the largest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun <T> Iterable<T>.maxWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> local Iterable<T>.maxWithOrNull(local comparator: Comparator<in T>): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -2361,7 +2361,7 @@ public fun <T> Iterable<T>.maxWithOrNull(comparator: Comparator<in T>): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Iterable<Double>.min(): Double {
+public fun local Iterable<Double>.min(): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -2384,7 +2384,7 @@ public fun Iterable<Double>.min(): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Iterable<Float>.min(): Float {
+public fun local Iterable<Float>.min(): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -2407,7 +2407,7 @@ public fun Iterable<Float>.min(): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T : Comparable<T>> Iterable<T>.min(): T {
+public fun <T : Comparable<T>> local Iterable<T>.min(): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -2435,7 +2435,7 @@ public fun <T : Comparable<T>> Iterable<T>.min(): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Iterable<T>.minBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.minBy(local selector: (T) -> R): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minElem = iterator.next()
@@ -2465,7 +2465,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.minBy(selector: (T) -> R): 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Iterable<T>.minByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.minByOrNull(local selector: (T) -> R): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minElem = iterator.next()
@@ -2496,7 +2496,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.minByOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.minOf(selector: (T) -> Double): Double {
+public inline fun <T> local Iterable<T>.minOf(local selector: (T) -> Double): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2521,7 +2521,7 @@ public inline fun <T> Iterable<T>.minOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.minOf(selector: (T) -> Float): Float {
+public inline fun <T> local Iterable<T>.minOf(local selector: (T) -> Float): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2546,7 +2546,7 @@ public inline fun <T> Iterable<T>.minOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Iterable<T>.minOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.minOf(local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2571,7 +2571,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.minOf(selector: (T) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.minOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> local Iterable<T>.minOfOrNull(local selector: (T) -> Double): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2594,7 +2594,7 @@ public inline fun <T> Iterable<T>.minOfOrNull(selector: (T) -> Double): Double? 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.minOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> local Iterable<T>.minOfOrNull(local selector: (T) -> Float): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2617,7 +2617,7 @@ public inline fun <T> Iterable<T>.minOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Iterable<T>.minOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> local Iterable<T>.minOfOrNull(local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2644,7 +2644,7 @@ public inline fun <T, R : Comparable<R>> Iterable<T>.minOfOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.minOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> local Iterable<T>.minOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2669,7 +2669,7 @@ public inline fun <T, R> Iterable<T>.minOfWith(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Iterable<T>.minOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> local Iterable<T>.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2690,7 +2690,7 @@ public inline fun <T, R> Iterable<T>.minOfWithOrNull(comparator: Comparator<in R
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Iterable<Double>.minOrNull(): Double? {
+public fun local Iterable<Double>.minOrNull(): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2709,7 +2709,7 @@ public fun Iterable<Double>.minOrNull(): Double? {
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Iterable<Float>.minOrNull(): Float? {
+public fun local Iterable<Float>.minOrNull(): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2728,7 +2728,7 @@ public fun Iterable<Float>.minOrNull(): Float? {
  * @sample samples.collections.Collections.Aggregates.maxMinGeneric
  */
 @SinceKotlin("1.4")
-public fun <T : Comparable<T>> Iterable<T>.minOrNull(): T? {
+public fun <T : Comparable<T>> local Iterable<T>.minOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2747,7 +2747,7 @@ public fun <T : Comparable<T>> Iterable<T>.minOrNull(): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Iterable<T>.minWith(comparator: Comparator<in T>): T {
+public fun <T> local Iterable<T>.minWith(local comparator: Comparator<in T>): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -2762,7 +2762,7 @@ public fun <T> Iterable<T>.minWith(comparator: Comparator<in T>): T {
  * Returns the first element having the smallest value according to the provided [comparator] or `null` if there are no elements.
  */
 @SinceKotlin("1.4")
-public fun <T> Iterable<T>.minWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> local Iterable<T>.minWithOrNull(local comparator: Comparator<in T>): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2778,7 +2778,7 @@ public fun <T> Iterable<T>.minWithOrNull(comparator: Comparator<in T>): T? {
  * 
  * @sample samples.collections.Collections.Aggregates.none
  */
-public fun <T> Iterable<T>.none(): Boolean {
+public fun <T> local Iterable<T>.none(): Boolean {
     if (this is Collection) return isEmpty()
     return !iterator().hasNext()
 }
@@ -2788,7 +2788,7 @@ public fun <T> Iterable<T>.none(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun <T> Iterable<T>.none(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Iterable<T>.none(local predicate: (T) -> Boolean): Boolean {
     if (this is Collection && isEmpty()) return true
     for (element in this) if (predicate(element)) return false
     return true
@@ -2798,7 +2798,7 @@ public inline fun <T> Iterable<T>.none(predicate: (T) -> Boolean): Boolean {
  * Performs the given [action] on each element and returns the collection itself afterwards.
  */
 @SinceKotlin("1.1")
-public inline fun <T, C : Iterable<T>> C.onEach(action: (T) -> Unit): C {
+public inline fun <T, C : Iterable<T>> local C.onEach(local action: (T) -> Unit): C_{this} {
     return apply { for (element in this) action(element) }
 }
 
@@ -2809,7 +2809,7 @@ public inline fun <T, C : Iterable<T>> C.onEach(action: (T) -> Unit): C {
  * and performs the action on the element.
  */
 @SinceKotlin("1.4")
-public inline fun <T, C : Iterable<T>> C.onEachIndexed(action: (index: Int, T) -> Unit): C {
+public inline fun <T, C : Iterable<T>> local C.onEachIndexed(local action: (index: Int, T) -> Unit): C_{this} {
     return apply { forEachIndexed(action) }
 }
 
@@ -2825,7 +2825,7 @@ public inline fun <T, C : Iterable<T>> C.onEachIndexed(action: (index: Int, T) -
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Iterable<T>.reduce(operation: (acc: S, T) -> S): S {
+public inline fun <S, T : S> local Iterable<T>.reduce(local operation: (acc: S, T) -> S): S {
     val iterator = this.iterator()
     if (!iterator.hasNext()) throw UnsupportedOperationException("Empty collection can't be reduced.")
     var accumulator: S = iterator.next()
@@ -2847,7 +2847,7 @@ public inline fun <S, T : S> Iterable<T>.reduce(operation: (acc: S, T) -> S): S 
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Iterable<T>.reduceIndexed(operation: (index: Int, acc: S, T) -> S): S {
+public inline fun <S, T : S> local Iterable<T>.reduceIndexed(local operation: (index: Int, acc: S, T) -> S): S {
     val iterator = this.iterator()
     if (!iterator.hasNext()) throw UnsupportedOperationException("Empty collection can't be reduced.")
     var index = 1
@@ -2870,7 +2870,7 @@ public inline fun <S, T : S> Iterable<T>.reduceIndexed(operation: (index: Int, a
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Iterable<T>.reduceIndexedOrNull(operation: (index: Int, acc: S, T) -> S): S? {
+public inline fun <S, T : S> local Iterable<T>.reduceIndexedOrNull(local operation: (index: Int, acc: S, T) -> S): S? {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return null
     var index = 1
@@ -2893,7 +2893,7 @@ public inline fun <S, T : S> Iterable<T>.reduceIndexedOrNull(operation: (index: 
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Iterable<T>.reduceOrNull(operation: (acc: S, T) -> S): S? {
+public inline fun <S, T : S> local Iterable<T>.reduceOrNull(local operation: (acc: S, T) -> S): S? {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return null
     var accumulator: S = iterator.next()
@@ -2915,7 +2915,7 @@ public inline fun <S, T : S> Iterable<T>.reduceOrNull(operation: (acc: S, T) -> 
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun <S, T : S> List<T>.reduceRight(operation: (T, acc: S) -> S): S {
+public inline fun <S, T : S> local List<T>.reduceRight(local operation: (T, acc: S) -> S): S {
     val iterator = listIterator(size)
     if (!iterator.hasPrevious())
         throw UnsupportedOperationException("Empty list can't be reduced.")
@@ -2938,7 +2938,7 @@ public inline fun <S, T : S> List<T>.reduceRight(operation: (T, acc: S) -> S): S
  * 
  * @sample samples.collections.Collections.Aggregates.reduceRight
  */
-public inline fun <S, T : S> List<T>.reduceRightIndexed(operation: (index: Int, T, acc: S) -> S): S {
+public inline fun <S, T : S> local List<T>.reduceRightIndexed(local operation: (index: Int, T, acc: S) -> S): S {
     val iterator = listIterator(size)
     if (!iterator.hasPrevious())
         throw UnsupportedOperationException("Empty list can't be reduced.")
@@ -2962,7 +2962,7 @@ public inline fun <S, T : S> List<T>.reduceRightIndexed(operation: (index: Int, 
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> List<T>.reduceRightIndexedOrNull(operation: (index: Int, T, acc: S) -> S): S? {
+public inline fun <S, T : S> local List<T>.reduceRightIndexedOrNull(local operation: (index: Int, T, acc: S) -> S): S? {
     val iterator = listIterator(size)
     if (!iterator.hasPrevious())
         return null
@@ -2986,7 +2986,7 @@ public inline fun <S, T : S> List<T>.reduceRightIndexedOrNull(operation: (index:
  * @sample samples.collections.Collections.Aggregates.reduceRightOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> List<T>.reduceRightOrNull(operation: (T, acc: S) -> S): S? {
+public inline fun <S, T : S> local List<T>.reduceRightOrNull(local operation: (T, acc: S) -> S): S? {
     val iterator = listIterator(size)
     if (!iterator.hasPrevious())
         return null
@@ -3009,7 +3009,7 @@ public inline fun <S, T : S> List<T>.reduceRightOrNull(operation: (T, acc: S) ->
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Iterable<T>.runningFold(initial: R, operation: (acc: R, T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.runningFold(initial: R, local operation: (acc: R, T) -> R): List<R> {
     val estimatedSize = collectionSizeOrDefault(9)
     if (estimatedSize == 0) return listOf(initial)
     val result = ArrayList<R>(estimatedSize + 1).apply { add(initial) }
@@ -3034,7 +3034,7 @@ public inline fun <T, R> Iterable<T>.runningFold(initial: R, operation: (acc: R,
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Iterable<T>.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): List<R> {
     val estimatedSize = collectionSizeOrDefault(9)
     if (estimatedSize == 0) return listOf(initial)
     val result = ArrayList<R>(estimatedSize + 1).apply { add(initial) }
@@ -3059,7 +3059,7 @@ public inline fun <T, R> Iterable<T>.runningFoldIndexed(initial: R, operation: (
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Iterable<T>.runningReduce(operation: (acc: S, T) -> S): List<S> {
+public inline fun <S, T : S> local Iterable<T>.runningReduce(local operation: (acc: S, T) -> S): List<S> {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return emptyList()
     var accumulator: S = iterator.next()
@@ -3084,7 +3084,7 @@ public inline fun <S, T : S> Iterable<T>.runningReduce(operation: (acc: S, T) ->
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Iterable<T>.runningReduceIndexed(operation: (index: Int, acc: S, T) -> S): List<S> {
+public inline fun <S, T : S> local Iterable<T>.runningReduceIndexed(local operation: (index: Int, acc: S, T) -> S): List<S> {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return emptyList()
     var accumulator: S = iterator.next()
@@ -3109,7 +3109,7 @@ public inline fun <S, T : S> Iterable<T>.runningReduceIndexed(operation: (index:
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Iterable<T>.scan(initial: R, operation: (acc: R, T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.scan(initial: R, local operation: (acc: R, T) -> R): List<R> {
     return runningFold(initial, operation)
 }
 
@@ -3126,7 +3126,7 @@ public inline fun <T, R> Iterable<T>.scan(initial: R, operation: (acc: R, T) -> 
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public inline fun <T, R> Iterable<T>.scanIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.scanIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): List<R> {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -3135,7 +3135,7 @@ public inline fun <T, R> Iterable<T>.scanIndexed(initial: R, operation: (index: 
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Iterable<T>.sumBy(selector: (T) -> Int): Int {
+public inline fun <T> local Iterable<T>.sumBy(local selector: (T) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -3148,7 +3148,7 @@ public inline fun <T> Iterable<T>.sumBy(selector: (T) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Iterable<T>.sumByDouble(selector: (T) -> Double): Double {
+public inline fun <T> local Iterable<T>.sumByDouble(local selector: (T) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -3164,7 +3164,7 @@ public inline fun <T> Iterable<T>.sumByDouble(selector: (T) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Double): Double {
+public inline fun <T> local Iterable<T>.sumOf(local selector: (T) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -3178,7 +3178,7 @@ public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Double): Double {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Int): Int {
+public inline fun <T> local Iterable<T>.sumOf(local selector: (T) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -3194,7 +3194,7 @@ public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Int): Int {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Long): Long {
+public inline fun <T> local Iterable<T>.sumOf(local selector: (T) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -3208,7 +3208,7 @@ public inline fun <T> Iterable<T>.sumOf(selector: (T) -> Long): Long {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.sumOf(selector: (T) -> UInt): UInt {
+public inline fun <T> local Iterable<T>.sumOf(local selector: (T) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -3224,7 +3224,7 @@ public inline fun <T> Iterable<T>.sumOf(selector: (T) -> UInt): UInt {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.sumOf(selector: (T) -> ULong): ULong {
+public inline fun <T> local Iterable<T>.sumOf(local selector: (T) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -3235,7 +3235,7 @@ public inline fun <T> Iterable<T>.sumOf(selector: (T) -> ULong): ULong {
 /**
  * Returns an original collection containing all the non-`null` elements, throwing an [IllegalArgumentException] if there are any `null` elements.
  */
-public fun <T : Any> Iterable<T?>.requireNoNulls(): Iterable<T> {
+public fun <T : Any> local Iterable<T?>.requireNoNulls(): Iterable<T>_{this} {
     for (element in this) {
         if (element == null) {
             throw IllegalArgumentException("null element found in $this.")
@@ -3248,7 +3248,7 @@ public fun <T : Any> Iterable<T?>.requireNoNulls(): Iterable<T> {
 /**
  * Returns an original collection containing all the non-`null` elements, throwing an [IllegalArgumentException] if there are any `null` elements.
  */
-public fun <T : Any> List<T?>.requireNoNulls(): List<T> {
+public fun <T : Any> local List<T?>.requireNoNulls(): List<T>_{this} {
     for (element in this) {
         if (element == null) {
             throw IllegalArgumentException("null element found in $this.")
@@ -3268,7 +3268,7 @@ public fun <T : Any> List<T?>.requireNoNulls(): List<T> {
  * @sample samples.collections.Collections.Transformations.chunked
  */
 @SinceKotlin("1.2")
-public fun <T> Iterable<T>.chunked(size: Int): List<List<T>> {
+public fun <T> local Iterable<T>.chunked(size: Int): List<List<T>> {
     return windowed(size, size, partialWindows = true)
 }
 
@@ -3287,14 +3287,14 @@ public fun <T> Iterable<T>.chunked(size: Int): List<List<T>> {
  * @sample samples.text.Strings.chunkedTransform
  */
 @SinceKotlin("1.2")
-public fun <T, R> Iterable<T>.chunked(size: Int, transform: (List<T>) -> R): List<R> {
+public fun <T, R> local Iterable<T>.chunked(size: Int, local transform: (List<T>) -> R): List<R> {
     return windowed(size, size, partialWindows = true, transform = transform)
 }
 
 /**
  * Returns a list containing all elements of the original collection without the first occurrence of the given [element].
  */
-public operator fun <T> Iterable<T>.minus(element: T): List<T> {
+public operator fun <T> local Iterable<T>.minus(element: T): List<T> {
     val result = ArrayList<T>(collectionSizeOrDefault(10))
     var removed = false
     return this.filterTo(result) { if (!removed && it == element) { removed = true; false } else true }
@@ -3303,7 +3303,7 @@ public operator fun <T> Iterable<T>.minus(element: T): List<T> {
 /**
  * Returns a list containing all elements of the original collection except the elements contained in the given [elements] array.
  */
-public operator fun <T> Iterable<T>.minus(elements: Array<out T>): List<T> {
+public operator fun <T> local Iterable<T>.minus(elements: Array<out T>): List<T> {
     if (elements.isEmpty()) return this.toList()
     return this.filterNot { it in elements }
 }
@@ -3311,7 +3311,7 @@ public operator fun <T> Iterable<T>.minus(elements: Array<out T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection except the elements contained in the given [elements] collection.
  */
-public operator fun <T> Iterable<T>.minus(elements: Iterable<T>): List<T> {
+public operator fun <T> local Iterable<T>.minus(local elements: Iterable<T>): List<T> {
     val other = elements.convertToListIfNotCollection()
     if (other.isEmpty())
         return this.toList()
@@ -3321,7 +3321,7 @@ public operator fun <T> Iterable<T>.minus(elements: Iterable<T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection except the elements contained in the given [elements] sequence.
  */
-public operator fun <T> Iterable<T>.minus(elements: Sequence<T>): List<T> {
+public operator fun <T> local Iterable<T>.minus(local elements: Sequence<T>): List<T> {
     val other = elements.toList()
     if (other.isEmpty())
         return this.toList()
@@ -3332,7 +3332,7 @@ public operator fun <T> Iterable<T>.minus(elements: Sequence<T>): List<T> {
  * Returns a list containing all elements of the original collection without the first occurrence of the given [element].
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.minusElement(element: T): List<T> {
+public inline fun <T> local Iterable<T>.minusElement(element: T): List<T> {
     return minus(element)
 }
 
@@ -3343,7 +3343,7 @@ public inline fun <T> Iterable<T>.minusElement(element: T): List<T> {
  * 
  * @sample samples.collections.Iterables.Operations.partition
  */
-public inline fun <T> Iterable<T>.partition(predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
+public inline fun <T> local Iterable<T>.partition(local predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
     val first = ArrayList<T>()
     val second = ArrayList<T>()
     for (element in this) {
@@ -3359,7 +3359,7 @@ public inline fun <T> Iterable<T>.partition(predicate: (T) -> Boolean): Pair<Lis
 /**
  * Returns a list containing all elements of the original collection and then the given [element].
  */
-public operator fun <T> Iterable<T>.plus(element: T): List<T> {
+public operator fun <T> local Iterable<T>.plus(element: T): List<T> {
     if (this is Collection) return this.plus(element)
     val result = ArrayList<T>()
     result.addAll(this)
@@ -3370,7 +3370,7 @@ public operator fun <T> Iterable<T>.plus(element: T): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then the given [element].
  */
-public operator fun <T> Collection<T>.plus(element: T): List<T> {
+public operator fun <T> local Collection<T>.plus(element: T): List<T> {
     val result = ArrayList<T>(size + 1)
     result.addAll(this)
     result.add(element)
@@ -3380,7 +3380,7 @@ public operator fun <T> Collection<T>.plus(element: T): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] array.
  */
-public operator fun <T> Iterable<T>.plus(elements: Array<out T>): List<T> {
+public operator fun <T> local Iterable<T>.plus(elements: Array<out T>): List<T> {
     if (this is Collection) return this.plus(elements)
     val result = ArrayList<T>()
     result.addAll(this)
@@ -3391,7 +3391,7 @@ public operator fun <T> Iterable<T>.plus(elements: Array<out T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] array.
  */
-public operator fun <T> Collection<T>.plus(elements: Array<out T>): List<T> {
+public operator fun <T> local Collection<T>.plus(elements: Array<out T>): List<T> {
     val result = ArrayList<T>(this.size + elements.size)
     result.addAll(this)
     result.addAll(elements)
@@ -3401,7 +3401,7 @@ public operator fun <T> Collection<T>.plus(elements: Array<out T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] collection.
  */
-public operator fun <T> Iterable<T>.plus(elements: Iterable<T>): List<T> {
+public operator fun <T> local Iterable<T>.plus(local elements: Iterable<T>): List<T> {
     if (this is Collection) return this.plus(elements)
     val result = ArrayList<T>()
     result.addAll(this)
@@ -3412,7 +3412,7 @@ public operator fun <T> Iterable<T>.plus(elements: Iterable<T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] collection.
  */
-public operator fun <T> Collection<T>.plus(elements: Iterable<T>): List<T> {
+public operator fun <T> local Collection<T>.plus(local elements: Iterable<T>): List<T> {
     if (elements is Collection) {
         val result = ArrayList<T>(this.size + elements.size)
         result.addAll(this)
@@ -3428,7 +3428,7 @@ public operator fun <T> Collection<T>.plus(elements: Iterable<T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] sequence.
  */
-public operator fun <T> Iterable<T>.plus(elements: Sequence<T>): List<T> {
+public operator fun <T> local Iterable<T>.plus(local elements: Sequence<T>): List<T> {
     val result = ArrayList<T>()
     result.addAll(this)
     result.addAll(elements)
@@ -3438,7 +3438,7 @@ public operator fun <T> Iterable<T>.plus(elements: Sequence<T>): List<T> {
 /**
  * Returns a list containing all elements of the original collection and then all elements of the given [elements] sequence.
  */
-public operator fun <T> Collection<T>.plus(elements: Sequence<T>): List<T> {
+public operator fun <T> local Collection<T>.plus(local elements: Sequence<T>): List<T> {
     val result = ArrayList<T>(this.size + 10)
     result.addAll(this)
     result.addAll(elements)
@@ -3449,7 +3449,7 @@ public operator fun <T> Collection<T>.plus(elements: Sequence<T>): List<T> {
  * Returns a list containing all elements of the original collection and then the given [element].
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.plusElement(element: T): List<T> {
+public inline fun <T> local Iterable<T>.plusElement(element: T): List<T> {
     return plus(element)
 }
 
@@ -3457,7 +3457,7 @@ public inline fun <T> Iterable<T>.plusElement(element: T): List<T> {
  * Returns a list containing all elements of the original collection and then the given [element].
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Collection<T>.plusElement(element: T): List<T> {
+public inline fun <T> local Collection<T>.plusElement(element: T): List<T> {
     return plus(element)
 }
 
@@ -3477,7 +3477,7 @@ public inline fun <T> Collection<T>.plusElement(element: T): List<T> {
  * @sample samples.collections.Sequences.Transformations.takeWindows
  */
 @SinceKotlin("1.2")
-public fun <T> Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false): List<List<T>> {
+public fun <T> local Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false): List<List<T>> {
     checkWindowSizeStep(size, step)
     if (this is RandomAccess && this is List) {
         val thisSize = this.size
@@ -3517,7 +3517,7 @@ public fun <T> Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows: Bo
  * @sample samples.collections.Sequences.Transformations.averageWindows
  */
 @SinceKotlin("1.2")
-public fun <T, R> Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false, transform: (List<T>) -> R): List<R> {
+public fun <T, R> local Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false, transform: (List<T>) -> R): List<R> {
     checkWindowSizeStep(size, step)
     if (this is RandomAccess && this is List) {
         val thisSize = this.size
@@ -3547,7 +3547,7 @@ public fun <T, R> Iterable<T>.windowed(size: Int, step: Int = 1, partialWindows:
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <T, R> Iterable<T>.zip(other: Array<out R>): List<Pair<T, R>> {
+public infix fun <T, R> local Iterable<T>.zip(other: Array<out R>): List<Pair<T, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -3558,7 +3558,7 @@ public infix fun <T, R> Iterable<T>.zip(other: Array<out R>): List<Pair<T, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <T, R, V> Iterable<T>.zip(other: Array<out R>, transform: (a: T, b: R) -> V): List<V> {
+public inline fun <T, R, V> local Iterable<T>.zip(other: Array<out R>, local transform: (a: T, b: R) -> V): List<V> {
     val arraySize = other.size
     val list = ArrayList<V>(minOf(collectionSizeOrDefault(10), arraySize))
     var i = 0
@@ -3575,7 +3575,7 @@ public inline fun <T, R, V> Iterable<T>.zip(other: Array<out R>, transform: (a: 
  * 
  * @sample samples.collections.Iterables.Operations.zipIterable
  */
-public infix fun <T, R> Iterable<T>.zip(other: Iterable<R>): List<Pair<T, R>> {
+public infix fun <T, R> local Iterable<T>.zip(local other: Iterable<R>): List<Pair<T, R>> {
     return zip(other) { t1, t2 -> t1 to t2 }
 }
 
@@ -3586,7 +3586,7 @@ public infix fun <T, R> Iterable<T>.zip(other: Iterable<R>): List<Pair<T, R>> {
  * 
  * @sample samples.collections.Iterables.Operations.zipIterableWithTransform
  */
-public inline fun <T, R, V> Iterable<T>.zip(other: Iterable<R>, transform: (a: T, b: R) -> V): List<V> {
+public inline fun <T, R, V> local Iterable<T>.zip(local other: Iterable<R>, local transform: (a: T, b: R) -> V): List<V> {
     val first = iterator()
     val second = other.iterator()
     val list = ArrayList<V>(minOf(collectionSizeOrDefault(10), other.collectionSizeOrDefault(10)))
@@ -3604,7 +3604,7 @@ public inline fun <T, R, V> Iterable<T>.zip(other: Iterable<R>, transform: (a: T
  * @sample samples.collections.Collections.Transformations.zipWithNext
  */
 @SinceKotlin("1.2")
-public fun <T> Iterable<T>.zipWithNext(): List<Pair<T, T>> {
+public fun <T> local Iterable<T>.zipWithNext(): List<Pair<T, T>> {
     return zipWithNext { a, b -> a to b }
 }
 
@@ -3617,7 +3617,7 @@ public fun <T> Iterable<T>.zipWithNext(): List<Pair<T, T>> {
  * @sample samples.collections.Collections.Transformations.zipWithNextToFindDeltas
  */
 @SinceKotlin("1.2")
-public inline fun <T, R> Iterable<T>.zipWithNext(transform: (a: T, b: T) -> R): List<R> {
+public inline fun <T, R> local Iterable<T>.zipWithNext(local transform: (a: T, b: T) -> R): List<R> {
     val iterator = iterator()
     if (!iterator.hasNext()) return emptyList()
     val result = mutableListOf<R>()
@@ -3641,7 +3641,7 @@ public inline fun <T, R> Iterable<T>.zipWithNext(transform: (a: T, b: T) -> R): 
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <T, A : Appendable> Iterable<T>.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): A {
+public fun <T, A : Appendable> local Iterable<T>.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): A {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -3663,7 +3663,7 @@ public fun <T, A : Appendable> Iterable<T>.joinTo(buffer: A, separator: CharSequ
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun <T> Iterable<T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): String {
+public fun <T> local Iterable<T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
@@ -3671,7 +3671,7 @@ public fun <T> Iterable<T>.joinToString(separator: CharSequence = ", ", prefix: 
  * Returns this collection as an [Iterable].
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable<T>.asIterable(): Iterable<T> {
+public inline fun <T> local Iterable<T>.asIterable(): Iterable<T>_{this} {
     return this
 }
 
@@ -3680,7 +3680,7 @@ public inline fun <T> Iterable<T>.asIterable(): Iterable<T> {
  * 
  * @sample samples.collections.Sequences.Building.sequenceFromCollection
  */
-public fun <T> Iterable<T>.asSequence(): Sequence<T> {
+public fun <T> local Iterable<T>.asSequence(): Sequence<T>_{this} {
     return Sequence { this.iterator() }
 }
 
@@ -3688,7 +3688,7 @@ public fun <T> Iterable<T>.asSequence(): Sequence<T> {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfByte")
-public fun Iterable<Byte>.average(): Double {
+public fun local Iterable<Byte>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3702,7 +3702,7 @@ public fun Iterable<Byte>.average(): Double {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfShort")
-public fun Iterable<Short>.average(): Double {
+public fun local Iterable<Short>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3716,7 +3716,7 @@ public fun Iterable<Short>.average(): Double {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfInt")
-public fun Iterable<Int>.average(): Double {
+public fun local Iterable<Int>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3730,7 +3730,7 @@ public fun Iterable<Int>.average(): Double {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfLong")
-public fun Iterable<Long>.average(): Double {
+public fun local Iterable<Long>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3744,7 +3744,7 @@ public fun Iterable<Long>.average(): Double {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfFloat")
-public fun Iterable<Float>.average(): Double {
+public fun local Iterable<Float>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3758,7 +3758,7 @@ public fun Iterable<Float>.average(): Double {
  * Returns an average value of elements in the collection.
  */
 @kotlin.jvm.JvmName("averageOfDouble")
-public fun Iterable<Double>.average(): Double {
+public fun local Iterable<Double>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3772,7 +3772,7 @@ public fun Iterable<Double>.average(): Double {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfByte")
-public fun Iterable<Byte>.sum(): Int {
+public fun local Iterable<Byte>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3784,7 +3784,7 @@ public fun Iterable<Byte>.sum(): Int {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfShort")
-public fun Iterable<Short>.sum(): Int {
+public fun local Iterable<Short>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3796,7 +3796,7 @@ public fun Iterable<Short>.sum(): Int {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfInt")
-public fun Iterable<Int>.sum(): Int {
+public fun local Iterable<Int>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3808,7 +3808,7 @@ public fun Iterable<Int>.sum(): Int {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfLong")
-public fun Iterable<Long>.sum(): Long {
+public fun local Iterable<Long>.sum(): Long {
     var sum: Long = 0L
     for (element in this) {
         sum += element
@@ -3820,7 +3820,7 @@ public fun Iterable<Long>.sum(): Long {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfFloat")
-public fun Iterable<Float>.sum(): Float {
+public fun local Iterable<Float>.sum(): Float {
     var sum: Float = 0.0f
     for (element in this) {
         sum += element
@@ -3832,7 +3832,7 @@ public fun Iterable<Float>.sum(): Float {
  * Returns the sum of all elements in the collection.
  */
 @kotlin.jvm.JvmName("sumOfDouble")
-public fun Iterable<Double>.sum(): Double {
+public fun local Iterable<Double>.sum(): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += element

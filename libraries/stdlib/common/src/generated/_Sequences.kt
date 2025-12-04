@@ -22,7 +22,7 @@ import kotlin.random.*
  *
  * The operation is _terminal_.
  */
-public operator fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.contains(element: T): Boolean {
+public operator fun <@kotlin.internal.OnlyInputTypes T> local Sequence<T>.contains(element: T): Boolean {
     return indexOf(element) >= 0
 }
 
@@ -33,7 +33,7 @@ public operator fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.contains(ele
  * 
  * @sample samples.collections.Collections.Elements.elementAt
  */
-public fun <T> Sequence<T>.elementAt(index: Int): T {
+public fun <T> local Sequence<T>.elementAt(index: Int): T {
     return elementAtOrElse(index) { throw IndexOutOfBoundsException("Sequence doesn't contain element at index $index.") }
 }
 
@@ -44,7 +44,7 @@ public fun <T> Sequence<T>.elementAt(index: Int): T {
  * 
  * @sample samples.collections.Collections.Elements.elementAtOrElse
  */
-public fun <T> Sequence<T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T): T {
+public fun <T> local Sequence<T>.elementAtOrElse(index: Int, local defaultValue: (Int) -> T): T {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -67,7 +67,7 @@ public fun <T> Sequence<T>.elementAtOrElse(index: Int, defaultValue: (Int) -> T)
  * 
  * @sample samples.collections.Collections.Elements.elementAtOrNull
  */
-public fun <T> Sequence<T>.elementAtOrNull(index: Int): T? {
+public fun <T> local Sequence<T>.elementAtOrNull(index: Int): T? {
     if (index < 0)
         return null
     val iterator = iterator()
@@ -88,7 +88,7 @@ public fun <T> Sequence<T>.elementAtOrNull(index: Int): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.find(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Sequence<T>.find(local predicate: (T) -> Boolean): T? {
     return firstOrNull(predicate)
 }
 
@@ -100,7 +100,7 @@ public inline fun <T> Sequence<T>.find(predicate: (T) -> Boolean): T? {
  * @sample samples.collections.Collections.Elements.find
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.findLast(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Sequence<T>.findLast(local predicate: (T) -> Boolean): T? {
     return lastOrNull(predicate)
 }
 
@@ -111,7 +111,7 @@ public inline fun <T> Sequence<T>.findLast(predicate: (T) -> Boolean): T? {
  * 
  * @throws NoSuchElementException if the sequence is empty.
  */
-public fun <T> Sequence<T>.first(): T {
+public fun <T> local Sequence<T>.first(): T {
     val iterator = iterator()
     if (!iterator.hasNext())
         throw NoSuchElementException("Sequence is empty.")
@@ -124,7 +124,7 @@ public fun <T> Sequence<T>.first(): T {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.first(predicate: (T) -> Boolean): T {
+public inline fun <T> local Sequence<T>.first(local predicate: (T) -> Boolean): T {
     for (element in this) if (predicate(element)) return element
     throw NoSuchElementException("Sequence contains no element matching the predicate.")
 }
@@ -139,7 +139,7 @@ public inline fun <T> Sequence<T>.first(predicate: (T) -> Boolean): T {
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Sequence<T>.firstNotNullOf(transform: (T) -> R?): R {
+public inline fun <T, R : Any> local Sequence<T>.firstNotNullOf(local transform: (T) -> R?): R {
     return firstNotNullOfOrNull(transform) ?: throw NoSuchElementException("No element of the sequence was transformed to a non-null value.")
 }
 
@@ -153,7 +153,7 @@ public inline fun <T, R : Any> Sequence<T>.firstNotNullOf(transform: (T) -> R?):
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Any> Sequence<T>.firstNotNullOfOrNull(transform: (T) -> R?): R? {
+public inline fun <T, R : Any> local Sequence<T>.firstNotNullOfOrNull(local transform: (T) -> R?): R? {
     for (element in this) {
         val result = transform(element)
         if (result != null) {
@@ -168,7 +168,7 @@ public inline fun <T, R : Any> Sequence<T>.firstNotNullOfOrNull(transform: (T) -
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.firstOrNull(): T? {
+public fun <T> local Sequence<T>.firstOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext())
         return null
@@ -180,7 +180,7 @@ public fun <T> Sequence<T>.firstOrNull(): T? {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.firstOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Sequence<T>.firstOrNull(local predicate: (T) -> Boolean): T? {
     for (element in this) if (predicate(element)) return element
     return null
 }
@@ -190,7 +190,7 @@ public inline fun <T> Sequence<T>.firstOrNull(predicate: (T) -> Boolean): T? {
  *
  * The operation is _terminal_.
  */
-public fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.indexOf(element: T): Int {
+public fun <@kotlin.internal.OnlyInputTypes T> local Sequence<T>.indexOf(element: T): Int {
     var index = 0
     for (item in this) {
         checkIndexOverflow(index)
@@ -206,7 +206,7 @@ public fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.indexOf(element: T): 
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Sequence<T>.indexOfFirst(local predicate: (T) -> Boolean): Int {
     var index = 0
     for (item in this) {
         checkIndexOverflow(index)
@@ -222,7 +222,7 @@ public inline fun <T> Sequence<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.indexOfLast(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Sequence<T>.indexOfLast(local predicate: (T) -> Boolean): Int {
     var lastIndex = -1
     var index = 0
     for (item in this) {
@@ -243,7 +243,7 @@ public inline fun <T> Sequence<T>.indexOfLast(predicate: (T) -> Boolean): Int {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> Sequence<T>.last(): T {
+public fun <T> local Sequence<T>.last(): T {
     val iterator = iterator()
     if (!iterator.hasNext())
         throw NoSuchElementException("Sequence is empty.")
@@ -262,7 +262,7 @@ public fun <T> Sequence<T>.last(): T {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Sequence<T>.last(predicate: (T) -> Boolean): T {
+public inline fun <T> local Sequence<T>.last(local predicate: (T) -> Boolean): T {
     var last: T? = null
     var found = false
     for (element in this) {
@@ -281,7 +281,7 @@ public inline fun <T> Sequence<T>.last(predicate: (T) -> Boolean): T {
  *
  * The operation is _terminal_.
  */
-public fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.lastIndexOf(element: T): Int {
+public fun <@kotlin.internal.OnlyInputTypes T> local Sequence<T>.lastIndexOf(element: T): Int {
     var lastIndex = -1
     var index = 0
     for (item in this) {
@@ -300,7 +300,7 @@ public fun <@kotlin.internal.OnlyInputTypes T> Sequence<T>.lastIndexOf(element: 
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public fun <T> Sequence<T>.lastOrNull(): T? {
+public fun <T> local Sequence<T>.lastOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext())
         return null
@@ -317,7 +317,7 @@ public fun <T> Sequence<T>.lastOrNull(): T? {
  * 
  * @sample samples.collections.Collections.Elements.last
  */
-public inline fun <T> Sequence<T>.lastOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Sequence<T>.lastOrNull(local predicate: (T) -> Boolean): T? {
     var last: T? = null
     for (element in this) {
         if (predicate(element)) {
@@ -332,7 +332,7 @@ public inline fun <T> Sequence<T>.lastOrNull(predicate: (T) -> Boolean): T? {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.single(): T {
+public fun <T> local Sequence<T>.single(): T {
     val iterator = iterator()
     if (!iterator.hasNext())
         throw NoSuchElementException("Sequence is empty.")
@@ -347,7 +347,7 @@ public fun <T> Sequence<T>.single(): T {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.single(predicate: (T) -> Boolean): T {
+public inline fun <T> local Sequence<T>.single(local predicate: (T) -> Boolean): T {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -367,7 +367,7 @@ public inline fun <T> Sequence<T>.single(predicate: (T) -> Boolean): T {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.singleOrNull(): T? {
+public fun <T> local Sequence<T>.singleOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext())
         return null
@@ -382,7 +382,7 @@ public fun <T> Sequence<T>.singleOrNull(): T? {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.singleOrNull(predicate: (T) -> Boolean): T? {
+public inline fun <T> local Sequence<T>.singleOrNull(local predicate: (T) -> Boolean): T? {
     var single: T? = null
     var found = false
     for (element in this) {
@@ -405,7 +405,7 @@ public inline fun <T> Sequence<T>.singleOrNull(predicate: (T) -> Boolean): T? {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public fun <T> Sequence<T>.drop(n: Int): Sequence<T> {
+public fun <T> local Sequence<T>.drop(n: Int): Sequence<T>_{this} {
     require(n >= 0) { "Requested element count $n is less than zero." }
     return when {
         n == 0 -> this
@@ -421,7 +421,7 @@ public fun <T> Sequence<T>.drop(n: Int): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Transformations.drop
  */
-public fun <T> Sequence<T>.dropWhile(predicate: (T) -> Boolean): Sequence<T> {
+public fun <T> local Sequence<T>.dropWhile(local predicate: (T) -> Boolean): Sequence<T>_{this&predicate} {
     return DropWhileSequence(this, predicate)
 }
 
@@ -432,7 +432,7 @@ public fun <T> Sequence<T>.dropWhile(predicate: (T) -> Boolean): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public fun <T> Sequence<T>.filter(predicate: (T) -> Boolean): Sequence<T> {
+public fun <T> local Sequence<T>.filter(local predicate: (T) -> Boolean): Sequence<T>_{this&predicate} {
     return FilteringSequence(this, true, predicate)
 }
 
@@ -445,7 +445,7 @@ public fun <T> Sequence<T>.filter(predicate: (T) -> Boolean): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Filtering.filterIndexed
  */
-public fun <T> Sequence<T>.filterIndexed(predicate: (index: Int, T) -> Boolean): Sequence<T> {
+public fun <T> local Sequence<T>.filterIndexed(local predicate: (index: Int, T) -> Boolean): Sequence<T>_{this&predicate} {
     // TODO: Rewrite with generalized MapFilterIndexingSequence
     return TransformingSequence(FilteringSequence(IndexingSequence(this), true, { predicate(it.index, it.value) }), { it.value })
 }
@@ -460,7 +460,7 @@ public fun <T> Sequence<T>.filterIndexed(predicate: (index: Int, T) -> Boolean):
  * @sample samples.collections.Collections.Filtering.filterIndexedTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterIndexedTo(destination: C, predicate: (index: Int, T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Sequence<T>.filterIndexedTo(local destination: C, local predicate: (index: Int, T) -> Boolean): C_{destination} {
     forEachIndexed { index, element ->
         if (predicate(index, element)) destination.add(element)
     }
@@ -474,7 +474,7 @@ public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterIndexedTo(d
  * 
  * @sample samples.collections.Collections.Filtering.filterIsInstance
  */
-public inline fun <reified R> Sequence<*>.filterIsInstance(): Sequence<@kotlin.internal.NoInfer R> {
+public inline fun <reified R> local Sequence<*>.filterIsInstance(): Sequence<@kotlin.internal.NoInfer R>_{this} {
     @Suppress("UNCHECKED_CAST")
     return filter { it is R } as Sequence<R>
 }
@@ -487,7 +487,7 @@ public inline fun <reified R> Sequence<*>.filterIsInstance(): Sequence<@kotlin.i
  * @sample samples.collections.Collections.Filtering.filterIsInstanceTo
  */
 @IgnorableReturnValue
-public inline fun <reified R, C : MutableCollection<in R>> Sequence<*>.filterIsInstanceTo(destination: C): C {
+public inline fun <reified R, C : MutableCollection<in R>> local Sequence<*>.filterIsInstanceTo(local destination: C): C_{destination} {
     for (element in this) if (element is R) destination.add(element)
     return destination
 }
@@ -499,7 +499,7 @@ public inline fun <reified R, C : MutableCollection<in R>> Sequence<*>.filterIsI
  * 
  * @sample samples.collections.Collections.Filtering.filter
  */
-public fun <T> Sequence<T>.filterNot(predicate: (T) -> Boolean): Sequence<T> {
+public fun <T> local Sequence<T>.filterNot(local predicate: (T) -> Boolean): Sequence<T>_{this&predicate} {
     return FilteringSequence(this, false, predicate)
 }
 
@@ -510,7 +510,7 @@ public fun <T> Sequence<T>.filterNot(predicate: (T) -> Boolean): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Filtering.filterNotNull
  */
-public fun <T : Any> Sequence<T?>.filterNotNull(): Sequence<T> {
+public fun <T : Any> local Sequence<T?>.filterNotNull(): Sequence<T>_{this} {
     @Suppress("UNCHECKED_CAST")
     return filterNot { it == null } as Sequence<T>
 }
@@ -523,7 +523,7 @@ public fun <T : Any> Sequence<T?>.filterNotNull(): Sequence<T> {
  * @sample samples.collections.Collections.Filtering.filterNotNullTo
  */
 @IgnorableReturnValue
-public fun <C : MutableCollection<in T>, T : Any> Sequence<T?>.filterNotNullTo(destination: C): C {
+public fun <C : MutableCollection<in T>, T : Any> local Sequence<T?>.filterNotNullTo(local destination: C): C_{destination} {
     for (element in this) if (element != null) destination.add(element)
     return destination
 }
@@ -536,7 +536,7 @@ public fun <C : MutableCollection<in T>, T : Any> Sequence<T?>.filterNotNullTo(d
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterNotTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Sequence<T>.filterNotTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (!predicate(element)) destination.add(element)
     return destination
 }
@@ -549,7 +549,7 @@ public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterNotTo(desti
  * @sample samples.collections.Collections.Filtering.filterTo
  */
 @IgnorableReturnValue
-public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterTo(destination: C, predicate: (T) -> Boolean): C {
+public inline fun <T, C : MutableCollection<in T>> local Sequence<T>.filterTo(local destination: C, local predicate: (T) -> Boolean): C_{destination} {
     for (element in this) if (predicate(element)) destination.add(element)
     return destination
 }
@@ -563,7 +563,7 @@ public inline fun <T, C : MutableCollection<in T>> Sequence<T>.filterTo(destinat
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public fun <T> Sequence<T>.take(n: Int): Sequence<T> {
+public fun <T> local Sequence<T>.take(n: Int): Sequence<T>_{this} {
     require(n >= 0) { "Requested element count $n is less than zero." }
     return when {
         n == 0 -> emptySequence()
@@ -579,7 +579,7 @@ public fun <T> Sequence<T>.take(n: Int): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Transformations.take
  */
-public fun <T> Sequence<T>.takeWhile(predicate: (T) -> Boolean): Sequence<T> {
+public fun <T> local Sequence<T>.takeWhile(local predicate: (T) -> Boolean): Sequence<T>_{this&predicate} {
     return TakeWhileSequence(this, predicate)
 }
 
@@ -590,7 +590,7 @@ public fun <T> Sequence<T>.takeWhile(predicate: (T) -> Boolean): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateful_.
  */
-public fun <T : Comparable<T>> Sequence<T>.sorted(): Sequence<T> {
+public fun <T : Comparable<T>> local Sequence<T>.sorted(): Sequence<T>_{this} {
     return object : Sequence<T> {
         override fun iterator(): Iterator<T> {
             val sortedList = this@sorted.toMutableList()
@@ -610,7 +610,7 @@ public fun <T : Comparable<T>> Sequence<T>.sorted(): Sequence<T> {
  * 
  * @sample samples.collections.Sequences.Sorting.sortedBy
  */
-public inline fun <T, R : Comparable<R>> Sequence<T>.sortedBy(crossinline selector: (T) -> R?): Sequence<T> {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.sortedBy(local selector: (T) -> R?): Sequence<T>_{this&selector} {
     return sortedWith(compareBy(selector))
 }
 
@@ -624,7 +624,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.sortedBy(crossinline select
  * 
  * @sample samples.collections.Sequences.Sorting.sortedByDescending
  */
-public inline fun <T, R : Comparable<R>> Sequence<T>.sortedByDescending(crossinline selector: (T) -> R?): Sequence<T> {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.sortedByDescending(local selector: (T) -> R?): Sequence<T>_{this&selector} {
     return sortedWith(compareByDescending(selector))
 }
 
@@ -635,7 +635,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.sortedByDescending(crossinl
  *
  * The operation is _intermediate_ and _stateful_.
  */
-public fun <T : Comparable<T>> Sequence<T>.sortedDescending(): Sequence<T> {
+public fun <T : Comparable<T>> local Sequence<T>.sortedDescending(): Sequence<T>_{this} {
     return sortedWith(reverseOrder())
 }
 
@@ -646,7 +646,7 @@ public fun <T : Comparable<T>> Sequence<T>.sortedDescending(): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateful_.
  */
-public fun <T> Sequence<T>.sortedWith(comparator: Comparator<in T>): Sequence<T> {
+public fun <T> local Sequence<T>.sortedWith(local comparator: Comparator<in T>): Sequence<T>&{this&comparator} {
     return object : Sequence<T> {
         override fun iterator(): Iterator<T> {
             val sortedList = this@sortedWith.toMutableList()
@@ -668,7 +668,7 @@ public fun <T> Sequence<T>.sortedWith(comparator: Comparator<in T>): Sequence<T>
  * 
  * @sample samples.collections.Collections.Transformations.associate
  */
-public inline fun <T, K, V> Sequence<T>.associate(transform: (T) -> Pair<K, V>): Map<K, V> {
+public inline fun <T, K, V> local Sequence<T>.associate(local transform: (T) -> Pair<K, V>): Map<K, V> {
     return associateTo(LinkedHashMap<K, V>(), transform)
 }
 
@@ -684,7 +684,7 @@ public inline fun <T, K, V> Sequence<T>.associate(transform: (T) -> Pair<K, V>):
  * 
  * @sample samples.collections.Collections.Transformations.associateBy
  */
-public inline fun <T, K> Sequence<T>.associateBy(keySelector: (T) -> K): Map<K, T> {
+public inline fun <T, K> local Sequence<T>.associateBy(local keySelector: (T) -> K): Map<K, T> {
     return associateByTo(LinkedHashMap<K, T>(), keySelector)
 }
 
@@ -699,7 +699,7 @@ public inline fun <T, K> Sequence<T>.associateBy(keySelector: (T) -> K): Map<K, 
  * 
  * @sample samples.collections.Collections.Transformations.associateByWithValueTransform
  */
-public inline fun <T, K, V> Sequence<T>.associateBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, V> {
+public inline fun <T, K, V> local Sequence<T>.associateBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, V> {
     return associateByTo(LinkedHashMap<K, V>(), keySelector, valueTransform)
 }
 
@@ -715,7 +715,7 @@ public inline fun <T, K, V> Sequence<T>.associateBy(keySelector: (T) -> K, value
  * @sample samples.collections.Collections.Transformations.associateByTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, in T>> Sequence<T>.associateByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, in T>> local Sequence<T>.associateByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), element)
     }
@@ -734,7 +734,7 @@ public inline fun <T, K, M : MutableMap<in K, in T>> Sequence<T>.associateByTo(d
  * @sample samples.collections.Collections.Transformations.associateByToWithValueTransform
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Sequence<T>.associateByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> local Sequence<T>.associateByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         destination.put(keySelector(element), valueTransform(element))
     }
@@ -752,7 +752,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Sequence<T>.associateByT
  * @sample samples.collections.Collections.Transformations.associateTo
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, in V>> Sequence<T>.associateTo(destination: M, transform: (T) -> Pair<K, V>): M {
+public inline fun <T, K, V, M : MutableMap<in K, in V>> local Sequence<T>.associateTo(local destination: M, local transform: (T) -> Pair<K, V>): M_{destination} {
     for (element in this) {
         destination += transform(element)
     }
@@ -772,7 +772,7 @@ public inline fun <T, K, V, M : MutableMap<in K, in V>> Sequence<T>.associateTo(
  * @sample samples.collections.Collections.Transformations.associateWith
  */
 @SinceKotlin("1.3")
-public inline fun <K, V> Sequence<K>.associateWith(valueSelector: (K) -> V): Map<K, V> {
+public inline fun <K, V> local Sequence<K>.associateWith(local valueSelector: (K) -> V): Map<K, V> {
     val result = LinkedHashMap<K, V>()
     return associateWithTo(result, valueSelector)
 }
@@ -789,7 +789,7 @@ public inline fun <K, V> Sequence<K>.associateWith(valueSelector: (K) -> V): Map
  */
 @SinceKotlin("1.3")
 @IgnorableReturnValue
-public inline fun <K, V, M : MutableMap<in K, in V>> Sequence<K>.associateWithTo(destination: M, valueSelector: (K) -> V): M {
+public inline fun <K, V, M : MutableMap<in K, in V>> local Sequence<K>.associateWithTo(local destination: M, local valueSelector: (K) -> V): M_{destination} {
     for (element in this) {
         destination.put(element, valueSelector(element))
     }
@@ -802,7 +802,7 @@ public inline fun <K, V, M : MutableMap<in K, in V>> Sequence<K>.associateWithTo
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public fun <T, C : MutableCollection<in T>> Sequence<T>.toCollection(destination: C): C {
+public fun <T, C : MutableCollection<in T>> local Sequence<T>.toCollection(local destination: C): C_{destination} {
     for (item in this) {
         destination.add(item)
     }
@@ -814,7 +814,7 @@ public fun <T, C : MutableCollection<in T>> Sequence<T>.toCollection(destination
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.toHashSet(): HashSet<T> {
+public fun <T> local Sequence<T>.toHashSet(): HashSet<T> {
     return toCollection(HashSet<T>())
 }
 
@@ -823,7 +823,7 @@ public fun <T> Sequence<T>.toHashSet(): HashSet<T> {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.toList(): List<T> {
+public fun <T> local Sequence<T>.toList(): List<T> {
     val it = iterator()
     if (!it.hasNext())
         return emptyList()
@@ -841,7 +841,7 @@ public fun <T> Sequence<T>.toList(): List<T> {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.toMutableList(): MutableList<T> {
+public fun <T> local Sequence<T>.toMutableList(): MutableList<T> {
     return toCollection(ArrayList<T>())
 }
 
@@ -852,7 +852,7 @@ public fun <T> Sequence<T>.toMutableList(): MutableList<T> {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.toSet(): Set<T> {
+public fun <T> local Sequence<T>.toSet(): Set<T> {
     val it = iterator()
     if (!it.hasNext())
         return emptySet()
@@ -876,7 +876,7 @@ public fun <T> Sequence<T>.toSet(): Set<T> {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIterable")
-public fun <T, R> Sequence<T>.flatMap(transform: (T) -> Iterable<R>): Sequence<R> {
+public fun <T, R> local Sequence<T>.flatMap(local transform: (T) -> Iterable<R>_{transform}): Sequence<R>_{this&transform} {
     return FlatteningSequence(this, transform, Iterable<R>::iterator)
 }
 
@@ -887,7 +887,7 @@ public fun <T, R> Sequence<T>.flatMap(transform: (T) -> Iterable<R>): Sequence<R
  * 
  * @sample samples.collections.Collections.Transformations.flatMap
  */
-public fun <T, R> Sequence<T>.flatMap(transform: (T) -> Sequence<R>): Sequence<R> {
+public fun <T, R> local Sequence<T>.flatMap(local transform: (T) -> Sequence<R>_{transform}): Sequence<R>_{this&transform} {
     return FlatteningSequence(this, transform, Sequence<R>::iterator)
 }
 
@@ -903,7 +903,7 @@ public fun <T, R> Sequence<T>.flatMap(transform: (T) -> Sequence<R>): Sequence<R
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedIterable")
-public fun <T, R> Sequence<T>.flatMapIndexed(transform: (index: Int, T) -> Iterable<R>): Sequence<R> {
+public fun <T, R> local Sequence<T>.flatMapIndexed(local transform: (index: Int, T) -> Iterable<R>_{transform}): Sequence<R>_{this&transform} {
     return flatMapIndexed(this, transform, Iterable<R>::iterator)
 }
 
@@ -919,7 +919,7 @@ public fun <T, R> Sequence<T>.flatMapIndexed(transform: (index: Int, T) -> Itera
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIndexedSequence")
-public fun <T, R> Sequence<T>.flatMapIndexed(transform: (index: Int, T) -> Sequence<R>): Sequence<R> {
+public fun <T, R> local Sequence<T>.flatMapIndexed(local transform: (index: Int, T) -> Sequence<R>_{transform}): Sequence<R>_{this&transform} {
     return flatMapIndexed(this, transform, Sequence<R>::iterator)
 }
 
@@ -935,7 +935,7 @@ public fun <T, R> Sequence<T>.flatMapIndexed(transform: (index: Int, T) -> Seque
 @kotlin.jvm.JvmName("flatMapIndexedIterableTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.flatMapIndexedTo(local destination: C, local transform: (index: Int, T) -> Iterable<R>_{transform}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(checkIndexOverflow(index++), element)
@@ -956,7 +956,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapIndexed
 @kotlin.jvm.JvmName("flatMapIndexedSequenceTo")
 @IgnorableReturnValue
 @kotlin.internal.InlineOnly
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapIndexedTo(destination: C, transform: (index: Int, T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.flatMapIndexedTo(local destination: C, local transform: (index: Int, T) -> Sequence<R>_{transform}): C_{destination} {
     var index = 0
     for (element in this) {
         val list = transform(checkIndexOverflow(index++), element)
@@ -975,7 +975,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapIndexed
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapIterableTo")
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapTo(destination: C, transform: (T) -> Iterable<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.flatMapTo(local destination: C, local transform: (T) -> Iterable<R>_{transform}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -989,7 +989,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapTo(dest
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapTo(destination: C, transform: (T) -> Sequence<R>): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.flatMapTo(local destination: C, local transform: (T) -> Sequence<R>): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -1007,7 +1007,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.flatMapTo(dest
  * 
  * @sample samples.collections.Collections.Transformations.groupBy
  */
-public inline fun <T, K> Sequence<T>.groupBy(keySelector: (T) -> K): Map<K, List<T>> {
+public inline fun <T, K> local Sequence<T>.groupBy(local keySelector: (T) -> K): Map<K, List<T>> {
     return groupByTo(LinkedHashMap<K, MutableList<T>>(), keySelector)
 }
 
@@ -1022,7 +1022,7 @@ public inline fun <T, K> Sequence<T>.groupBy(keySelector: (T) -> K): Map<K, List
  * 
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
-public inline fun <T, K, V> Sequence<T>.groupBy(keySelector: (T) -> K, valueTransform: (T) -> V): Map<K, List<V>> {
+public inline fun <T, K, V> local Sequence<T>.groupBy(local keySelector: (T) -> K, local valueTransform: (T) -> V): Map<K, List<V>> {
     return groupByTo(LinkedHashMap<K, MutableList<V>>(), keySelector, valueTransform)
 }
 
@@ -1037,7 +1037,7 @@ public inline fun <T, K, V> Sequence<T>.groupBy(keySelector: (T) -> K, valueTran
  * @sample samples.collections.Collections.Transformations.groupBy
  */
 @IgnorableReturnValue
-public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Sequence<T>.groupByTo(destination: M, keySelector: (T) -> K): M {
+public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> local Sequence<T>.groupByTo(local destination: M, local keySelector: (T) -> K): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<T>() }
@@ -1058,7 +1058,7 @@ public inline fun <T, K, M : MutableMap<in K, MutableList<T>>> Sequence<T>.group
  * @sample samples.collections.Collections.Transformations.groupByKeysAndValues
  */
 @IgnorableReturnValue
-public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Sequence<T>.groupByTo(destination: M, keySelector: (T) -> K, valueTransform: (T) -> V): M {
+public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> local Sequence<T>.groupByTo(local destination: M, local keySelector: (T) -> K, local valueTransform: (T) -> V): M_{destination} {
     for (element in this) {
         val key = keySelector(element)
         val list = destination.getOrPut(key) { ArrayList<V>() }
@@ -1076,7 +1076,7 @@ public inline fun <T, K, V, M : MutableMap<in K, MutableList<V>>> Sequence<T>.gr
  * @sample samples.collections.Grouping.groupingByEachCount
  */
 @SinceKotlin("1.1")
-public inline fun <T, K> Sequence<T>.groupingBy(crossinline keySelector: (T) -> K): Grouping<T, K> {
+public inline fun <T, K> local Sequence<T>.groupingBy(local keySelector: (T) -> K): Grouping<T, K>_{this&keySelector} {
     return object : Grouping<T, K> {
         override fun sourceIterator(): Iterator<T> = this@groupingBy.iterator()
         override fun keyOf(element: T): K = keySelector(element)
@@ -1091,7 +1091,7 @@ public inline fun <T, K> Sequence<T>.groupingBy(crossinline keySelector: (T) -> 
  * 
  * @sample samples.collections.Collections.Transformations.map
  */
-public fun <T, R> Sequence<T>.map(transform: (T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.map(local transform: (T) -> R): Sequence<R>_{this&transform} {
     return TransformingSequence(this, transform)
 }
 
@@ -1103,7 +1103,7 @@ public fun <T, R> Sequence<T>.map(transform: (T) -> R): Sequence<R> {
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public fun <T, R> Sequence<T>.mapIndexed(transform: (index: Int, T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.mapIndexed(local transform: (index: Int, T) -> R): Sequence<R>_{this&transform} {
     return TransformingIndexedSequence(this, transform)
 }
 
@@ -1115,7 +1115,7 @@ public fun <T, R> Sequence<T>.mapIndexed(transform: (index: Int, T) -> R): Seque
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public fun <T, R : Any> Sequence<T>.mapIndexedNotNull(transform: (index: Int, T) -> R?): Sequence<R> {
+public fun <T, R : Any> local Sequence<T>.mapIndexedNotNull(local transform: (index: Int, T) -> R?): Sequence<R>_{this&transform} {
     return TransformingIndexedSequence(this, transform).filterNotNull()
 }
 
@@ -1128,7 +1128,7 @@ public fun <T, R : Any> Sequence<T>.mapIndexedNotNull(transform: (index: Int, T)
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Sequence<T>.mapIndexedNotNullTo(destination: C, transform: (index: Int, T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> local Sequence<T>.mapIndexedNotNullTo(local destination: C, local transform: (index: Int, T) -> R?): C_{destination} {
     forEachIndexed { index, element -> transform(index, element)?.let { destination.add(it) } }
     return destination
 }
@@ -1142,7 +1142,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Sequence<T>.mapIndex
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.mapIndexedTo(destination: C, transform: (index: Int, T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.mapIndexedTo(local destination: C, local transform: (index: Int, T) -> R): C_{destination} {
     var index = 0
     for (item in this)
         destination.add(transform(checkIndexOverflow(index++), item))
@@ -1157,7 +1157,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.mapIndexedTo(d
  * 
  * @sample samples.collections.Collections.Transformations.mapNotNull
  */
-public fun <T, R : Any> Sequence<T>.mapNotNull(transform: (T) -> R?): Sequence<R> {
+public fun <T, R : Any> local Sequence<T>.mapNotNull(local transform: (T) -> R?): Sequence<R>_{this&transform} {
     return TransformingSequence(this, transform).filterNotNull()
 }
 
@@ -1168,7 +1168,7 @@ public fun <T, R : Any> Sequence<T>.mapNotNull(transform: (T) -> R?): Sequence<R
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public inline fun <T, R : Any, C : MutableCollection<in R>> Sequence<T>.mapNotNullTo(destination: C, transform: (T) -> R?): C {
+public inline fun <T, R : Any, C : MutableCollection<in R>> local Sequence<T>.mapNotNullTo(local destination: C, local transform: (T) -> R?): C_{destination} {
     forEach { element -> transform(element)?.let { destination.add(it) } }
     return destination
 }
@@ -1180,7 +1180,7 @@ public inline fun <T, R : Any, C : MutableCollection<in R>> Sequence<T>.mapNotNu
  * The operation is _terminal_.
  */
 @IgnorableReturnValue
-public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.mapTo(destination: C, transform: (T) -> R): C {
+public inline fun <T, R, C : MutableCollection<in R>> local Sequence<T>.mapTo(local destination: C, local transform: (T) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -1192,7 +1192,7 @@ public inline fun <T, R, C : MutableCollection<in R>> Sequence<T>.mapTo(destinat
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public fun <T> Sequence<T>.withIndex(): Sequence<IndexedValue<T>> {
+public fun <T> local Sequence<T>.withIndex(): Sequence<IndexedValue<T>>_{this} {
     return IndexingSequence(this)
 }
 
@@ -1206,7 +1206,7 @@ public fun <T> Sequence<T>.withIndex(): Sequence<IndexedValue<T>> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public fun <T> Sequence<T>.distinct(): Sequence<T> {
+public fun <T> local Sequence<T>.distinct(): Sequence<T>_{this} {
     return this.distinctBy { it }
 }
 
@@ -1221,7 +1221,7 @@ public fun <T> Sequence<T>.distinct(): Sequence<T> {
  * 
  * @sample samples.collections.Collections.Transformations.distinctAndDistinctBy
  */
-public fun <T, K> Sequence<T>.distinctBy(selector: (T) -> K): Sequence<T> {
+public fun <T, K> local Sequence<T>.distinctBy(local selector: (T) -> K): Sequence<T>_{this} {
     return DistinctSequence(this, selector)
 }
 
@@ -1232,7 +1232,7 @@ public fun <T, K> Sequence<T>.distinctBy(selector: (T) -> K): Sequence<T> {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.toMutableSet(): MutableSet<T> {
+public fun <T> local Sequence<T>.toMutableSet(): MutableSet<T> {
     val set = LinkedHashSet<T>()
     for (item in this) set.add(item)
     return set
@@ -1249,7 +1249,7 @@ public fun <T> Sequence<T>.toMutableSet(): MutableSet<T> {
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun <T> Sequence<T>.all(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Sequence<T>.all(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (!predicate(element)) return false
     return true
 }
@@ -1261,7 +1261,7 @@ public inline fun <T> Sequence<T>.all(predicate: (T) -> Boolean): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.any
  */
-public fun <T> Sequence<T>.any(): Boolean {
+public fun <T> local Sequence<T>.any(): Boolean {
     return iterator().hasNext()
 }
 
@@ -1272,7 +1272,7 @@ public fun <T> Sequence<T>.any(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun <T> Sequence<T>.any(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Sequence<T>.any(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return true
     return false
 }
@@ -1282,7 +1282,7 @@ public inline fun <T> Sequence<T>.any(predicate: (T) -> Boolean): Boolean {
  *
  * The operation is _terminal_.
  */
-public fun <T> Sequence<T>.count(): Int {
+public fun <T> local Sequence<T>.count(): Int {
     var count = 0
     for (element in this) checkCountOverflow(++count)
     return count
@@ -1293,7 +1293,7 @@ public fun <T> Sequence<T>.count(): Int {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.count(predicate: (T) -> Boolean): Int {
+public inline fun <T> local Sequence<T>.count(local predicate: (T) -> Boolean): Int {
     var count = 0
     for (element in this) if (predicate(element)) checkCountOverflow(++count)
     return count
@@ -1309,7 +1309,7 @@ public inline fun <T> Sequence<T>.count(predicate: (T) -> Boolean): Int {
  *
  * The operation is _terminal_.
  */
-public inline fun <T, R> Sequence<T>.fold(initial: R, operation: (acc: R, T) -> R): R {
+public inline fun <T, R> local Sequence<T>.fold(initial: R, local operation: (acc: R, T) -> R): R {
     var accumulator = initial
     for (element in this) accumulator = operation(accumulator, element)
     return accumulator
@@ -1326,7 +1326,7 @@ public inline fun <T, R> Sequence<T>.fold(initial: R, operation: (acc: R, T) -> 
  *
  * The operation is _terminal_.
  */
-public inline fun <T, R> Sequence<T>.foldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): R {
+public inline fun <T, R> local Sequence<T>.foldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): R {
     var index = 0
     var accumulator = initial
     for (element in this) accumulator = operation(checkIndexOverflow(index++), accumulator, element)
@@ -1338,7 +1338,7 @@ public inline fun <T, R> Sequence<T>.foldIndexed(initial: R, operation: (index: 
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.forEach(action: (T) -> Unit): Unit {
+public inline fun <T> local Sequence<T>.forEach(local action: (T) -> Unit): Unit {
     for (element in this) action(element)
 }
 
@@ -1349,7 +1349,7 @@ public inline fun <T> Sequence<T>.forEach(action: (T) -> Unit): Unit {
  *
  * The operation is _terminal_.
  */
-public inline fun <T> Sequence<T>.forEachIndexed(action: (index: Int, T) -> Unit): Unit {
+public inline fun <T> local Sequence<T>.forEachIndexed(local action: (index: Int, T) -> Unit): Unit {
     var index = 0
     for (item in this) action(checkIndexOverflow(index++), item)
 }
@@ -1368,7 +1368,7 @@ public inline fun <T> Sequence<T>.forEachIndexed(action: (index: Int, T) -> Unit
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Sequence<Double>.max(): Double {
+public fun local Sequence<Double>.max(): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1393,7 +1393,7 @@ public fun Sequence<Double>.max(): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Sequence<Float>.max(): Float {
+public fun local Sequence<Float>.max(): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1418,7 +1418,7 @@ public fun Sequence<Float>.max(): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T : Comparable<T>> Sequence<T>.max(): T {
+public fun <T : Comparable<T>> local Sequence<T>.max(): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1448,7 +1448,7 @@ public fun <T : Comparable<T>> Sequence<T>.max(): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Sequence<T>.maxBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.maxBy(local selector: (T) -> R): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxElem = iterator.next()
@@ -1480,7 +1480,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.maxBy(selector: (T) -> R): 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Sequence<T>.maxByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.maxByOrNull(local selector: (T) -> R): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxElem = iterator.next()
@@ -1513,7 +1513,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.maxByOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.maxOf(selector: (T) -> Double): Double {
+public inline fun <T> local Sequence<T>.maxOf(local selector: (T) -> Double): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -1540,7 +1540,7 @@ public inline fun <T> Sequence<T>.maxOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.maxOf(selector: (T) -> Float): Float {
+public inline fun <T> local Sequence<T>.maxOf(local selector: (T) -> Float): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -1567,7 +1567,7 @@ public inline fun <T> Sequence<T>.maxOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Sequence<T>.maxOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.maxOf(local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -1594,7 +1594,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.maxOf(selector: (T) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.maxOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> local Sequence<T>.maxOfOrNull(local selector: (T) -> Double): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -1619,7 +1619,7 @@ public inline fun <T> Sequence<T>.maxOfOrNull(selector: (T) -> Double): Double? 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.maxOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> local Sequence<T>.maxOfOrNull(local selector: (T) -> Float): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -1644,7 +1644,7 @@ public inline fun <T> Sequence<T>.maxOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Sequence<T>.maxOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.maxOfOrNull(local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -1673,7 +1673,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.maxOfOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Sequence<T>.maxOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> local Sequence<T>.maxOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var maxValue = selector(iterator.next())
@@ -1700,7 +1700,7 @@ public inline fun <T, R> Sequence<T>.maxOfWith(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Sequence<T>.maxOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> local Sequence<T>.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var maxValue = selector(iterator.next())
@@ -1723,7 +1723,7 @@ public inline fun <T, R> Sequence<T>.maxOfWithOrNull(comparator: Comparator<in R
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Sequence<Double>.maxOrNull(): Double? {
+public fun local Sequence<Double>.maxOrNull(): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -1744,7 +1744,7 @@ public fun Sequence<Double>.maxOrNull(): Double? {
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Sequence<Float>.maxOrNull(): Float? {
+public fun local Sequence<Float>.maxOrNull(): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -1765,7 +1765,7 @@ public fun Sequence<Float>.maxOrNull(): Float? {
  * @sample samples.collections.Collections.Aggregates.maxMinGeneric
  */
 @SinceKotlin("1.4")
-public fun <T : Comparable<T>> Sequence<T>.maxOrNull(): T? {
+public fun <T : Comparable<T>> local Sequence<T>.maxOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -1786,7 +1786,7 @@ public fun <T : Comparable<T>> Sequence<T>.maxOrNull(): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Sequence<T>.maxWith(comparator: Comparator<in T>): T {
+public fun <T> local Sequence<T>.maxWith(local comparator: Comparator<in T>): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var max = iterator.next()
@@ -1803,7 +1803,7 @@ public fun <T> Sequence<T>.maxWith(comparator: Comparator<in T>): T {
  * The operation is _terminal_.
  */
 @SinceKotlin("1.4")
-public fun <T> Sequence<T>.maxWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> local Sequence<T>.maxWithOrNull(local comparator: Comparator<in T>): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var max = iterator.next()
@@ -1828,7 +1828,7 @@ public fun <T> Sequence<T>.maxWithOrNull(comparator: Comparator<in T>): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Sequence<Double>.min(): Double {
+public fun local Sequence<Double>.min(): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -1853,7 +1853,7 @@ public fun Sequence<Double>.min(): Double {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun Sequence<Float>.min(): Float {
+public fun local Sequence<Float>.min(): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -1878,7 +1878,7 @@ public fun Sequence<Float>.min(): Float {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T : Comparable<T>> Sequence<T>.min(): T {
+public fun <T : Comparable<T>> local Sequence<T>.min(): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -1908,7 +1908,7 @@ public fun <T : Comparable<T>> Sequence<T>.min(): T {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minByOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <T, R : Comparable<R>> Sequence<T>.minBy(selector: (T) -> R): T {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.minBy(local selector: (T) -> R): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minElem = iterator.next()
@@ -1940,7 +1940,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.minBy(selector: (T) -> R): 
  * @sample samples.collections.Collections.Aggregates.minMaxByOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <T, R : Comparable<R>> Sequence<T>.minByOrNull(selector: (T) -> R): T? {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.minByOrNull(local selector: (T) -> R): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minElem = iterator.next()
@@ -1973,7 +1973,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.minByOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.minOf(selector: (T) -> Double): Double {
+public inline fun <T> local Sequence<T>.minOf(local selector: (T) -> Double): Double {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2000,7 +2000,7 @@ public inline fun <T> Sequence<T>.minOf(selector: (T) -> Double): Double {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.minOf(selector: (T) -> Float): Float {
+public inline fun <T> local Sequence<T>.minOf(local selector: (T) -> Float): Float {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2027,7 +2027,7 @@ public inline fun <T> Sequence<T>.minOf(selector: (T) -> Float): Float {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Sequence<T>.minOf(selector: (T) -> R): R {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.minOf(local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2054,7 +2054,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.minOf(selector: (T) -> R): 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.minOfOrNull(selector: (T) -> Double): Double? {
+public inline fun <T> local Sequence<T>.minOfOrNull(local selector: (T) -> Double): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2079,7 +2079,7 @@ public inline fun <T> Sequence<T>.minOfOrNull(selector: (T) -> Double): Double? 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.minOfOrNull(selector: (T) -> Float): Float? {
+public inline fun <T> local Sequence<T>.minOfOrNull(local selector: (T) -> Float): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2104,7 +2104,7 @@ public inline fun <T> Sequence<T>.minOfOrNull(selector: (T) -> Float): Float? {
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R : Comparable<R>> Sequence<T>.minOfOrNull(selector: (T) -> R): R? {
+public inline fun <T, R : Comparable<R>> local Sequence<T>.minOfOrNull(local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2133,7 +2133,7 @@ public inline fun <T, R : Comparable<R>> Sequence<T>.minOfOrNull(selector: (T) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Sequence<T>.minOfWith(comparator: Comparator<in R>, selector: (T) -> R): R {
+public inline fun <T, R> local Sequence<T>.minOfWith(local comparator: Comparator<in R>, local selector: (T) -> R): R {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var minValue = selector(iterator.next())
@@ -2160,7 +2160,7 @@ public inline fun <T, R> Sequence<T>.minOfWith(comparator: Comparator<in R>, sel
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <T, R> Sequence<T>.minOfWithOrNull(comparator: Comparator<in R>, selector: (T) -> R): R? {
+public inline fun <T, R> local Sequence<T>.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (T) -> R): R? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var minValue = selector(iterator.next())
@@ -2183,7 +2183,7 @@ public inline fun <T, R> Sequence<T>.minOfWithOrNull(comparator: Comparator<in R
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Sequence<Double>.minOrNull(): Double? {
+public fun local Sequence<Double>.minOrNull(): Double? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2204,7 +2204,7 @@ public fun Sequence<Double>.minOrNull(): Double? {
  * @sample samples.collections.Collections.Aggregates.maxMinFloating
  */
 @SinceKotlin("1.4")
-public fun Sequence<Float>.minOrNull(): Float? {
+public fun local Sequence<Float>.minOrNull(): Float? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2225,7 +2225,7 @@ public fun Sequence<Float>.minOrNull(): Float? {
  * @sample samples.collections.Collections.Aggregates.maxMinGeneric
  */
 @SinceKotlin("1.4")
-public fun <T : Comparable<T>> Sequence<T>.minOrNull(): T? {
+public fun <T : Comparable<T>> local Sequence<T>.minOrNull(): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2246,7 +2246,7 @@ public fun <T : Comparable<T>> Sequence<T>.minOrNull(): T? {
 @SinceKotlin("1.7")
 @kotlin.jvm.JvmName("minWithOrThrow")
 @Suppress("CONFLICTING_OVERLOADS")
-public fun <T> Sequence<T>.minWith(comparator: Comparator<in T>): T {
+public fun <T> local Sequence<T>.minWith(local comparator: Comparator<in T>): T {
     val iterator = iterator()
     if (!iterator.hasNext()) throw NoSuchElementException()
     var min = iterator.next()
@@ -2263,7 +2263,7 @@ public fun <T> Sequence<T>.minWith(comparator: Comparator<in T>): T {
  * The operation is _terminal_.
  */
 @SinceKotlin("1.4")
-public fun <T> Sequence<T>.minWithOrNull(comparator: Comparator<in T>): T? {
+public fun <T> local Sequence<T>.minWithOrNull(local comparator: Comparator<in T>): T? {
     val iterator = iterator()
     if (!iterator.hasNext()) return null
     var min = iterator.next()
@@ -2281,7 +2281,7 @@ public fun <T> Sequence<T>.minWithOrNull(comparator: Comparator<in T>): T? {
  * 
  * @sample samples.collections.Collections.Aggregates.none
  */
-public fun <T> Sequence<T>.none(): Boolean {
+public fun <T> local Sequence<T>.none(): Boolean {
     return !iterator().hasNext()
 }
 
@@ -2292,7 +2292,7 @@ public fun <T> Sequence<T>.none(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun <T> Sequence<T>.none(predicate: (T) -> Boolean): Boolean {
+public inline fun <T> local Sequence<T>.none(local predicate: (T) -> Boolean): Boolean {
     for (element in this) if (predicate(element)) return false
     return true
 }
@@ -2303,7 +2303,7 @@ public inline fun <T> Sequence<T>.none(predicate: (T) -> Boolean): Boolean {
  * The operation is _intermediate_ and _stateless_.
  */
 @SinceKotlin("1.1")
-public fun <T> Sequence<T>.onEach(action: (T) -> Unit): Sequence<T> {
+public fun <T> local Sequence<T>.onEach(local action: (T) -> Unit): Sequence<T>_{this&action} {
     return map {
         action(it)
         it
@@ -2318,7 +2318,7 @@ public fun <T> Sequence<T>.onEach(action: (T) -> Unit): Sequence<T> {
  * The operation is _intermediate_ and _stateless_.
  */
 @SinceKotlin("1.4")
-public fun <T> Sequence<T>.onEachIndexed(action: (index: Int, T) -> Unit): Sequence<T> {
+public fun <T> local Sequence<T>.onEachIndexed(local action: (index: Int, T) -> Unit): Sequence<T>_{this&action} {
     return mapIndexed { index, element ->
         action(index, element)
         element
@@ -2339,7 +2339,7 @@ public fun <T> Sequence<T>.onEachIndexed(action: (index: Int, T) -> Unit): Seque
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Sequence<T>.reduce(operation: (acc: S, T) -> S): S {
+public inline fun <S, T : S> local Sequence<T>.reduce(local operation: (acc: S, T) -> S): S {
     val iterator = this.iterator()
     if (!iterator.hasNext()) throw UnsupportedOperationException("Empty sequence can't be reduced.")
     var accumulator: S = iterator.next()
@@ -2363,7 +2363,7 @@ public inline fun <S, T : S> Sequence<T>.reduce(operation: (acc: S, T) -> S): S 
  * 
  * @sample samples.collections.Collections.Aggregates.reduce
  */
-public inline fun <S, T : S> Sequence<T>.reduceIndexed(operation: (index: Int, acc: S, T) -> S): S {
+public inline fun <S, T : S> local Sequence<T>.reduceIndexed(local operation: (index: Int, acc: S, T) -> S): S {
     val iterator = this.iterator()
     if (!iterator.hasNext()) throw UnsupportedOperationException("Empty sequence can't be reduced.")
     var index = 1
@@ -2388,7 +2388,7 @@ public inline fun <S, T : S> Sequence<T>.reduceIndexed(operation: (index: Int, a
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Sequence<T>.reduceIndexedOrNull(operation: (index: Int, acc: S, T) -> S): S? {
+public inline fun <S, T : S> local Sequence<T>.reduceIndexedOrNull(local operation: (index: Int, acc: S, T) -> S): S? {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return null
     var index = 1
@@ -2413,7 +2413,7 @@ public inline fun <S, T : S> Sequence<T>.reduceIndexedOrNull(operation: (index: 
  * @sample samples.collections.Collections.Aggregates.reduceOrNull
  */
 @SinceKotlin("1.4")
-public inline fun <S, T : S> Sequence<T>.reduceOrNull(operation: (acc: S, T) -> S): S? {
+public inline fun <S, T : S> local Sequence<T>.reduceOrNull(local operation: (acc: S, T) -> S): S? {
     val iterator = this.iterator()
     if (!iterator.hasNext()) return null
     var accumulator: S = iterator.next()
@@ -2439,7 +2439,7 @@ public inline fun <S, T : S> Sequence<T>.reduceOrNull(operation: (acc: S, T) -> 
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public fun <T, R> Sequence<T>.runningFold(initial: R, operation: (acc: R, T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.runningFold(initial: R, local operation: (acc: R, T) -> R): Sequence<R>_{this&operation} {
     return sequence {
         yield(initial)
         var accumulator = initial
@@ -2467,7 +2467,7 @@ public fun <T, R> Sequence<T>.runningFold(initial: R, operation: (acc: R, T) -> 
  * @sample samples.collections.Collections.Aggregates.runningFold
  */
 @SinceKotlin("1.4")
-public fun <T, R> Sequence<T>.runningFoldIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.runningFoldIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): Sequence<R>_{this&operation} {
     return sequence {
         yield(initial)
         var index = 0
@@ -2493,7 +2493,7 @@ public fun <T, R> Sequence<T>.runningFoldIndexed(initial: R, operation: (index: 
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public fun <S, T : S> Sequence<T>.runningReduce(operation: (acc: S, T) -> S): Sequence<S> {
+public fun <S, T : S> local Sequence<T>.runningReduce(local operation: (acc: S, T) -> S): Sequence<S>_{this&operation} {
     return sequence {
         val iterator = iterator()
         if (iterator.hasNext()) {
@@ -2522,7 +2522,7 @@ public fun <S, T : S> Sequence<T>.runningReduce(operation: (acc: S, T) -> S): Se
  * @sample samples.collections.Collections.Aggregates.runningReduce
  */
 @SinceKotlin("1.4")
-public fun <S, T : S> Sequence<T>.runningReduceIndexed(operation: (index: Int, acc: S, T) -> S): Sequence<S> {
+public fun <S, T : S> local Sequence<T>.runningReduceIndexed(local operation: (index: Int, acc: S, T) -> S): Sequence<S>_{this&operation} {
     return sequence {
         val iterator = iterator()
         if (iterator.hasNext()) {
@@ -2553,7 +2553,7 @@ public fun <S, T : S> Sequence<T>.runningReduceIndexed(operation: (index: Int, a
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public fun <T, R> Sequence<T>.scan(initial: R, operation: (acc: R, T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.scan(initial: R, local operation: (acc: R, T) -> R): Sequence<R>_{this} {
     return runningFold(initial, operation)
 }
 
@@ -2574,7 +2574,7 @@ public fun <T, R> Sequence<T>.scan(initial: R, operation: (acc: R, T) -> R): Seq
  * @sample samples.collections.Collections.Aggregates.scan
  */
 @SinceKotlin("1.4")
-public fun <T, R> Sequence<T>.scanIndexed(initial: R, operation: (index: Int, acc: R, T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.scanIndexed(initial: R, local operation: (index: Int, acc: R, T) -> R): Sequence<R>_{this&operation} {
     return runningFoldIndexed(initial, operation)
 }
 
@@ -2585,7 +2585,7 @@ public fun <T, R> Sequence<T>.scanIndexed(initial: R, operation: (index: Int, ac
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Sequence<T>.sumBy(selector: (T) -> Int): Int {
+public inline fun <T> local Sequence<T>.sumBy(local selector: (T) -> Int): Int {
     var sum: Int = 0
     for (element in this) {
         sum += selector(element)
@@ -2600,7 +2600,7 @@ public inline fun <T> Sequence<T>.sumBy(selector: (T) -> Int): Int {
  */
 @Deprecated("Use sumOf instead.", ReplaceWith("this.sumOf(selector)"))
 @DeprecatedSinceKotlin(warningSince = "1.5")
-public inline fun <T> Sequence<T>.sumByDouble(selector: (T) -> Double): Double {
+public inline fun <T> local Sequence<T>.sumByDouble(local selector: (T) -> Double): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += selector(element)
@@ -2618,7 +2618,7 @@ public inline fun <T> Sequence<T>.sumByDouble(selector: (T) -> Double): Double {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfDouble")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Double): Double {
+public inline fun <T> local Sequence<T>.sumOf(local selector: (T) -> Double): Double {
     var sum: Double = 0.toDouble()
     for (element in this) {
         sum += selector(element)
@@ -2634,7 +2634,7 @@ public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Double): Double {
 @SinceKotlin("1.4")
 @kotlin.jvm.JvmName("sumOfInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Int): Int {
+public inline fun <T> local Sequence<T>.sumOf(local selector: (T) -> Int): Int {
     var sum: Int = 0.toInt()
     for (element in this) {
         sum += selector(element)
@@ -2652,7 +2652,7 @@ public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Int): Int {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfLong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Long): Long {
+public inline fun <T> local Sequence<T>.sumOf(local selector: (T) -> Long): Long {
     var sum: Long = 0.toLong()
     for (element in this) {
         sum += selector(element)
@@ -2668,7 +2668,7 @@ public inline fun <T> Sequence<T>.sumOf(selector: (T) -> Long): Long {
 @SinceKotlin("1.5")
 @kotlin.jvm.JvmName("sumOfUInt")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.sumOf(selector: (T) -> UInt): UInt {
+public inline fun <T> local Sequence<T>.sumOf(local selector: (T) -> UInt): UInt {
     var sum: UInt = 0.toUInt()
     for (element in this) {
         sum += selector(element)
@@ -2686,7 +2686,7 @@ public inline fun <T> Sequence<T>.sumOf(selector: (T) -> UInt): UInt {
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("sumOfULong")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.sumOf(selector: (T) -> ULong): ULong {
+public inline fun <T> local Sequence<T>.sumOf(local selector: (T) -> ULong): ULong {
     var sum: ULong = 0.toULong()
     for (element in this) {
         sum += selector(element)
@@ -2699,7 +2699,7 @@ public inline fun <T> Sequence<T>.sumOf(selector: (T) -> ULong): ULong {
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public fun <T : Any> Sequence<T?>.requireNoNulls(): Sequence<T> {
+public fun <T : Any> local Sequence<T?>.requireNoNulls(): Sequence<T>_{this} {
     return map { it ?: throw IllegalArgumentException("null element found in $this.") }
 }
 
@@ -2715,7 +2715,7 @@ public fun <T : Any> Sequence<T?>.requireNoNulls(): Sequence<T> {
  * @sample samples.collections.Collections.Transformations.chunked
  */
 @SinceKotlin("1.2")
-public fun <T> Sequence<T>.chunked(size: Int): Sequence<List<T>> {
+public fun <T> local Sequence<T>.chunked(size: Int): Sequence<List<T>>_{this} {
     return windowed(size, size, partialWindows = true)
 }
 
@@ -2736,7 +2736,7 @@ public fun <T> Sequence<T>.chunked(size: Int): Sequence<List<T>> {
  * @sample samples.text.Strings.chunkedTransform
  */
 @SinceKotlin("1.2")
-public fun <T, R> Sequence<T>.chunked(size: Int, transform: (List<T>) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.chunked(size: Int, local transform: (List<T>) -> R): Sequence<R>_{this&transform} {
     return windowed(size, size, partialWindows = true, transform = transform)
 }
 
@@ -2745,9 +2745,9 @@ public fun <T, R> Sequence<T>.chunked(size: Int, transform: (List<T>) -> R): Seq
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public operator fun <T> Sequence<T>.minus(element: T): Sequence<T> {
+public operator fun <T> local Sequence<T>.minus(element: T): Sequence<T>_{this} {
     return object: Sequence<T> {
-        override fun iterator(): Iterator<T> {
+        override fun iterator(): Iterator<T>_{this} {
             var removed = false
             return this@minus.filter { if (!removed && it == element) { removed = true; false } else true }.iterator()
         }
@@ -2762,7 +2762,7 @@ public operator fun <T> Sequence<T>.minus(element: T): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateful_.
  */
-public operator fun <T> Sequence<T>.minus(elements: Array<out T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.minus(elements: Array<out T>): Sequence<T>_{this} {
     if (elements.isEmpty()) return this
     return object: Sequence<T> {
         override fun iterator(): Iterator<T> {
@@ -2779,9 +2779,9 @@ public operator fun <T> Sequence<T>.minus(elements: Array<out T>): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateful_.
  */
-public operator fun <T> Sequence<T>.minus(elements: Iterable<T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.minus(local elements: Iterable<T>): Sequence<T>_{this&elements} {
     return object: Sequence<T> {
-        override fun iterator(): Iterator<T> {
+        override fun iterator(): Iterator<T>_{this&elements} {
             val other = elements.convertToListIfNotCollection()
             if (other.isEmpty())
                 return this@minus.iterator()
@@ -2799,7 +2799,7 @@ public operator fun <T> Sequence<T>.minus(elements: Iterable<T>): Sequence<T> {
  * 
  * The operation is _intermediate_ for this sequence and _terminal_ and _stateful_ for the [elements] sequence.
  */
-public operator fun <T> Sequence<T>.minus(elements: Sequence<T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.minus(local elements: Sequence<T>): Sequence<T>_{this&elements} {
     return object: Sequence<T> {
         override fun iterator(): Iterator<T> {
             val other = elements.toList()
@@ -2817,7 +2817,7 @@ public operator fun <T> Sequence<T>.minus(elements: Sequence<T>): Sequence<T> {
  * The operation is _intermediate_ and _stateless_.
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.minusElement(element: T): Sequence<T> {
+public inline fun <T> local Sequence<T>.minusElement(element: T): Sequence<T>_{this} {
     return minus(element)
 }
 
@@ -2830,7 +2830,7 @@ public inline fun <T> Sequence<T>.minusElement(element: T): Sequence<T> {
  * 
  * @sample samples.collections.Sequences.Transformations.partition
  */
-public inline fun <T> Sequence<T>.partition(predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
+public inline fun <T> local Sequence<T>.partition(local predicate: (T) -> Boolean): Pair<List<T>, List<T>> {
     val first = ArrayList<T>()
     val second = ArrayList<T>()
     for (element in this) {
@@ -2848,7 +2848,7 @@ public inline fun <T> Sequence<T>.partition(predicate: (T) -> Boolean): Pair<Lis
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public operator fun <T> Sequence<T>.plus(element: T): Sequence<T> {
+public operator fun <T> local Sequence<T>.plus(element: T): Sequence<T>_{this} {
     return sequenceOf(this, sequenceOf(element)).flatten()
 }
 
@@ -2860,7 +2860,7 @@ public operator fun <T> Sequence<T>.plus(element: T): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public operator fun <T> Sequence<T>.plus(elements: Array<out T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.plus(elements: Array<out T>): Sequence<T>_{this} {
     return this.plus(elements.asList())
 }
 
@@ -2872,7 +2872,7 @@ public operator fun <T> Sequence<T>.plus(elements: Array<out T>): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public operator fun <T> Sequence<T>.plus(elements: Iterable<T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.plus(local elements: Iterable<T>): Sequence<T>_{this&elements} {
     return sequenceOf(this, elements.asSequence()).flatten()
 }
 
@@ -2884,7 +2884,7 @@ public operator fun <T> Sequence<T>.plus(elements: Iterable<T>): Sequence<T> {
  *
  * The operation is _intermediate_ and _stateless_.
  */
-public operator fun <T> Sequence<T>.plus(elements: Sequence<T>): Sequence<T> {
+public operator fun <T> local Sequence<T>.plus(local elements: Sequence<T>): Sequence<T>_{this&elements} {
     return sequenceOf(this, elements).flatten()
 }
 
@@ -2894,7 +2894,7 @@ public operator fun <T> Sequence<T>.plus(elements: Sequence<T>): Sequence<T> {
  * The operation is _intermediate_ and _stateless_.
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.plusElement(element: T): Sequence<T> {
+public inline fun <T> local Sequence<T>.plusElement(element: T): Sequence<T>_{this} {
     return plus(element)
 }
 
@@ -2914,7 +2914,7 @@ public inline fun <T> Sequence<T>.plusElement(element: T): Sequence<T> {
  * @sample samples.collections.Sequences.Transformations.takeWindows
  */
 @SinceKotlin("1.2")
-public fun <T> Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false): Sequence<List<T>> {
+public fun <T> local Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false): Sequence<List<T>>_{this} {
     return windowedSequence(size, step, partialWindows, reuseBuffer = false)
 }
 
@@ -2936,7 +2936,7 @@ public fun <T> Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows: Bo
  * @sample samples.collections.Sequences.Transformations.averageWindows
  */
 @SinceKotlin("1.2")
-public fun <T, R> Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false, transform: (List<T>) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows: Boolean = false, local transform: (List<T>) -> R): Sequence<R>_{this&transform} {
     return windowedSequence(size, step, partialWindows, reuseBuffer = true).map(transform)
 }
 
@@ -2948,7 +2948,7 @@ public fun <T, R> Sequence<T>.windowed(size: Int, step: Int = 1, partialWindows:
  * 
  * @sample samples.collections.Sequences.Transformations.zip
  */
-public infix fun <T, R> Sequence<T>.zip(other: Sequence<R>): Sequence<Pair<T, R>> {
+public infix fun <T, R> local Sequence<T>.zip(local other: Sequence<R>): Sequence<Pair<T, R>>_{this&other} {
     return MergingSequence(this, other) { t1, t2 -> t1 to t2 }
 }
 
@@ -2961,7 +2961,7 @@ public infix fun <T, R> Sequence<T>.zip(other: Sequence<R>): Sequence<Pair<T, R>
  * 
  * @sample samples.collections.Sequences.Transformations.zipWithTransform
  */
-public fun <T, R, V> Sequence<T>.zip(other: Sequence<R>, transform: (a: T, b: R) -> V): Sequence<V> {
+public fun <T, R, V> local Sequence<T>.zip(local other: Sequence<R>, local transform: (a: T, b: R) -> V): Sequence<V>_{this&other&transform} {
     return MergingSequence(this, other, transform)
 }
 
@@ -2975,7 +2975,7 @@ public fun <T, R, V> Sequence<T>.zip(other: Sequence<R>, transform: (a: T, b: R)
  * @sample samples.collections.Collections.Transformations.zipWithNext
  */
 @SinceKotlin("1.2")
-public fun <T> Sequence<T>.zipWithNext(): Sequence<Pair<T, T>> {
+public fun <T> local Sequence<T>.zipWithNext(): Sequence<Pair<T, T>>_{this} {
     return zipWithNext { a, b -> a to b }
 }
 
@@ -2990,7 +2990,7 @@ public fun <T> Sequence<T>.zipWithNext(): Sequence<Pair<T, T>> {
  * @sample samples.collections.Collections.Transformations.zipWithNextToFindDeltas
  */
 @SinceKotlin("1.2")
-public fun <T, R> Sequence<T>.zipWithNext(transform: (a: T, b: T) -> R): Sequence<R> {
+public fun <T, R> local Sequence<T>.zipWithNext(local transform: (a: T, b: T) -> R): Sequence<R>_{this&transform} {
     return sequence result@ {
         val iterator = iterator()
         if (!iterator.hasNext()) return@result
@@ -3016,7 +3016,7 @@ public fun <T, R> Sequence<T>.zipWithNext(transform: (a: T, b: T) -> R): Sequenc
  * @sample samples.collections.Collections.Transformations.joinTo
  */
 @IgnorableReturnValue
-public fun <T, A : Appendable> Sequence<T>.joinTo(buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): A {
+public fun <T, A : Appendable> local Sequence<T>.joinTo(local buffer: A, separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): A_{buffer} {
     buffer.append(prefix)
     var count = 0
     for (element in this) {
@@ -3040,14 +3040,14 @@ public fun <T, A : Appendable> Sequence<T>.joinTo(buffer: A, separator: CharSequ
  * 
  * @sample samples.collections.Collections.Transformations.joinToString
  */
-public fun <T> Sequence<T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): String {
+public fun <T> local Sequence<T>.joinToString(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", local transform: ((T) -> CharSequence)? = null): String {
     return joinTo(StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString()
 }
 
 /**
  * Creates an [Iterable] instance that wraps the original sequence returning its elements when being iterated.
  */
-public fun <T> Sequence<T>.asIterable(): Iterable<T> {
+public fun <T> local Sequence<T>.asIterable(): Iterable<T>_{this} {
     return Iterable { this.iterator() }
 }
 
@@ -3055,7 +3055,7 @@ public fun <T> Sequence<T>.asIterable(): Iterable<T> {
  * Returns this sequence as a [Sequence].
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>.asSequence(): Sequence<T> {
+public inline fun <T> local Sequence<T>.asSequence(): Sequence<T>_{this} {
     return this
 }
 
@@ -3065,7 +3065,7 @@ public inline fun <T> Sequence<T>.asSequence(): Sequence<T> {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfByte")
-public fun Sequence<Byte>.average(): Double {
+public fun local Sequence<Byte>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3081,7 +3081,7 @@ public fun Sequence<Byte>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfShort")
-public fun Sequence<Short>.average(): Double {
+public fun local Sequence<Short>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3097,7 +3097,7 @@ public fun Sequence<Short>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfInt")
-public fun Sequence<Int>.average(): Double {
+public fun local Sequence<Int>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3113,7 +3113,7 @@ public fun Sequence<Int>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfLong")
-public fun Sequence<Long>.average(): Double {
+public fun local Sequence<Long>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3129,7 +3129,7 @@ public fun Sequence<Long>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfFloat")
-public fun Sequence<Float>.average(): Double {
+public fun local Sequence<Float>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3145,7 +3145,7 @@ public fun Sequence<Float>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("averageOfDouble")
-public fun Sequence<Double>.average(): Double {
+public fun local Sequence<Double>.average(): Double {
     var sum: Double = 0.0
     var count: Int = 0
     for (element in this) {
@@ -3161,7 +3161,7 @@ public fun Sequence<Double>.average(): Double {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfByte")
-public fun Sequence<Byte>.sum(): Int {
+public fun local Sequence<Byte>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3175,7 +3175,7 @@ public fun Sequence<Byte>.sum(): Int {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfShort")
-public fun Sequence<Short>.sum(): Int {
+public fun local Sequence<Short>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3189,7 +3189,7 @@ public fun Sequence<Short>.sum(): Int {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfInt")
-public fun Sequence<Int>.sum(): Int {
+public fun local Sequence<Int>.sum(): Int {
     var sum: Int = 0
     for (element in this) {
         sum += element
@@ -3203,7 +3203,7 @@ public fun Sequence<Int>.sum(): Int {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfLong")
-public fun Sequence<Long>.sum(): Long {
+public fun local Sequence<Long>.sum(): Long {
     var sum: Long = 0L
     for (element in this) {
         sum += element
@@ -3217,7 +3217,7 @@ public fun Sequence<Long>.sum(): Long {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfFloat")
-public fun Sequence<Float>.sum(): Float {
+public fun local Sequence<Float>.sum(): Float {
     var sum: Float = 0.0f
     for (element in this) {
         sum += element
@@ -3231,7 +3231,7 @@ public fun Sequence<Float>.sum(): Float {
  * The operation is _terminal_.
  */
 @kotlin.jvm.JvmName("sumOfDouble")
-public fun Sequence<Double>.sum(): Double {
+public fun local Sequence<Double>.sum(): Double {
     var sum: Double = 0.0
     for (element in this) {
         sum += element

@@ -23,7 +23,7 @@ import kotlin.experimental.ExperimentalTypeInference
  */
 @SinceKotlin("1.3")
 @Suppress("DEPRECATION")
-public fun <T> sequence(@BuilderInference block: suspend SequenceScope<T>.() -> Unit): Sequence<T> = Sequence { iterator(block) }
+public fun <T> sequence(@BuilderInference local block: local SequenceScope<T, block>.() -> Unit): Sequence<T>_{block} = Sequence { iterator(block) }
 
 /**
  * Builds an [Iterator] lazily yielding values one by one.
@@ -33,10 +33,81 @@ public fun <T> sequence(@BuilderInference block: suspend SequenceScope<T>.() -> 
  */
 @SinceKotlin("1.3")
 @Suppress("DEPRECATION")
-public fun <T> iterator(@BuilderInference block: suspend SequenceScope<T>.() -> Unit): Iterator<T> {
-    val iterator = SequenceBuilderIterator<T>()
-    iterator.nextStep = block.createCoroutineUnintercepted(receiver = iterator, completion = iterator)
-    return iterator
+public fun <T> iterator(@BuilderInference local block: local SequenceScope<T, block>.() -> Unit): Iterator<T>_{block} = object : Generator<T>() {
+    private interface Yielder {
+        fun yield(local StackRoot, T)
+        fun yieldAll(local StackRoot, Iterator<T>_{block})
+    }
+    var stack: Stack? = Stack()
+    var yielder: Yielder?
+    var suspension: StackSuspension<Unit, Unit>_{block}? = null
+
+    override fun generate(local yieldReturn: (T) -> Nothing, local yieldAllReturn: (Iterator<T>_{block}) -> Nothing) = mount { guardian ->
+        stack?.attach {
+            yielder = object : Yielder {
+                override fun yield(local root: StackRoot, element: T) {
+                    guardian.suspend(Unit) {
+                        yielder = null
+                        suspension = it
+                        yieldReturn(element)
+                    }
+                }
+                override fun yieldAll(local root: StackRoot, iterator: Iterator<T>_{block}) {
+                    guardian.suspend(Unit) {
+                        yielder = null
+                        suspension = it
+                        yieldAllReturn(element)
+                    }
+                }
+            }
+            if (suspension == null) {
+                stack.execute { root ->
+                    object scope : SequenceScope<T, block>() {
+                        override fun yield(value: T) {
+                            yielder!.yield(root, value)
+                        }
+                        override fun yieldAll(iterator: Iterator<T>_{block}) {
+                            yielder!.yieldAll(root, iterator)
+                        }
+                    }
+                    scope.block()
+                    guardian.consult {
+                        return@generate
+                    }
+                }
+            } else {
+                suspension.resume { Unit }
+            }
+        }
+    }
+}
+
+private local abstract class Generator<out T>: AbstractIterator<T>() {
+    private[this] var after: Iterator<T>_{this}? = null
+    override fun computeNext() {
+        after?.let {
+            if (it.hasNext()) {
+                setNext(it.next())
+                return@computeNext
+            } else {
+                after = null
+            }
+        }
+        generate(
+            {
+                setNext(it)
+                return@computeNext
+            },
+            {
+                if (it.hasNext()) {
+                    setNext(it.next())
+                    after = it
+                    return@computeNext
+                }
+            }
+        )
+    }
+    abstract fun generate(local yield: (T) -> Nothing, local yieldAll: (Iterator<T>_{this}) -> Nothing)
 }
 
 /**
@@ -50,7 +121,7 @@ public fun <T> iterator(@BuilderInference block: suspend SequenceScope<T>.() -> 
  */
 @RestrictsSuspension
 @SinceKotlin("1.3")
-public abstract class SequenceScope<in T> internal constructor() {
+public local abstract class SequenceScope<in T, out local owner> internal constructor() {
     /**
      * Yields a value to the [Iterator] being built and suspends
      * until the next value is requested.
@@ -58,7 +129,7 @@ public abstract class SequenceScope<in T> internal constructor() {
      * @sample samples.collections.Sequences.Building.buildSequenceYieldAll
      * @sample samples.collections.Sequences.Building.buildFibonacciSequence
      */
-    public abstract suspend fun yield(value: T)
+    public abstract fun yield(value: T)
 
     /**
      * Yields all values from the `iterator` to the [Iterator] being built
@@ -68,7 +139,7 @@ public abstract class SequenceScope<in T> internal constructor() {
      *
      * @sample samples.collections.Sequences.Building.buildSequenceYieldAll
      */
-    public abstract suspend fun yieldAll(iterator: Iterator<T>)
+    public abstract fun yieldAll(iterator: Iterator<T>_{owner})
 
     /**
      * Yields a collections of values to the [Iterator] being built
@@ -76,7 +147,7 @@ public abstract class SequenceScope<in T> internal constructor() {
      *
      * @sample samples.collections.Sequences.Building.buildSequenceYieldAll
      */
-    public suspend fun yieldAll(elements: Iterable<T>) {
+    public fun yieldAll(elements: Iterable<T>_{owner}) {
         if (elements is Collection && elements.isEmpty()) return
         return yieldAll(elements.iterator())
     }
@@ -89,101 +160,5 @@ public abstract class SequenceScope<in T> internal constructor() {
      *
      * @sample samples.collections.Sequences.Building.buildSequenceYieldAll
      */
-    public suspend fun yieldAll(sequence: Sequence<T>): Unit = yieldAll(sequence.iterator())
-}
-
-private typealias State = Int
-
-private const val State_NotReady: State = 0
-private const val State_ManyNotReady: State = 1
-private const val State_ManyReady: State = 2
-private const val State_Ready: State = 3
-private const val State_Done: State = 4
-private const val State_Failed: State = 5
-
-private class SequenceBuilderIterator<T> : SequenceScope<T>(), Iterator<T>, Continuation<Unit> {
-    private var state = State_NotReady
-    private var nextValue: T? = null
-    private var nextIterator: Iterator<T>? = null
-    var nextStep: Continuation<Unit>? = null
-
-    override fun hasNext(): Boolean {
-        while (true) {
-            when (state) {
-                State_NotReady -> {}
-                State_ManyNotReady ->
-                    if (nextIterator!!.hasNext()) {
-                        state = State_ManyReady
-                        return true
-                    } else {
-                        nextIterator = null
-                    }
-                State_Done -> return false
-                State_Ready, State_ManyReady -> return true
-                else -> throw exceptionalState()
-            }
-
-            state = State_Failed
-            val step = nextStep!!
-            nextStep = null
-            step.resume(Unit)
-        }
-    }
-
-    override fun next(): T {
-        when (state) {
-            State_NotReady, State_ManyNotReady -> return nextNotReady()
-            State_ManyReady -> {
-                state = State_ManyNotReady
-                return nextIterator!!.next()
-            }
-            State_Ready -> {
-                state = State_NotReady
-                @Suppress("UNCHECKED_CAST")
-                val result = nextValue as T
-                nextValue = null
-                return result
-            }
-            else -> throw exceptionalState()
-        }
-    }
-
-    private fun nextNotReady(): T {
-        if (!hasNext()) throw NoSuchElementException() else return next()
-    }
-
-    private fun exceptionalState(): Throwable = when (state) {
-        State_Done -> NoSuchElementException()
-        State_Failed -> IllegalStateException("Iterator has failed.")
-        else -> IllegalStateException("Unexpected state of the iterator: $state")
-    }
-
-
-    override suspend fun yield(value: T) {
-        nextValue = value
-        state = State_Ready
-        return suspendCoroutineUninterceptedOrReturn { c ->
-            nextStep = c
-            COROUTINE_SUSPENDED
-        }
-    }
-
-    override suspend fun yieldAll(iterator: Iterator<T>) {
-        if (!iterator.hasNext()) return
-        nextIterator = iterator
-        state = State_ManyReady
-        return suspendCoroutineUninterceptedOrReturn { c ->
-            nextStep = c
-            COROUTINE_SUSPENDED
-        }
-    }
-
-    // Completion continuation implementation
-    override fun resumeWith(result: Result<Unit>) {
-        result.getOrThrow() // just rethrow exception if it is there
-        state = State_Done
-    }
-
-    override val context: CoroutineContext
-        get() = EmptyCoroutineContext
+    public fun yieldAll(sequence: Sequence<T>_{owner}): Unit = yieldAll(sequence.iterator())
 }

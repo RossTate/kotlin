@@ -16,5 +16,5 @@ import kotlin.internal.InlineOnly
  */
 @InlineOnly
 @SinceKotlin("1.6")
-public inline infix fun <T> Comparable<T>.compareTo(other: T): Int =
+public inline infix fun <T> local Comparable<T>.compareTo(other: T): Int =
     this.compareTo(other)

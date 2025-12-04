@@ -61,7 +61,7 @@ public expect interface AutoCloseable {
  */
 @SinceKotlin("2.0")
 @kotlin.internal.InlineOnly
-public expect inline fun AutoCloseable(crossinline closeAction: () -> Unit): AutoCloseable
+public expect inline fun AutoCloseable(local closeAction: () -> Unit): AutoCloseable_{closeAction}
 
 /**
  * Executes the given [block] function on this resource and then closes it down correctly whether an exception
@@ -78,9 +78,6 @@ public expect inline fun AutoCloseable(crossinline closeAction: () -> Unit): Aut
 @WasExperimental(ExperimentalStdlibApi::class)
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public expect inline fun <T : AutoCloseable?, R> T.use(block: (T) -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public expect inline fun <T : AutoCloseable?, R> local T.use(once block: (local T) -> R): R {
     error("Unreachable")
 }

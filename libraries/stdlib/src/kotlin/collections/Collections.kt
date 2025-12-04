@@ -62,7 +62,7 @@ private class ArrayAsCollection<T>(val values: Array<out T>, val isVarargs: Bool
     override val size: Int get() = values.size
     override fun isEmpty(): Boolean = values.isEmpty()
     override fun contains(element: T): Boolean = values.contains(element)
-    override fun containsAll(elements: Collection<T>): Boolean = elements.all { contains(it) }
+    override fun containsAll(local elements: Collection<T>): Boolean = elements.all { contains(it) }
     override fun iterator(): Iterator<T> = values.iterator()
     // override hidden toArray implementation to prevent copying of values array
     public fun toArray(): Array<out Any?> = values.copyToArrayOfAny(isVarargs)

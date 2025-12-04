@@ -38,10 +38,7 @@ public inline fun TODO(reason: String): Nothing = throw NotImplementedError("An 
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <R> run(block: () -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <R> run(once block: () -> R): R {
     return block()
 }
 
@@ -52,10 +49,7 @@ public inline fun <R> run(block: () -> R): R {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T, R> T.run(block: T.() -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T, R> T.run(once block: T.() -> R): R {
     return block()
 }
 
@@ -66,10 +60,7 @@ public inline fun <T, R> T.run(block: T.() -> R): R {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T, R> with(receiver: T, block: T.() -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T, R> with(receiver: T, once block: T.() -> R): R {
     return receiver.block()
 }
 
@@ -80,10 +71,7 @@ public inline fun <T, R> with(receiver: T, block: T.() -> R): R {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T> T.apply(block: T.() -> Unit): T {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T> T.apply(once block: T.() -> Unit): T {
     block()
     return this
 }
@@ -96,10 +84,7 @@ public inline fun <T> T.apply(block: T.() -> Unit): T {
 @kotlin.internal.InlineOnly
 @SinceKotlin("1.1")
 @IgnorableReturnValue
-public inline fun <T> T.also(block: (T) -> Unit): T {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T> T.also(once block: (T) -> Unit): T {
     block(this)
     return this
 }
@@ -111,10 +96,7 @@ public inline fun <T> T.also(block: (T) -> Unit): T {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T, R> T.let(block: (T) -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T, R> T.let(once block: (T) -> R): R {
     return block(this)
 }
 
@@ -125,10 +107,7 @@ public inline fun <T, R> T.let(block: (T) -> R): R {
  */
 @kotlin.internal.InlineOnly
 @SinceKotlin("1.1")
-public inline fun <T> T.takeIf(predicate: (T) -> Boolean): T? {
-    contract {
-        callsInPlace(predicate, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T> T.takeIf(once predicate: (T) -> Boolean): T? {
     return if (predicate(this)) this else null
 }
 
@@ -139,10 +118,7 @@ public inline fun <T> T.takeIf(predicate: (T) -> Boolean): T? {
  */
 @kotlin.internal.InlineOnly
 @SinceKotlin("1.1")
-public inline fun <T> T.takeUnless(predicate: (T) -> Boolean): T? {
-    contract {
-        callsInPlace(predicate, InvocationKind.EXACTLY_ONCE)
-    }
+public inline fun <T> T.takeUnless(once predicate: (T) -> Boolean): T? {
     return if (!predicate(this)) this else null
 }
 
@@ -156,9 +132,7 @@ public inline fun <T> T.takeUnless(predicate: (T) -> Boolean): T? {
  * @sample samples.misc.ControlFlow.repeat
  */
 @kotlin.internal.InlineOnly
-public inline fun repeat(times: Int, action: (Int) -> Unit) {
-    contract { callsInPlace(action) }
-
+public inline fun repeat(times: Int, local action: (Int) -> Unit) {
     for (index in 0 until times) {
         action(index)
     }

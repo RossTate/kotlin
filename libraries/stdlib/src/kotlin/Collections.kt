@@ -15,7 +15,7 @@ public expect interface Iterable<out T> {
     /**
      * Returns an iterator over the elements of this object.
      */
-    public operator fun iterator(): Iterator<T>
+    public operator fun iterator(): Iterator<T>_{this}
 }
 
 /**
@@ -27,7 +27,7 @@ public expect interface MutableIterable<out T> : Iterable<T> {
     /**
      * Returns an iterator over the elements of this sequence that supports removing elements during iteration.
      */
-    override fun iterator(): MutableIterator<T>
+    override fun iterator(): MutableIterator<T>_{this}
 }
 
 /**
@@ -82,7 +82,7 @@ public expect interface Collection<out E> : Iterable<E> {
      */
     public operator fun contains(element: @UnsafeVariance E): Boolean
 
-    override fun iterator(): Iterator<E>
+    override fun iterator(): Iterator<E>_{this}
 
     // Bulk Operations
     /**
@@ -90,7 +90,7 @@ public expect interface Collection<out E> : Iterable<E> {
      *
      * @sample samples.collections.Collections.Collections.collectionContainsAll
      */
-    public fun containsAll(elements: Collection<@UnsafeVariance E>): Boolean
+    public fun containsAll(local elements: Collection<@UnsafeVariance E>): Boolean
 }
 
 /**
@@ -116,7 +116,7 @@ public expect interface Collection<out E> : Iterable<E> {
  */
 public expect interface MutableCollection<E> : Collection<E>, MutableIterable<E> {
     // Query Operations
-    override fun iterator(): MutableIterator<E>
+    override fun iterator(): MutableIterator<E>_{this}
 
     // Modification Operations
     /**
@@ -153,7 +153,7 @@ public expect interface MutableCollection<E> : Collection<E>, MutableIterable<E>
      * @sample samples.collections.Collections.Sets.addAll
      */
     @IgnorableReturnValue
-    public fun addAll(elements: Collection<E>): Boolean
+    public fun addAll(local elements: Collection<E>): Boolean
 
     /**
      * Removes all of this collection's elements that are also contained in the specified collection.
@@ -164,7 +164,7 @@ public expect interface MutableCollection<E> : Collection<E>, MutableIterable<E>
      * @sample samples.collections.Collections.Sets.removeAll
      */
     @IgnorableReturnValue
-    public fun removeAll(elements: Collection<E>): Boolean
+    public fun removeAll(local elements: Collection<E>): Boolean
 
     /**
      * Retains only the elements in this collection that are contained in the specified collection.
@@ -174,7 +174,7 @@ public expect interface MutableCollection<E> : Collection<E>, MutableIterable<E>
      * @sample samples.collections.Collections.Collections.retainAll
      */
     @IgnorableReturnValue
-    public fun retainAll(elements: Collection<E>): Boolean
+    public fun retainAll(local elements: Collection<E>): Boolean
 
     /**
      * Removes all elements from this collection.
@@ -221,10 +221,10 @@ public expect interface List<out E> : Collection<E> {
     override val size: Int
     override fun isEmpty(): Boolean
     override fun contains(element: @UnsafeVariance E): Boolean
-    override fun iterator(): Iterator<E>
+    override fun iterator(): Iterator<E>_{this}
 
     // Bulk Operations
-    override fun containsAll(elements: Collection<@UnsafeVariance E>): Boolean
+    override fun containsAll(local elements: Collection<@UnsafeVariance E>): Boolean
 
     // Positional Access Operations
     /**
@@ -261,14 +261,14 @@ public expect interface List<out E> : Collection<E> {
     /**
      * Returns a list iterator over the elements in this list (in proper sequence).
      */
-    public fun listIterator(): ListIterator<E>
+    public fun listIterator(): ListIterator<E>_{this}
 
     /**
      * Returns a list iterator over the elements in this list (in proper sequence), starting at the specified [index].
      *
      * @throws IndexOutOfBoundsException if [index] is less than zero or greater than or equal to [size] of this list.
      */
-    public fun listIterator(index: Int): ListIterator<E>
+    public fun listIterator(index: Int): ListIterator<E>_{this}
 
     // View
     /**
@@ -283,7 +283,7 @@ public expect interface List<out E> : Collection<E> {
      *
      * @sample samples.collections.Collections.Lists.subList
      */
-    public fun subList(fromIndex: Int, toIndex: Int): List<E>
+    public fun subList(fromIndex: Int, toIndex: Int): List<E>_{this}
 }
 
 /**
@@ -329,7 +329,7 @@ public expect interface MutableList<E> : List<E>, MutableCollection<E> {
      * @sample samples.collections.Collections.Lists.addAll
      */
     @IgnorableReturnValue
-    override fun addAll(elements: Collection<E>): Boolean
+    override fun addAll(local elements: Collection<E>): Boolean
 
     /**
      * Inserts all of the elements of the specified collection [elements] into this list at the specified [index].
@@ -347,13 +347,13 @@ public expect interface MutableList<E> : List<E>, MutableCollection<E> {
      * @sample samples.collections.Collections.Lists.addAllAt
      */
     @IgnorableReturnValue
-    public fun addAll(index: Int, elements: Collection<E>): Boolean
+    public fun addAll(index: Int, local elements: Collection<E>): Boolean
 
     @IgnorableReturnValue
-    override fun removeAll(elements: Collection<E>): Boolean
+    override fun removeAll(local elements: Collection<E>): Boolean
 
     @IgnorableReturnValue
-    override fun retainAll(elements: Collection<E>): Boolean
+    override fun retainAll(local elements: Collection<E>): Boolean
     override fun clear(): Unit
 
     // Positional Access Operations
@@ -397,9 +397,9 @@ public expect interface MutableList<E> : List<E>, MutableCollection<E> {
     public fun removeAt(index: Int): E
 
     // List Iterators
-    override fun listIterator(): MutableListIterator<E>
+    override fun listIterator(): MutableListIterator<E>_{this}
 
-    override fun listIterator(index: Int): MutableListIterator<E>
+    override fun listIterator(index: Int): MutableListIterator<E>_{this}
 
     // View
     /**
@@ -413,7 +413,7 @@ public expect interface MutableList<E> : List<E>, MutableCollection<E> {
      *
      * @sample samples.collections.Collections.Lists.subList
      */
-    override fun subList(fromIndex: Int, toIndex: Int): MutableList<E>
+    override fun subList(fromIndex: Int, toIndex: Int): MutableList<E>_{this}
 }
 
 /**
@@ -455,10 +455,10 @@ public expect interface Set<out E> : Collection<E> {
     override fun isEmpty(): Boolean
     override fun contains(element: @UnsafeVariance E): Boolean
 
-    override fun iterator(): Iterator<E>
+    override fun iterator(): Iterator<E>_{this}
 
     // Bulk Operations
-    override fun containsAll(elements: Collection<@UnsafeVariance E>): Boolean
+    override fun containsAll(local elements: Collection<@UnsafeVariance E>): Boolean
 }
 
 /**
@@ -479,7 +479,7 @@ public expect interface Set<out E> : Collection<E> {
  */
 public expect interface MutableSet<E> : Set<E>, MutableCollection<E> {
     // Query Operations
-    override fun iterator(): MutableIterator<E>
+    override fun iterator(): MutableIterator<E>_{this}
 
     // Modification Operations
 
@@ -498,11 +498,11 @@ public expect interface MutableSet<E> : Set<E>, MutableCollection<E> {
 
     // Bulk Modification Operations
     @IgnorableReturnValue
-    override fun addAll(elements: Collection<E>): Boolean
+    override fun addAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun removeAll(elements: Collection<E>): Boolean
+    override fun removeAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun retainAll(elements: Collection<E>): Boolean
+    override fun retainAll(local elements: Collection<E>): Boolean
     override fun clear(): Unit
 }
 
@@ -592,21 +592,21 @@ public expect interface Map<K, out V> {
      *
      * @sample samples.collections.Maps.CoreApi.keySet
      */
-    public val keys: Set<K>
+    public val keys: Set<K>_{this}
 
     /**
      * Returns a read-only [Collection] of all values in this map. Note that this collection may contain duplicate values.
      *
      * @sample samples.collections.Maps.CoreApi.valueSet
      */
-    public val values: Collection<V>
+    public val values: Collection<V>_{this}
 
     /**
      * Returns a read-only [Set] of all key/value pairs in this map.
      *
      * @sample samples.collections.Maps.CoreApi.entrySet
      */
-    public val entries: Set<Map.Entry<K, V>>
+    public val entries: Set<Map.Entry<K, V>>_{this}
 
     /**
      * Represents a key/value pair held by a [Map].
@@ -673,7 +673,7 @@ public expect interface MutableMap<K, V> : Map<K, V> {
      *
      * @sample samples.collections.Maps.CoreApi.putAll
      */
-    public fun putAll(from: Map<out K, V>): Unit
+    public fun putAll(local from: Map<out K, V>): Unit
 
     /**
      * Removes all elements from this map.
@@ -688,21 +688,21 @@ public expect interface MutableMap<K, V> : Map<K, V> {
      *
      * @sample samples.collections.Maps.CoreApi.keySetMutable
      */
-    public override val keys: MutableSet<K>
+    public override val keys: MutableSet<K>_{this}
 
     /**
      * Returns a [MutableCollection] of all values in this map. Note that this collection may contain duplicate values.
      *
      * @sample samples.collections.Maps.CoreApi.valueSetMutable
      */
-    public override val values: MutableCollection<V>
+    public override val values: MutableCollection<V>_{this}
 
     /**
      * Returns a [MutableSet] of all key/value pairs in this map.
      *
      * @sample samples.collections.Maps.CoreApi.entrySetMutable
      */
-    public override val entries: MutableSet<MutableMap.MutableEntry<K, V>>
+    public override val entries: MutableSet<MutableMap.MutableEntry<K, V>>_{this}
 
     /**
      * Represents a key/value pair held by a [MutableMap].

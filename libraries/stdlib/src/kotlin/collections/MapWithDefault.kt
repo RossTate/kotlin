@@ -17,7 +17,7 @@ package kotlin.collections
  */
 @kotlin.jvm.JvmName("getOrImplicitDefaultNullable")
 @PublishedApi
-internal fun <K, V> Map<K, V>.getOrImplicitDefault(key: K): V {
+internal fun <K, V> local Map<K, V>.getOrImplicitDefault(key: K): V {
     if (this is MapWithDefault)
         return this.getOrImplicitDefault(key)
 
@@ -35,7 +35,7 @@ internal fun <K, V> Map<K, V>.getOrImplicitDefault(key: K): V {
  * @sample samples.collections.Maps.Usage.getValueWithDefault
  * @sample samples.collections.Maps.Usage.getValueWithReplacedDefault
  */
-public fun <K, V> Map<K, V>.withDefault(defaultValue: (key: K) -> V): Map<K, V> =
+public fun <K, V> local Map<K, V>.withDefault(local defaultValue: (key: K) -> V): Map<K, V>_{this&defaultValue} =
     when (this) {
         is MapWithDefault -> this.map.withDefault(defaultValue)
         else -> MapWithDefaultImpl(this, defaultValue)
@@ -54,7 +54,7 @@ public fun <K, V> Map<K, V>.withDefault(defaultValue: (key: K) -> V): Map<K, V> 
  * @sample samples.collections.Maps.Usage.changesToMutableMapWithDefaultPropagateToUnderlyingMap
  */
 @kotlin.jvm.JvmName("withDefaultMutable")
-public fun <K, V> MutableMap<K, V>.withDefault(defaultValue: (key: K) -> V): MutableMap<K, V> =
+public fun <K, V> local MutableMap<K, V>.withDefault(local defaultValue: (key: K) -> V): MutableMap<K, V>_{this&defaultValue} =
     when (this) {
         is MutableMapWithDefault -> this.map.withDefault(defaultValue)
         else -> MutableMapWithDefaultImpl(this, defaultValue)
@@ -62,16 +62,16 @@ public fun <K, V> MutableMap<K, V>.withDefault(defaultValue: (key: K) -> V): Mut
 
 
 private interface MapWithDefault<K, out V> : Map<K, V> {
-    public val map: Map<K, V>
+    public val map: Map<K, V>_{this}
     public fun getOrImplicitDefault(key: K): V
 }
 
 private interface MutableMapWithDefault<K, V> : MutableMap<K, V>, MapWithDefault<K, V> {
-    public override val map: MutableMap<K, V>
+    public override val map: MutableMap<K, V>_{this}
 }
 
 
-private class MapWithDefaultImpl<K, out V>(public override val map: Map<K, V>, private val default: (key: K) -> V) : MapWithDefault<K, V> {
+private local class MapWithDefaultImpl<K, out V>(public override val map: Map<K, V>_{this}, private val default: (key: K) ->_{this} V) : MapWithDefault<K, V> {
     override fun equals(other: Any?): Boolean = map.equals(other)
     override fun hashCode(): Int = map.hashCode()
     override fun toString(): String = map.toString()
@@ -80,14 +80,14 @@ private class MapWithDefaultImpl<K, out V>(public override val map: Map<K, V>, p
     override fun containsKey(key: K): Boolean = map.containsKey(key)
     override fun containsValue(value: @UnsafeVariance V): Boolean = map.containsValue(value)
     override fun get(key: K): V? = map.get(key)
-    override val keys: Set<K> get() = map.keys
-    override val values: Collection<V> get() = map.values
-    override val entries: Set<Map.Entry<K, V>> get() = map.entries
+    override val keys: Set<K>_{this} get() = map.keys
+    override val values: Collection<V> get()_{this} = map.values
+    override val entries: Set<Map.Entry<K, V>>_{this} get() = map.entries
 
     override fun getOrImplicitDefault(key: K): V = map.getOrElseNullable(key, { default(key) })
 }
 
-private class MutableMapWithDefaultImpl<K, V>(public override val map: MutableMap<K, V>, private val default: (key: K) -> V) : MutableMapWithDefault<K, V> {
+private local class MutableMapWithDefaultImpl<K, V>(public override val map: MutableMap<K, V>_{this}, private val default: (key: K) ->_{this} V) : MutableMapWithDefault<K, V> {
     override fun equals(other: Any?): Boolean = map.equals(other)
     override fun hashCode(): Int = map.hashCode()
     override fun toString(): String = map.toString()
@@ -96,13 +96,13 @@ private class MutableMapWithDefaultImpl<K, V>(public override val map: MutableMa
     override fun containsKey(key: K): Boolean = map.containsKey(key)
     override fun containsValue(value: @UnsafeVariance V): Boolean = map.containsValue(value)
     override fun get(key: K): V? = map.get(key)
-    override val keys: MutableSet<K> get() = map.keys
-    override val values: MutableCollection<V> get() = map.values
-    override val entries: MutableSet<MutableMap.MutableEntry<K, V>> get() = map.entries
+    override val keys: MutableSet<K>_{this} get() = map.keys
+    override val values: MutableCollection<V>_{this} get() = map.values
+    override val entries: MutableSet<MutableMap.MutableEntry<K, V>>_{this} get() = map.entries
 
     override fun put(key: K, value: V): V? = map.put(key, value)
     override fun remove(key: K): V? = map.remove(key)
-    override fun putAll(from: Map<out K, V>) = map.putAll(from)
+    override fun putAll(local from: Map<out K, V>) = map.putAll(from)
     override fun clear() = map.clear()
 
     override fun getOrImplicitDefault(key: K): V = map.getOrElseNullable(key, { default(key) })

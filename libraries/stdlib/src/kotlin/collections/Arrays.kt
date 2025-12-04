@@ -73,7 +73,7 @@ public inline fun Array<*>?.isNullOrEmpty(): Boolean {
 @SinceKotlin("1.3")
 @kotlin.internal.InlineOnly
 @Suppress("UPPER_BOUND_CANNOT_BE_ARRAY")
-public inline fun <C, R> C.ifEmpty(defaultValue: () -> R): R where C : Array<*>, C : R {
+public inline fun <C, R> C.ifEmpty(local defaultValue: () -> R): R where C : Array<*>, C : R {
     contract {
         callsInPlace(defaultValue, InvocationKind.AT_MOST_ONCE)
     }
@@ -136,7 +136,7 @@ internal fun <T> Array<out T>?.contentDeepToStringImpl(): String {
 }
 
 @OptIn(ExperimentalUnsignedTypes::class)
-private fun <T> Array<out T>.contentDeepToStringInternal(result: StringBuilder, processed: MutableList<Array<*>>) {
+private fun <T> Array<out T>.contentDeepToStringInternal(result: StringBuilder, local processed: MutableList<Array<*>>) {
     if (this in processed) {
         result.append("[...]")
         return

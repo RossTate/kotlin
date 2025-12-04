@@ -9,7 +9,7 @@ package kotlin
 /**
  * The root of the Kotlin class hierarchy. Every Kotlin class has [Any] as a superclass.
  */
-public expect open class Any() {
+public expect local open class Any() {
     /**
      * Indicates whether some other object is "equal to" this one.
      *

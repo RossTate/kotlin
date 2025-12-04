@@ -24,7 +24,7 @@ import kotlin.ranges.reversed
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.minus(element: T): Set<T> {
+public operator fun <T> local Set<T>.minus(element: T): Set<T> {
     val result = LinkedHashSet<T>(mapCapacity(size))
     var removed = false
     return this.filterTo(result) { if (!removed && it == element) { removed = true; false } else true }
@@ -35,7 +35,7 @@ public operator fun <T> Set<T>.minus(element: T): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.minus(elements: Array<out T>): Set<T> {
+public operator fun <T> local Set<T>.minus(elements: Array<out T>): Set<T> {
     val result = LinkedHashSet<T>(this)
     result.removeAll(elements)
     return result
@@ -46,7 +46,7 @@ public operator fun <T> Set<T>.minus(elements: Array<out T>): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.minus(elements: Iterable<T>): Set<T> {
+public operator fun <T> local Set<T>.minus(local elements: Iterable<T>): Set<T> {
     val other = elements.convertToListIfNotCollection()
     if (other.isEmpty())
         return this.toSet()
@@ -62,7 +62,7 @@ public operator fun <T> Set<T>.minus(elements: Iterable<T>): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.minus(elements: Sequence<T>): Set<T> {
+public operator fun <T> local Set<T>.minus(local elements: Sequence<T>): Set<T> {
     val result = LinkedHashSet<T>(this)
     result.removeAll(elements)
     return result
@@ -74,7 +74,7 @@ public operator fun <T> Set<T>.minus(elements: Sequence<T>): Set<T> {
  * The returned set preserves the element iteration order of the original set.
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Set<T>.minusElement(element: T): Set<T> {
+public inline fun <T> local Set<T>.minusElement(local element: T): Set<T> {
     return minus(element)
 }
 
@@ -83,7 +83,7 @@ public inline fun <T> Set<T>.minusElement(element: T): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.plus(element: T): Set<T> {
+public operator fun <T> local Set<T>.plus(element: T): Set<T> {
     val result = LinkedHashSet<T>(mapCapacity(size + 1))
     result.addAll(this)
     result.add(element)
@@ -96,7 +96,7 @@ public operator fun <T> Set<T>.plus(element: T): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.plus(elements: Array<out T>): Set<T> {
+public operator fun <T> local Set<T>.plus(elements: Array<out T>): Set<T> {
     val result = LinkedHashSet<T>(mapCapacity(this.size + elements.size))
     result.addAll(this)
     result.addAll(elements)
@@ -108,7 +108,7 @@ public operator fun <T> Set<T>.plus(elements: Array<out T>): Set<T> {
  * which aren't already in this set.
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.plus(elements: Iterable<T>): Set<T> {
+public operator fun <T> local Set<T>.plus(local elements: Iterable<T>): Set<T> {
     val result = LinkedHashSet<T>(mapCapacity(elements.collectionSizeOrNull()?.let { this.size + it } ?: this.size * 2))
     result.addAll(this)
     result.addAll(elements)
@@ -121,7 +121,7 @@ public operator fun <T> Set<T>.plus(elements: Iterable<T>): Set<T> {
  * 
  * The returned set preserves the element iteration order of the original set.
  */
-public operator fun <T> Set<T>.plus(elements: Sequence<T>): Set<T> {
+public operator fun <T> local Set<T>.plus(local elements: Sequence<T>): Set<T> {
     val result = LinkedHashSet<T>(mapCapacity(this.size * 2))
     result.addAll(this)
     result.addAll(elements)
@@ -134,7 +134,7 @@ public operator fun <T> Set<T>.plus(elements: Sequence<T>): Set<T> {
  * The returned set preserves the element iteration order of the original set.
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Set<T>.plusElement(element: T): Set<T> {
+public inline fun <T> local Set<T>.plusElement(element: T): Set<T> {
     return plus(element)
 }
 

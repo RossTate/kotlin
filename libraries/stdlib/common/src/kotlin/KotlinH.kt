@@ -92,7 +92,7 @@ public expect fun Float.Companion.fromBits(bits: Int): Float
  *
  * @sample samples.lazy.LazySamples.lazySample
  */
-public expect fun <T> lazy(initializer: () -> T): Lazy<T>
+public expect fun <T> lazy(local initializer: () -> T): Lazy<T>_{initializer}
 
 /**
  * Creates a new instance of the [Lazy] that uses the specified initialization function [initializer]
@@ -105,7 +105,7 @@ public expect fun <T> lazy(initializer: () -> T): Lazy<T>
  * @sample samples.lazy.LazySamples.lazySynchronizedSample
  * @sample samples.lazy.LazySamples.lazySafePublicationSample
  */
-public expect fun <T> lazy(mode: LazyThreadSafetyMode, initializer: () -> T): Lazy<T>
+public expect fun <T> lazy(mode: LazyThreadSafetyMode, local initializer: () -> T): Lazy<T>_{initializer}
 
 /**
  * Creates a new instance of the [Lazy] that uses the specified initialization function [initializer].
@@ -114,4 +114,4 @@ public expect fun <T> lazy(mode: LazyThreadSafetyMode, initializer: () -> T): La
  */
 @Deprecated("Synchronization on Any? object is supported only in Kotlin/JVM.", ReplaceWith("lazy(initializer)"))
 @DeprecatedSinceKotlin(warningSince = "1.9", errorSince = "2.1")
-public expect fun <T> lazy(lock: Any?, initializer: () -> T): Lazy<T>
+public expect fun <T> lazy(lock: Any?, local initializer: () -> T): Lazy<T>

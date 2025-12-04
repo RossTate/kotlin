@@ -39,5 +39,5 @@ public expect interface CharSequence {
      * @param startIndex the start index (inclusive).
      * @param endIndex the end index (exclusive).
      */
-    public fun subSequence(startIndex: Int, endIndex: Int): CharSequence
+    public fun subSequence(startIndex: Int, endIndex: Int): CharSequence_{this}
 }

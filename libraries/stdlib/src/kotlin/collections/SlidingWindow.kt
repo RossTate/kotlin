@@ -14,12 +14,12 @@ internal fun checkWindowSizeStep(size: Int, step: Int) {
     }
 }
 
-internal fun <T> Sequence<T>.windowedSequence(size: Int, step: Int, partialWindows: Boolean, reuseBuffer: Boolean): Sequence<List<T>> {
+internal fun <T> local Sequence<T>.windowedSequence(size: Int, step: Int, partialWindows: Boolean, reuseBuffer: Boolean): Sequence<List<T>>_{this} {
     checkWindowSizeStep(size, step)
     return Sequence { windowedIterator(iterator(), size, step, partialWindows, reuseBuffer) }
 }
 
-internal fun <T> windowedIterator(iterator: Iterator<T>, size: Int, step: Int, partialWindows: Boolean, reuseBuffer: Boolean): Iterator<List<T>> {
+internal fun <T> windowedIterator(local iterator: Iterator<T>, size: Int, step: Int, partialWindows: Boolean, reuseBuffer: Boolean): Iterator<List<T>>_{iterator} {
     if (!iterator.hasNext()) return EmptyIterator
     return iterator<List<T>> {
         val bufferInitialCapacity = size.coerceAtMost(1024)

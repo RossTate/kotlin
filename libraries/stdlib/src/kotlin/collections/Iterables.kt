@@ -13,16 +13,16 @@ package kotlin.collections
  * @sample samples.collections.Iterables.Building.iterable
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Iterable(crossinline iterator: () -> Iterator<T>): Iterable<T> = object : Iterable<T> {
-    override fun iterator(): Iterator<T> = iterator()
+public inline fun <T> Iterable(local iterator: () -> Iterator<T>_{iterator}): Iterable<T>_{iterator} = object : Iterable<T> {
+    override fun iterator(): Iterator<T>_{iterable} = iterator()
 }
 
 /**
  * A wrapper over another [Iterable] (or any other object that can produce an [Iterator]) that returns
  * an indexing iterator.
  */
-internal class IndexingIterable<out T>(private val iteratorFactory: () -> Iterator<T>) : Iterable<IndexedValue<T>> {
-    override fun iterator(): Iterator<IndexedValue<T>> = IndexingIterator(iteratorFactory())
+internal class IndexingIterable<out T>(private val iteratorFactory: () ->_{this} Iterator<T>_{this}) : Iterable<IndexedValue<T>> {
+    override fun iterator(): Iterator<IndexedValue<T>>_{iteratorFactory} = IndexingIterator(iteratorFactory())
 }
 
 
@@ -30,20 +30,20 @@ internal class IndexingIterable<out T>(private val iteratorFactory: () -> Iterat
  * Returns the size of this iterable if it is known, or `null` otherwise.
  */
 @PublishedApi
-internal fun <T> Iterable<T>.collectionSizeOrNull(): Int? = if (this is Collection<*>) this.size else null
+internal fun <T> local Iterable<T>.collectionSizeOrNull(): Int? = if (this is Collection<*>) this.size else null
 
 /**
  * Returns the size of this iterable if it is known, or the specified [default] value otherwise.
  */
 @PublishedApi
-internal fun <T> Iterable<T>.collectionSizeOrDefault(default: Int): Int = if (this is Collection<*>) this.size else default
+internal fun <T> local Iterable<T>.collectionSizeOrDefault(default: Int): Int = if (this is Collection<*>) this.size else default
 
 
 /**
  * Returns a single list of all elements from all collections in the given collection.
  * @sample samples.collections.Iterables.Operations.flattenIterable
  */
-public fun <T> Iterable<Iterable<T>>.flatten(): List<T> {
+public fun <T> local Iterable<Iterable<T>_{this}>.flatten(): List<T> {
     val result = ArrayList<T>()
     for (element in this) {
         result.addAll(element)
@@ -57,7 +57,7 @@ public fun <T> Iterable<Iterable<T>>.flatten(): List<T> {
  * *second* list is built from the second values of each pair from this collection.
  * @sample samples.collections.Iterables.Operations.unzipIterable
  */
-public fun <T, R> Iterable<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
+public fun <T, R> local Iterable<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
     val expectedSize = collectionSizeOrDefault(10)
     val listT = ArrayList<T>(expectedSize)
     val listR = ArrayList<R>(expectedSize)
