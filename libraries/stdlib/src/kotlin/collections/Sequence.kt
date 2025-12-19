@@ -24,5 +24,5 @@ public interface Sequence<out T> {
      *
      * Throws an exception if the sequence is constrained to be iterated once and `iterator` is invoked the second time.
      */
-    public operator fun iterator(): Iterator<T>
+    public operator fun iterator(): Iterator<T>_{this}
 }

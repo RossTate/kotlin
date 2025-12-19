@@ -41,7 +41,7 @@ public fun <T> emptySet(): Set<T> = EmptySet
  * The returned set is serializable (JVM).
  * @sample samples.collections.Collections.Sets.readOnlySet
  */
-public fun <T> setOf(vararg elements: T): Set<T> = elements.toSet()
+public fun <T> setOf(local vararg elements: T): Set<T> = elements.toSet()
 
 /**
  * Returns a new read-only set containing only the specified object [element].
@@ -75,7 +75,7 @@ public inline fun <T> mutableSetOf(): MutableSet<T> = LinkedHashSet()
  * Elements of the set are iterated in the order they were specified.
  * @sample samples.collections.Collections.Sets.mutableSet
  */
-public fun <T> mutableSetOf(vararg elements: T): MutableSet<T> = elements.toCollection(LinkedHashSet(mapCapacity(elements.size)))
+public fun <T> mutableSetOf(local vararg elements: T): MutableSet<T> = elements.toCollection(LinkedHashSet(mapCapacity(elements.size)))
 
 /** Returns an empty new [HashSet]. */
 @SinceKotlin("1.1")
@@ -83,7 +83,7 @@ public fun <T> mutableSetOf(vararg elements: T): MutableSet<T> = elements.toColl
 public inline fun <T> hashSetOf(): HashSet<T> = HashSet()
 
 /** Returns a new [HashSet] with the given elements. */
-public fun <T> hashSetOf(vararg elements: T): HashSet<T> = elements.toCollection(HashSet(mapCapacity(elements.size)))
+public fun <T> hashSetOf(local vararg elements: T): HashSet<T> = elements.toCollection(HashSet(mapCapacity(elements.size)))
 
 /**
  * Returns an empty new [LinkedHashSet].
@@ -98,7 +98,7 @@ public inline fun <T> linkedSetOf(): LinkedHashSet<T> = LinkedHashSet()
  * Elements of the set are iterated in the order they were specified.
  * @sample samples.collections.Collections.Sets.linkedHashSet
  */
-public fun <T> linkedSetOf(vararg elements: T): LinkedHashSet<T> = elements.toCollection(LinkedHashSet(mapCapacity(elements.size)))
+public fun <T> linkedSetOf(local vararg elements: T): LinkedHashSet<T> = elements.toCollection(LinkedHashSet(mapCapacity(elements.size)))
 
 /**
  * Returns a new read-only set either with single given element, if it is not null, or empty set if the element is null.
@@ -115,7 +115,7 @@ public fun <T : Any> setOfNotNull(element: T?): Set<T> = if (element != null) se
  * @sample samples.collections.Collections.Sets.setOfNotNull
  */
 @SinceKotlin("1.4")
-public fun <T : Any> setOfNotNull(vararg elements: T?): Set<T> {
+public fun <T : Any> setOfNotNull(local vararg elements: T?): Set<T> {
     return elements.filterNotNullTo(LinkedHashSet())
 }
 
@@ -135,15 +135,14 @@ public fun <T : Any> setOfNotNull(vararg elements: T?): Set<T> {
 @SinceKotlin("1.6")
 @kotlin.internal.InlineOnly
 @Suppress("LEAKED_IN_PLACE_LAMBDA", "WRONG_INVOCATION_KIND", "DEPRECATION")
-public inline fun <E> buildSet(@BuilderInference builderAction: MutableSet<E>.() -> Unit): Set<E> {
-    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+public inline fun <E> buildSet(@BuilderInference once builderAction: local MutableSet<E>.() -> Unit): Set<E> {
     return buildSetInternal(builderAction)
 }
 
 @PublishedApi
 @SinceKotlin("1.3")
 @kotlin.internal.InlineOnly
-internal expect inline fun <E> buildSetInternal(builderAction: MutableSet<E>.() -> Unit): Set<E>
+internal expect inline fun <E> buildSetInternal(once builderAction: local MutableSet<E>.() -> Unit): Set<E>
 
 /**
  * Builds a new read-only [Set] by populating a [MutableSet] using the given [builderAction]
@@ -165,15 +164,14 @@ internal expect inline fun <E> buildSetInternal(builderAction: MutableSet<E>.() 
 @SinceKotlin("1.6")
 @kotlin.internal.InlineOnly
 @Suppress("LEAKED_IN_PLACE_LAMBDA", "WRONG_INVOCATION_KIND", "DEPRECATION")
-public inline fun <E> buildSet(capacity: Int, @BuilderInference builderAction: MutableSet<E>.() -> Unit): Set<E> {
-    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+public inline fun <E> buildSet(capacity: Int, @BuilderInference once builderAction: local MutableSet<E>.() -> Unit): Set<E> {
     return buildSetInternal(capacity, builderAction)
 }
 
 @PublishedApi
 @SinceKotlin("1.3")
 @kotlin.internal.InlineOnly
-internal expect inline fun <E> buildSetInternal(capacity: Int, builderAction: MutableSet<E>.() -> Unit): Set<E>
+internal expect inline fun <E> buildSetInternal(capacity: Int, once builderAction: local MutableSet<E>.() -> Unit): Set<E>
 
 
 /**
@@ -181,9 +179,9 @@ internal expect inline fun <E> buildSetInternal(capacity: Int, builderAction: Mu
  * @sample samples.collections.Collections.Sets.setOrEmpty
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Set<T>?.orEmpty(): Set<T> = this ?: emptySet()
+public inline fun <T> local Set<T>?.orEmpty(): Set<T>_{this} = this ?: emptySet()
 
-internal fun <T> Set<T>.optimizeReadOnlySet() = when (size) {
+internal fun <T> local Set<T>.optimizeReadOnlySet(): Set<T>_{this} = when (size) {
     0 -> emptySet()
     1 -> setOf(iterator().next())
     else -> this

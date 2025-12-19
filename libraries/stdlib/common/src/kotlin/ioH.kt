@@ -10,10 +10,10 @@ package kotlin.io
 public expect fun println()
 
 /** Prints the given [message] and the line separator to the standard output stream. */
-public expect fun println(message: Any?)
+public expect fun println(local message: Any?)
 
 /** Prints the given [message] to the standard output stream. */
-public expect fun print(message: Any?)
+public expect fun print(local message: Any?)
 
 /**
  * Reads a line of input from the standard input stream and returns it,

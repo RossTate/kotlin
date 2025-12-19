@@ -12,13 +12,13 @@ import kotlin.js.JsName
  * @param E the type of elements contained in the collection. The collection is covariant in its element type.
  */
 @SinceKotlin("1.1")
-public abstract class AbstractCollection<out E> protected constructor() : Collection<E> {
+public local abstract class AbstractCollection<out E> protected constructor() : Collection<E> {
     abstract override val size: Int
-    abstract override fun iterator(): Iterator<E>
+    abstract override fun iterator(): Iterator<E>_{this}
 
     override fun contains(element: @UnsafeVariance E): Boolean = any { it == element }
 
-    override fun containsAll(elements: Collection<@UnsafeVariance E>): Boolean =
+    override fun containsAll(local elements: Collection<@UnsafeVariance E>): Boolean =
         elements.all { contains(it) } // use when js will support bound refs: elements.all(this::contains)
 
     override fun isEmpty(): Boolean = size == 0

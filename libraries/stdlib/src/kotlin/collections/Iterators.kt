@@ -14,7 +14,7 @@ package kotlin.collections
  * @sample samples.collections.Iterators.iterator
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <T> Iterator<T>.iterator(): Iterator<T> = this
+public inline operator fun <T> local Iterator<T>.iterator(): Iterator<T>_{this} = this
 
 /**
  * Returns an [Iterator] that wraps each element produced by the original iterator
@@ -22,20 +22,20 @@ public inline operator fun <T> Iterator<T>.iterator(): Iterator<T> = this
  *
  * @sample samples.collections.Iterators.withIndexIterator
  */
-public fun <T> Iterator<T>.withIndex(): Iterator<IndexedValue<T>> = IndexingIterator(this)
+public fun <T> local Iterator<T>.withIndex(): Iterator<IndexedValue<T>>_{this} = IndexingIterator(this)
 
 /**
  * Performs the given [operation] on each element of this [Iterator].
  * @sample samples.collections.Iterators.forEachIterator
  */
-public inline fun <T> Iterator<T>.forEach(operation: (T) -> Unit): Unit {
+public inline fun <T> local Iterator<T>.forEach(local operation: (T) -> Unit): Unit {
     for (element in this) operation(element)
 }
 
 /**
  * Iterator transforming original `iterator` into iterator of [IndexedValue], counting index from zero.
  */
-internal class IndexingIterator<out T>(private val iterator: Iterator<T>) : Iterator<IndexedValue<T>> {
+internal class IndexingIterator<out T>(private val iterator: Iterator<T>_{this}) : Iterator<IndexedValue<T>> {
     private var index = 0
     final override fun hasNext(): Boolean = iterator.hasNext()
     final override fun next(): IndexedValue<T> = IndexedValue(checkIndexOverflow(index++), iterator.next())

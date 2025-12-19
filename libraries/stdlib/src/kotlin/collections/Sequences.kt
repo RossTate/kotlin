@@ -19,8 +19,8 @@ import kotlin.random.Random
  * @sample samples.collections.Sequences.Building.sequenceFromIterator
  */
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence(crossinline iterator: () -> Iterator<T>): Sequence<T> = object : Sequence<T> {
-    override fun iterator(): Iterator<T> = iterator()
+public inline fun <T> Sequence(local iterator: () -> Iterator<T>_{iterator}): Sequence<T>_{iterator} = object : Sequence<T> {
+    override fun iterator(): Iterator<T>_{iterator} = iterator()
 }
 
 /**
@@ -28,14 +28,14 @@ public inline fun <T> Sequence(crossinline iterator: () -> Iterator<T>): Sequenc
  *
  * @sample samples.collections.Sequences.Building.sequenceFromIterator
  */
-public fun <T> Iterator<T>.asSequence(): Sequence<T> = Sequence { this }.constrainOnce()
+public fun <T> local Iterator<T>.asSequence(): Sequence<T>_{this} = Sequence { this }.constrainOnce()
 
 /**
  * Creates a sequence that returns the specified values.
  *
  * @sample samples.collections.Sequences.Building.sequenceOfValues
  */
-public fun <T> sequenceOf(vararg elements: T): Sequence<T> = elements.asSequence()
+public fun <T> sequenceOf(local vararg elements: T): Sequence<T>_{elements} = elements.asSequence()
 
 /**
  * Creates a [Sequence] that contains a single given element.
@@ -86,7 +86,7 @@ private object EmptySequence : Sequence<Nothing>, DropTakeSequence<Nothing> {
  */
 @SinceKotlin("1.3")
 @kotlin.internal.InlineOnly
-public inline fun <T> Sequence<T>?.orEmpty(): Sequence<T> = this ?: emptySequence()
+public inline fun <T> local Sequence<T>?.orEmpty(): Sequence<T>_{this} = this ?: emptySequence()
 
 
 /**
@@ -96,7 +96,7 @@ public inline fun <T> Sequence<T>?.orEmpty(): Sequence<T> = this ?: emptySequenc
  * @sample samples.collections.Sequences.Usage.sequenceIfEmpty
  */
 @SinceKotlin("1.3")
-public fun <T> Sequence<T>.ifEmpty(defaultValue: () -> Sequence<T>): Sequence<T> = sequence {
+public fun <T> local Sequence<T>.ifEmpty(local defaultValue: () -> Sequence<T>_{defaultValue}): Sequence<T>_{this&defaultValue} = sequence {
     val iterator = this@ifEmpty.iterator()
     if (iterator.hasNext()) {
         yieldAll(iterator)
@@ -112,7 +112,7 @@ public fun <T> Sequence<T>.ifEmpty(defaultValue: () -> Sequence<T>): Sequence<T>
  *
  * @sample samples.collections.Sequences.Transformations.flattenSequenceOfSequences
  */
-public fun <T> Sequence<Sequence<T>>.flatten(): Sequence<T> = flatten { it.iterator() }
+public fun <T> local Sequence<Sequence<T>_{this}>.flatten(): Sequence<T>_{this} = flatten { it.iterator() }
 
 /**
  * Returns a sequence of all elements from all iterables in this sequence.
@@ -122,9 +122,9 @@ public fun <T> Sequence<Sequence<T>>.flatten(): Sequence<T> = flatten { it.itera
  * @sample samples.collections.Sequences.Transformations.flattenSequenceOfLists
  */
 @kotlin.jvm.JvmName("flattenSequenceOfIterable")
-public fun <T> Sequence<Iterable<T>>.flatten(): Sequence<T> = flatten { it.iterator() }
+public fun <T> local Sequence<Iterable<T>_{this}>.flatten(): Sequence<T>_{this} = flatten { it.iterator() }
 
-private fun <T, R> Sequence<T>.flatten(iterator: (T) -> Iterator<R>): Sequence<R> {
+private fun <T, R> local Sequence<T>.flatten(iterator: (T) ->_{this} Iterator<R>_{this}): Sequence<R>_{this} {
     if (this is TransformingSequence<*, *>) {
         return (this as TransformingSequence<*, T>).flatten(iterator)
     }
@@ -140,7 +140,7 @@ private fun <T, R> Sequence<T>.flatten(iterator: (T) -> Iterator<R>): Sequence<R
  *
  * @sample samples.collections.Sequences.Transformations.unzip
  */
-public fun <T, R> Sequence<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
+public fun <T, R> local Sequence<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
     val listT = ArrayList<T>()
     val listR = ArrayList<R>()
     for (pair in this) {
@@ -158,7 +158,7 @@ public fun <T, R> Sequence<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
  * The operation is _intermediate_ and _stateful_.
  */
 @SinceKotlin("1.4")
-public fun <T> Sequence<T>.shuffled(): Sequence<T> = shuffled(Random)
+public fun <T> local Sequence<T>.shuffled(): Sequence<T>_{this} = shuffled(Random)
 
 /**
  * Returns a sequence that yields elements of this sequence randomly shuffled
@@ -169,7 +169,7 @@ public fun <T> Sequence<T>.shuffled(): Sequence<T> = shuffled(Random)
  * The operation is _intermediate_ and _stateful_.
  */
 @SinceKotlin("1.4")
-public fun <T> Sequence<T>.shuffled(random: Random): Sequence<T> = sequence<T> {
+public fun <T> local Sequence<T>.shuffled(local random: Random): Sequence<T>_{this&random} = sequence<T> {
     val buffer = toMutableList()
     while (buffer.isNotEmpty()) {
         val j = random.nextInt(buffer.size)
@@ -187,13 +187,13 @@ public fun <T> Sequence<T>.shuffled(random: Random): Sequence<T> = sequence<T> {
  * @param sendWhen If `true`, values for which the predicate returns `true` are returned. Otherwise,
  * values for which the predicate returns `false` are returned
  */
-internal class FilteringSequence<T>(
-    private val sequence: Sequence<T>,
+internal local class FilteringSequence<T>(
+    private val sequence: Sequence<T>_{this},
     private val sendWhen: Boolean = true,
-    private val predicate: (T) -> Boolean
+    private val predicate: (T) ->_{this} Boolean
 ) : Sequence<T> {
 
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         val iterator = sequence.iterator()
         var nextState: Int = -1 // -1 for unknown, 0 for done, 1 for continue
         var nextItem: T? = null
@@ -235,9 +235,9 @@ internal class FilteringSequence<T>(
  * in the underlying [sequence].
  */
 
-internal class TransformingSequence<T, R>
-constructor(private val sequence: Sequence<T>, private val transformer: (T) -> R) : Sequence<R> {
-    override fun iterator(): Iterator<R> = object : Iterator<R> {
+internal local class TransformingSequence<T, R>
+constructor(private val sequence: Sequence<T>_{this}, private val transformer: (T) ->_{this} R) : Sequence<R> {
+    override fun iterator(): Iterator<R>_{this} = object : Iterator<R> {
         val iterator = sequence.iterator()
         override fun next(): R {
             return transformer(iterator.next())
@@ -248,7 +248,7 @@ constructor(private val sequence: Sequence<T>, private val transformer: (T) -> R
         }
     }
 
-    internal fun <E> flatten(iterator: (R) -> Iterator<E>): Sequence<E> {
+    internal fun <E> flatten(local iterator: (R) -> Iterator<E>_{iterator}): Sequence<E>_{this&iterator} {
         return FlatteningSequence<T, R, E>(sequence, transformer, iterator)
     }
 }
@@ -258,9 +258,9 @@ constructor(private val sequence: Sequence<T>, private val transformer: (T) -> R
  * in the underlying [sequence], where the transformer function takes the index of the value in the underlying
  * sequence along with the value itself.
  */
-internal class TransformingIndexedSequence<T, R>
-constructor(private val sequence: Sequence<T>, private val transformer: (Int, T) -> R) : Sequence<R> {
-    override fun iterator(): Iterator<R> = object : Iterator<R> {
+internal local class TransformingIndexedSequence<T, R>
+constructor(private val sequence: Sequence<T>_{this}, private val transformer: (Int, T) ->_{this} R) : Sequence<R> {
+    override fun iterator(): Iterator<R>_{this} = object : Iterator<R> {
         val iterator = sequence.iterator()
         var index = 0
         override fun next(): R {
@@ -277,9 +277,9 @@ constructor(private val sequence: Sequence<T>, private val transformer: (Int, T)
  * A sequence which combines values from the underlying [sequence] with their indices and returns them as
  * [IndexedValue] objects.
  */
-internal class IndexingSequence<T>
-constructor(private val sequence: Sequence<T>) : Sequence<IndexedValue<T>> {
-    override fun iterator(): Iterator<IndexedValue<T>> = object : Iterator<IndexedValue<T>> {
+internal local class IndexingSequence<T>
+constructor(private val sequence: Sequence<T>_{this}) : Sequence<IndexedValue<T>> {
+    override fun iterator(): Iterator<IndexedValue<T>>_{this} = object : Iterator<IndexedValue<T>> {
         val iterator = sequence.iterator()
         var index = 0
         override fun next(): IndexedValue<T> {
@@ -297,13 +297,13 @@ constructor(private val sequence: Sequence<T>) : Sequence<IndexedValue<T>> {
  * [transform] function and returns the values returned by that function. The sequence stops returning
  * values as soon as one of the underlying sequences stops returning values.
  */
-internal class MergingSequence<T1, T2, V>
+internal local class MergingSequence<T1, T2, V>
 constructor(
-    private val sequence1: Sequence<T1>,
-    private val sequence2: Sequence<T2>,
-    private val transform: (T1, T2) -> V
+    private val sequence1: Sequence<T1>_{this},
+    private val sequence2: Sequence<T2>_{this},
+    private val transform: (T1, T2) ->_{this} V
 ) : Sequence<V> {
-    override fun iterator(): Iterator<V> = object : Iterator<V> {
+    override fun iterator(): Iterator<V>_{this} = object : Iterator<V> {
         val iterator1 = sequence1.iterator()
         val iterator2 = sequence2.iterator()
         override fun next(): V {
@@ -316,11 +316,11 @@ constructor(
     }
 }
 
-internal class FlatteningSequence<T, R, E>
+internal local class FlatteningSequence<T, R, E>
 constructor(
-    private val sequence: Sequence<T>,
-    private val transformer: (T) -> R,
-    private val iterator: (R) -> Iterator<E>
+    private val sequence: Sequence<T>_{this},
+    private val transformer: (T) ->_{this} R,
+    private val iterator: (R) ->_{this} Iterator<E>_{this}
 ) : Sequence<E> {
     private object State {
         const val UNDEFINED = 0
@@ -330,7 +330,7 @@ constructor(
 
     override fun iterator(): Iterator<E> = object : Iterator<E> {
         val iterator = sequence.iterator()
-        var itemIterator: Iterator<E>? = null
+        var itemIterator: Iterator<E>_{this}? = null
 
         // Use state to avoid excessive ensureItemIterator calls.
         // The state is represented by the integer to avoid an overhead associated with the enum.
@@ -375,7 +375,7 @@ constructor(
     }
 }
 
-internal fun <T, C, R> flatMapIndexed(source: Sequence<T>, transform: (Int, T) -> C, iterator: (C) -> Iterator<R>): Sequence<R> =
+internal fun <T, C, R> flatMapIndexed(local source: Sequence<T>, local transform: (Int, T) -> C, local iterator: (C) -> Iterator<R>_{iterator}): Sequence<R>_{source&transform&iterator} =
     sequence {
         var index = 0
         for (element in source) {
@@ -388,16 +388,16 @@ internal fun <T, C, R> flatMapIndexed(source: Sequence<T>, transform: (Int, T) -
  * A sequence that supports drop(n) and take(n) operations
  */
 internal interface DropTakeSequence<T> : Sequence<T> {
-    fun drop(n: Int): Sequence<T>
-    fun take(n: Int): Sequence<T>
+    fun drop(n: Int): Sequence<T>_{this}
+    fun take(n: Int): Sequence<T>_{this}
 }
 
 /**
  * A sequence that skips [startIndex] values from the underlying [sequence]
  * and stops returning values right before [endIndex], i.e. stops at `endIndex - 1`
  */
-internal class SubSequence<T>(
-    private val sequence: Sequence<T>,
+internal local class SubSequence<T>(
+    private val sequence: Sequence<T>_{this},
     private val startIndex: Int,
     private val endIndex: Int
 ) : Sequence<T>, DropTakeSequence<T> {
@@ -410,10 +410,10 @@ internal class SubSequence<T>(
 
     private val count: Int get() = endIndex - startIndex
 
-    override fun drop(n: Int): Sequence<T> = if (n >= count) emptySequence() else SubSequence(sequence, startIndex + n, endIndex)
-    override fun take(n: Int): Sequence<T> = if (n >= count) this else SubSequence(sequence, startIndex, startIndex + n)
+    override fun drop(n: Int): Sequence<T>_{this} = if (n >= count) emptySequence() else SubSequence(sequence, startIndex + n, endIndex)
+    override fun take(n: Int): Sequence<T>_{this} = if (n >= count) this else SubSequence(sequence, startIndex, startIndex + n)
 
-    override fun iterator() = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
 
         val iterator = sequence.iterator()
         var position = 0
@@ -445,8 +445,8 @@ internal class SubSequence<T>(
  * A sequence that returns at most [count] values from the underlying [sequence], and stops returning values
  * as soon as that count is reached.
  */
-internal class TakeSequence<T>(
-    private val sequence: Sequence<T>,
+internal local class TakeSequence<T>(
+    private val sequence: Sequence<T>_{this},
     private val count: Int
 ) : Sequence<T>, DropTakeSequence<T> {
 
@@ -454,10 +454,10 @@ internal class TakeSequence<T>(
         require(count >= 0) { "count must be non-negative, but was $count." }
     }
 
-    override fun drop(n: Int): Sequence<T> = if (n >= count) emptySequence() else SubSequence(sequence, n, count)
-    override fun take(n: Int): Sequence<T> = if (n >= count) this else TakeSequence(sequence, n)
+    override fun drop(n: Int): Sequence<T>_{this} = if (n >= count) emptySequence() else SubSequence(sequence, n, count)
+    override fun take(n: Int): Sequence<T>_{this} = if (n >= count) this else TakeSequence(sequence, n)
 
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         var left = count
         val iterator = sequence.iterator()
 
@@ -478,12 +478,12 @@ internal class TakeSequence<T>(
  * A sequence that returns values from the underlying [sequence] while the [predicate] function returns
  * `true`, and stops returning values once the function returns `false` for the next element.
  */
-internal class TakeWhileSequence<T>
+internal local class TakeWhileSequence<T>
 constructor(
-    private val sequence: Sequence<T>,
-    private val predicate: (T) -> Boolean
+    private val sequence: Sequence<T>_{this},
+    private val predicate: (T) ->_{this} Boolean
 ) : Sequence<T> {
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         val iterator = sequence.iterator()
         var nextState: Int = -1 // -1 for unknown, 0 for done, 1 for continue
         var nextItem: T? = null
@@ -526,18 +526,18 @@ constructor(
  * A sequence that skips the specified number of values from the underlying [sequence] and returns
  * all values after that.
  */
-internal class DropSequence<T>(
-    private val sequence: Sequence<T>,
+internal local class DropSequence<T>(
+    private val sequence: Sequence<T>_{this},
     private val count: Int
 ) : Sequence<T>, DropTakeSequence<T> {
     init {
         require(count >= 0) { "count must be non-negative, but was $count." }
     }
 
-    override fun drop(n: Int): Sequence<T> = (count + n).let { n1 -> if (n1 < 0) DropSequence(this, n) else DropSequence(sequence, n1) }
-    override fun take(n: Int): Sequence<T> = (count + n).let { n1 -> if (n1 < 0) TakeSequence(this, n) else SubSequence(sequence, count, n1) }
+    override fun drop(n: Int): Sequence<T>_{this} = (count + n).let { n1 -> if (n1 < 0) DropSequence(this, n) else DropSequence(sequence, n1) }
+    override fun take(n: Int): Sequence<T>_{this} = (count + n).let { n1 -> if (n1 < 0) TakeSequence(this, n) else SubSequence(sequence, count, n1) }
 
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         val iterator = sequence.iterator()
         var left = count
 
@@ -565,13 +565,13 @@ internal class DropSequence<T>(
  * A sequence that skips the values from the underlying [sequence] while the given [predicate] returns `true` and returns
  * all values after that.
  */
-internal class DropWhileSequence<T>
+internal local class DropWhileSequence<T>
 constructor(
-    private val sequence: Sequence<T>,
-    private val predicate: (T) -> Boolean
+    private val sequence: Sequence<T>_{this},
+    private val predicate: (T) ->_{this} Boolean
 ) : Sequence<T> {
 
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         val iterator = sequence.iterator()
         var dropState: Int = -1 // -1 for not dropping, 1 for nextItem, 0 for normal iteration
         var nextItem: T? = null
@@ -610,11 +610,11 @@ constructor(
     }
 }
 
-internal class DistinctSequence<T, K>(private val source: Sequence<T>, private val keySelector: (T) -> K) : Sequence<T> {
-    override fun iterator(): Iterator<T> = DistinctIterator(source.iterator(), keySelector)
+internal local class DistinctSequence<T, K>(private val source: Sequence<T>_{this}, private val keySelector: (T) ->_{this} K) : Sequence<T> {
+    override fun iterator(): Iterator<T>_{this} = DistinctIterator(source.iterator(), keySelector)
 }
 
-private class DistinctIterator<T, K>(private val source: Iterator<T>, private val keySelector: (T) -> K) : AbstractIterator<T>() {
+private local class DistinctIterator<T, K>(private val source: Iterator<T>_{this}, private val keySelector: (T) ->_{this} K) : AbstractIterator<T>() {
     private val observed = HashSet<K>()
 
     override fun computeNext() {
@@ -633,8 +633,8 @@ private class DistinctIterator<T, K>(private val source: Iterator<T>, private va
 }
 
 
-private class GeneratorSequence<T : Any>(private val getInitialValue: () -> T?, private val getNextValue: (T) -> T?) : Sequence<T> {
-    override fun iterator(): Iterator<T> = object : Iterator<T> {
+private local class GeneratorSequence<T : Any>(private val getInitialValue: () ->_{this} T?, private val getNextValue: (T) ->_{this} T?) : Sequence<T> {
+    override fun iterator(): Iterator<T>_{this} = object : Iterator<T> {
         var nextItem: T? = null
         var nextState: Int = -2 // -2 for initial unknown, -1 for next unknown, 0 for done, 1 for continue
 
@@ -671,7 +671,7 @@ private class GeneratorSequence<T : Any>(private val getInitialValue: () -> T?, 
  * [IllegalStateException] is thrown on iterating the returned sequence for the second time and the following times.
  *
  */
-public fun <T> Sequence<T>.constrainOnce(): Sequence<T> {
+public fun <T> local Sequence<T>.constrainOnce(): Sequence<T>_{this} {
     // as? does not work in js
     //return this as? ConstrainedOnceSequence<T> ?: ConstrainedOnceSequence(this)
     return if (this is ConstrainedOnceSequence<T>) this else ConstrainedOnceSequence(this)
@@ -688,7 +688,7 @@ public fun <T> Sequence<T>.constrainOnce(): Sequence<T> {
  *
  * @sample samples.collections.Sequences.Building.generateSequence
  */
-public fun <T : Any> generateSequence(nextFunction: () -> T?): Sequence<T> {
+public fun <T : Any> generateSequence(local nextFunction: () -> T?): Sequence<T>_{nextFunction} {
     return GeneratorSequence(nextFunction, { nextFunction() }).constrainOnce()
 }
 
@@ -706,7 +706,7 @@ public fun <T : Any> generateSequence(nextFunction: () -> T?): Sequence<T> {
  * @sample samples.collections.Sequences.Building.generateSequenceWithSeed
  */
 @kotlin.internal.LowPriorityInOverloadResolution
-public fun <T : Any> generateSequence(seed: T?, nextFunction: (T) -> T?): Sequence<T> =
+public fun <T : Any> generateSequence(seed: T?, local nextFunction: (T) -> T?): Sequence<T>_{nextFunction} =
     if (seed == null)
         EmptySequence
     else
@@ -725,5 +725,5 @@ public fun <T : Any> generateSequence(seed: T?, nextFunction: (T) -> T?): Sequen
  *
  * @sample samples.collections.Sequences.Building.generateSequenceWithLazySeed
  */
-public fun <T : Any> generateSequence(seedFunction: () -> T?, nextFunction: (T) -> T?): Sequence<T> =
+public fun <T : Any> generateSequence(local seedFunction: () -> T?, local nextFunction: (T) -> T?): Sequence<T>_{seedFunction&nextFunction} =
     GeneratorSequence(seedFunction, nextFunction)

@@ -29,7 +29,7 @@ public inline fun require(value: Boolean): Unit {
  * @sample samples.misc.Preconditions.failRequireWithLazyMessage
  */
 @kotlin.internal.InlineOnly
-public inline fun require(value: Boolean, lazyMessage: () -> Any): Unit {
+public inline fun require(value: Boolean, local lazyMessage: () -> Any): Unit {
     contract {
         returns() implies value
     }
@@ -59,7 +59,7 @@ public inline fun <T : Any> requireNotNull(value: T?): T {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T : Any> requireNotNull(value: T?, lazyMessage: () -> Any): T {
+public inline fun <T : Any> requireNotNull(value: T?, local lazyMessage: () -> Any): T {
     contract {
         returns() implies (value != null)
     }
@@ -93,7 +93,7 @@ public inline fun check(value: Boolean): Unit {
  * @sample samples.misc.Preconditions.failCheckWithLazyMessage
  */
 @kotlin.internal.InlineOnly
-public inline fun check(value: Boolean, lazyMessage: () -> Any): Unit {
+public inline fun check(value: Boolean, local lazyMessage: () -> Any): Unit {
     contract {
         returns() implies value
     }
@@ -126,7 +126,7 @@ public inline fun <T : Any> checkNotNull(value: T?): T {
  */
 @kotlin.internal.InlineOnly
 @IgnorableReturnValue
-public inline fun <T : Any> checkNotNull(value: T?, lazyMessage: () -> Any): T {
+public inline fun <T : Any> checkNotNull(value: T?, local lazyMessage: () -> Any): T {
     contract {
         returns() implies (value != null)
     }

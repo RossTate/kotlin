@@ -18,11 +18,11 @@ package kotlin.collections
  * @param E the type of elements contained in the list. The list is covariant in its element type.
  */
 @SinceKotlin("1.1")
-public abstract class AbstractList<out E> protected constructor() : AbstractCollection<E>(), List<E> {
+public local abstract class AbstractList<out E> protected constructor() : AbstractCollection<E>(), List<E> {
     abstract override val size: Int
     abstract override fun get(index: Int): E
 
-    override fun iterator(): Iterator<E> = IteratorImpl()
+    override fun iterator(): Iterator<E>_{this} = IteratorImpl()
 
     override fun indexOf(element: @UnsafeVariance E): Int = indexOfFirst { it == element }
 
@@ -34,7 +34,7 @@ public abstract class AbstractList<out E> protected constructor() : AbstractColl
 
     override fun subList(fromIndex: Int, toIndex: Int): List<E> = SubList(this, fromIndex, toIndex)
 
-    private class SubList<out E>(private val list: AbstractList<E>, private val fromIndex: Int, toIndex: Int) : AbstractList<E>(), RandomAccess {
+    private local class SubList<out E>(private val list: AbstractList<E>_{this}, private val fromIndex: Int, toIndex: Int) : AbstractList<E>(), RandomAccess {
         private var _size: Int = 0
 
         init {
@@ -78,7 +78,7 @@ public abstract class AbstractList<out E> protected constructor() : AbstractColl
      */
     override fun hashCode(): Int = orderedHashCode(this)
 
-    private open inner class IteratorImpl : Iterator<E> {
+    private local open inner class IteratorImpl : Iterator<E> {
         /** the index of the item that will be returned on the next call to [next]`()` */
         protected var index = 0
 
@@ -93,7 +93,7 @@ public abstract class AbstractList<out E> protected constructor() : AbstractColl
     /**
      * Implementation of [ListIterator] for abstract lists.
      */
-    private open inner class ListIteratorImpl(index: Int) : IteratorImpl(), ListIterator<E> {
+    private local open inner class ListIteratorImpl(index: Int) : IteratorImpl(), ListIterator<E> {
 
         init {
             checkPositionIndex(index, this@AbstractList.size)
@@ -156,7 +156,7 @@ public abstract class AbstractList<out E> protected constructor() : AbstractColl
             return newCapacity
         }
 
-        internal fun orderedHashCode(c: Collection<*>): Int {
+        internal fun orderedHashCode(local c: Collection<*>): Int {
             var hashCode = 1
             for (e in c) {
                 hashCode = 31 * hashCode + (e?.hashCode() ?: 0)
@@ -164,7 +164,7 @@ public abstract class AbstractList<out E> protected constructor() : AbstractColl
             return hashCode
         }
 
-        internal fun orderedEquals(c: Collection<*>, other: Collection<*>): Boolean {
+        internal fun orderedEquals(local c: Collection<*>, local other: Collection<*>): Boolean {
             if (c.size != other.size) return false
 
             val otherIterator = other.iterator()

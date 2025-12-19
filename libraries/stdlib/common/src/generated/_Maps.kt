@@ -27,7 +27,7 @@ import kotlin.ranges.reversed
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOf(transform: (Map.Entry<K, V>) -> R?): R {
+public inline fun <K, V, R : Any> local Map<out K, V>.firstNotNullOf(local transform: (Map.Entry<K, V>) -> R?): R {
     return firstNotNullOfOrNull(transform) ?: throw NoSuchElementException("No element of the map was transformed to a non-null value.")
 }
 
@@ -39,7 +39,7 @@ public inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOf(transform: (Map.E
  */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOfOrNull(transform: (Map.Entry<K, V>) -> R?): R? {
+public inline fun <K, V, R : Any> local Map<out K, V>.firstNotNullOfOrNull(local transform: (Map.Entry<K, V>) -> R?): R? {
     for (element in this) {
         val result = transform(element)
         if (result != null) {
@@ -52,7 +52,7 @@ public inline fun <K, V, R : Any> Map<out K, V>.firstNotNullOfOrNull(transform: 
 /**
  * Returns a [List] containing all key-value pairs.
  */
-public fun <K, V> Map<out K, V>.toList(): List<Pair<K, V>> {
+public fun <K, V> local Map<out K, V>.toList(): List<Pair<K, V>> {
     if (size == 0)
         return emptyList()
     val iterator = entries.iterator()
@@ -74,7 +74,7 @@ public fun <K, V> Map<out K, V>.toList(): List<Pair<K, V>> {
  * 
  * @sample samples.collections.Maps.Transformations.flatMap
  */
-public inline fun <K, V, R> Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) -> Iterable<R>): List<R> {
+public inline fun <K, V, R> local Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) ->_{local} Iterable<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -87,7 +87,7 @@ public inline fun <K, V, R> Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequence")
-public inline fun <K, V, R> Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) -> Sequence<R>): List<R> {
+public inline fun <K, V, R> local Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) ->_{local} Sequence<R>_{local}): List<R> {
     return flatMapTo(ArrayList<R>(), transform)
 }
 
@@ -95,7 +95,7 @@ public inline fun <K, V, R> Map<out K, V>.flatMap(transform: (Map.Entry<K, V>) -
  * Appends all elements yielded from results of [transform] function being invoked on each entry of original map, to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.flatMapTo(destination: C, transform: (Map.Entry<K, V>) -> Iterable<R>): C {
+public inline fun <K, V, R, C : MutableCollection<in R>> local Map<out K, V>.flatMapTo(local destination: C, transform: (Map.Entry<K, V>) ->_{local} Iterable<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -111,7 +111,7 @@ public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.flatMapTo
 @OverloadResolutionByLambdaReturnType
 @kotlin.jvm.JvmName("flatMapSequenceTo")
 @IgnorableReturnValue
-public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.flatMapTo(destination: C, transform: (Map.Entry<K, V>) -> Sequence<R>): C {
+public inline fun <K, V, R, C : MutableCollection<in R>> local Map<out K, V>.flatMapTo(local destination: C, transform: (Map.Entry<K, V>) ->_{local} Sequence<R>_{local}): C_{destination} {
     for (element in this) {
         val list = transform(element)
         destination.addAll(list)
@@ -125,7 +125,7 @@ public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.flatMapTo
  * 
  * @sample samples.collections.Maps.Transformations.mapToList
  */
-public inline fun <K, V, R> Map<out K, V>.map(transform: (Map.Entry<K, V>) -> R): List<R> {
+public inline fun <K, V, R> local Map<out K, V>.map(local transform: (Map.Entry<K, V>) -> R): List<R> {
     return mapTo(ArrayList<R>(size), transform)
 }
 
@@ -135,7 +135,7 @@ public inline fun <K, V, R> Map<out K, V>.map(transform: (Map.Entry<K, V>) -> R)
  * 
  * @sample samples.collections.Maps.Transformations.mapNotNull
  */
-public inline fun <K, V, R : Any> Map<out K, V>.mapNotNull(transform: (Map.Entry<K, V>) -> R?): List<R> {
+public inline fun <K, V, R : Any> local Map<out K, V>.mapNotNull(local transform: (Map.Entry<K, V>) -> R?): List<R> {
     return mapNotNullTo(ArrayList<R>(), transform)
 }
 
@@ -144,7 +144,7 @@ public inline fun <K, V, R : Any> Map<out K, V>.mapNotNull(transform: (Map.Entry
  * and appends only the non-null results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <K, V, R : Any, C : MutableCollection<in R>> Map<out K, V>.mapNotNullTo(destination: C, transform: (Map.Entry<K, V>) -> R?): C {
+public inline fun <K, V, R : Any, C : MutableCollection<in R>> local Map<out K, V>.mapNotNullTo(local destination: C, local transform: (Map.Entry<K, V>) -> R?): C_{destination} {
     forEach { element -> transform(element)?.let { destination.add(it) } }
     return destination
 }
@@ -154,7 +154,7 @@ public inline fun <K, V, R : Any, C : MutableCollection<in R>> Map<out K, V>.map
  * and appends the results to the given [destination].
  */
 @IgnorableReturnValue
-public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.mapTo(destination: C, transform: (Map.Entry<K, V>) -> R): C {
+public inline fun <K, V, R, C : MutableCollection<in R>> local Map<out K, V>.mapTo(local destination: C, local transform: (Map.Entry<K, V>) -> R): C_{destination} {
     for (item in this)
         destination.add(transform(item))
     return destination
@@ -169,7 +169,7 @@ public inline fun <K, V, R, C : MutableCollection<in R>> Map<out K, V>.mapTo(des
  * 
  * @sample samples.collections.Collections.Aggregates.all
  */
-public inline fun <K, V> Map<out K, V>.all(predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
+public inline fun <K, V> local Map<out K, V>.all(local predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
     if (isEmpty()) return true
     for (element in this) if (!predicate(element)) return false
     return true
@@ -180,7 +180,7 @@ public inline fun <K, V> Map<out K, V>.all(predicate: (Map.Entry<K, V>) -> Boole
  * 
  * @sample samples.collections.Collections.Aggregates.any
  */
-public fun <K, V> Map<out K, V>.any(): Boolean {
+public fun <K, V> local Map<out K, V>.any(): Boolean {
     return !isEmpty()
 }
 
@@ -189,7 +189,7 @@ public fun <K, V> Map<out K, V>.any(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.anyWithPredicate
  */
-public inline fun <K, V> Map<out K, V>.any(predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
+public inline fun <K, V> local Map<out K, V>.any(local predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
     if (isEmpty()) return false
     for (element in this) if (predicate(element)) return true
     return false
@@ -199,14 +199,14 @@ public inline fun <K, V> Map<out K, V>.any(predicate: (Map.Entry<K, V>) -> Boole
  * Returns the number of entries in this map.
  */
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.count(): Int {
+public inline fun <K, V> local Map<out K, V>.count(): Int {
     return size
 }
 
 /**
  * Returns the number of entries matching the given [predicate].
  */
-public inline fun <K, V> Map<out K, V>.count(predicate: (Map.Entry<K, V>) -> Boolean): Int {
+public inline fun <K, V> local Map<out K, V>.count(local predicate: (Map.Entry<K, V>) -> Boolean): Int {
     if (isEmpty()) return 0
     var count = 0
     for (element in this) if (predicate(element)) ++count
@@ -217,7 +217,7 @@ public inline fun <K, V> Map<out K, V>.count(predicate: (Map.Entry<K, V>) -> Boo
  * Performs the given [action] on each entry.
  */
 @kotlin.internal.HidesMembers
-public inline fun <K, V> Map<out K, V>.forEach(action: (Map.Entry<K, V>) -> Unit): Unit {
+public inline fun <K, V> local Map<out K, V>.forEach(local action: (Map.Entry<K, V>) -> Unit): Unit {
     for (element in this) action(element)
 }
 
@@ -239,7 +239,7 @@ public inline fun <K, V> Map<out K, V>.forEach(action: (Map.Entry<K, V>) -> Unit
 @kotlin.jvm.JvmName("maxByOrThrow")
 @kotlin.internal.InlineOnly
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxBy(selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V> {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.maxBy(selector: local (Map.Entry<K, V>) -> R): Map.Entry<K, V> {
     return entries.maxBy(selector)
 }
 
@@ -257,7 +257,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxBy(selector: (Map.E
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxByOrNull(selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V>? {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.maxByOrNull(local selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V>? {
     return entries.maxByOrNull(selector)
 }
 
@@ -275,7 +275,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxByOrNull(selector: 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.maxOf(selector: (Map.Entry<K, V>) -> Double): Double {
+public inline fun <K, V> local Map<out K, V>.maxOf(local selector: (Map.Entry<K, V>) -> Double): Double {
     return entries.maxOf(selector)
 }
 
@@ -293,7 +293,7 @@ public inline fun <K, V> Map<out K, V>.maxOf(selector: (Map.Entry<K, V>) -> Doub
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.maxOf(selector: (Map.Entry<K, V>) -> Float): Float {
+public inline fun <K, V> local Map<out K, V>.maxOf(local selector: (Map.Entry<K, V>) -> Float): Float {
     return entries.maxOf(selector)
 }
 
@@ -311,7 +311,7 @@ public inline fun <K, V> Map<out K, V>.maxOf(selector: (Map.Entry<K, V>) -> Floa
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxOf(selector: (Map.Entry<K, V>) -> R): R {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.maxOf(local selector: (Map.Entry<K, V>) -> R): R {
     return entries.maxOf(selector)
 }
 
@@ -327,7 +327,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxOf(selector: (Map.E
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.maxOfOrNull(selector: (Map.Entry<K, V>) -> Double): Double? {
+public inline fun <K, V> local Map<out K, V>.maxOfOrNull(local selector: (Map.Entry<K, V>) -> Double): Double? {
     return entries.maxOfOrNull(selector)
 }
 
@@ -343,7 +343,7 @@ public inline fun <K, V> Map<out K, V>.maxOfOrNull(selector: (Map.Entry<K, V>) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.maxOfOrNull(selector: (Map.Entry<K, V>) -> Float): Float? {
+public inline fun <K, V> local Map<out K, V>.maxOfOrNull(local selector: (Map.Entry<K, V>) -> Float): Float? {
     return entries.maxOfOrNull(selector)
 }
 
@@ -359,7 +359,7 @@ public inline fun <K, V> Map<out K, V>.maxOfOrNull(selector: (Map.Entry<K, V>) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxOfOrNull(selector: (Map.Entry<K, V>) -> R): R? {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.maxOfOrNull(local selector: (Map.Entry<K, V>) -> R): R? {
     return entries.maxOfOrNull(selector)
 }
 
@@ -377,7 +377,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.maxOfOrNull(selector: 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R> Map<out K, V>.maxOfWith(comparator: Comparator<in R>, selector: (Map.Entry<K, V>) -> R): R {
+public inline fun <K, V, R> local Map<out K, V>.maxOfWith(local comparator: Comparator<in R>, local selector: (Map.Entry<K, V>) -> R): R {
     return entries.maxOfWith(comparator, selector)
 }
 
@@ -393,7 +393,7 @@ public inline fun <K, V, R> Map<out K, V>.maxOfWith(comparator: Comparator<in R>
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R> Map<out K, V>.maxOfWithOrNull(comparator: Comparator<in R>, selector: (Map.Entry<K, V>) -> R): R? {
+public inline fun <K, V, R> local Map<out K, V>.maxOfWithOrNull(local comparator: Comparator<in R>, local selector: (Map.Entry<K, V>) -> R): R? {
     return entries.maxOfWithOrNull(comparator, selector)
 }
 
@@ -406,7 +406,7 @@ public inline fun <K, V, R> Map<out K, V>.maxOfWithOrNull(comparator: Comparator
 @kotlin.jvm.JvmName("maxWithOrThrow")
 @kotlin.internal.InlineOnly
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <K, V> Map<out K, V>.maxWith(comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V> {
+public inline fun <K, V> local Map<out K, V>.maxWith(local comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V> {
     return entries.maxWith(comparator)
 }
 
@@ -415,7 +415,7 @@ public inline fun <K, V> Map<out K, V>.maxWith(comparator: Comparator<in Map.Ent
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.maxWithOrNull(comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V>? {
+public inline fun <K, V> local Map<out K, V>.maxWithOrNull(local comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V>? {
     return entries.maxWithOrNull(comparator)
 }
 
@@ -437,7 +437,7 @@ public inline fun <K, V> Map<out K, V>.maxWithOrNull(comparator: Comparator<in M
 @kotlin.jvm.JvmName("minByOrThrow")
 @kotlin.internal.InlineOnly
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minBy(selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V> {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.minBy(local selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V> {
     return entries.minBy(selector)
 }
 
@@ -455,7 +455,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minBy(selector: (Map.E
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minByOrNull(selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V>? {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.minByOrNull(local selector: (Map.Entry<K, V>) -> R): Map.Entry<K, V>? {
     return entries.minByOrNull(selector)
 }
 
@@ -473,7 +473,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minByOrNull(selector: 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.minOf(selector: (Map.Entry<K, V>) -> Double): Double {
+public inline fun <K, V> local Map<out K, V>.minOf(local selector: (Map.Entry<K, V>) -> Double): Double {
     return entries.minOf(selector)
 }
 
@@ -491,7 +491,7 @@ public inline fun <K, V> Map<out K, V>.minOf(selector: (Map.Entry<K, V>) -> Doub
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.minOf(selector: (Map.Entry<K, V>) -> Float): Float {
+public inline fun <K, V> local Map<out K, V>.minOf(local selector: (Map.Entry<K, V>) -> Float): Float {
     return entries.minOf(selector)
 }
 
@@ -509,7 +509,7 @@ public inline fun <K, V> Map<out K, V>.minOf(selector: (Map.Entry<K, V>) -> Floa
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minOf(selector: (Map.Entry<K, V>) -> R): R {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.minOf(local selector: (Map.Entry<K, V>) -> R): R {
     return entries.minOf(selector)
 }
 
@@ -525,7 +525,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minOf(selector: (Map.E
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -> Double): Double? {
+public inline fun <K, V> local Map<out K, V>.minOfOrNull(local selector: (Map.Entry<K, V>) -> Double): Double? {
     return entries.minOfOrNull(selector)
 }
 
@@ -541,7 +541,7 @@ public inline fun <K, V> Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -> Float): Float? {
+public inline fun <K, V> local Map<out K, V>.minOfOrNull(local selector: (Map.Entry<K, V>) -> Float): Float? {
     return entries.minOfOrNull(selector)
 }
 
@@ -557,7 +557,7 @@ public inline fun <K, V> Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -> R): R? {
+public inline fun <K, V, R : Comparable<R>> local Map<out K, V>.minOfOrNull(selector: (Map.Entry<K, V>) -> R): R? {
     return entries.minOfOrNull(selector)
 }
 
@@ -575,7 +575,7 @@ public inline fun <K, V, R : Comparable<R>> Map<out K, V>.minOfOrNull(selector: 
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R> Map<out K, V>.minOfWith(comparator: Comparator<in R>, selector: (Map.Entry<K, V>) -> R): R {
+public inline fun <K, V, R> local Map<out K, V>.minOfWith(local comparator: Comparator<in R>, local selector: (Map.Entry<K, V>) -> R): R {
     return entries.minOfWith(comparator, selector)
 }
 
@@ -591,7 +591,7 @@ public inline fun <K, V, R> Map<out K, V>.minOfWith(comparator: Comparator<in R>
 @OptIn(kotlin.experimental.ExperimentalTypeInference::class)
 @OverloadResolutionByLambdaReturnType
 @kotlin.internal.InlineOnly
-public inline fun <K, V, R> Map<out K, V>.minOfWithOrNull(comparator: Comparator<in R>, selector: (Map.Entry<K, V>) -> R): R? {
+public inline fun <K, V, R> local Map<out K, V>.minOfWithOrNull(local comparator: Comparator<in R>, local selector: (Map.Entry<K, V>) -> R): R? {
     return entries.minOfWithOrNull(comparator, selector)
 }
 
@@ -604,7 +604,7 @@ public inline fun <K, V, R> Map<out K, V>.minOfWithOrNull(comparator: Comparator
 @kotlin.jvm.JvmName("minWithOrThrow")
 @kotlin.internal.InlineOnly
 @Suppress("CONFLICTING_OVERLOADS")
-public inline fun <K, V> Map<out K, V>.minWith(comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V> {
+public inline fun <K, V> local Map<out K, V>.minWith(local comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V> {
     return entries.minWith(comparator)
 }
 
@@ -613,7 +613,7 @@ public inline fun <K, V> Map<out K, V>.minWith(comparator: Comparator<in Map.Ent
  */
 @SinceKotlin("1.4")
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.minWithOrNull(comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V>? {
+public inline fun <K, V> local Map<out K, V>.minWithOrNull(local comparator: Comparator<in Map.Entry<K, V>>): Map.Entry<K, V>? {
     return entries.minWithOrNull(comparator)
 }
 
@@ -622,7 +622,7 @@ public inline fun <K, V> Map<out K, V>.minWithOrNull(comparator: Comparator<in M
  * 
  * @sample samples.collections.Collections.Aggregates.none
  */
-public fun <K, V> Map<out K, V>.none(): Boolean {
+public fun <K, V> local Map<out K, V>.none(): Boolean {
     return isEmpty()
 }
 
@@ -631,7 +631,7 @@ public fun <K, V> Map<out K, V>.none(): Boolean {
  * 
  * @sample samples.collections.Collections.Aggregates.noneWithPredicate
  */
-public inline fun <K, V> Map<out K, V>.none(predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
+public inline fun <K, V> local Map<out K, V>.none(local predicate: (Map.Entry<K, V>) -> Boolean): Boolean {
     if (isEmpty()) return true
     for (element in this) if (predicate(element)) return false
     return true
@@ -641,7 +641,7 @@ public inline fun <K, V> Map<out K, V>.none(predicate: (Map.Entry<K, V>) -> Bool
  * Performs the given [action] on each entry and returns the map itself afterwards.
  */
 @SinceKotlin("1.1")
-public inline fun <K, V, M : Map<out K, V>> M.onEach(action: (Map.Entry<K, V>) -> Unit): M {
+public inline fun <K, V, M : Map<out K, V>> local M.onEach(local action: (Map.Entry<K, V>) -> Unit): M_{this} {
     return apply { for (element in this) action(element) }
 }
 
@@ -652,7 +652,7 @@ public inline fun <K, V, M : Map<out K, V>> M.onEach(action: (Map.Entry<K, V>) -
  * and performs the action on the entry.
  */
 @SinceKotlin("1.4")
-public inline fun <K, V, M : Map<out K, V>> M.onEachIndexed(action: (index: Int, Map.Entry<K, V>) -> Unit): M {
+public inline fun <K, V, M : Map<out K, V>> local M.onEachIndexed(local action: (index: Int, Map.Entry<K, V>) -> Unit): M_{this} {
     return apply { entries.forEachIndexed(action) }
 }
 
@@ -660,7 +660,7 @@ public inline fun <K, V, M : Map<out K, V>> M.onEachIndexed(action: (index: Int,
  * Creates an [Iterable] instance that wraps the original map returning its entries when being iterated.
  */
 @kotlin.internal.InlineOnly
-public inline fun <K, V> Map<out K, V>.asIterable(): Iterable<Map.Entry<K, V>> {
+public inline fun <K, V> local Map<out K, V>.asIterable(): Iterable<Map.Entry<K, V>>_{this} {
     return entries
 }
 
@@ -669,7 +669,7 @@ public inline fun <K, V> Map<out K, V>.asIterable(): Iterable<Map.Entry<K, V>> {
  * 
  * @sample samples.collections.Sequences.Building.sequenceFromMap
  */
-public fun <K, V> Map<out K, V>.asSequence(): Sequence<Map.Entry<K, V>> {
+public fun <K, V> local Map<out K, V>.asSequence(): Sequence<Map.Entry<K, V>>_{this} {
     return entries.asSequence()
 }
 

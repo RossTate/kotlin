@@ -10,7 +10,7 @@ package kotlin.collections
  *
  * @param E the type of elements contained in the list. The list is invariant in its element type.
  */
-public expect abstract class AbstractMutableList<E> : MutableList<E> {
+public expect local abstract class AbstractMutableList<E> : MutableList<E> {
     /**
      * The number of times this list is structurally modified.
      *
@@ -36,13 +36,13 @@ public expect abstract class AbstractMutableList<E> : MutableList<E> {
 
     override fun isEmpty(): Boolean
     override fun contains(element: E): Boolean
-    override fun containsAll(elements: Collection<E>): Boolean
+    override fun containsAll(local elements: Collection<E>): Boolean
     override fun indexOf(element: E): Int
     override fun lastIndexOf(element: E): Int
 
     // From MutableCollection
 
-    override fun iterator(): MutableIterator<E>
+    override fun iterator(): MutableIterator<E>_{this}
 
     // From MutableList
 
@@ -56,15 +56,15 @@ public expect abstract class AbstractMutableList<E> : MutableList<E> {
     @IgnorableReturnValue
     override fun remove(element: E): Boolean
     @IgnorableReturnValue
-    override fun addAll(elements: Collection<E>): Boolean
+    override fun addAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun addAll(index: Int, elements: Collection<E>): Boolean
+    override fun addAll(index: Int, local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun removeAll(elements: Collection<E>): Boolean
+    override fun removeAll(local elements: Collection<E>): Boolean
     @IgnorableReturnValue
-    override fun retainAll(elements: Collection<E>): Boolean
+    override fun retainAll(local elements: Collection<E>): Boolean
     override fun clear()
-    override fun listIterator(): MutableListIterator<E>
-    override fun listIterator(index: Int): MutableListIterator<E>
-    override fun subList(fromIndex: Int, toIndex: Int): MutableList<E>
+    override fun listIterator(): MutableListIterator<E>_{this}
+    override fun listIterator(index: Int): MutableListIterator<E>_{this}
+    override fun subList(fromIndex: Int, toIndex: Int): MutableList<E>_{this}
 }

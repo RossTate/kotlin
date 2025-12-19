@@ -19,7 +19,7 @@ import kotlin.internal.Exact
  * @throws NoSuchElementException when the map doesn't contain value for the property name and doesn't provide an implicit default (see [withDefault]).
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <V, V1 : V> Map<in String, @Exact V>.getValue(thisRef: Any?, property: KProperty<*>): V1 =
+public inline operator fun <V, V1 : V> local Map<in String, @Exact V>.getValue(local thisRef: Any?, local property: KProperty<*>): V1 =
     @Suppress("UNCHECKED_CAST") (getOrImplicitDefault(property.name) as V1)
 
 /**
@@ -32,7 +32,7 @@ public inline operator fun <V, V1 : V> Map<in String, @Exact V>.getValue(thisRef
  */
 @kotlin.jvm.JvmName("getVar")
 @kotlin.internal.InlineOnly
-public inline operator fun <V, V1 : V> MutableMap<in String, out @Exact V>.getValue(thisRef: Any?, property: KProperty<*>): V1 =
+public inline operator fun <V, V1 : V> local MutableMap<in String, out @Exact V>.getValue(thisRef: Any?, local property: KProperty<*>): V1 =
     @Suppress("UNCHECKED_CAST") (getOrImplicitDefault(property.name) as V1)
 
 /**
@@ -42,6 +42,6 @@ public inline operator fun <V, V1 : V> MutableMap<in String, out @Exact V>.getVa
  * @param value the value to set.
  */
 @kotlin.internal.InlineOnly
-public inline operator fun <V> MutableMap<in String, in V>.setValue(thisRef: Any?, property: KProperty<*>, value: V) {
+public inline operator fun <V> local MutableMap<in String, in V>.setValue(local thisRef: Any?, local property: KProperty<*>, value: V) {
     this.put(property.name, value)
 }

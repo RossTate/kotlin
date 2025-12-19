@@ -14,7 +14,7 @@ package kotlin.collections
  * @param V the type of map values. The map is invariant in its value type.
  */
 @SinceKotlin("1.3")
-public expect abstract class AbstractMutableMap<K, V> : MutableMap<K, V> {
+public expect local abstract class AbstractMutableMap<K, V> : MutableMap<K, V> {
     protected constructor()
 
     /**
@@ -28,17 +28,17 @@ public expect abstract class AbstractMutableMap<K, V> : MutableMap<K, V> {
     @IgnorableReturnValue
     abstract override fun put(key: K, value: V): V?
 
-    abstract override val entries: MutableSet<MutableMap.MutableEntry<K, V>>
+    abstract override val entries: MutableSet<MutableMap.MutableEntry<K, V>>_{this}
 
-    override val keys: MutableSet<K>
+    override val keys: MutableSet<K>_{this}
     override val size: Int
-    override val values: MutableCollection<V>
+    override val values: MutableCollection<V>_{this}
     override fun clear()
     override fun containsKey(key: K): Boolean
     override fun containsValue(value: V): Boolean
     override fun get(key: K): V?
     override fun isEmpty(): Boolean
-    override fun putAll(from: Map<out K, V>)
+    override fun putAll(local from: Map<out K, V>)
     @IgnorableReturnValue
     override fun remove(key: K): V?
 }

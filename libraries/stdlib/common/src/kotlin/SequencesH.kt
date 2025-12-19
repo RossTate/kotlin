@@ -5,8 +5,8 @@
 
 package kotlin.sequences
 
-internal expect class ConstrainedOnceSequence<T> : Sequence<T> {
-    constructor(sequence: Sequence<T>)
+internal expect local class ConstrainedOnceSequence<T> : Sequence<T> {
+    constructor(local sequence: Sequence<T>_{this})
 
-    override fun iterator(): Iterator<T>
+    override fun iterator(): Iterator<T>_{this}
 }

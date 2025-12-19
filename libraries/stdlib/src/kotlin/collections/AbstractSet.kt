@@ -12,7 +12,7 @@ package kotlin.collections
  * @param E the type of elements contained in the set. The set is covariant in its element type.
  */
 @SinceKotlin("1.1")
-public abstract class AbstractSet<out E> protected constructor() : AbstractCollection<E>(), Set<E> {
+public local abstract class AbstractSet<out E> protected constructor() : AbstractCollection<E>(), Set<E> {
 
     /**
      * Compares this set with other set instance with the unordered structural equality.
@@ -31,7 +31,7 @@ public abstract class AbstractSet<out E> protected constructor() : AbstractColle
     override fun hashCode(): Int = unorderedHashCode(this)
 
     internal companion object {
-        internal fun unorderedHashCode(c: Collection<*>): Int {
+        internal fun unorderedHashCode(local c: Collection<*>): Int {
             var hashCode = 0
             for (element in c) {
                 hashCode += (element?.hashCode() ?: 0)
@@ -39,7 +39,7 @@ public abstract class AbstractSet<out E> protected constructor() : AbstractColle
             return hashCode
         }
 
-        internal fun setEquals(c: Set<*>, other: Set<*>): Boolean {
+        internal fun setEquals(local c: Set<*>, local other: Set<*>): Boolean {
             if (c.size != other.size) return false
             return c.containsAll(other)
         }

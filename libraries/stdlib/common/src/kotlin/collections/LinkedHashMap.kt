@@ -46,7 +46,7 @@ public expect class LinkedHashMap<K, V> : MutableMap<K, V> {
      *
      * The iteration order of entries in the created map is the same as in the [original] map.
      */
-    public constructor(original: Map<out K, V>)
+    public constructor(local original: Map<out K, V>)
 
     // From Map
 

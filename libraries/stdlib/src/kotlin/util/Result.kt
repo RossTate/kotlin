@@ -138,7 +138,7 @@ internal fun Result<*>.throwOnFailure() {
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R> runCatching(block: () -> R): Result<R> {
+public inline fun <R> runCatching(local block: () -> R): Result<R> {
     return try {
         Result.success(block())
     } catch (e: Throwable) {
@@ -152,7 +152,7 @@ public inline fun <R> runCatching(block: () -> R): Result<R> {
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <T, R> T.runCatching(block: T.() -> R): Result<R> {
+public inline fun <T, R> T.runCatching(local block: T.() -> R): Result<R> {
     return try {
         Result.success(block())
     } catch (e: Throwable) {
@@ -185,7 +185,7 @@ public inline fun <T> Result<T>.getOrThrow(): T {
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R, T : R> Result<T>.getOrElse(onFailure: (exception: Throwable) -> R): R {
+public inline fun <R, T : R> Result<T>.getOrElse(local onFailure: (exception: Throwable) -> R): R {
     contract {
         callsInPlace(onFailure, InvocationKind.AT_MOST_ONCE)
     }
@@ -217,8 +217,8 @@ public inline fun <R, T : R> Result<T>.getOrDefault(defaultValue: R): R {
 @InlineOnly
 @SinceKotlin("1.3")
 public inline fun <R, T> Result<T>.fold(
-    onSuccess: (value: T) -> R,
-    onFailure: (exception: Throwable) -> R
+    local onSuccess: (value: T) -> R,
+    local onFailure: (exception: Throwable) -> R
 ): R {
     contract {
         callsInPlace(onSuccess, InvocationKind.AT_MOST_ONCE)
@@ -242,7 +242,7 @@ public inline fun <R, T> Result<T>.fold(
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R, T> Result<T>.map(transform: (value: T) -> R): Result<R> {
+public inline fun <R, T> Result<T>.map(local transform: (value: T) -> R): Result<R> {
     contract {
         callsInPlace(transform, InvocationKind.AT_MOST_ONCE)
     }
@@ -262,7 +262,7 @@ public inline fun <R, T> Result<T>.map(transform: (value: T) -> R): Result<R> {
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R, T> Result<T>.mapCatching(transform: (value: T) -> R): Result<R> {
+public inline fun <R, T> Result<T>.mapCatching(local transform: (value: T) -> R): Result<R> {
     return when {
         isSuccess -> runCatching { transform(value as T) }
         else -> Result(value)
@@ -279,7 +279,7 @@ public inline fun <R, T> Result<T>.mapCatching(transform: (value: T) -> R): Resu
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R, T : R> Result<T>.recover(transform: (exception: Throwable) -> R): Result<R> {
+public inline fun <R, T : R> Result<T>.recover(local transform: (exception: Throwable) -> R): Result<R> {
     contract {
         callsInPlace(transform, InvocationKind.AT_MOST_ONCE)
     }
@@ -299,7 +299,7 @@ public inline fun <R, T : R> Result<T>.recover(transform: (exception: Throwable)
  */
 @InlineOnly
 @SinceKotlin("1.3")
-public inline fun <R, T : R> Result<T>.recoverCatching(transform: (exception: Throwable) -> R): Result<R> {
+public inline fun <R, T : R> Result<T>.recoverCatching(local transform: (exception: Throwable) -> R): Result<R> {
     return when (val exception = exceptionOrNull()) {
         null -> this
         else -> runCatching { transform(exception) }
@@ -315,7 +315,7 @@ public inline fun <R, T : R> Result<T>.recoverCatching(transform: (exception: Th
 @InlineOnly
 @SinceKotlin("1.3")
 @IgnorableReturnValue
-public inline fun <T> Result<T>.onFailure(action: (exception: Throwable) -> Unit): Result<T> {
+public inline fun <T> Result<T>.onFailure(local action: (exception: Throwable) -> Unit): Result<T> {
     contract {
         callsInPlace(action, InvocationKind.AT_MOST_ONCE)
     }
@@ -330,7 +330,7 @@ public inline fun <T> Result<T>.onFailure(action: (exception: Throwable) -> Unit
 @InlineOnly
 @SinceKotlin("1.3")
 @IgnorableReturnValue
-public inline fun <T> Result<T>.onSuccess(action: (value: T) -> Unit): Result<T> {
+public inline fun <T> Result<T>.onSuccess(local action: (value: T) -> Unit): Result<T> {
     contract {
         callsInPlace(action, InvocationKind.AT_MOST_ONCE)
     }

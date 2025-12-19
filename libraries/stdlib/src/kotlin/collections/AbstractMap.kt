@@ -19,7 +19,7 @@ package kotlin.collections
  * @param V the type of map values. The map is covariant in its value type.
  */
 @SinceKotlin("1.1")
-public abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> {
+public local abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> {
 
     override fun containsKey(key: K): Boolean {
         return implFindEntry(key) != null
@@ -79,13 +79,13 @@ public abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> 
      * Accessing this property first time creates a keys view from [entries].
      * All subsequent accesses just return the created instance.
      */
-    override val keys: Set<K>
+    override val keys: Set<K>_{this}
         get() {
             if (_keys == null) {
                 _keys = object : AbstractSet<K>() {
                     override operator fun contains(element: K): Boolean = containsKey(element)
 
-                    override operator fun iterator(): Iterator<K> {
+                    override operator fun iterator(): Iterator<K>_{this@AbstractMap} {
                         val entryIterator = entries.iterator()
                         return object : Iterator<K> {
                             override fun hasNext(): Boolean = entryIterator.hasNext()
@@ -100,7 +100,7 @@ public abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> 
         }
 
     @kotlin.concurrent.Volatile
-    private var _keys: Set<K>? = null
+    private var _keys: Set<K>?_{this} = null
 
 
     override fun toString(): String = entries.joinToString(", ", "{", "}") { toString(it) }
@@ -115,13 +115,13 @@ public abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> 
      * Accessing this property first time creates a values view from [entries].
      * All subsequent accesses just return the created instance.
      */
-    override val values: Collection<V>
+    override val values: Collection<V>_{this}
         get() {
             if (_values == null) {
                 _values = object : AbstractCollection<V>() {
                     override operator fun contains(element: @UnsafeVariance V): Boolean = containsValue(element)
 
-                    override operator fun iterator(): Iterator<V> {
+                    override operator fun iterator(): Iterator<V>_{this@AbstractMap} {
                         val entryIterator = entries.iterator()
                         return object : Iterator<V> {
                             override fun hasNext(): Boolean = entryIterator.hasNext()
@@ -136,7 +136,7 @@ public abstract class AbstractMap<K, out V> protected constructor() : Map<K, V> 
         }
 
     @kotlin.concurrent.Volatile
-    private var _values: Collection<V>? = null
+    private var _values: Collection<V>?_{this} = null
 
     private fun implFindEntry(key: K): Map.Entry<K, V>? = entries.firstOrNull { it.key == key }
 

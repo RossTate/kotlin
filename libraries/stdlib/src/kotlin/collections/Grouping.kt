@@ -26,7 +26,7 @@ package kotlin.collections
 @SinceKotlin("1.1")
 public interface Grouping<T, out K> {
     /** Returns an [Iterator] over the elements of the source of this grouping. */
-    public fun sourceIterator(): Iterator<T>
+    public fun sourceIterator(): Iterator<T>_{this}
     /** Extracts the key of an [element]. */
     public fun keyOf(element: T): K
 }
@@ -47,8 +47,8 @@ public interface Grouping<T, out K> {
  * @sample samples.collections.Grouping.aggregateByRadix
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R> Grouping<T, K>.aggregate(
-    operation: (key: K, accumulator: R?, element: T, first: Boolean) -> R
+public inline fun <T, K, R> local Grouping<T, K>.aggregate(
+    local operation: (key: K, accumulator: R?, element: T, first: Boolean) -> R
 ): Map<K, R> {
     return aggregateTo(mutableMapOf<K, R>(), operation)
 }
@@ -73,9 +73,9 @@ public inline fun <T, K, R> Grouping<T, K>.aggregate(
  * @sample samples.collections.Grouping.aggregateByRadixTo
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.aggregateTo(
+public inline fun <T, K, R, M : MutableMap<in K, R>> local Grouping<T, K>.aggregateTo(
     destination: M,
-    operation: (key: K, accumulator: R?, element: T, first: Boolean) -> R
+    local operation: (key: K, accumulator: R?, element: T, first: Boolean) -> R
 ): M {
     for (e in this.sourceIterator()) {
         val key = keyOf(e)
@@ -104,9 +104,9 @@ public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.aggregateTo(
  * @sample samples.collections.Grouping.foldByEvenLengthWithComputedInitialValue
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R> Grouping<T, K>.fold(
-    initialValueSelector: (key: K, element: T) -> R,
-    operation: (key: K, accumulator: R, element: T) -> R
+public inline fun <T, K, R> local Grouping<T, K>.fold(
+    local initialValueSelector: (key: K, element: T) -> R,
+    local operation: (key: K, accumulator: R, element: T) -> R
 ): Map<K, R> =
     @Suppress("UNCHECKED_CAST")
     aggregate { key, acc, e, first -> operation(key, if (first) initialValueSelector(key, e) else acc as R, e) }
@@ -134,10 +134,10 @@ public inline fun <T, K, R> Grouping<T, K>.fold(
  * @sample samples.collections.Grouping.foldByEvenLengthWithComputedInitialValueTo
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.foldTo(
+public inline fun <T, K, R, M : MutableMap<in K, R>> local Grouping<T, K>.foldTo(
     destination: M,
-    initialValueSelector: (key: K, element: T) -> R,
-    operation: (key: K, accumulator: R, element: T) -> R
+    local initialValueSelector: (key: K, element: T) -> R,
+    local operation: (key: K, accumulator: R, element: T) -> R
 ): M =
     @Suppress("UNCHECKED_CAST")
     aggregateTo(destination) { key, acc, e, first -> operation(key, if (first) initialValueSelector(key, e) else acc as R, e) }
@@ -156,9 +156,9 @@ public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.foldTo(
  * @sample samples.collections.Grouping.foldByEvenLengthWithConstantInitialValue
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R> Grouping<T, K>.fold(
+public inline fun <T, K, R> local Grouping<T, K>.fold(
     initialValue: R,
-    operation: (accumulator: R, element: T) -> R
+    local operation: (accumulator: R, element: T) -> R
 ): Map<K, R> =
     @Suppress("UNCHECKED_CAST")
     aggregate { _, acc, e, first -> operation(if (first) initialValue else acc as R, e) }
@@ -180,10 +180,10 @@ public inline fun <T, K, R> Grouping<T, K>.fold(
  * @sample samples.collections.Grouping.foldByEvenLengthWithConstantInitialValueTo
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.foldTo(
+public inline fun <T, K, R, M : MutableMap<in K, R>> local Grouping<T, K>.foldTo(
     destination: M,
     initialValue: R,
-    operation: (accumulator: R, element: T) -> R
+    local operation: (accumulator: R, element: T) -> R
 ): M =
     @Suppress("UNCHECKED_CAST")
     aggregateTo(destination) { _, acc, e, first -> operation(if (first) initialValue else acc as R, e) }
@@ -205,8 +205,8 @@ public inline fun <T, K, R, M : MutableMap<in K, R>> Grouping<T, K>.foldTo(
  * @sample samples.collections.Grouping.reduceByMaxVowels
  */
 @SinceKotlin("1.1")
-public inline fun <S, T : S, K> Grouping<T, K>.reduce(
-    operation: (key: K, accumulator: S, element: T) -> S
+public inline fun <S, T : S, K> local Grouping<T, K>.reduce(
+    local operation: (key: K, accumulator: S, element: T) -> S
 ): Map<K, S> =
     aggregate { key, acc, e, first ->
         @Suppress("UNCHECKED_CAST")
@@ -232,9 +232,9 @@ public inline fun <S, T : S, K> Grouping<T, K>.reduce(
  * @sample samples.collections.Grouping.reduceByMaxVowelsTo
  */
 @SinceKotlin("1.1")
-public inline fun <S, T : S, K, M : MutableMap<in K, S>> Grouping<T, K>.reduceTo(
+public inline fun <S, T : S, K, M : MutableMap<in K, S>> local Grouping<T, K>.reduceTo(
     destination: M,
-    operation: (key: K, accumulator: S, element: T) -> S
+    local operation: (key: K, accumulator: S, element: T) -> S
 ): M =
     aggregateTo(destination) { key, acc, e, first ->
         @Suppress("UNCHECKED_CAST")
@@ -253,7 +253,7 @@ public inline fun <S, T : S, K, M : MutableMap<in K, S>> Grouping<T, K>.reduceTo
  * @sample samples.collections.Grouping.groupingByEachCount
  */
 @SinceKotlin("1.1")
-public fun <T, K, M : MutableMap<in K, Int>> Grouping<T, K>.eachCountTo(destination: M): M =
+public fun <T, K, M : MutableMap<in K, Int>> local Grouping<T, K>.eachCountTo(destination: M): M =
     foldTo(destination, 0) { acc, _ -> acc + 1 }
 
 /*
@@ -268,7 +268,7 @@ public fun <T, K, M : MutableMap<in K, Int>> Grouping<T, K>.eachCountTo(destinat
  * @return the [destination] map associating the key of each group with the sum of elements in the group.
  */
 @SinceKotlin("1.1")
-public inline fun <T, K, M : MutableMap<in K, Int>> Grouping<T, K>.eachSumOfTo(destination: M, valueSelector: (T) -> Int): M =
+public inline fun <T, K, M : MutableMap<in K, Int>> local Grouping<T, K>.eachSumOfTo(destination: M, local valueSelector: (T) -> Int): M =
         foldTo(destination, 0) { acc, e -> acc + valueSelector(e)}
 */
 
@@ -276,15 +276,15 @@ public inline fun <T, K, M : MutableMap<in K, Int>> Grouping<T, K>.eachSumOfTo(d
 /*
 // TODO: sum by long and by double overloads
 
-public inline fun <T, K, M : MutableMap<in K, Long>> Grouping<T, K>.sumEachByLongTo(destination: M, valueSelector: (T) -> Long): M =
+public inline fun <T, K, M : MutableMap<in K, Long>> local Grouping<T, K>.sumEachByLongTo(destination: M, local valueSelector: (T) -> Long): M =
         foldTo(destination, 0L) { acc, e -> acc + valueSelector(e)}
 
 public inline fun <T, K> Grouping<T, K>.sumEachByLong(valueSelector: (T) -> Long): Map<K, Long> =
         fold(0L) { acc, e -> acc + valueSelector(e)}
 
-public inline fun <T, K, M : MutableMap<in K, Double>> Grouping<T, K>.sumEachByDoubleTo(destination: M, valueSelector: (T) -> Double): M =
+public inline fun <T, K, M : MutableMap<in K, Double>> local Grouping<T, K>.sumEachByDoubleTo(destination: M, local valueSelector: (T) -> Double): M =
         foldTo(destination, 0.0) { acc, e -> acc + valueSelector(e)}
 
-public inline fun <T, K> Grouping<T, K>.sumEachByDouble(valueSelector: (T) -> Double): Map<K, Double> =
+public inline fun <T, K> local Grouping<T, K>.sumEachByDouble(local valueSelector: (T) -> Double): Map<K, Double> =
         fold(0.0) { acc, e -> acc + valueSelector(e)}
 */

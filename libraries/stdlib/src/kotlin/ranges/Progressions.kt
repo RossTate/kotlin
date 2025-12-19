@@ -14,7 +14,7 @@ import kotlin.internal.getProgressionLastElement
 /**
  * A progression of values of type `Char`.
  */
-public open class CharProgression
+public local open class CharProgression
     internal constructor
     (
             start: Char,
@@ -41,7 +41,7 @@ public open class CharProgression
      */
     public val step: Int = step
 
-    override fun iterator(): CharIterator = CharProgressionIterator(first, last, step)
+    override fun iterator(): CharIterator_{this} = CharProgressionIterator(first, last, step)
 
     /**
      * Checks if the progression is empty.
@@ -76,7 +76,7 @@ public open class CharProgression
 /**
  * A progression of values of type `Int`.
  */
-public open class IntProgression
+public local open class IntProgression
     internal constructor
     (
             start: Int,
@@ -103,7 +103,7 @@ public open class IntProgression
      */
     public val step: Int = step
 
-    override fun iterator(): IntIterator = IntProgressionIterator(first, last, step)
+    override fun iterator(): IntIterator_{this} = IntProgressionIterator(first, last, step)
 
     /**
      * Checks if the progression is empty.
@@ -138,7 +138,7 @@ public open class IntProgression
 /**
  * A progression of values of type `Long`.
  */
-public open class LongProgression
+public local open class LongProgression
     internal constructor
     (
             start: Long,
@@ -165,7 +165,7 @@ public open class LongProgression
      */
     public val step: Long = step
 
-    override fun iterator(): LongIterator = LongProgressionIterator(first, last, step)
+    override fun iterator(): LongIterator_{this} = LongProgressionIterator(first, last, step)
 
     /**
      * Checks if the progression is empty.
