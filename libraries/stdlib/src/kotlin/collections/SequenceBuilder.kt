@@ -33,81 +33,60 @@ public fun <T> sequence(@BuilderInference local block: local SequenceScope<T, bl
  */
 @SinceKotlin("1.3")
 @Suppress("DEPRECATION")
-public fun <T> iterator(@BuilderInference local block: local SequenceScope<T, block>.() -> Unit): Iterator<T>_{block} = object : Generator<T>() {
-    private interface Yielder {
-        fun yield(local StackRoot, T)
-        fun yieldAll(local StackRoot, Iterator<T>_{block})
-    }
-    var stack: Stack? = Stack()
-    var yielder: Yielder?
-    var suspension: StackSuspension<Unit, Unit>_{block}? = null
-
-    override fun generate(local yieldReturn: (T) -> Nothing, local yieldAllReturn: (Iterator<T>_{block}) -> Nothing) = mount { guardian ->
-        stack?.attach {
-            yielder = object : Yielder {
-                override fun yield(local root: StackRoot, element: T) {
-                    guardian.suspend(Unit) {
-                        yielder = null
-                        suspension = it
-                        yieldReturn(element)
-                    }
-                }
-                override fun yieldAll(local root: StackRoot, iterator: Iterator<T>_{block}) {
-                    guardian.suspend(Unit) {
-                        yielder = null
-                        suspension = it
-                        yieldAllReturn(element)
-                    }
-                }
-            }
-            if (suspension == null) {
-                stack.execute { root ->
-                    object scope : SequenceScope<T, block>() {
-                        override fun yield(value: T) {
-                            yielder!.yield(root, value)
-                        }
-                        override fun yieldAll(iterator: Iterator<T>_{block}) {
-                            yielder!.yieldAll(root, iterator)
-                        }
-                    }
-                    scope.block()
-                    guardian.consult {
-                        return@generate
-                    }
-                }
-            } else {
-                suspension.resume { Unit }
+public fun <T> iterator(@BuilderInference local block: local SequenceScope<T, block>.() -> Unit): Iterator<T>_{block} = object : AbstractIterator<T>() {
+    inner local class YieldEnvironment(
+        private val exit: () ->_{this} Nothing
+    ) : ReturningStackEnvironment<Unit> {
+        override fun returnIt(_: Unit): Nothing {
+            done()
+            exit()
+        }
+        fun suspendYield(
+            local resumption: StackResumption<YieldEnvironment, () -> Nothing, block, this>,
+            value: T,
+            additional: Iteraot<T>_{block}? = null
+        ) {
+            resumption.suspend {
+                suspension = it
+                setNext(value)
+                queued = additional
+                exit()
             }
         }
     }
-}
-
-private local abstract class Generator<out T>: AbstractIterator<T>() {
-    private[this] var after: Iterator<T>_{this}? = null
+    
+    var queued: Iterator<T>_{block}? = null
+    var suspension: StackSuspension<YieldEnvironment, () -> Nothing, global>_{block}? = null
+    
     override fun computeNext() {
-        after?.let {
+        queued?.let {
             if (it.hasNext()) {
                 setNext(it.next())
                 return@computeNext
             } else {
-                after = null
+                queued = null
             }
         }
-        generate(
-            {
-                setNext(it)
-                return@computeNext
-            },
-            {
-                if (it.hasNext()) {
-                    setNext(it.next())
-                    after = it
-                    return@computeNext
-                }
+        if (suspension == null) {
+            StackResource().initiate(YieldEnvironment { return@computeNext }) { root ->
+                object : SequenceScope<T, block>() {
+                    override fun yield(value: T) {
+                        root.loosen { (environment, resumption) ->
+                            environment.suspendYield(resumption, value)
+                        }
+                    }
+                    override fun yieldAll(iterator: Iterator<T>_{block}) {
+                        if (iterator.hasNext())
+                            root.loosen { (environment, resumption) ->
+                                environment.suspendYield(resumption, iterator.next(), iterator)
+                            }
+                    }
+                }.block()
             }
-        )
+        } else {
+            suspension.resume(YieldEnvironment { return@computeNext }) { it() }
+        }
     }
-    abstract fun generate(local yield: (T) -> Nothing, local yieldAll: (Iterator<T>_{this}) -> Nothing)
 }
 
 /**
@@ -119,7 +98,6 @@ private local abstract class Generator<out T>: AbstractIterator<T>() {
  * @sample samples.collections.Sequences.Building.buildSequenceYieldAll
  * @sample samples.collections.Sequences.Building.buildFibonacciSequence
  */
-@RestrictsSuspension
 @SinceKotlin("1.3")
 public local abstract class SequenceScope<in T, out local owner> internal constructor() {
     /**

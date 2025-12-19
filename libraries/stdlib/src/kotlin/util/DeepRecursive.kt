@@ -89,10 +89,9 @@ public operator fun <T, R> local DeepRecursiveFunction<T, R>.invoke(value: T): R
  * @param [T] function parameter type.
  * @param [R] function result type.
  */
-@RestrictsSuspension
 @SinceKotlin("1.7")
 @WasExperimental(ExperimentalStdlibApi::class)
-public sealed local class DeepRecursiveScope<T, R> {
+public local sealed class DeepRecursiveScope<T, R> {
     /**
      * Makes recursive call to this [DeepRecursiveFunction] function putting the call activation frame on the heap,
      * as opposed to the actual call stack that is used by a regular recursive call.
@@ -119,10 +118,9 @@ public sealed local class DeepRecursiveScope<T, R> {
 
 // ================== Implementation ==================
 
-@Suppress("UNCHECKED_CAST")
 private local class DeepRecursiveScopeImpl<T, R>(
-    local function: DeepRecursiveFunction<T, R>
-)^{function} : DeepRecursiveScope<T, R>() {
+    function: DeepRecursiveFunction<T, R>_{this}
+) : DeepRecursiveScope<T, R>() {
     override fun callRecursive(value: T): R = onFreshStack {
         function.block(value)
     }
